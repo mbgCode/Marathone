@@ -1,5 +1,9 @@
 package modelo;
 
+import java.sql.SQLException;
+
+import dao.DaoUsuario;
+
 public class Usuario {
 	
 	
@@ -43,7 +47,13 @@ public class Usuario {
 	}
 	
 	
-	
+	public void insertarUsuario() throws SQLException {
+		
+		DaoUsuario dao = new DaoUsuario();
+		dao.insertar(this);
+		
+		
+	}
 	
 	
 	

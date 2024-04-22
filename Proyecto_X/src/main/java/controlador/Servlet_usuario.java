@@ -5,7 +5,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Usuario;
+
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Servlet implementation class Servlet_usuario
@@ -37,7 +40,17 @@ public class Servlet_usuario extends HttpServlet {
 		
 		String nombre=request.getParameter("nombre");
 		
-		System.out.println(nombre);
+		
+		//Creamos el objeto Usuario y lo insertamos en dao.
+		Usuario u1 = new Usuario(nombre);
+		
+		try {
+			u1.insertarUsuario();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

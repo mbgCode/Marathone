@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class BDconexion {
 
-	public static final String JDBC_URL = "jdbc:mysql://localhost:3306/flota";
+	public static final String JDBC_URL = "jdbc:mysql://localhost:3306/proyecto";
 	public static Connection instance = null;
 	
 	
