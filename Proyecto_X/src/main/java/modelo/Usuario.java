@@ -9,12 +9,19 @@ public class Usuario {
 	
 
 	private String nombre;
-	
+	private String foto;
 	
 	
 	
 	public Usuario() {
 		
+	}
+
+
+	public Usuario(String nombre, String foto) {
+		super();
+		this.nombre = nombre;
+		this.foto = foto;
 	}
 
 
@@ -41,6 +48,18 @@ public class Usuario {
 
 
 
+	public String getFoto() {
+		return foto;
+	}
+
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+
+	
+	
 	@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + "]";

@@ -8,12 +8,13 @@
 </head>
 <body>
 
-    <form name="insertarNave" action="Servlet_usuario" method="post">
+    <form name="insertarNave" action="Servlet_usuario" method="post" enctype="multipart/form-data">
 
         <ul>
 
             <li><label for="Titulo"><h1>Insertar usuario</h1></label> </li>
-            <li><label>nombre: </label> <input type="text" name="nombre"></li>
+            <li><label>Nombre: </label> <input type="text" name="nombre"></li>
+            <li><label>Foto: </label> <input type="file" name="foto"></li>
             <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
             
         </ul>
