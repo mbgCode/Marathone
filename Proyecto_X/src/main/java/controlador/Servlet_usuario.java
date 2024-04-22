@@ -8,7 +8,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import modelo.Usuario;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import dao.DaoUsuario;
 
 /**
  * Servlet implementation class Servlet_usuario
@@ -30,6 +34,23 @@ public class Servlet_usuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		try {
+			
+			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
+			
+			DaoUsuario dao = new DaoUsuario();
+			String resultado = dao.ListarJonson();
+			out.print(resultado);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 
 	/**
@@ -38,12 +59,17 @@ public class Servlet_usuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String nombre=request.getParameter("nombre");
 		
+		
+		String nombre=request.getParameter("nombre");
 		
 		//Creamos el objeto Usuario y lo insertamos en dao.
 		Usuario u1 = new Usuario(nombre);
 		
+		
+		
+		
+		//Isertar Usuario
 		try {
 			u1.insertarUsuario();
 		} catch (SQLException e) {
@@ -51,6 +77,22 @@ public class Servlet_usuario extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		
+	
+		//Listar Usuario
+		DaoUsuario lista;
+			try {
+				lista = new DaoUsuario();
+				ArrayList <Usuario> listaUsuario = lista.listar();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+		
+	
+	
 	}
 
 }
