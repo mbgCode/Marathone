@@ -23,8 +23,8 @@ import java.sql.SQLException;
  */
 
 
-//Añadimos el @MULTIPARTCON y EL WEBSERVLET con el nombre del servlet.
-@WebServlet("/Servlet_usuario")
+//Añadimos el @MULTIPARTCON y EL WEBSERVLET SIN EL nombre del servlet. DARA conflicto ala hora de arrancar el servidor.
+@WebServlet()
 @MultipartConfig
 
 
@@ -64,9 +64,13 @@ public class Servlet_usuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String nombre=request.getParameter("nombre");
+		String nombre = request.getParameter("nombre");
+		String apellidos = request.getParameter("apellidos");
+		String email = request.getParameter("email");
+		String poblacion = request.getParameter("poblacion");
 		
-		
+		String permiso = request.getParameter("permiso");//recibimos un tipo String
+		int permiss=Integer.parseInt(permiso);//lo cambiamos a int para poder insertarlo en su clase.
 		
 		
 //INCLUIR FOTOS ------------------------------------------------------------------------------	
@@ -105,7 +109,7 @@ public class Servlet_usuario extends HttpServlet {
 		
 		//Creamos el objeto Usuario y lo insertamos en dao.
 		//filename es para la foto
-		Usuario u1 = new Usuario(nombre, filename);
+		Usuario u1 = new Usuario(nombre, apellidos, email, poblacion, permiss, filename);
 		
 		try {
 			u1.insertarUsuario();

@@ -23,11 +23,15 @@ public class DaoUsuario {
 	public void insertar(Usuario u) throws SQLException {
 		
 		
-		String query = "INSERT INTO usuario (Nombre,foto) VALUES (?,?)";
+		String query = "INSERT INTO usuario (nombre,apellidos,email,poblacion,permiso,foto) VALUES (?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(query);
 		
 		ps.setString(1, u.getNombre());
-		ps.setString(2, u.getFoto());
+		ps.setString(2, u.getApellidos());
+		ps.setString(3, u.getEmail());
+		ps.setString(4, u.getPoblacion());
+		ps.setInt(5, u.getPermiso());
+		ps.setString(6, u.getFoto());
 		
 		int filas = ps.executeUpdate();
 		
