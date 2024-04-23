@@ -23,7 +23,8 @@ public class DaoUsuario {
 		
 	}
 	
-	//Insertamos en la BD los diferentes datos.
+	
+//Insertamos en la BD los diferentes datos.
 	public void insertar(Usuario u) throws SQLException {
 		
 		
@@ -45,7 +46,7 @@ public class DaoUsuario {
 	
 	
 	
-	//Peticion para listar Usuario
+//Peticion para listar Usuario
 	public ArrayList <Usuario>listar() throws SQLException{
 		
 		String sql = "SELECT * FROM usuario";
@@ -54,20 +55,20 @@ public class DaoUsuario {
 		ResultSet result = ps.executeQuery();
 		
 		//SI el array es igual a null lo llenamos.
-		ArrayList<Usuario>usuario=null;
+		ArrayList<Usuario>ls=null;
 		while((result.next())) {
-			if (usuario == null) {
-				usuario = new ArrayList <Usuario>(); 
+			if (ls == null) {
+				ls = new ArrayList <Usuario>(); 
 			}
-			usuario.add(new Usuario(result.getString("nombre"), result.getString("apellidos"), result.getString("email"),result.getString("poblacion")));
+			ls.add(new Usuario(result.getString(1), result.getString(2), result.getString(3),result.getString(4)));
 		}
 		
-		return usuario;
+		return ls;
 	}
 	
 	
 	
-	//Funcion json 
+//Funcion json 
 	public String ListarJonson() throws SQLException {
 		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 		String txtJson = "";

@@ -62,11 +62,9 @@ public class Servlet_usuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		
+
 		try {
-			
 			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 			
 			DaoUsuario dao = new DaoUsuario();
@@ -137,7 +135,8 @@ public class Servlet_usuario extends HttpServlet {
 		
 		
 		
-		//Isertar Usuario
+		
+//Isertar Usuario
 		try {
 			u1.insertarUsuario();
 		} catch (SQLException e) {
@@ -147,7 +146,7 @@ public class Servlet_usuario extends HttpServlet {
 		
 		
 	
-		/*Listar Usuario
+//Listar Usuario
 		DaoUsuario lista;
 			try {
 				lista = new DaoUsuario();
@@ -156,7 +155,7 @@ public class Servlet_usuario extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		*/
+		
 		
 		
 	
