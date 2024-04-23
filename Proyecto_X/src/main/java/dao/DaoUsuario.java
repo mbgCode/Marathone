@@ -27,19 +27,25 @@ public class DaoUsuario {
 	public void insertar(Usuario u) throws SQLException {
 		
 		
-		String query = "INSERT INTO usuario (Nombre) VALUES (?)";
+		String query = "INSERT INTO usuario (nombre,apellidos,email,poblacion,permiso,foto) VALUES (?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(query);
 		
 		ps.setString(1, u.getNombre());
+		ps.setString(2, u.getApellidos());
+		ps.setString(3, u.getEmail());
+		ps.setString(4, u.getPoblacion());
+		ps.setInt(5, u.getPermiso());
+		ps.setString(6, u.getFoto());
 		
 		int filas = ps.executeUpdate();
 		
 		ps.close();
 	}
+
 	
 	
 	
-	//Peticion para listar Usuario
+	/*Peticion para listar Usuario
 	public ArrayList <Usuario>listar() throws SQLException{
 		
 		String sql = "SELECT * FROM usuario";
@@ -59,9 +65,9 @@ public class DaoUsuario {
 		return usuario;
 	}
 	
+	*/
 	
-	
-	//Funcion json 
+	/*Funcion json 
 	public String ListarJonson() throws SQLException {
 		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 		String txtJson = "";
@@ -71,7 +77,5 @@ public class DaoUsuario {
 		txtJson = gson.toJson(this.listar());//Llamamos a la funcion listar con los datos el ArrayList<usuario>
 		
 		return txtJson;
-	}
-	
-	
+	} */
 }
