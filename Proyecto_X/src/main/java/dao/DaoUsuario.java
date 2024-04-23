@@ -45,7 +45,7 @@ public class DaoUsuario {
 	
 	
 	
-	/*Peticion para listar Usuario
+	//Peticion para listar Usuario
 	public ArrayList <Usuario>listar() throws SQLException{
 		
 		String sql = "SELECT * FROM usuario";
@@ -59,15 +59,15 @@ public class DaoUsuario {
 			if (usuario == null) {
 				usuario = new ArrayList <Usuario>(); 
 			}
-			usuario.add(new Usuario(result.getString("Nombre")));
+			usuario.add(new Usuario(result.getString("nombre"), result.getString("apellidos"), result.getString("email"),result.getString("poblacion")));
 		}
 		
 		return usuario;
 	}
 	
-	*/
 	
-	/*Funcion json 
+	
+	//Funcion json 
 	public String ListarJonson() throws SQLException {
 		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 		String txtJson = "";
@@ -77,5 +77,5 @@ public class DaoUsuario {
 		txtJson = gson.toJson(this.listar());//Llamamos a la funcion listar con los datos el ArrayList<usuario>
 		
 		return txtJson;
-	} */
+	} 
 }

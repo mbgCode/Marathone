@@ -36,6 +36,17 @@ public class Usuario {
 
 
 
+//Sin foto y permiso.
+	public Usuario(String nombre, String apellidos, String email, String poblacion) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.poblacion = poblacion;
+	}
+
+
+
 
 	public String getNombre() {
 		return nombre;
