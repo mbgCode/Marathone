@@ -4,16 +4,18 @@ import java.sql.SQLException;
 
 import dao.DaoUsuario;
 
+//Va a dar herencia a administrador y a miebro.
 public class Usuario {
 	
 	
-
-	private String nombre;
-	private String apellidos;
-	private String email;
-	private String poblacion;
-	private int permiso;
-	private String foto;
+//aributos con protected para dar herencia.
+	protected String nombre;
+	protected String apellidos;
+	protected String email;
+	protected String poblacion;
+	protected int permiso;
+	protected String foto;
+	
 	
 	
 	
@@ -23,7 +25,7 @@ public class Usuario {
 
 
 	
-	
+//Construcrtor con todo
 	public Usuario(String nombre, String apellidos, String email, String poblacion, int permiso, String foto) {
 		super();
 		this.nombre = nombre;
