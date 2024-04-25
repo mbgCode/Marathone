@@ -4,8 +4,11 @@ import java.sql.SQLException;
 
 import dao.DaoUsuario;
 
+
+
 //Va a dar herencia a administrador y a miebro.
 public class Usuario {
+	
 	
 	
 //aributos con protected para dar herencia.
@@ -18,7 +21,7 @@ public class Usuario {
 	
 	
 	
-	
+//Constructor vacío.	
 	public Usuario() {
 		
 	}
@@ -49,7 +52,7 @@ public class Usuario {
 
 
 
-
+//Getter and Setter.
 	public String getNombre() {
 		return nombre;
 	}
@@ -133,10 +136,7 @@ public class Usuario {
 
 	
 	
-	
-
-
-
+//ToString	
 	@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", poblacion="
@@ -145,7 +145,7 @@ public class Usuario {
 
 
 
-
+//Metdos
 	public void insertarUsuario() throws SQLException {
 		
 		DaoUsuario dao = new DaoUsuario();

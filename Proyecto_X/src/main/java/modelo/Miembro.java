@@ -1,11 +1,18 @@
 package modelo;
 
+import java.sql.SQLException;
+
+import dao.DaoMiembro;
+
+
+
 public class Miembro extends Usuario{
 /*Esta es la clase principal de miembro. 
  * hereda atributos de la clase Usuario.
  */
 	
 
+	
 //Atributos	
 	int id;
 	int edad;
@@ -16,20 +23,29 @@ public class Miembro extends Usuario{
 	public Miembro () {
 		
 	}
-
-
 	
-// Constructor con con herencia de usuario ----
-	public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto,int id, int edad) {
+	
+	
+// Constructor entero con herencia de usuario ----
+	public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad,int id) {
 		super(nombre,apellidos,email,poblacion,permiso,foto);//herencia de Usuario.
+		
 		this.id = id;
 		this.edad = edad;
 		
 	}
 
+	
+
+//Construcot sin ID (auto incremetnro en BD) para poder inyectarlo en la BD.
+public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad) {
+	super(nombre,apellidos,email,poblacion,permiso,foto);
+		this.edad = edad;
+	}
 
 
-//Getter and Setter ----	
+
+	//Getter and Setter ----	
 	public int getId() {
 		return id;
 	}
@@ -53,6 +69,7 @@ public class Miembro extends Usuario{
 	}
 
 
+	
 //Metodo toString ---
 	@Override
 	public String toString() {
@@ -60,12 +77,16 @@ public class Miembro extends Usuario{
 	}
 	
 
+	
 //Metodos ---
+	public void insertarMiembro() throws SQLException {
+		DaoMiembro dao = new DaoMiembro();
+		dao.insertar(this);
+		
+	}
 
-
 	
 	
 	
-	
-	
+		
 }

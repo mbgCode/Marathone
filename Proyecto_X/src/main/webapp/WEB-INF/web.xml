@@ -19,4 +19,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SV_miembro</display-name>
+    <servlet-name>SV_miembro</servlet-name>
+    <servlet-class>controlador.SV_miembro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SV_miembro</servlet-name>
+    <url-pattern>/SV_miembro</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SV_administrador</display-name>
+    <servlet-name>SV_administrador</servlet-name>
+    <servlet-class>controlador.SV_administrador</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SV_administrador</servlet-name>
+    <url-pattern>/SV_administrador</url-pattern>
+  </servlet-mapping>
 </web-app>
