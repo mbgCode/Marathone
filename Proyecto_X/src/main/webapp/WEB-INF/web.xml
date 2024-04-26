@@ -39,4 +39,14 @@
     <servlet-name>SV_administrador</servlet-name>
     <url-pattern>/SV_administrador</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SV_foto</display-name>
+    <servlet-name>SV_foto</servlet-name>
+    <servlet-class>controlador.SV_foto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SV_foto</servlet-name>
+    <url-pattern>/SV_foto</url-pattern>
+  </servlet-mapping>
 </web-app>

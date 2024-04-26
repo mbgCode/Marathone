@@ -9,7 +9,7 @@
     <script> 
 
 		function llamada (){
-			fetch ('SV_miembro')
+			fetch ('SV_administrador')
 			.then (response => response.json())
 			.then (data => pintarTabla(data))
 			
@@ -23,7 +23,7 @@
                 html +="<tr><td>"+datos[i].nombre+"</td><td>"+datos[i].apellidos+"</td>";
                 html += "<td>"+datos[i].email+"</td><td>"+datos[i].poblacion+"</td>";
                 html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td>";
-                html += "<td>"+datos[i].edad+"</td><td>"+datos[i].id+"</td></tr>";
+                html += "<td>"+datos[i].id+"</td></tr>";
             }	
             
             html +="</table>";
@@ -50,18 +50,18 @@
 
 <body>
 
-    <form name="PaginaMiembro" action="SV_miembro" method="post" enctype="multipart/form-data">
+    <form name="PaginaMiembro" action="SV_administrador" method="post" enctype="multipart/form-data">
 
         <ul>
 
-            <li><label for="Titulo"><h1>Insertar usuario</h1></label> </li>
+            <li><label for="Titulo"><h1>Insertar administrador</h1></label> </li>
             <li><label>Nombre: </label> <input type="text" name="nombre"></li>
             <li><label>Apellidos: </label> <input type="text" name="apellidos"></li>
             <li><label>email: </label> <input type="text" name="email"></li>
             <li><label>poblacion: </label> <input type="text" name="poblacion"></li>
             <li><label>Permiso: </label> <input type="text" name="permiso"></li>
             <li><label>Foto: </label> <input type="file" name="foto"></li>
-            <li><label>edad: </label> <input type="text" name="edad"></li>
+            
 
             
             <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>

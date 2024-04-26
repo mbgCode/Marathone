@@ -39,7 +39,7 @@ public class DaoMiembro{
 		ps.setInt(5, m.getPermiso());
 		ps.setString(6, m.getFoto());
 		ps.setInt(7,m.getEdad());
-		ps.setInt(8, m.getId());
+		
 		
 		int filas = ps.executeUpdate();
 		
@@ -49,7 +49,7 @@ public class DaoMiembro{
 	
 	
 	
-//Peticion para listar Usuario
+//Peticion para listar Miembro
 	public ArrayList <Miembro>listar() throws SQLException{
 		
 		String sql = "SELECT * FROM miembro";

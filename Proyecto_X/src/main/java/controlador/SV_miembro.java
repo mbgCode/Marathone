@@ -130,12 +130,9 @@ public class SV_miembro extends HttpServlet {
 //---------------------------------------------------------------------------------------------	
 
 		
-		
-		
-		//Creamos el objeto Usuario y lo insertamos en dao.
-		//filename es para la foto
+//Creamos el objeto Usuario y lo insertamos en dao.
+//filename es para la foto
 		Miembro m1 = new Miembro(nombre, apellidos, email, poblacion, permiss, filename,edadint);
-		
 		
 		
 		
