@@ -77,7 +77,7 @@ public class SV_administrador extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		response.sendRedirect("administrador.html");//una vez insertado reedirigir al index de administrador.
 		
 //Recogemos todos lo parametros desde el html. 
 		String nombre = request.getParameter("nombre");
@@ -126,6 +126,7 @@ public class SV_administrador extends HttpServlet {
 				e.printStackTrace();
 			}		
 	
+		
 			
 	}
 
