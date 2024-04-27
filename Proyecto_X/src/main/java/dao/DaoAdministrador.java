@@ -40,10 +40,28 @@ public class DaoAdministrador {
 			ps.setString(4, a.getPoblacion());
 			ps.setInt(5, a.getPermiso());
 			ps.setString(6, a.getFoto());
-		
+			ps.setInt(7, a.getIdaministrador());
 			int filas = ps.executeUpdate();
 			
 			ps.close();	
+	}
+	
+	
+
+//Modificador de datos por ID
+	public Administrador modificar (int id) throws SQLException {
+		String sql = "SELECT * FROM administrador WHERE idadministrador=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ps.setInt (1,id);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		Administrador a = new Administrador (rs.getString("nombre"), rs.getString("apellidos"), rs.getString("email"),
+				rs.getString("poblacion"), rs.getInt("permiso"), rs.getString("foto"),rs.getInt("idadministrador"));
+		
+		return a;
 	}
 	
 	
@@ -64,6 +82,8 @@ public class DaoAdministrador {
 				}
 				ls.add(new Administrador(result.getString(1), result.getString(2), result.getString(3)
 						, result.getString(4), result.getInt(5), result.getString(6), result.getInt(7)));
+				
+			
 			}
 			
 			return ls;
@@ -82,7 +102,6 @@ public class DaoAdministrador {
 			
 			return txtJson;
 		} 	
-	
 	
 	
 	

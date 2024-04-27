@@ -9,29 +9,30 @@
     <script> 
 
 		function llamada (){
-			fetch ('SV_administrador')
+			fetch ('SV_administrador?op=1')
 			.then (response => response.json())
 			.then (data => pintarTabla(data))
 			
 		}
 		
 		
-		function pintarTabla(datos){ //aqui se pintan los datos. creamos un codigo html.
+		function pintarTabla(datos){//aqui se pintan los datos. creamos un codigo html.
             let html = "<table border=1>";
                 
             for (let i = 0;i<datos.length;i++){//Como datos (json) actua como un array.
                 html +="<tr><td>"+datos[i].nombre+"</td><td>"+datos[i].apellidos+"</td>";
                 html += "<td>"+datos[i].email+"</td><td>"+datos[i].poblacion+"</td>";
-                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td><td><a href='SV_administrador?=id"+datos[i].idadministrador+"'>Editar</a></td>";
-                html += "<td>"+datos[i].idadministrador+"</td>"
+                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td>"              
+                html += "<td>"+datos[i].idadministrador+"</td>";
+                html += "<td><a href='SV_administrador?idadministrador="+datos[i].idadministrador+"&op=2'>Editar</a></td>";
                 html +="</tr>";
-            }	
-            
+
+            }    
             html +="</table>";
             //le pedimos que busque el id (listado) que hemos llamado dentro de body.
             document.getElementById("listado").innerHTML = html;
-		 
-		}
+        }
+	
 
 
 

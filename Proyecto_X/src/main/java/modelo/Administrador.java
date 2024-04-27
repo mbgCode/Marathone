@@ -10,6 +10,11 @@ public class Administrador extends Usuario  {
 //Atributo	
 	private int idadministrador;
 
+
+//Constructor vacío
+	public Administrador(){
+		
+	}
 	
 	
 //Constructor con id y herencia de Usuario	
@@ -41,22 +46,45 @@ public class Administrador extends Usuario  {
 	
 	
 
-	@Override
-	public String toString() {
-		return "Administrador [idaministrador=" + idadministrador + "]";
-	}
+//Metodos ---------------------------------------------------
 	
-	
-	public void insertarAdministrador () throws SQLException {
+//Metodo Insertar	
+	public void insertarAdmin () throws SQLException {
 		
 		DaoAdministrador dao = new DaoAdministrador();
 		dao.insertar(this);
 		
 	}
 	
-	public void borrar (int id) {
+	
+	
+//Metodo modificar por ID
+	public void modificarAdmin (int id) throws SQLException {
+	
+		DaoAdministrador dao = new DaoAdministrador();//generamos el objeto dao.
+		Administrador a = dao.modificar(id); // recibimos los datos del id para modificar
+		
+			this.setNombre(a.getNombre());
+			this.setApellidos(a.getApellidos());
+			this.setEmail(a.getEmail());
+			this.setPoblacion(a.getPoblacion());
+			this.setPermiso(a.getPermiso());
+			this.setFoto(a.getFoto());
+			this.setIdaministrador(a.getIdaministrador());
+
 		
 	}
 
-	
+
+	@Override
+	public String toString() {
+		return "Administrador [idadministrador=" + idadministrador + ", nombre=" + nombre + ", apellidos=" + apellidos
+				+ ", email=" + email + ", poblacion=" + poblacion + ", permiso=" + permiso + ", foto=" + foto + "]";
+	}
+
+
+
+//ToString
+
+		
 }

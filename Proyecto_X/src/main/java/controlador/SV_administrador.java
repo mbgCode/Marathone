@@ -57,17 +57,46 @@ public class SV_administrador extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		try {
-			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
-			
-			DaoAdministrador dao = new DaoAdministrador();
-			String resultado = dao.ListarJonson();
-			out.print(resultado);
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+		
+		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
+		
+		
+		int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del form
+
+
+				//Utilizamos el switch para los diferetes opciones
+				switch (opcion) {
+					case 1: {//op1 listar.
+						try {
+						
+							DaoAdministrador dao = new DaoAdministrador();
+							String resultado = dao.ListarJonson();
+							out.print(resultado);
+							
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}		
+						break;
+					}
+					
+					
+					case 2:{// op2 modificar
+						Administrador a = new Administrador();
+						
+						try {
+							
+							int id = Integer.parseInt(request.getParameter("idadministrador")); //recogemos el id del form
+							a.modificarAdmin(id);
+							System.out.println(a.toString());
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+						
+					}
+				
+				}
+					
+	
 			
 	}
 
@@ -93,11 +122,11 @@ public class SV_administrador extends HttpServlet {
 		Part part = request.getPart("foto"); //recogemos los datos Binarios de foto
 		Path path = Paths.get(part.getSubmittedFileName());// Sacamos la ruta del archivo
 		String filename = path.getFileName().toString(); //Guardamos en la variable efilename el nombre del archivo/ruta	
-//Creamos el camino BUFFER para enviarlo.
+		//Creamos el camino BUFFER para enviarlo.
 		InputStream inspt = part.getInputStream();
-//Guardamos el archivo y lo metemos en la capeta.
+		//Guardamos el archivo y lo metemos en la capeta.
 		File file = new File (uploads,filename);
-//Copiamos los datos del archivo dentro de la carpeta utilizando el BUFFER.
+		//Copiamos los datos del archivo dentro de la carpeta utilizando el BUFFER.
 		Files.copy(inspt,file.toPath());
 		
 		
@@ -111,7 +140,7 @@ public class SV_administrador extends HttpServlet {
 		
 //Insertamos en la calse Administrador.		
 		try {
-			a1.insertarAdministrador();
+			a1.insertarAdmin();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
