@@ -22,6 +22,7 @@ public class DaoAdministrador {
 		//no es nece sario utilizar el this ya que la delclaracion "con" es static.
 		con = BDconexion.getmiconexion();
 			
+		
 	}
 	
 	
