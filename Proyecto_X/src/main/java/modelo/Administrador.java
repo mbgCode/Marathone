@@ -8,14 +8,14 @@ public class Administrador extends Usuario  {
 
 	
 //Atributo	
-	private int idaministrador;
+	private int idadministrador;
 
 	
 	
 //Constructor con id y herencia de Usuario	
 	public Administrador(String nombre, String apellidos, String email, String poblacion, int permiso, String foto ,int idaministrador) {
 		super(nombre, apellidos, email, poblacion, permiso, foto);
-		this.idaministrador = idaministrador;
+		this.idadministrador = idaministrador;
 	}
 
 
@@ -29,13 +29,13 @@ public class Administrador extends Usuario  {
 
 //Getter and Setter	
 	public int getIdaministrador() {
-		return idaministrador;
+		return idadministrador;
 	}
 
 
 
 	public void setIdaministrador(int idaministrador) {
-		this.idaministrador = idaministrador;
+		this.idadministrador = idaministrador;
 	}
 	
 	
@@ -43,7 +43,7 @@ public class Administrador extends Usuario  {
 
 	@Override
 	public String toString() {
-		return "Administrador [idaministrador=" + idaministrador + "]";
+		return "Administrador [idaministrador=" + idadministrador + "]";
 	}
 	
 	
@@ -54,4 +54,5 @@ public class Administrador extends Usuario  {
 		
 	}
 
+	
 }

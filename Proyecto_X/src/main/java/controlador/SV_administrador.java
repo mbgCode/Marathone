@@ -88,6 +88,7 @@ public class SV_administrador extends HttpServlet {
 		int permi = Integer.parseInt(permiso);//Parseamos el String del parametro permiso a Integer.
 		
 		
+		
 //Para recibir foto.
 		Part part = request.getPart("foto"); //recogemos los datos Binarios de foto
 		Path path = Paths.get(part.getSubmittedFileName());// Sacamos la ruta del archivo

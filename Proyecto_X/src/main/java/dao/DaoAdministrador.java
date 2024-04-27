@@ -30,7 +30,7 @@ public class DaoAdministrador {
 		 
 		
 		String sql = "INSERT INTO administrador (nombre, apellidos, email, "
-						+ "poblacion, permiso, foto) VALUES (?,?,?,?,?,?)";
+						+ "poblacion, permiso, foto, idadministrador) VALUES (?,?,?,?,?,?,?)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		
@@ -40,11 +40,10 @@ public class DaoAdministrador {
 			ps.setString(4, a.getPoblacion());
 			ps.setInt(5, a.getPermiso());
 			ps.setString(6, a.getFoto());
-			
+		
 			int filas = ps.executeUpdate();
 			
-			ps.close();
-		
+			ps.close();	
 	}
 	
 	
@@ -64,7 +63,7 @@ public class DaoAdministrador {
 					ls = new ArrayList <Administrador>(); 
 				}
 				ls.add(new Administrador(result.getString(1), result.getString(2), result.getString(3)
-						, result.getString(4), result.getInt(5), result.getString(6)));
+						, result.getString(4), result.getInt(5), result.getString(6), result.getInt(7)));
 			}
 			
 			return ls;
