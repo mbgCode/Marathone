@@ -101,11 +101,13 @@ public class SV_administrador extends HttpServlet {
 		Files.copy(inspt,file.toPath());
 		
 		
+	
 		
 //Creamos el objeto para miembro.
 		Administrador a1 = new Administrador(nombre, apellidos, email, poblacion, permi, filename);
 		
 	
+		
 		
 //Insertamos en la calse Administrador.		
 		try {
@@ -115,6 +117,7 @@ public class SV_administrador extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+	
 		
 		
 //Listar miembro 

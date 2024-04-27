@@ -22,14 +22,15 @@
             for (let i = 0;i<datos.length;i++){//Como datos (json) actua como un array.
                 html +="<tr><td>"+datos[i].nombre+"</td><td>"+datos[i].apellidos+"</td>";
                 html += "<td>"+datos[i].email+"</td><td>"+datos[i].poblacion+"</td>";
-                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td>";
-                html += "<td>"+datos[i].idadministrador+"</td></tr>";
+                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td><td><a href='SV_administrador?=id"+datos[i].idadministrador+"'>Editar</a></td>";
+                html += "<td>"+datos[i].idadministrador+"</td>"
+                html +="</tr>";
             }	
             
             html +="</table>";
             //le pedimos que busque el id (listado) que hemos llamado dentro de body.
             document.getElementById("listado").innerHTML = html;
-		
+		 
 		}
 
 
@@ -51,7 +52,6 @@
 
     <form name="PaginaMiembro" action="SV_administrador" method="post" enctype="multipart/form-data">
         
-        <form action="administrador.html" method="post">
 
         <ul>
 
@@ -68,7 +68,7 @@
             <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
             
         </ul>
-        </form>
+       
 
     </form>
     <h1>Listado</h1>

@@ -53,6 +53,10 @@ public class Administrador extends Usuario  {
 		dao.insertar(this);
 		
 	}
+	
+	public void borrar (int id) {
+		
+	}
 
 	
 }
