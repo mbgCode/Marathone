@@ -11,26 +11,50 @@
 		function llamada (id, op){
             fetch ('SV_administrador?idadministrador='+id+ "&op="+op)
 			.then (response => response.json())
-			.then (data => pintarTabla(data))
+			.then (data => pintarFormulario(data));
 			
 		}
 		
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
+        function getParameterByName(name) {
+		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		    results = regex.exec(location.search);
+		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
 		
 
+        function validarFormulario(){
+			   
+                let nombre = document.getElementById('nombre').value;
+                let apellidos = document.getElementById('apellidos').value;
+                let email = document.getElementById('email').value;
+                let poblacion = document.getElementById('poblacion').value;
+                let permiso = document.getElementById('permiso').value;
+                let foto = document.getElementById('foto').value;
+                      
+        }
+
+
+
+        function pintarFormulario (datos){
+            console.log("aqui esta el pintar formulario")
+       
+            document.getElementById("nombre").value = datos.nombre;
+            document.getElementById("apellidos").value = datos.apellidos;
+            document.getElementById("email").value = datos.email;
+            document.getElementById("poblacion").value = datos.poblacion;
+            document.getElementById("permiso").value = datos.permiso;
+      
+        }
+
+ 
         window.onload = function(){
+        
             let op = getParameterByName("op")
             let id = getParameterByName("idadministrador")
             console.log(id);
 	     llamada(id,op);  
+         validarFormulario();
         }
 
 
@@ -49,12 +73,13 @@
         <ul>
 
             <li><label for="Titulo"><h1>Insertar administrador</h1></label> </li>
-            <li><label>Nombre: </label> <input type="text" name="nombre"></li>
-            <li><label>Apellidos: </label> <input type="text" name="apellidos"></li>
-            <li><label>email: </label> <input type="text" name="email"></li>
-            <li><label>poblacion: </label> <input type="text" name="poblacion"></li>
-            <li><label>Permiso: </label> <input type="text" name="permiso"></li>
-            <li><label>Foto: </label> <input type="file" name="foto"></li>
+            <input type="hidden" id="idadministrador" name="idadministrador">
+            <li><label>Nombre: </label> <input id="nombre" type="text" name="nombre"></li>
+            <li><label>Apellidos: </label> <input id="apellidos" type="text" name="apellidos"></li>
+            <li><label>email: </label> <input id="email" type="text" name="email"></li>
+            <li><label>poblacion: </label> <input id="poblacion" type="text" name="poblacion"></li>
+            <li><label>Permiso: </label> <input id="permiso" type="text" name="permiso"></li>
+            <li><label>Foto: </label> <input id="foto" type="file" name="foto"></li>
             
 
             

@@ -81,7 +81,7 @@ public class SV_administrador extends HttpServlet {
 					
 					case 2:{// op2 modificar
 						Administrador a = new Administrador();
-						System.out.println(opcion);
+					
 						
 						try {
 							int id = Integer.parseInt(request.getParameter("idadministrador")); //recogemos el id del form
