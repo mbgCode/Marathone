@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    
+    <script> 
+
+		function llamada (id, op){
+            fetch ('SV_administrador?idadministrador='+id+ "&op="+op)
+			.then (response => response.json())
+			.then (data => pintarTabla(data))
+			
+		}
+		
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+		
+
+        window.onload = function(){
+            let op = getParameterByName("op")
+            let id = getParameterByName("idadministrador")
+            console.log(id);
+	     llamada(id,op);  
+        }
+
+
+	</script>
+  
+</head>
+
+
+
+
+<body>
+
+    <form name="PaginaMiembro" action="SV_administrador" method="post" enctype="multipart/form-data">
+        
+
+        <ul>
+
+            <li><label for="Titulo"><h1>Insertar administrador</h1></label> </li>
+            <li><label>Nombre: </label> <input type="text" name="nombre"></li>
+            <li><label>Apellidos: </label> <input type="text" name="apellidos"></li>
+            <li><label>email: </label> <input type="text" name="email"></li>
+            <li><label>poblacion: </label> <input type="text" name="poblacion"></li>
+            <li><label>Permiso: </label> <input type="text" name="permiso"></li>
+            <li><label>Foto: </label> <input type="file" name="foto"></li>
+            
+
+            
+            <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
+            
+        </ul>
+       
+
+    </form>
+    <h1>Listado</h1>
+    <div id="listado">
+
+    </div>
+
+</body>
+</html>

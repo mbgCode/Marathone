@@ -62,8 +62,7 @@ public class SV_administrador extends HttpServlet {
 		
 		
 		int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del form
-
-
+	
 				//Utilizamos el switch para los diferetes opciones
 				switch (opcion) {
 					case 1: {//op1 listar.
@@ -82,12 +81,13 @@ public class SV_administrador extends HttpServlet {
 					
 					case 2:{// op2 modificar
 						Administrador a = new Administrador();
+						System.out.println(opcion);
 						
 						try {
-							
 							int id = Integer.parseInt(request.getParameter("idadministrador")); //recogemos el id del form
 							a.modificarAdmin(id);
-							System.out.println(a.toString());
+							out.print(a.dameJson());
+							System.out.println(a.dameJson());
 						} catch (SQLException e) {
 							e.printStackTrace();
 						}

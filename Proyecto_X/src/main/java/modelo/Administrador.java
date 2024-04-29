@@ -2,6 +2,8 @@ package modelo;
 
 import java.sql.SQLException;
 
+import com.google.gson.Gson;
+
 import dao.DaoAdministrador;
 
 public class Administrador extends Usuario  {
@@ -71,11 +73,24 @@ public class Administrador extends Usuario  {
 			this.setPermiso(a.getPermiso());
 			this.setFoto(a.getFoto());
 			this.setIdaministrador(a.getIdaministrador());
-
+			
+	}
+	
+	
+	
+//Que devuelva un json para la modificación.
+	public String dameJson () {// entre parentesis podriamos pedirle un int id.
+		
+		String json = "";
+		Gson gson = new Gson();
+		json = gson.toJson(this);
+		return json;
 		
 	}
-
-
+	
+	
+	
+//ToString
 	@Override
 	public String toString() {
 		return "Administrador [idadministrador=" + idadministrador + ", nombre=" + nombre + ", apellidos=" + apellidos
@@ -84,7 +99,7 @@ public class Administrador extends Usuario  {
 
 
 
-//ToString
+
 
 		
 }
