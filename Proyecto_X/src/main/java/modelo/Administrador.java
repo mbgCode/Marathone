@@ -96,6 +96,16 @@ public class Administrador extends Usuario  {
 	}
 	
 	
+
+//Eliminar por id
+	public void eliminar (int id) throws SQLException {
+		DaoAdministrador dao = new DaoAdministrador();
+	System.out.println(" se borra el id " +id+ " esto viene desde Clase usuario");
+		dao.borrarBD(id);
+	}
+	
+	
+	
 	
 //ToString
 	@Override

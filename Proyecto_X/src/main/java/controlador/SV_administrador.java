@@ -62,7 +62,7 @@ public class SV_administrador extends HttpServlet {
 		
 		
 		int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del form
-	
+		
 		
 		
 				//Utilizamos el switch para los diferetes opciones
@@ -98,6 +98,19 @@ public class SV_administrador extends HttpServlet {
 							e.printStackTrace();
 						}
 						
+					}
+					
+					case 3 :{
+						Administrador a1 = new Administrador();
+						int id = Integer.parseInt(request.getParameter("idadministrador"));
+						System.out.println("id desde sv" +id);
+						try {
+							System.out.println("llega aqui");
+							a1.eliminar(id);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				
 				}
@@ -140,8 +153,9 @@ public class SV_administrador extends HttpServlet {
 	
 //Creamos el objeto para administrador.
 		Administrador a1 = new Administrador(nombre, apellidos, email, poblacion, permi, filename);
-	
-	
+		
+		int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del formulñario
+		System.out.println("llega al post la opcion : "+opcion);
 		
 //Insertamos en la clase Administrador.		
 		try {
@@ -150,8 +164,11 @@ public class SV_administrador extends HttpServlet {
 				a1.insertarAdmin();
 				
 			}else {//si es diferente de 0, significa que si vamos a modificar algun dato de un admin ya registrado.
-				a1.setIdaministrador(id);//Insertamos el id en Administrador.
-				a1.update();//Llamamos al update para poder 
+			
+					a1.setIdaministrador(id);//Insertamos el id en Administrador.
+					a1.update();//Llamamos al update para poder 
+					
+			
 			}
 	
 		}catch (SQLException e) {

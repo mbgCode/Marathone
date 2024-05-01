@@ -12,6 +12,7 @@
 	
 		//Recibimos de ListarAdmin.html el id y op2
 		function llamada (id, op){
+		
             fetch ('SV_administrador?idadministrador='+id+ "&op="+op) //envia la solicitud a SV_admin con el id y op recibidos
 			.then (response => response.json())// La respuesta (response) se parsea a un .json 
 			.then (data => pintarFormulario(data));	//Los datos de ese .json se pintan en la tabla.

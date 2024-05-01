@@ -130,12 +130,13 @@ public class DaoAdministrador {
 		
 		
 //borrar		
-		public void borrarBD () throws SQLException {
+		public void borrarBD (int id) throws SQLException {
 			
-			String sql = "DELETE * FROM administrador WHERE idadministrador = ?";
+			String sql = "DELETE FROM administrador WHERE idadministrador = "+id;
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.executeUpdate(sql);
+		
 			ps.close();
 			
 		}
