@@ -63,9 +63,13 @@ public class SV_administrador extends HttpServlet {
 		
 		int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del form
 	
+		
+		
 				//Utilizamos el switch para los diferetes opciones
 				switch (opcion) {
-					case 1: {//op1 listar.
+				
+				
+					case 1: {//op1 listar. Pintar en cliente del listado de todos los administradores
 						try {
 						
 							DaoAdministrador dao = new DaoAdministrador();
@@ -79,7 +83,9 @@ public class SV_administrador extends HttpServlet {
 					}
 					
 					
-					case 2:{// op2 modificar
+					
+					// op2 modificar (sacar los datos por el cliente, que se modificará por el doPost)
+					case 2:{
 						Administrador a = new Administrador();
 					
 						
@@ -95,18 +101,18 @@ public class SV_administrador extends HttpServlet {
 					}
 				
 				}
-					
-	
-			
+				
 	}
 
-	
-	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("administrador.html");//una vez insertado reedirigir al index de administrador.
+		
+		
 		
 //Recogemos todos lo parametros desde el html. 
 		String nombre = request.getParameter("nombre");
@@ -115,7 +121,8 @@ public class SV_administrador extends HttpServlet {
 		String poblacion = request.getParameter("poblacion");
 		String permiso = request.getParameter("permiso");
 		int permi = Integer.parseInt(permiso);//Parseamos el String del parametro permiso a Integer.
-		
+		int id = Integer.parseInt(request.getParameter("idadministrador"));
+	
 		
 		
 //Para recibir foto.
@@ -131,21 +138,25 @@ public class SV_administrador extends HttpServlet {
 		
 		
 	
-		
-//Creamos el objeto para miembro.
+//Creamos el objeto para administrador.
 		Administrador a1 = new Administrador(nombre, apellidos, email, poblacion, permi, filename);
-		
+	
 	
 		
-		
-//Insertamos en la calse Administrador.		
+//Insertamos en la clase Administrador.		
 		try {
-			a1.insertarAdmin();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
+			if(id == 0) {//Si el id es 0 quiere decir que va a insertarse un admin nuevo.
+				a1.insertarAdmin();
+				
+			}else {//si es diferente de 0, significa que si vamos a modificar algun dato de un admin ya registrado.
+				a1.setIdaministrador(id);//Insertamos el id en Administrador.
+				a1.update();//Llamamos al update para poder 
+			}
+	
+		}catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	
 		
 		
@@ -155,12 +166,9 @@ public class SV_administrador extends HttpServlet {
 				lista = new DaoAdministrador();
 				ArrayList <Administrador> listarAdministrador = lista.listar();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}		
-	
-		
-			
+			}			
 	}
-
+	
+	
 }

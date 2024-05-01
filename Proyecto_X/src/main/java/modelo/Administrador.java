@@ -48,11 +48,10 @@ public class Administrador extends Usuario  {
 	
 	
 
-//Metodos ---------------------------------------------------
+//Metodos -----------------------------------------------------------------------------------
 	
 //Metodo Insertar	
 	public void insertarAdmin () throws SQLException {
-		
 		DaoAdministrador dao = new DaoAdministrador();
 		dao.insertar(this);
 		
@@ -60,7 +59,7 @@ public class Administrador extends Usuario  {
 	
 	
 	
-//Metodo modificar por ID
+//Sacamos los datos por ID .Una vez dado al editar nos saca los datos por el formulario. Justo antes de introducir los cambios
 	public void modificarAdmin (int id) throws SQLException {
 	
 		DaoAdministrador dao = new DaoAdministrador();//generamos el objeto dao.
@@ -78,7 +77,15 @@ public class Administrador extends Usuario  {
 	
 	
 	
-//Que devuelva un json para la modificación.
+//Actualizamos los datos de Administrador ya introducidos. 
+	public void update () throws SQLException {
+		DaoAdministrador dao = new DaoAdministrador() ;
+		dao.actualizar(this);
+	}
+	
+	
+	
+//Va a devolver los datos del id de modificarAdmin al cliente.
 	public String dameJson () {// entre parentesis podriamos pedirle un int id.
 		
 		String json = "";
