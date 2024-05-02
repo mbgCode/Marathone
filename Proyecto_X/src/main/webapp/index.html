@@ -2,73 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
-    <script> 
+    <link rel="stylesheet" href="index.css">
 
-		function llamada (){
-			fetch ('Servlet_usuario')
-			.then (response => response.json())
-			.then (data => pintarTabla(data))
-			
-		}
-		
-		
-		function pintarTabla(datos){ //aqui se pintan los datos. creamos un codigo html.
-            let html = "<table border=1>";
-                
-            for (let i = 0;i<datos.length;i++){//Como datos (json) actua como un array.
-                html +="<tr><td>"+datos[i].nombre+"</td><td>"+datos[i].apellidos+"</td>";
-                html += "<td>"+datos[i].email+"</td><td>"+datos[i].poblacion+"</td>";
-                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td></tr>";
-            }	
-            
-            html +="</table>";
-            //le pedimos que busque el id (listado) que hemos llamado dentro de body.
-            document.getElementById("listado").innerHTML = html;
-		
-		}
-
-
-
-
-        window.onload = function(){
-	     llamada();            
-        }
-
-
-	</script>
-  
 </head>
-
-
-
-
 <body>
 
-    <form name="insertarNave" action="Servlet_usuario" method="post" enctype="multipart/form-data">
+    <div id="contenedor">
 
-        <ul>
 
-            <li><label for="Titulo"><h1>Insertar usuario</h1></label> </li>
-            <li><label>Nombre: </label> <input type="text" name="nombre"></li>
-            <li><label>Apellidos: </label> <input type="text" name="apellidos"></li>
-            <li><label>email: </label> <input type="text" name="email"></li>
-            <li><label>poblacion: </label> <input type="text" name="poblacion"></li>
-            <li><label>Permiso: </label> <input type="text" name="permiso"></li>
-            <li><label>Foto: </label> <input type="file" name="foto"></li>
-            
-            <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
-            
-        </ul>
+        <header>
+            <div id="logo"><img src="/PrimeraWeb/img/airbnb logo.png" alt="Logo de air bnb"></div>
+            <div id="centro"> <h1>MARATHONE</h1></div>
+            <div id="login">
+                <div id="fotoPersonal"><img src="" alt=""></div>
+                <div id="desplegable"><img src="/" alt=""> </div>
 
-    </form>
-    <h1>Listado</h1>
-    <div id="listado">
+            </div>
+        </header>
 
-    </div>
+
+        <div id="buscador"></div>
+
+
+        <nav></nav>
+
+        <main>
+            <section>
+                <article></article>
+                <article></article>
+                <article></article>
+            </section>
+        </main>
+        
+
+        <footer></footer>
+
+    </div>    
 
 </body>
 </html>

@@ -6,14 +6,17 @@
     , initial-scale=1.0">
     <title>Document</title>
     
+    
     <script> 
 
+		
+		
 		function llamada (){
-			fetch ('SV_administrador?op=1')
-			.then (response => response.json())
-			.then (data => pintarTabla(data))
-			
+            fetch ('SV_administrador?op=1')//Se envia la solicitud con op=1
+			.then (response => response.json())// La respuesta (response) se parsea a un .json 
+			.then (data => pintarTabla(data))//Los datos de ese .json se pintan en la tabla.
 		}
+		
 		
 		
 		function pintarTabla(datos){//aqui se pintan los datos. creamos un codigo html.
@@ -24,21 +27,23 @@
                 html += "<td>"+datos[i].email+"</td><td>"+datos[i].poblacion+"</td>";
                 html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td>"              
                 html += "<td>"+datos[i].idadministrador+"</td>";
-                html += "<td><a href='SV_administrador?idadministrador="+datos[i].idadministrador+"&op=2'>Editar</a></td>";
+                html += "<td><a href='InsertarAdmin.html?idadministrador="+datos[i].idadministrador+"&op=2'>Editar</a></td>";
+                html += "<td><a href='InsertarAdmin.html?idadministrador="+datos[i].idadministrador+"&op=3'>Borrar</a></td>";
                 html +="</tr>";
 
             }    
             html +="</table>";
+            
+            
             //le pedimos que busque el id (listado) que hemos llamado dentro de body.
             document.getElementById("listado").innerHTML = html;
         }
 	
 
 
-
+		//Cuando se cargue la pantalle ejecutamos funcion "llamada"
         window.onload = function(){
 	     llamada();  
-
         }
 
 
@@ -51,27 +56,6 @@
 
 <body>
 
-    <form name="PaginaMiembro" action="SV_administrador" method="post" enctype="multipart/form-data">
-        
-
-        <ul>
-
-            <li><label for="Titulo"><h1>Insertar administrador</h1></label> </li>
-            <li><label>Nombre: </label> <input type="text" name="nombre"></li>
-            <li><label>Apellidos: </label> <input type="text" name="apellidos"></li>
-            <li><label>email: </label> <input type="text" name="email"></li>
-            <li><label>poblacion: </label> <input type="text" name="poblacion"></li>
-            <li><label>Permiso: </label> <input type="text" name="permiso"></li>
-            <li><label>Foto: </label> <input type="file" name="foto"></li>
-            
-
-            
-            <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
-            
-        </ul>
-       
-
-    </form>
     <h1>Listado</h1>
     <div id="listado">
 
