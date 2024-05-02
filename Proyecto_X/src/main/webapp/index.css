@@ -1,0 +1,71 @@
+*{
+    margin: 0%;
+    padding: 0%
+
+}
+
+
+#contenedor{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:  
+    "header header"
+    "submenu submenu"
+    "nav nav"
+    ;
+}
+
+/* Header--------------------------------------------------- */
+header{
+    grid-area: header;
+    display: flex;
+}
+
+
+#logo{
+background-color: rgb(255, 255, 255);
+width: 35%;
+height: 100px;
+}
+
+#logo img{
+    width: 250px;
+}
+
+
+#centro{
+    background-color: rgb(9, 255, 255);
+    width: auto;
+    height: 100px;
+    width: 35%;
+   
+}
+
+#centro h1{
+text-align: center;
+margin-top:30px;
+}
+
+
+#login{
+    background-color: rgb(7, 97, 97);
+    width: 35%;
+    height: 100px;
+    
+}
+
+/* Submenu---------------------------------------------------- */
+#submenu{
+    height: 100px;
+    background-color: brown;
+    grid-area : submenu;
+}
+
+/* Nav ------------------------------------------------------- */
+nav{
+    grid-area: nav ;
+    height: 100px;
+    background-color: chocolate;
+
+}
