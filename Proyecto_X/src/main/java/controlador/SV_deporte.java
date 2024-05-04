@@ -65,7 +65,7 @@ public class SV_deporte extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String descripcion = request.getParameter("descripcion");
 		int telefono = Integer.parseInt(request.getParameter("telefono"));
-		String domicilio = request.getParameter("domicilio");
+		String direccion = request.getParameter("direccion");
 		
 	
 		
@@ -84,7 +84,7 @@ public class SV_deporte extends HttpServlet {
 		
 		
 //Creamos el objeto para Deporte.
-		Deporte d1 = new Deporte (nombre,descripcion,telefono,domicilio,filename);
+		Deporte d1 = new Deporte (nombre,descripcion,telefono,direccion,filename);
 		
 		
 // Insertqamos el deporte en el objeto.

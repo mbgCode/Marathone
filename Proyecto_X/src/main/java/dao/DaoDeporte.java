@@ -21,7 +21,7 @@ public class DaoDeporte {
 	
 	public void insertarDep (Deporte d) throws SQLException {
 		
-		String sql = "INSERT INTO deporte (nombre,descripcion,telefono,dirección,foto)";
+		String sql = "INSERT INTO deporte (nombre,descripcion,telefono,direccion,foto) VALUES (?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		
 		ps.setString(1, d.getNombre());
@@ -30,6 +30,8 @@ public class DaoDeporte {
 		ps.setString(4, d.getDomicilio());
 		ps.setString(5, d.getFoto());
 		
+		int file = ps.executeUpdate();
+		ps.close();
 	}
 	
 	

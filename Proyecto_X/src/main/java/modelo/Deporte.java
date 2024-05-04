@@ -133,7 +133,7 @@ public class Deporte {
 	@Override
 	public String toString() {
 		return "Deporte [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", telefono=" + telefono
-				+ ", domicilio=" + direccion + ", foto=" + foto + "]";
+				+ ", direccion=" + direccion + ", foto=" + foto + "]";
 	}
 	
 	

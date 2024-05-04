@@ -8,17 +8,18 @@
 </head>
 <body>
     
-    <form action="" method="post" enctype="multipart/form-data">
+    <form name="Insertar Deporte" action="SV_deporte" method="post" enctype="multipart/form-data">
 
         <ul>
             <label for="Titulo"></label><h1>Insertar Deporte</h1></label>
             <input type="hidden" id="id" name="id"><!-- Ojo con esto que no tengo claro para que es. Algo de modificar o listar para que no sea visible en el url?? -->
             <li><label>Nombre:</label><input id="nombre" type="text" name="nombre"> </li>
-            <li><label>Descripción:</label><input id="descripcion" type="" name="nombre"> </li>
-            <li><label>Telefono:</label></li>
-            <li></li>
-            <li></li>
+            <li><label>Descripcion:</label><textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea></li>
+            <li><label>Telefono:</label><input id="telefono" type="text"  name="telefono"></li>
+            <li><label>Dirección:</label> <input id="direccion" type="text" name="direccion">
+            <li><label>Foto:</label><input id="foto" type="file" name="foto" ></li>
 
+            <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
         </ul>
     </form>    
 
