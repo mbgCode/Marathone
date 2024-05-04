@@ -60,60 +60,65 @@ public class SV_administrador extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 		
-		
-		int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del form
-		
+		String op = request.getParameter("op");
 		
 		
-				//Utilizamos el switch para los diferetes opciones
-				switch (opcion) {
-				
-				
-					case 1: {//op1 listar. Pintar en cliente del listado de todos los administradores
-						try {
+		if (!op.equals("")) {//Si op es = "" es que se va a insertar un nuevo admin 
+			int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del form
+			
+			
+			//Utilizamos el switch para los diferetes opciones
+			switch (opcion) {
+			
+			
+				case 1: {//op1 listar. Pintar en cliente del listado de todos los administradores
+					try {
+					
+						DaoAdministrador dao = new DaoAdministrador();
+						String resultado = dao.ListarJonson();
+						out.print(resultado);
 						
-							DaoAdministrador dao = new DaoAdministrador();
-							String resultado = dao.ListarJonson();
-							out.print(resultado);
-							
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}		
-						break;
-					}
-					
-					
-					
-					// op2 modificar (sacar los datos por el cliente, que se modificará por el doPost)
-					case 2:{
-						Administrador a = new Administrador();
-					
-						
-						try {
-							int id = Integer.parseInt(request.getParameter("idadministrador")); //recogemos el id del form
-							a.modificarAdmin(id);
-							out.print(a.dameJson());
-							System.out.println(a.dameJson());
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
-						
-					}
-					
-					case 3 :{
-						Administrador a1 = new Administrador();
-						int id = Integer.parseInt(request.getParameter("idadministrador"));
-						System.out.println("id desde sv" +id);
-						try {
-							System.out.println("llega aqui");
-							a1.eliminar(id);
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-				
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}		
+					break;
 				}
+				
+				
+				
+				// op2 modificar (sacar los datos por el cliente, que se modificará por el doPost)
+				case 2:{
+					Administrador a = new Administrador();
+				
+					
+					try {
+						int id = Integer.parseInt(request.getParameter("idadministrador")); //recogemos el id del form
+						a.modificarAdmin(id);
+						out.print(a.dameJson());
+						System.out.println(a.dameJson());
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					break;
+				}
+				
+				case 3 :{
+					Administrador a1 = new Administrador();
+					int id = Integer.parseInt(request.getParameter("idadministrador"));
+					System.out.println("NO DEBERIAS ESTAR AQUI");
+					System.out.println("la opcion deberia ser la dos y es la "+opcion);
+					try {
+						
+						a1.eliminar(id);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			
+			}
+		}
+
 				
 	}
 
@@ -125,7 +130,7 @@ public class SV_administrador extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("administrador.html");//una vez insertado reedirigir al index de administrador.
 		
-		
+		String opi = request.getParameter("op"); //recogemos la op del form
 		
 //Recogemos todos lo parametros desde el html. 
 		String nombre = request.getParameter("nombre");
@@ -134,7 +139,11 @@ public class SV_administrador extends HttpServlet {
 		String poblacion = request.getParameter("poblacion");
 		String permiso = request.getParameter("permiso");
 		int permi = Integer.parseInt(permiso);//Parseamos el String del parametro permiso a Integer.
-		int id = Integer.parseInt(request.getParameter("idadministrador"));
+
+		
+	
+		
+		
 	
 		
 		
@@ -153,18 +162,24 @@ public class SV_administrador extends HttpServlet {
 	
 //Creamos el objeto para administrador.
 		Administrador a1 = new Administrador(nombre, apellidos, email, poblacion, permi, filename);
+		String op = request.getParameter("op");//Instanciamos el String "op" para que no me de error en el server al parsear un null
+		if (op != null) {
+			int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del formulñario
+			System.out.println("llega al post la opcion : "+opcion);
+		}
 		
-		int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del formulñario
-		System.out.println("llega al post la opcion : "+opcion);
 		
-//Insertamos en la clase Administrador.		
-		try {
+//Insertamos en la clase Administrador.
 		
-			if(id == 0) {//Si el id es 0 quiere decir que va a insertarse un admin nuevo.
+		String ids = request.getParameter("idadministrador");
+		
+		
+			try {
+			if(ids.equals("")) {//Si el id es cadena vacia quiere decir que va a insertarse un admin nuevo.
 				a1.insertarAdmin();
 				
-			}else {//si es diferente de 0, significa que si vamos a modificar algun dato de un admin ya registrado.
-			
+			}else {//si es diferente de "", significa que si vamos a modificar algun dato de un ID ya registrado.
+				int id = Integer.parseInt(request.getParameter("idadministrador"));
 					a1.setIdaministrador(id);//Insertamos el id en Administrador.
 					a1.update();//Llamamos al update para poder 
 					
@@ -177,7 +192,7 @@ public class SV_administrador extends HttpServlet {
 	
 		
 		
-//Listar miembro 
+//Listar Administrador 
 		DaoAdministrador lista;
 			try {
 				lista = new DaoAdministrador();

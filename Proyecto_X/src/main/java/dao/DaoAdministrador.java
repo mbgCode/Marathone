@@ -56,7 +56,7 @@ public class DaoAdministrador {
 	public Administrador modificar (int id) throws SQLException {
 		String sql = "SELECT * FROM administrador WHERE idadministrador=? ";
 		PreparedStatement ps = con.prepareStatement(sql);
-		System.out.println("estamos en dao modificar");
+		
 		ps.setInt (1,id);
 		
 		ResultSet rs = ps.executeQuery();
