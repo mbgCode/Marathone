@@ -65,5 +65,8 @@ public class SV_foto extends HttpServlet {
 				
 				Files.copy(inspt,file.toPath());
 	}
+	
+	public 
+	
 
 }

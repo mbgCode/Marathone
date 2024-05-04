@@ -49,4 +49,14 @@
     <servlet-name>SV_foto</servlet-name>
     <url-pattern>/SV_foto</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SV_deporte</display-name>
+    <servlet-name>SV_deporte</servlet-name>
+    <servlet-class>controlador.SV_deporte</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SV_deporte</servlet-name>
+    <url-pattern>/SV_deporte</url-pattern>
+  </servlet-mapping>
 </web-app>
