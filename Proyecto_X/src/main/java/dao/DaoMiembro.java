@@ -49,7 +49,7 @@ public class DaoMiembro{
 	
 	
 	
-//Peticion para listar Miembro
+//Peticion para listar Miembro (todos los miembros)
 	public ArrayList <Miembro>listar() throws SQLException{
 		
 		String sql = "SELECT * FROM miembro";
@@ -72,8 +72,31 @@ public class DaoMiembro{
 	
 	
 	
-//Funcion json 
-	public String ListarJonson() throws SQLException {
+//Peticion para listar Miembro por tipo de permiso
+	public ArrayList <Miembro>listarTipo(int tipo) throws SQLException{
+		
+		String sql = "SELECT * FROM miembro WHERE permiso=?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, tipo);
+		ResultSet result = ps.executeQuery();
+		
+		//SI el array es igual a null lo llenamos.
+		ArrayList<Miembro>ls=null;
+		while((result.next())) {
+			if (ls == null) {
+				ls = new ArrayList <Miembro>(); 
+			}
+			ls.add(new Miembro(result.getString(1), result.getString(2), result.getString(3), result.getString(4)
+					, result.getInt(5), result.getString(6), result.getInt(7), result.getInt(8)));
+		}
+		
+		return ls;
+	}	
+	
+	
+//Funcion json listar todos los miembros
+	public String listarJonson() throws SQLException {
 		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 		String txtJson = "";
 		
@@ -83,4 +106,18 @@ public class DaoMiembro{
 		
 		return txtJson;
 	} 
+	
+	
+	
+//Funcion json listar por filtrado tipo de permiso.
+		public String listarJonsonTipo(int tipo) throws SQLException {
+			//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
+			String txtJson = "";
+			
+			Gson gson = new Gson ();
+			
+			txtJson = gson.toJson(this.listarTipo(tipo));//Llamamos a la funcion listar con los datos el ArrayList<usuario>
+			
+			return txtJson;
+		} 
 }

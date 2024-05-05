@@ -9,12 +9,18 @@
     <script> 
 
 		function llamada (){
-			fetch ('SV_miembro')
+			fetch ('SV_miembro?op=1')
 			.then (response => response.json())
 			.then (data => pintarTabla(data))
 			
 		}
 		
+        function busquedaPortipo(tipo){
+            fetch ('SV_miembro?op=3&tipoUsuario='+tipo)
+            .then (response => response.json())
+			.then (data => pintarTabla(data))
+
+        }
 		
 		function pintarTabla(datos){ //aqui se pintan los datos. creamos un codigo html.
             let html = "<table border=1>";
@@ -71,8 +77,17 @@
     </form>
     <h1>Listado</h1>
     <div id="listado">
-
     </div>
+
+
+    <form name="Listado" action="SV_miebro?op=1&op3" method="get">
+       <select name="tipoUsuario" onchange="busquedaPortipo(this.value)">
+            <option value="0">...</option>
+            <option value="1">Miembro</option>
+            <option value="9">Administrador</option>
+       </select>     
+    </form>
+
 
 </body>
 </html>

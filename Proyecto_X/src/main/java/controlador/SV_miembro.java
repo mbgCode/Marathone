@@ -63,18 +63,49 @@ public class SV_miembro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int opcion = Integer.parseInt(request.getParameter("op"));
+		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 
-		try {
-			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
+		
+		switch (opcion) {
+		
+		case 1:{//listar en html.
+			try {
+				DaoMiembro dao = new DaoMiembro();
+				String resultado = dao.listarJonson();
+				out.print(resultado);
+				
+			} catch (SQLException e) {
+				System.out.println("Error en case 1 de SV_miembro");
+				e.printStackTrace();
+			}
+			break;
+		}
+		
+		case 2: { //Modificar...
 			
-			DaoMiembro dao = new DaoMiembro();
-			String resultado = dao.ListarJonson();
-			out.print(resultado);
+			break;
+		}
+		
+		case 3: { //listar por tipo
+			int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
+				try {
+					DaoMiembro dao = new DaoMiembro();
+					String resultado = dao.listarJonsonTipo(tipo);
+					out.print(resultado);
+					dao.listarTipo(tipo);
+				} catch (SQLException e) {
+					System.out.println("Error en case 3 de SV_miembro");
+					e.printStackTrace();
+				}
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+			break;
+		}
+		
+		
+		}
+		
+		
 	} 
 	
 
