@@ -60,7 +60,8 @@ public class SV_deporte extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		response.sendRedirect("InsertarDeporte.html");
+		
 //Recogemos todos lo parametros desde el html. 
 		String nombre = request.getParameter("nombre");
 		String descripcion = request.getParameter("descripcion");

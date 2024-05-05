@@ -90,7 +90,6 @@ public class SV_administrador extends HttpServlet {
 				case 2:{
 					Administrador a = new Administrador();
 				
-					
 					try {
 						int id = Integer.parseInt(request.getParameter("idadministrador")); //recogemos el id del form
 						a.modificarAdmin(id);
@@ -140,12 +139,7 @@ public class SV_administrador extends HttpServlet {
 		String permiso = request.getParameter("permiso");
 		int permi = Integer.parseInt(permiso);//Parseamos el String del parametro permiso a Integer.
 
-		
-	
-		
-		
-	
-		
+			
 		
 //Para recibir foto.
 		Part part = request.getPart("foto"); //recogemos los datos Binarios de foto
@@ -169,26 +163,25 @@ public class SV_administrador extends HttpServlet {
 		}
 		
 		
-//Insertamos en la clase Administrador.
 		
+//Insertamos o hacemos Update en la clase Administrador.	
 		String ids = request.getParameter("idadministrador");
 		
-		
+//Insertamos nuevo admin.		
 			try {
-			if(ids.equals("")) {//Si el id es cadena vacia quiere decir que va a insertarse un admin nuevo.
-				a1.insertarAdmin();
-				
-			}else {//si es diferente de "", significa que si vamos a modificar algun dato de un ID ya registrado.
-				int id = Integer.parseInt(request.getParameter("idadministrador"));
-					a1.setIdaministrador(id);//Insertamos el id en Administrador.
-					a1.update();//Llamamos al update para poder 
+				if(ids.equals("")) {//Si el id es cadena vacia quiere decir que va a insertarse un admin nuevo.
+					a1.insertarAdmin();
 					
-			
-			}
+//Update de los datos a ingresar en la BD				
+				}else {//si es diferente de "", significa que si vamos a modificar algun dato de un ID ya registrado.
+					int id = Integer.parseInt(request.getParameter("idadministrador"));
+						a1.setIdaministrador(id);//Insertamos el id en Administrador.
+						a1.update();//Llamamos al update para poder modificar							
+				}
 	
-		}catch (SQLException e) {
+			}catch (SQLException e) {
 			e.printStackTrace();
-		}
+			}
 	
 		
 		

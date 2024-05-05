@@ -50,6 +50,7 @@ public class Administrador extends Usuario  {
 
 //Metodos -----------------------------------------------------------------------------------
 	
+	
 //Metodo Insertar Usuarios
 	public void insertarAdmin () throws SQLException {
 		DaoAdministrador dao = new DaoAdministrador();

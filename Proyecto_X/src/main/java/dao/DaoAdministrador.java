@@ -52,7 +52,7 @@ public class DaoAdministrador {
 	
 
 //Una vez damos a editar en listar un admin este metodo le va a pedir los datos de ese id para pintarlos en el cliente.
-//Visualizar los datos pora luego actualizar.	
+//Petición para visualizar los datos pora luego actualiza.
 	public Administrador modificar (int id) throws SQLException {
 		String sql = "SELECT * FROM administrador WHERE idadministrador=? ";
 		PreparedStatement ps = con.prepareStatement(sql);
