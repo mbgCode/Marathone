@@ -95,6 +95,7 @@ public class DaoMiembro{
 	}	
 	
 	
+	
 //Funcion json listar todos los miembros
 	public String listarJonson() throws SQLException {
 		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>

@@ -15,8 +15,8 @@
 			
 		}
 		
-        function busquedaPortipo(tipo){
-            fetch ('SV_miembro?op=3&tipoUsuario='+tipo)
+        function busquedaPortipo(tipoUsuario){
+            fetch ('SV_miembro?op=3&tipoUsuario='+tipoUsuario)
             .then (response => response.json())
 			.then (data => pintarTabla(data))
 

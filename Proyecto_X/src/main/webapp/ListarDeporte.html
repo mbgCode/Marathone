@@ -19,9 +19,10 @@
 
             for (let i = o;data.length;i++){
                 html +="<tr><td>"+data[i].nombre+"</td><td>"+data[i].descripcion+"</td>";
-                html +="<tr><td>"+data[i].telefono+"</td><td>"+data[i].direccion+"</td>";
-                html +="<tr><td>"+data[i].id+"</td><td>"+data[i].foto+"</td>";
+                html +="<td>"+data[i].telefono+"</td><td>"+data[i].direccion+"</td>";
+                html +="<td>"+data[i].id+"</td>";
                 html += "<td><a href='InsertarDeporte.html?id="+datos[i].id+"&op=2'>Editar</a></td>";
+                html +="<td><img src ='img/"+data[i].foto+"'></td>"; /* Es posible que esté mal la sinataxis...es de prueba para sacar la imagen */
                 html +="</tr>";    
 
 

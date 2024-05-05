@@ -69,38 +69,40 @@ public class SV_miembro extends HttpServlet {
 		
 		switch (opcion) {
 		
-		case 1:{//listar en html.
-			try {
-				DaoMiembro dao = new DaoMiembro();
-				String resultado = dao.listarJonson();
-				out.print(resultado);
-				
-			} catch (SQLException e) {
-				System.out.println("Error en case 1 de SV_miembro");
-				e.printStackTrace();
-			}
-			break;
-		}
-		
-		case 2: { //Modificar...
-			
-			break;
-		}
-		
-		case 3: { //listar por tipo
-			int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
+			case 1:{//listar en html.
 				try {
 					DaoMiembro dao = new DaoMiembro();
-					String resultado = dao.listarJonsonTipo(tipo);
+					String resultado = dao.listarJonson();
 					out.print(resultado);
-					dao.listarTipo(tipo);
+					
 				} catch (SQLException e) {
-					System.out.println("Error en case 3 de SV_miembro");
+					System.out.println("Error en case 1 de SV_miembro");
 					e.printStackTrace();
 				}
+				break;
+			}
 			
-			break;
-		}
+			
+			case 2: { //Modificar...
+				
+				break;
+			}
+			
+			
+			case 3: { //listar por tipo
+				int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
+					try {
+						DaoMiembro dao = new DaoMiembro();
+						String resultado = dao.listarJonsonTipo(tipo);
+						out.print(resultado);
+						dao.listarTipo(tipo);
+					} catch (SQLException e) {
+						System.out.println("Error en case 3 de SV_miembro");
+						e.printStackTrace();
+					}
+				
+				break;
+			}
 		
 		
 		}
