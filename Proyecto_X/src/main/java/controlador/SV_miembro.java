@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import modelo.Miembro;
 import modelo.Usuario;
@@ -39,29 +40,54 @@ import dao.DaoUsuario;
 public class SV_miembro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
+	
 	//Añadimos la ruta de ORIGEN de la carpera...De momento lo hacemos de manera local. Luego se hará con ruta a la base de datos.
 	private String pathFiles = "C:\\Users\\mbgco\\git\\repository\\Proyecto_X\\src\\main\\webapp\\Fotos";
+	
 	
 	//Añadimos la clase FILE para poder introducir fotos en la bd.
 	//Hemos creado una carpeta en webapp llamada fotos que es donde vamos a guardarlas.
 	private File uploads = new File (pathFiles);
 	
 	
+	//Se utiliza para la sesión. Se crea esto para su instnciación.
+	HttpSession sesion;
+	
 	
 	
     /**
      * @see HttpServlet#HttpServlet()
      */
- 
     public SV_miembro() {
-        super();
-        // TODO Auto-generated constructor stub
+        super();      
     }
 
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+//Abrir a la sesión.		
+		sesion = request.getSession();//desde aqui ya si se puede acceder al HttpSession.
+		
+		String nombre = "Marcos"; //Esto puede venir de un formulario con un request.getparameter
+		sesion.setAttribute("nombre", nombre);
+		sesion.setAttribute("anios", 58);//ejemplo
+		//Esto son los datos que van a quedar guardados en la sesion, en el servidor.  
+		
+		String respuesta = (String) sesion.getAttribute("nombre");
+		//Se hace un parseo a (String) porque en cuanto se guarda en la sesion deja de ser String...por eso hay que parsearlo cuando los queremos leer con el get. 
+		int respuesta2 = (int) sesion.getAttribute("anios");
+	
+		
+//Cerrar seiso. Esto elimina cualquier dato que haya en la sesion. 
+		HttpSession sesion = request.getSession();
+		sesion.invalidate();
+		
+		
+		
+		
 		
 		int opcion = Integer.parseInt(request.getParameter("op"));
 		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
