@@ -9,12 +9,18 @@
     <script> 
 
 		function llamada (){
-			fetch ('SV_miembro')
+			fetch ('SV_miembro?op=1')
 			.then (response => response.json())
 			.then (data => pintarTabla(data))
 			
 		}
 		
+        function busquedaPortipo(tipoUsuario){
+            fetch ('SV_miembro?op=3&tipoUsuario='+tipoUsuario)
+            .then (response => response.json())
+			.then (data => pintarTabla(data))
+
+        }
 		
 		function pintarTabla(datos){ //aqui se pintan los datos. creamos un codigo html.
             let html = "<table border=1>";
@@ -22,7 +28,8 @@
             for (let i = 0;i<datos.length;i++){//Como datos (json) actua como un array.
                 html +="<tr><td>"+datos[i].nombre+"</td><td>"+datos[i].apellidos+"</td>";
                 html += "<td>"+datos[i].email+"</td><td>"+datos[i].poblacion+"</td>";
-                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td>";
+                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td>"; 
+                html += "<td>"+datos[i].permiso+"</td>";
                 html += "<td>"+datos[i].edad+"</td><td>"+datos[i].id+"</td></tr>";
             }	
             
@@ -61,8 +68,8 @@
             <li><label>poblacion: </label> <input type="text" name="poblacion"></li>
             <li><label>Permiso: </label> <input type="text" name="permiso"></li>
             <li><label>Foto: </label> <input type="file" name="foto"></li>
-            <li><label>edad: </label> <input type="text" name="edad"></li>
-
+            <li><label>Edad: </label> <input type="text" name="edad"></li>
+            <li><label>pass: </label> <input type="text" name="pass"></li>
             
             <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
             
@@ -71,8 +78,17 @@
     </form>
     <h1>Listado</h1>
     <div id="listado">
-
     </div>
+
+
+    <form name="Listado" action="SV_miebro?op=1&op3" method="get">
+       <select name="tipoUsuario" onchange="busquedaPortipo(this.value)">
+            <option value="0">...</option>
+            <option value="1">Miembro</option>
+            <option value="9">Administrador</option>
+       </select>     
+    </form>
+
 
 </body>
 </html>
