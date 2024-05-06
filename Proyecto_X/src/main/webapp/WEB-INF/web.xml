@@ -69,4 +69,14 @@
     <servlet-name>SV_login</servlet-name>
     <url-pattern>/SV_login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SV_SuperU</display-name>
+    <servlet-name>SV_SuperU</servlet-name>
+    <servlet-class>controlador.SV_SuperU</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SV_SuperU</servlet-name>
+    <url-pattern>/SV_SuperU</url-pattern>
+  </servlet-mapping>
 </web-app>
