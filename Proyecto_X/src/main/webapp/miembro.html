@@ -28,7 +28,8 @@
             for (let i = 0;i<datos.length;i++){//Como datos (json) actua como un array.
                 html +="<tr><td>"+datos[i].nombre+"</td><td>"+datos[i].apellidos+"</td>";
                 html += "<td>"+datos[i].email+"</td><td>"+datos[i].poblacion+"</td>";
-                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td>";
+                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td>"; 
+                html += "<td>"+datos[i].permiso+"</td>";
                 html += "<td>"+datos[i].edad+"</td><td>"+datos[i].id+"</td></tr>";
             }	
             
@@ -67,8 +68,8 @@
             <li><label>poblacion: </label> <input type="text" name="poblacion"></li>
             <li><label>Permiso: </label> <input type="text" name="permiso"></li>
             <li><label>Foto: </label> <input type="file" name="foto"></li>
-            <li><label>edad: </label> <input type="text" name="edad"></li>
-
+            <li><label>Edad: </label> <input type="text" name="edad"></li>
+            <li><label>pass: </label> <input type="text" name="pass"></li>
             
             <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
             

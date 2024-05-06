@@ -18,7 +18,7 @@ public class Usuario {
 	protected String poblacion;
 	protected int permiso;
 	protected String foto;
-	
+	protected String pass;
 	
 	
 //Constructor vacío.	
@@ -27,8 +27,21 @@ public class Usuario {
 	}
 
 
-	
-//Construcrtor con todo
+
+//Construcrtor con todo	
+	public Usuario(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, String pass) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.poblacion = poblacion;
+		this.permiso = permiso;
+		this.foto = foto;
+		this.pass = pass;
+	}
+
+
+//Constructor sin pass
 	public Usuario(String nombre, String apellidos, String email, String poblacion, int permiso, String foto) {
 		super();
 		this.nombre = nombre;
@@ -41,7 +54,7 @@ public class Usuario {
 
 
 
-//Sin foto y permiso.
+//Sin foto, permiso y pass
 	public Usuario(String nombre, String apellidos, String email, String poblacion) {
 		super();
 		this.nombre = nombre;
@@ -53,10 +66,10 @@ public class Usuario {
 
 
 //Getter and Setter.
+	
 	public String getNombre() {
 		return nombre;
 	}
-
 
 
 
@@ -66,11 +79,9 @@ public class Usuario {
 
 
 
-
 	public String getApellidos() {
 		return apellidos;
 	}
-
 
 
 
@@ -80,11 +91,9 @@ public class Usuario {
 
 
 
-
 	public String getEmail() {
 		return email;
 	}
-
 
 
 
@@ -94,11 +103,9 @@ public class Usuario {
 
 
 
-
 	public String getPoblacion() {
 		return poblacion;
 	}
-
 
 
 
@@ -108,11 +115,9 @@ public class Usuario {
 
 
 
-
 	public int getPermiso() {
 		return permiso;
 	}
-
 
 
 
@@ -122,11 +127,9 @@ public class Usuario {
 
 
 
-
 	public String getFoto() {
 		return foto;
 	}
-
 
 
 
@@ -134,26 +137,35 @@ public class Usuario {
 		this.foto = foto;
 	}
 
+
+
+	public String getPass() {
+		return pass;
+	}
+
+
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
 	
 	
-//ToString	
-	@Override
+	
+	
+@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", poblacion="
-				+ poblacion + ", permiso=" + permiso + ", foto=" + foto + "]";
+				+ poblacion + ", permiso=" + permiso + ", foto=" + foto + ", pass=" + pass + "]";
 	}
 
 
 
-//Metdos
+	//Metdos
 	public void insertarUsuario() throws SQLException {
-		
+			
 		DaoUsuario dao = new DaoUsuario();
 		dao.insertar(this);
-		
-		
-	}
-	
-	
-	
+			
+			
+		}	
 }

@@ -129,7 +129,7 @@ public class Servlet_usuario extends HttpServlet {
 		
 		
 		
-		//Creamos el objeto Usuario y lo insertamos en dao.
+//Creamos el objeto Usuario y lo insertamos en dao.
 		//filename es para la foto
 		Usuario u1 = new Usuario(nombre, apellidos, email, poblacion, permiss, filename);
 		

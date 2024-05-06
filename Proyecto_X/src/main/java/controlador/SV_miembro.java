@@ -71,67 +71,62 @@ public class SV_miembro extends HttpServlet {
 //Abrir a la sesión.		
 		sesion = request.getSession();//desde aqui ya si se puede acceder al HttpSession.
 		
-		String nombre = "Marcos"; //Esto puede venir de un formulario con un request.getparameter
-		sesion.setAttribute("nombre", nombre);
-		sesion.setAttribute("anios", 58);//ejemplo
-		//Esto son los datos que van a quedar guardados en la sesion, en el servidor.  
 		
-		String respuesta = (String) sesion.getAttribute("nombre");
-		//Se hace un parseo a (String) porque en cuanto se guarda en la sesion deja de ser String...por eso hay que parsearlo cuando los queremos leer con el get. 
-		int respuesta2 = (int) sesion.getAttribute("anios");
+		int idSesion = (int)sesion.getAttribute("id");//Esto puede venir de un formulario con un request.getparameter
 	
+		if (idSesion != 0) {//Si idSesion es distinto de 0 se podra ejecutar el programa
 		
-//Cerrar seiso. Esto elimina cualquier dato que haya en la sesion. 
-		HttpSession sesion = request.getSession();
-		sesion.invalidate();
-		
-		
-		
-		
-		
-		int opcion = Integer.parseInt(request.getParameter("op"));
-		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
-
-		
-		switch (opcion) {
-		
-			case 1:{//listar en html.
-				try {
-					DaoMiembro dao = new DaoMiembro();
-					String resultado = dao.listarJonson();
-					out.print(resultado);
-					
-				} catch (SQLException e) {
-					System.out.println("Error en case 1 de SV_miembro");
-					e.printStackTrace();
-				}
-				break;
-			}
 			
+			int opcion = Integer.parseInt(request.getParameter("op"));
+			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
+			System.out.println("la opcion es " +opcion);
 			
-			case 2: { //Modificar...
-				
-				break;
-			}
+			switch (opcion) {
 			
-			
-			case 3: { //listar por tipo
-				int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
+				case 1:{//listar en html.
 					try {
 						DaoMiembro dao = new DaoMiembro();
-						String resultado = dao.listarJonsonTipo(tipo);
+						String resultado = dao.listarJonson();
 						out.print(resultado);
-						dao.listarTipo(tipo);
+						response.sendRedirect("miembro.html");
+						
 					} catch (SQLException e) {
-						System.out.println("Error en case 3 de SV_miembro");
+						System.out.println("Error en case 1 de SV_miembro");
 						e.printStackTrace();
 					}
+					break;
+				}
 				
-				break;
+				
+				case 2: { //Modificar...
+					
+					break;
+				}
+				
+				
+				case 3: { //listar por tipo
+					int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
+						try {
+							DaoMiembro dao = new DaoMiembro();
+							String resultado = dao.listarJonsonTipo(tipo);
+							out.print(resultado);
+							dao.listarTipo(tipo);
+						} catch (SQLException e) {
+							System.out.println("Error en case 3 de SV_miembro");
+							e.printStackTrace();
+						}
+					
+					break;
+				}
+	
 			}
-		
-		
+			
+		}else {
+			System.out.println("No PUEDES PASARRRR");
+			response.sendRedirect("miembro.html");
 		}
+		
+		
 		
 		
 	} 
@@ -153,7 +148,7 @@ public class SV_miembro extends HttpServlet {
 		//int idint = Integer.parseInt(id);
 		String edad = request.getParameter("edad");
 		int edadint = Integer.parseInt(edad);
-
+		String pass = request.getParameter("pass");
 		
 		
 //INCLUIR FOTOS ------------------------------------------------------------------------------	
@@ -189,7 +184,7 @@ public class SV_miembro extends HttpServlet {
 		
 //Creamos el objeto Usuario y lo insertamos en dao.
 //filename es para la foto
-		Miembro m1 = new Miembro(nombre, apellidos, email, poblacion, permiss, filename,edadint);
+		Miembro m1 = new Miembro(nombre, apellidos, email, poblacion, permiss, filename, edadint, pass);
 		
 		
 		
