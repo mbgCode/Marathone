@@ -74,6 +74,11 @@ header{
 }
 
 
+
+
+
+
+
 /* Nav ------------------------------------------------------- */
 #disciplinas{
     margin-bottom: 20px;
@@ -92,31 +97,48 @@ ul img{
 
 
 
-/* main ---------------------------------------------------- */
+
+
+
+
+/* Contenedor inferiror---------------------------------------------------- */
 #ContenedorInferior{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "insertarDep tablaListado tablaListado"
+    ;
+}
+
+
+
+/* ----------------------------------------- */
+
+#insertarDep{
+    grid-area:insertarDep ;
     margin-top: 30px;
     height: 460px;
     background-color: rgb(170, 170, 231); 
     margin-left: 20px;
     border: 3px solid black;
-    border-radius: 5px;
-    margin-right: 60%;
+    border-radius: 5px; 
     width: 360px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-   
-    ;
 }
 
-ul{
+
+#insertarDep ul{
     list-style: none;
     margin: 16px;
+   
 }
 
-li{
+
+#insertarDep li{
     margin-top: 6px;
 }
+
 
 #nombre{
     background-color: rgb(195, 195, 228); 
@@ -126,6 +148,7 @@ li{
     font-style: oblique;
     border: 1px solid black;
 }
+
 
 #descripcion{
     background-color: rgb(195, 195, 228); 
@@ -148,6 +171,7 @@ li{
     border: 1px solid black;
 }
 
+
 #direccion{
     background-color: rgb(195, 195, 228); 
     font-size: 22px;
@@ -156,7 +180,6 @@ li{
     font-style: oblique;
     border: 1px solid black;
 }
-
 
 
 #categoria{
@@ -168,6 +191,7 @@ li{
     font-style: oblique;
     border: 1px solid black;
 }
+
 
 #botonRegistar{
     margin-top: 12px;
@@ -182,6 +206,41 @@ li{
     cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
 }
 
+
 #botonRegistar:hover {
     background-color: #76c09d;  /* Cambiar color de fondo al pasar el ratón */
 }
+
+
+
+
+
+
+/* --------------------------------------- */
+table{
+    grid-area: tablaListado ;
+    margin-top: 30px;
+    height: 460px;
+    background-color: rgb(133, 179, 49); 
+    margin-left: 30px;
+    border: 3px solid black;
+    border-radius: 5px; 
+    width: 300px;
+    overflow: auto;
+    max-height: 460px;
+}
+
+
+#fila{
+    border: 2px solid black;
+    background-color: antiquewhite;
+    width: 100% ;  /* Ocupa todo el ancho del contenedor */
+    height: 50px;
+    
+}
+
+#columnaId{
+    background-color: rgb(193, 215, 170);
+    text-align: center;
+}
+

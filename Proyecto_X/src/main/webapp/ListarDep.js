@@ -6,15 +6,16 @@ function llamada() {
 }
 
 function pintarLista(data) {
-    let html = "<table border=1>";
-    const nombreInput = document.getElementById('nombre')
+    let html = "<table>";
+    
     for (let i = 0; i < data.length; i++) {
-        html += "<tr><td>" + data[i].id + "</td><td>" +data[i].nombre + "</td></tr>";
-        html += "<tr><td>" + data[i].descripcion + "</td><td>" + data[i].telefono + "</td></tr>";
-        html += "<tr><td>" + data[i].direccion + "</td><td>" + data[i].foto + "</td></tr>";
-        html += "<tr><td>" + data[i].categoria + "</td>";
-        html += "<td><a href='insertarDeporte.html?id=" + data[i].id + "&op=2'>Editar</a></td></tr>";
+        html += "<tr id='fila'><td id='columnaId'>" + data[i].id + "</td><td id = 'columnaNom'>" + data[i].nombre + "</td>";
+        html += "<td id = 'columnaDesc'>" + data[i].descripcion + "</td><td id = 'columnaTel'>" + data[i].telefono + "</td>";
+        html += "<td id = 'columnaDir'>" + data[i].direccion + "</td><td id = 'columnaFoto'>" + data[i].foto + "</td>";
+        html += "<td id = 'columnaCate'>" + data[i].categoria + "</td>";
+        html += "<td id = 'columnaEdit'><a href='insertarDeporte.html?id=" + data[i].id + "&op=2'>Editar</a></td></tr>";
     }   
+
 
     html += "</table>";    
     
@@ -24,7 +25,5 @@ function pintarLista(data) {
 
 
 window.onload = function() {
-    
-
     llamada();  
 }
