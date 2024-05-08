@@ -105,6 +105,8 @@ ul img{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+   
+    ;
 }
 
 ul{
@@ -168,9 +170,6 @@ li{
 }
 
 #botonRegistar{
-    margin: 0 auto;
-
-
     margin-top: 12px;
     border-radius: 5px;
     background-color: #98dbbc; 

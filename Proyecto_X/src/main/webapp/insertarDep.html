@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="insertarDep.css">
-
+    <script src="ListarDep.js"></script>
 </head>
 <body>
     
@@ -15,7 +15,7 @@
 
             <header>
                 <div id="logo">
-                    <img src="/img index/bebida-energetica.png" alt="Logo de air bnb">
+                    <img src="/Proyecto_X/img index/bebida-energetica.png" alt="Bebida energética">
                 </div>
 
                 <div id="centro"> 
@@ -26,12 +26,12 @@
                 <div id="login">   
                     <label for="fotoPersonal"></label>
                     <div id="fotoPersonal">
-                        <img src="/img index/fotoLofgin.png" alt="Foto personal">
+                        <img src="/Proyecto_X//img index/fotoLofgin.png" alt="Foto personal">
                     </div>
 
                     <label for="desplegable"></label>
                     <div id="desplegable">
-                        <img src="/img index/desplegable.png" alt="Triple linea"> 
+                        <img src="/Proyecto_X//img index/desplegable.png" alt="Triple linea"> 
                     </div>
                 </div>    
             </header>
@@ -41,28 +41,28 @@
             <nav>
                 <ul id="disciplinas">
                     <li>
-                        <img src="/img index/pesa (1).png" alt="">
+                        <img src="/Proyecto_X//img index/pesa (1).png" alt="">
                     </li>
                     <li>
-                        <img src="/img index/jugador-de-futbol.png" alt="logo campo de futbol">
+                        <img src="/Proyecto_X//img index/jugador-de-futbol.png" alt="logo campo de futbol">
                     </li>
                     <li>
-                        <img src="/img index/jugador-de-baloncesto.png" alt="">
+                        <img src="/Proyecto_X//img index/jugador-de-baloncesto.png" alt="">
                     </li>
                     <li>
-                        <img src="/img index/corriendo (1).png" alt="">
+                        <img src="/Proyecto_X//img index/corriendo (1).png" alt="">
                     </li>
                     <li>
-                        <img src="/img index/karate.png" alt="">
+                        <img src="/Proyecto_X//img index/karate.png" alt="">
                     </li>
                     <li>
-                        <img src="/img index/natacion.png" alt="">
+                        <img src="/Proyecto_X//img index/natacion.png" alt="">
                     </li>
                     <li>
-                        <img src="/img index//bailarin.png" alt="">
+                        <img src="/Proyecto_X//img index//bailarin.png" alt="">
                     </li>
                     <li>
-                        <img src="/img index/tenis.png" alt="">
+                        <img src="/Proyecto_X//img index/tenis.png" alt="">
                     </li>     
             </nav>
 
@@ -72,9 +72,9 @@
 
         
 
-        <main>
+        <main id="ContenedorInferior">
 
-            <form id="ContenedorInferior">
+            <form name="Insertar Deporte" action="/controlador/Sv_deporte" method="post" enctype="multipart/form-data">
                 <ul>
                     <li>
                         <label for="nombre">Nombre:</label>
@@ -108,12 +108,44 @@
                     <li>
                         
                     </li>
-
-             
-             
                 </ul>
+            </form>   
+            
 
-            </form>    
+            
+            <h1>Listado</h1>
+            <div id="listado">
+            </div>
+
+
+            <div id="listado1">
+                <table border="2">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Foto</th>
+                        <th>Categoría</th>
+                
+                    </tr>
+
+                    <tr id="filasListado">
+                        <td id="id"></td>
+                        <td id="nombre"></td>
+                        <td id="descripcion"></td>
+                        <td id="telefono"></td>
+                        <td id="direccion"></td>
+                        <td id="foto"></td>
+                        <td id="categoria"></td>
+                    </tr>
+                </table>
+
+
+
+            </div>
+
 
         </main>
 

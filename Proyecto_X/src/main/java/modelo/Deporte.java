@@ -140,10 +140,12 @@ public class Deporte {
 	
 //Metodos-------------------------------------------------
 
+	//Insertar deporte
 	public void insertarDep () throws SQLException {
 		DaoDeporte dao = new DaoDeporte();
 		dao.insertarDep(this);
 	}
+	
 	
 
 	

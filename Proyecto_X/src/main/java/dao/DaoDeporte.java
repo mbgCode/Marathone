@@ -2,8 +2,13 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import com.google.gson.Gson;
+
+import modelo.Administrador;
 import modelo.Deporte;
 
 public class DaoDeporte {
@@ -36,6 +41,44 @@ public class DaoDeporte {
 	}
 	
 	
+	//Peticion para listar todo
+	public ArrayList <Deporte>listar() throws SQLException{
+		
+		String query = "SELECT * FROM deporte";
+		System.out.println("estamos en dao listar");
+		PreparedStatement ps = con.prepareStatement(query);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		ArrayList<Deporte>ls=null;
+		
+		while((rs.next())) {
+			if (ls == null) {
+				ls = new ArrayList <Deporte>(); 
+			}	
+			ls.add(new Deporte(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
+					rs.getString(5), rs.getString(6), rs.getString(7)));
+			System.out.println(ls.toString());
+			System.out.println("---------------------------------------------------");
+		}
+		
+		return ls;		
+	}
 	
-
+	
+	
+	//Funcion json para listar los datos en cliente.
+	public String ListarJonson() throws SQLException {
+		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
+		String txtJson = "";
+		
+		Gson gson = new Gson ();
+		
+		txtJson = gson.toJson(this.listar());//Llamamos a la funcion listar con los datos el ArrayList<usuario>
+		
+		return txtJson;
+	} 	
+	
+	
+	
 }

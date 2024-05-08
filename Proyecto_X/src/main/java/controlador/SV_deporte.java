@@ -12,10 +12,13 @@ import modelo.Deporte;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.SQLException;
+
+import dao.DaoDeporte;
 
 /**
  * Servlet implementation class SV_deporte
@@ -42,15 +45,39 @@ public class SV_deporte extends HttpServlet {
     public SV_deporte() {
         super();
         
+        
     }
-
-    
-    
+ 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
+		
+		int opcion =Integer.parseInt(request.getParameter("op")) ;
+		
+		switch (opcion) {
+			
+		
+		case 1:{//Listar Deportes
+			
+			
+			try {
+				DaoDeporte dao = new DaoDeporte();
+				String resultado = dao.ListarJonson();
+				System.out.println("este es el json "+resultado);
+				out.print(resultado);//Recibimos el listado.
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			break;
+		}
+		}
+		
 	}
 
 	
@@ -60,7 +87,7 @@ public class SV_deporte extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("InsertarDeporte.html");
+		response.sendRedirect("insertarDep.html");
 		
 //Recogemos todos lo parametros desde el html. 
 		String nombre = request.getParameter("nombre");
@@ -86,6 +113,7 @@ public class SV_deporte extends HttpServlet {
 		
 //Creamos el objeto para Deporte.
 		Deporte d1 = new Deporte(telefono, nombre, descripcion, telefono, direccion, filename, categoria);
+		
 		
 		
 // Insertqamos el deporte en el objeto.
