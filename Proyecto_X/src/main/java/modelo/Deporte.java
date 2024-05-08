@@ -14,7 +14,7 @@ public class Deporte {
 	private int telefono;
 	private String direccion;
 	private String foto;
-	
+	private String categoria;
 	
 	
 //Constructor vacío.	
@@ -23,18 +23,6 @@ public class Deporte {
 	}
 	
 	
-	
-// Constructor con todos los atributos.	
-	public Deporte(int id, String nombre, String descripcion, int telefono, String domicilio, String foto) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.telefono = telefono;
-		this.direccion = domicilio;
-		this.foto = foto;
-	}
-
 
 //Constructor sin ID.
 	public Deporte(String nombre, String descripcion, int telefono, String domicilio, String foto) {
@@ -46,6 +34,23 @@ public class Deporte {
 		this.foto = foto;
 	}
 
+
+// Constructor con todos los atributos.	
+	public Deporte(int id, String nombre, String descripcion, int telefono, String direccion, String foto,
+			String categoria) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.foto = foto;
+		this.categoria = categoria;
+	}
+
+
+
+	
 
 
 	public int getId() {
@@ -96,14 +101,14 @@ public class Deporte {
 
 
 
-	public String getDomicilio() {
+	public String getDireccion() {
 		return direccion;
 	}
 
 
 
-	public void setDomicilio(String domicilio) {
-		this.direccion = domicilio;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 
@@ -120,6 +125,19 @@ public class Deporte {
 
 
 
+	public String getCategoria() {
+		return categoria;
+	}
+
+
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	
+		
+	
 //Metodos-------------------------------------------------
 
 	public void insertarDep () throws SQLException {

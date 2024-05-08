@@ -104,11 +104,11 @@ public class SV_administrador extends HttpServlet {
 				case 3 :{
 					Administrador a1 = new Administrador();
 					int id = Integer.parseInt(request.getParameter("idadministrador"));
-					System.out.println("NO DEBERIAS ESTAR AQUI");
-					System.out.println("la opcion deberia ser la dos y es la "+opcion);
+					
 					try {
 						
 						a1.eliminar(id);
+						
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

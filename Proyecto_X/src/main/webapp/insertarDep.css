@@ -1,0 +1,188 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+
+#ContenedorSuperior{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "header"
+    "nav"
+    
+    ; 
+}
+
+/* Header--------------------------------------------------------- */
+header{
+    grid-area: header;
+    display: flex;  
+}
+
+
+#logo{
+    background-color: rgb(255, 255, 255);
+    width: 35%;
+    height: 100px;
+}
+
+#logo img{
+    width: 75px;
+    padding-top: 2%;
+    margin-left: 8%;  
+}
+
+
+
+/* Titulo central */
+#centro{
+    
+    width: auto;
+    height: 100px;
+    width: 35%; 
+}
+
+
+#centro h1{
+    text-align: center;
+    margin-top:30px;
+}
+
+
+/* Logueo */
+#login{   
+    width: 35%;
+    height: 100px; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+   
+}
+
+#fotoPersonal img{
+    height:90px;
+    margin-right: 20px;
+    margin-top: 5px;
+    border-radius: 100%;
+}
+
+#desplegable{
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+
+/* Nav ------------------------------------------------------- */
+#disciplinas{
+    margin-bottom: 20px;
+    list-style: none;
+    height: 60px;
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content: space-around;
+
+}
+
+ul img{
+    width: 60px;
+    margin-top: 10px;   
+}
+
+
+
+/* main ---------------------------------------------------- */
+#ContenedorInferior{
+    margin-top: 30px;
+    height: 460px;
+    background-color: rgb(170, 170, 231); 
+    margin-left: 20px;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin-right: 60%;
+    width: 360px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+ul{
+    list-style: none;
+    margin: 16px;
+}
+
+li{
+    margin-top: 6px;
+}
+
+#nombre{
+    background-color: rgb(195, 195, 228); 
+    font-size: 22px;
+    width: 100%;
+    min-width: 30px;
+    font-style: oblique;
+    border: 1px solid black;
+}
+
+#descripcion{
+    background-color: rgb(195, 195, 228); 
+    font-size: 16px;
+    width: 100%;
+    min-width: 30px;
+    font-style: oblique;
+    border: 1px solid black;
+    height: 100px;
+    resize: none; /* Bloquea la capacidad de redimensionar */
+}
+
+
+#telefono{
+    background-color: rgb(195, 195, 228); 
+    font-size: 22px;
+    width: 100%;
+    min-width: 30px;
+    font-style: oblique;
+    border: 1px solid black;
+}
+
+#direccion{
+    background-color: rgb(195, 195, 228); 
+    font-size: 22px;
+    width: 100%;
+    min-width: 30px;
+    font-style: oblique;
+    border: 1px solid black;
+}
+
+
+
+#categoria{
+
+    background-color: rgb(195, 195, 228); 
+    font-size: 22px;
+    width: 100%;
+    min-width: 30px;
+    font-style: oblique;
+    border: 1px solid black;
+}
+
+#botonRegistar{
+    margin: 0 auto;
+
+
+    margin-top: 12px;
+    border-radius: 5px;
+    background-color: #98dbbc; 
+    color: rgb(0, 0, 0); 
+    padding: 10px 20px; /* Espaciado interno del botón */
+    text-align: center; /* Alineación del texto */
+    display: inline-block; /* Para que se comporte como un bloque en línea */
+    font-size: 16px; /* Tamaño del texto */
+    border: none; /* Quitar borde */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+}
+
+#botonRegistar:hover {
+    background-color: #76c09d;  /* Cambiar color de fondo al pasar el ratón */
+}
