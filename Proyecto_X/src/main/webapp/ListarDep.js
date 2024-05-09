@@ -7,7 +7,7 @@ function llamada() {
 
 function pintarLista(data) {
     let html = "<table>";
-    
+         "<tr><th>Id</th> <th>Deporte</th> <th>descripcion</th> </tr>"
     for (let i = 0; i < data.length; i++) {
         html += "<tr id='fila'><td id='columnaId'>" + data[i].id + "</td><td id = 'columnaNom'>" + data[i].nombre + "</td>";
         html += "<td id = 'columnaDesc'>" + data[i].descripcion + "</td><td id = 'columnaTel'>" + data[i].telefono + "</td>";
@@ -26,4 +26,4 @@ function pintarLista(data) {
 
 window.onload = function() {
     llamada();  
-}
+} 
