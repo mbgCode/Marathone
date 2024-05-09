@@ -55,48 +55,57 @@ public class SV_deporte extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 		
-		int opcion =Integer.parseInt(request.getParameter("op")) ;
-		System.out.println("opcion "+opcion);
-		switch (opcion) {
-			
 		
-		case 1:{//Listar Deportes
+		String op = request.getParameter("op");
+		
+		
+		if (!op.equals("")) {//si no es null op 
 			
-			
-			try {
-				DaoDeporte dao = new DaoDeporte();
-				String resultado = dao.ListarJonson();
-				System.out.println("este es el json "+resultado);
-				out.print(resultado);//Recibimos el listado.
+			int opcion =Integer.parseInt(request.getParameter("op")) ;
+			switch (opcion) {
 				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			
+			case 1:{//Listar Deportes
+				
+				
+				try {
+					DaoDeporte dao = new DaoDeporte();
+					String resultado = dao.ListarJonson();
+				
+					out.print(resultado);//Recibimos el listado.
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				break;
+				
+				
+				
+			}case 2 :{//UPdate.
+				
+				int id = Integer.parseInt(request.getParameter("id"));
+				Deporte d = new Deporte();
+				
+				try {
+					d.modId(id);//Peticion de listado por id
+					String resultado = d.dameJson();
+					System.out.println("case 2 para json: "+resultado);
+					out.print(resultado);//Devolucion de listado para pintar por id.
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 			
-			break;
 			
-			
-			
-		}case 2 :{//UPdate.
-			
-			int id = Integer.parseInt(request.getParameter("id"));
-			Deporte d = new Deporte();
-			System.out.println("pasa por la OPCION 2");
-			try {
-				d.modId(id);//Peticion de listado por id
-				String resultado = d.dameJson();
-				System.out.println(resultado);
-				out.print(resultado);//Devolucion de listado para pintar por id.
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
+		}
 			
-		}
 		
-		
-		}
+
 		
 	}
 
@@ -134,16 +143,35 @@ public class SV_deporte extends HttpServlet {
 //Creamos el objeto para Deporte.
 		Deporte d1 = new Deporte(telefono, nombre, descripcion, telefono, direccion, filename, categoria);
 		
+		String ids = request.getParameter("id");
+		
+		
+	
 		
 		
 // Insertqamos el deporte en el objeto.
 		
-		try {
-			d1.insertarDep();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (ids.equals("")) { //Si id es "" es que es un nuevo deporte 
+			try {
+				d1.insertarDep();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+		}else {//SI tiene id asignado quiere decir que es un update
+			int id =Integer.parseInt(request.getParameter("id"));
+				try {
+					d1.setId(id);
+					d1.update();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}		
 		}
+		
+		
+		
 		
 	}
 

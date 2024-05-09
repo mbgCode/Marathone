@@ -76,6 +76,8 @@
 
             <form id="insertarDep" name="Insertar Deporte" action="SV_deporte" method="post" enctype="multipart/form-data">
                 <ul>
+                    <input type="hidden" id="id" name="id">
+
                     <li>
                         <label for="nombre">Nombre:</label>
                         <input id="nombre" type="text" name="nombre">
@@ -103,9 +105,11 @@
                         <label for="foto">Foto:</label>
                         <input id="file" type="file" name="foto">
                     </li>
+
+                
+                    <li>
                         <label for="Refistrar"></label>
                         <input id="botonRegistar" type="submit" value="Registrar">
-                    <li>
                         
                     </li>
                 </ul>

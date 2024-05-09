@@ -41,6 +41,8 @@ public class DaoDeporte {
 	}
 	
 	
+	
+	
 	//Llamada deporte por Id para Update
 	public Deporte listarPorId(int id) throws SQLException{
 		
@@ -53,14 +55,37 @@ public class DaoDeporte {
 		ResultSet rs = ps.executeQuery();
 		
 		rs.next();
-		Deporte d = new  Deporte(rs.getString("nombre"), rs.getString("descripcion"), rs.getInt("telefono")
-				, rs.getString("direccion"), rs.getString("foto"), rs.getString("categoria"));
 		
-		
+		Deporte d = new Deporte(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
+				rs.getString(5), rs.getString(6), rs.getString(7));
+		System.out.println("en dao "+rs.getString(7));
 			ps.close();
-		
-		
+	
 	return d;	
+		
+	}
+	
+	
+	
+	
+	//Update del id concreto.
+	public void update (Deporte d) throws SQLException {
+
+		String sql = "UPDATE deporte SET nombre=?,descripcion=?,telefono=?,direccion=?,foto=?,categoria=?"
+				+ "WHERE iddeporte=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ps.setString(1, d.getNombre());
+		ps.setString(2, d.getDescripcion());
+		ps.setInt(3,d.getTelefono());
+		ps.setString(4, d.getDireccion());
+		ps.setString(5, d.getFoto());
+		ps.setString(6,d.getCategoria());
+		ps.setInt(7, d.getId());
+		
+		int file = ps.executeUpdate();
+	
+		ps.close();
 		
 	}
 	

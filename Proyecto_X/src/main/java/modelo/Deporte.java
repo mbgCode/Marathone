@@ -65,6 +65,12 @@ public class Deporte {
 
 
 
+		
+	
+	
+	
+//Metodos-------------------------------------------------
+
 	public int getId() {
 		return id;
 	}
@@ -147,18 +153,15 @@ public class Deporte {
 		this.categoria = categoria;
 	}
 
-	
-//toString	
+
+
 	@Override
 	public String toString() {
 		return "Deporte [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", telefono=" + telefono
-				+ ", direccion=" + direccion + ", foto=" + foto + "]";
+				+ ", direccion=" + direccion + ", foto=" + foto + ", categoria=" + categoria + "]";
 	}
-		
-	
-	
-	
-//Metodos-------------------------------------------------
+
+
 
 	//Insertar deporte
 	public void insertarDep () throws SQLException {
@@ -168,6 +171,13 @@ public class Deporte {
 	
 	
 	
+	//Update del id concreto.
+	public void update() throws SQLException {
+		DaoDeporte dao = new DaoDeporte();
+		dao.update(this);
+	}
+	
+	
 	
 	//Recibimos el id del Form y llamamos al dao para listar por id
 	public void modId(int id) throws SQLException {
@@ -175,13 +185,16 @@ public class Deporte {
 		
 		DaoDeporte dao = new DaoDeporte();
 		Deporte d = dao.listarPorId(id);
-		
+		System.out.println("esto es puro "+d);
 		this.setNombre(d.getNombre());
 		this.setDescripcion(d.getDescripcion());
 		this.setTelefono(d.getTelefono());
 		this.setDireccion(d.getDireccion());
-		this.setFoto(d.getCategoria());
-			
+		this.setFoto(d.getFoto());
+		this.setCategoria(d.getCategoria());
+		this.setId(d.getId());
+		
+		
 	}
 
 	
