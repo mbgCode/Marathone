@@ -23,7 +23,7 @@ public class DaoDeporte {
 			
 	}
 	
-	
+	//Insertar deporte
 	public void insertarDep (Deporte d) throws SQLException {
 		
 		String sql = "INSERT INTO deporte (nombre,descripcion,telefono,direccion,foto,categoria) VALUES (?,?,?,?,?,?)";
@@ -41,11 +41,36 @@ public class DaoDeporte {
 	}
 	
 	
+	//Llamada deporte por Id para Update
+	public Deporte listarPorId(int id) throws SQLException{
+		
+		String query = "SELECT * FROM deporte WHERE iddeporte = ?";
+	
+		PreparedStatement ps = con.prepareStatement(query);
+		
+		ps.setInt(1, id);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		Deporte d = new  Deporte(rs.getString("nombre"), rs.getString("descripcion"), rs.getInt("telefono")
+				, rs.getString("direccion"), rs.getString("foto"), rs.getString("categoria"));
+		
+		
+			ps.close();
+		
+		
+	return d;	
+		
+	}
+	
+	
+	
 	//Peticion para listar todo
 	public ArrayList <Deporte>listar() throws SQLException{
 		
-		String query = "SELECT * FROM deporte";
-		System.out.println("estamos en dao listar");
+		String query = "SELECT * FROM deporte ORDER BY iddeporte DESC";
+	
 		PreparedStatement ps = con.prepareStatement(query);
 		
 		ResultSet rs = ps.executeQuery();
@@ -58,8 +83,7 @@ public class DaoDeporte {
 			}	
 			ls.add(new Deporte(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
 					rs.getString(5), rs.getString(6), rs.getString(7)));
-			System.out.println(ls.toString());
-			System.out.println("---------------------------------------------------");
+			
 		}
 		
 		return ls;		

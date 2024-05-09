@@ -56,7 +56,7 @@ public class SV_deporte extends HttpServlet {
 		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 		
 		int opcion =Integer.parseInt(request.getParameter("op")) ;
-		
+		System.out.println("opcion "+opcion);
 		switch (opcion) {
 			
 		
@@ -75,7 +75,27 @@ public class SV_deporte extends HttpServlet {
 			}
 			
 			break;
+			
+			
+			
+		}case 2 :{//UPdate.
+			
+			int id = Integer.parseInt(request.getParameter("id"));
+			Deporte d = new Deporte();
+			System.out.println("pasa por la OPCION 2");
+			try {
+				d.modId(id);//Peticion de listado por id
+				String resultado = d.dameJson();
+				System.out.println(resultado);
+				out.print(resultado);//Devolucion de listado para pintar por id.
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
+		
+		
 		}
 		
 	}
