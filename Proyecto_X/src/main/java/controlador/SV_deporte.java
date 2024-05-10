@@ -12,10 +12,13 @@ import modelo.Deporte;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.SQLException;
+
+import dao.DaoDeporte;
 
 /**
  * Servlet implementation class SV_deporte
@@ -39,35 +42,88 @@ public class SV_deporte extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+	
     public SV_deporte() {
         super();
-        
-    }
-
-    
-    
+        }
+ 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
+		
+		String op = request.getParameter("op");//Recibimos el valor de op en tipo string
+		
+		
+		if (!op.equals("")) {//si op no es null se ejecuta 
+			
+		int opcion =Integer.parseInt(request.getParameter("op")) ;
+			
+		switch (opcion) {
+			case 1:{//Listar Deportes
+				try {
+					DaoDeporte dao = new DaoDeporte();
+					String resultado = dao.ListarJonson();
+					out.print(resultado);//Recibimos el listado.
+				} catch (SQLException e) {
+					// TODO Auto-generated catch blockA
+					e.printStackTrace();
+				}
+				break;			
+				
+				
+			}case 2 :{//UPdate.
+				int id = Integer.parseInt(request.getParameter("id"));
+				Deporte d = new Deporte();
+				try {
+					d.modId(id);//Peticion de listado por id
+					String resultado = d.dameJson();
+					System.out.println("case 2 para json: "+resultado);
+					out.print(resultado);//Devolucion de listado para pintar por id.
+				}catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			break;
+			
+			
+			}case 3:{//Borrar en la BD por ID
+				int id = Integer.parseInt(request.getParameter("id"));		
+				Deporte d = new Deporte();
+				System.out.println("estoy aqui en borrar");
+				try {
+					d.borrar(id);
+					DaoDeporte dao = new DaoDeporte();
+					String resultado = dao.ListarJonson();
+					System.out.println(resultado);
+					out.print(resultado);//Recibimos el listado.
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+						
+			}
+			
+		}
+		}		
 	}
 
-	
-	
 	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("InsertarDeporte.html");
+		
+		response.sendRedirect("insertarDep.html");
 		
 //Recogemos todos lo parametros desde el html. 
 		String nombre = request.getParameter("nombre");
 		String descripcion = request.getParameter("descripcion");
 		int telefono = Integer.parseInt(request.getParameter("telefono"));
 		String direccion = request.getParameter("direccion");
-		
+		String categoria = request.getParameter("categoria");
 	
 		
 //Recibimos foto.
@@ -80,22 +136,36 @@ public class SV_deporte extends HttpServlet {
 		File file = new File (uploads,filename);
 		//Copiamos los datos del archivo dentro de la carpeta utilizando el BUFFER.
 		Files.copy(inpt,file.toPath());
-		
-	
-		
+				
 		
 //Creamos el objeto para Deporte.
-		Deporte d1 = new Deporte (nombre,descripcion,telefono,direccion,filename);
+		Deporte d1 = new Deporte(telefono, nombre, descripcion, telefono, direccion, filename, categoria);
 		
+		String ids = request.getParameter("id");
+		
+				
 		
 // Insertqamos el deporte en el objeto.
 		
-		try {
-			d1.insertarDep();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (ids.equals("")) { //Si id es "" es que es un nuevo deporte 
+			try {
+				d1.insertarDep();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+		}else {//SI tiene id asignado quiere decir que es un update
+			int id =Integer.parseInt(request.getParameter("id"));
+				try {
+					d1.setId(id);
+					d1.update();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}		
 		}
+			
 		
 	}
 

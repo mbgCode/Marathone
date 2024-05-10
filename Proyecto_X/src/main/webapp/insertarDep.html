@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="insertarDep.css">
+    <script src="insertarDep.js" defer></script>
+</head>
+<body>
+    
+    <div id="ContenedorPadre">
+
+        <div id="ContenedorSuperior">
+
+            <header>
+                <div id="logo">
+                    <img src="/Proyecto_X/img index/bebida-energetica.png" alt="Bebida energética">
+                </div>
+
+                <div id="centro"> 
+                    <h1>MARAZONE</h1>
+                </div>
+
+
+                <div id="login">   
+                    <label for="fotoPersonal"></label>
+                    <div id="fotoPersonal">
+                        <img src="/Proyecto_X//img index/fotoLofgin.png" alt="Foto personal">
+                    </div>
+
+                    <label for="desplegable"></label>
+                    <div id="desplegable">
+                        <img src="/Proyecto_X//img index/desplegable.png" alt="Triple linea"> 
+                    </div>
+                </div>    
+            </header>
+
+
+
+            <nav>
+                <ul id="disciplinas">
+                    <li>
+                        <img src="/Proyecto_X//img index/pesa (1).png" alt="">
+                    </li>
+                    <li>
+                        <img src="/Proyecto_X//img index/jugador-de-futbol.png" alt="logo campo de futbol">
+                    </li>
+                    <li>
+                        <img src="/Proyecto_X//img index/jugador-de-baloncesto.png" alt="">
+                    </li>
+                    <li>
+                        <img src="/Proyecto_X//img index/corriendo (1).png" alt="">
+                    </li>
+                    <li>
+                        <img src="/Proyecto_X//img index/karate.png" alt="">
+                    </li>
+                    <li>
+                        <img src="/Proyecto_X//img index/natacion.png" alt="">
+                    </li>
+                    <li>
+                        <img src="/Proyecto_X//img index//bailarin.png" alt="">
+                    </li>
+                    <li>
+                        <img src="/Proyecto_X//img index/tenis.png" alt="">
+                    </li>     
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        <main id="ContenedorInferior">
+
+            <form id="insertarDep" name="Insertar Deporte" action="SV_deporte" method="post" enctype="multipart/form-data">
+                <ul>
+                    <input type="hidden" id="id" name="id">
+
+                    <li>
+                        <label for="nombre">Nombre:</label>
+                        <input id="nombre" type="text" name="nombre">
+                    </li>
+                    <li>
+                        <label for="descripcion">Descripción:</label>
+                        <textarea name="descripcion" id="descripcion"></textarea>
+
+                    </li>
+                    <li>
+                        <label for="telefono">Teléfono:</label>
+                        <input id="telefono" type="text" name="telefono">
+                    </li>
+                    <li>
+                        <label for="direccion">Dirección:</label>
+                        <input id="direccion" type="text" name="direccion">
+                    </li>
+ 
+                    <li>
+                        <label for="categoria">Categoría:</label>
+                        <input id="categoria" type="text" name="categoria">
+                    </li>
+
+                    <li>
+                        <label for="foto">Foto:</label>
+                        <input id="file" type="file" name="foto">
+                    </li>
+
+                
+                    <li>
+                        <label for="Refistrar"></label>
+                        <input id="botonRegistar" type="submit" value="Registrar">
+                        
+                    </li>
+                </ul>
+            </form>   
+            
+
+
+           
+            <div id="listado">
+            </div>
+
+            
+        </main>
+
+
+         
+
+
+        
+    </div>
+
+
+   
+
+</body>
+</html>
