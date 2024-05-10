@@ -23,6 +23,8 @@ public class DaoDeporte {
 			
 	}
 	
+	
+	
 	//Insertar deporte
 	public void insertarDep (Deporte d) throws SQLException {
 		
@@ -42,8 +44,7 @@ public class DaoDeporte {
 	
 	
 	
-	
-	//Llamada deporte por Id para Update
+	//Llamada deporte por Id para hacer Update
 	public Deporte listarPorId(int id) throws SQLException{
 		
 		String query = "SELECT * FROM deporte WHERE iddeporte = ?";
@@ -64,7 +65,6 @@ public class DaoDeporte {
 	return d;	
 		
 	}
-	
 	
 	
 	
@@ -116,7 +116,7 @@ public class DaoDeporte {
 	
 	
 	
-	//Funcion json para listar los datos en cliente.
+	//Funcion json para listar todos los datos en cliente.
 	public String ListarJonson() throws SQLException {
 		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 		String txtJson = "";
@@ -129,5 +129,20 @@ public class DaoDeporte {
 	} 	
 	
 	
+	//Borrar datos por ID.
+	public void borrar (int id) throws SQLException {
+		
+		String query = "DELETE FROM deporte where iddeporte=?";
+		
+		PreparedStatement ps = con.prepareStatement(query);
+		
+		ps.setInt(1,id);
+		
+		int file = ps.executeUpdate();
+
+		
+		ps.close();
+		
+	}
 	
 }

@@ -210,4 +210,11 @@ public class Deporte {
 		return txtJson;
 	}
 	
+	
+	//Borrar datos por id
+	public void borrar (int id) throws SQLException {
+		DaoDeporte dao = new DaoDeporte();
+		dao.borrar(id);
+	}
+	
 }

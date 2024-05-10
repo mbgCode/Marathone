@@ -220,10 +220,9 @@ ul img{
     height: 460px;
     max-height: 460px;
     background-color: rgb(170, 170, 231); 
-   
     border: 3px solid black;
     border-radius: 5px; 
-    width: 800px;
+    width: 1000px;
     overflow: scroll;/* Para hacer scroll en la tabla */
 }
 

@@ -2,9 +2,10 @@ function llamada(id,op) {
 
     fetch ('SV_deporte?id='+id+"&op="+op)
     .then (response => response.json() )
-    .then (data => pintarFormulario(data))
+    .then (data => pintarFormulario(data,op))
 
 }
+
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -14,17 +15,17 @@ function getParameterByName(name) {
 }
 
 
-function pintarFormulario(data) {
-    document.getElementById("id").value = data.id;
-    document.getElementById("nombre").value = data.nombre;
-    document.getElementById("descripcion").value = data.descripcion;
-    document.getElementById("telefono").value = data.telefono;
-    document.getElementById("direccion").value = data.direccion;
-    document.getElementById("categoria").value = data.categoria;
-
+function pintarFormulario(data,op) {
+    if(op==2){/* Si opcion es igual 2 es que se quieren modificar datos */
+        document.getElementById("id").value = data.id;
+        document.getElementById("nombre").value = data.nombre;
+        document.getElementById("descripcion").value = data.descripcion;
+        document.getElementById("telefono").value = data.telefono;
+        document.getElementById("direccion").value = data.direccion;
+        document.getElementById("categoria").value = data.categoria;
+    }
 
 }
-
 
 
 function llamada1() {    
@@ -32,6 +33,7 @@ function llamada1() {
     .then(response => response.json())
     .then(data => pintarLista(data));
 }
+
 
 function pintarLista(data) {
     let html = "<table>";
@@ -42,12 +44,11 @@ function pintarLista(data) {
         html += "<td id = 'columnaDir'>" + data[i].direccion + "</td><td id = 'columnaFoto'>" + data[i].foto + "</td>";
         html += "<td id = 'columnaCate'>" + data[i].categoria + "</td>";
         html += "<td id = 'columnaEdit'><a href='insertarDep.html?id=" + data[i].id + "&op=2'>Editar</a></td>";
-        html += "<td><a href='ListarDep.html?id="+ data[i].id +"&op=3'>Borrar</a></td></tr>";
+        html += "<td><a href='insertarDep.html?id="+ data[i].id +"&op=3'>Borrar</a></td></tr>";
     }   
 
 
     html += "</table>";    
-    
     document.getElementById("listado").innerHTML = html;
 }
 
@@ -55,10 +56,14 @@ function pintarLista(data) {
 
 
 window.onload = function(){
+    
     llamada1();
+
     let id = getParameterByName("id")
     let op = getParameterByName("op")
-  
 
     llamada(id,op);
+
+    llamada1();//s vuelve a refrescar la lista para estar actualizada.
+    
 }
