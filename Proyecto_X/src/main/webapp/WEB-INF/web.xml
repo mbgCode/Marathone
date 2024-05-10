@@ -59,4 +59,24 @@
     <servlet-name>SV_deporte</servlet-name>
     <url-pattern>/SV_deporte</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SV_login</display-name>
+    <servlet-name>SV_login</servlet-name>
+    <servlet-class>controlador.SV_login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SV_login</servlet-name>
+    <url-pattern>/SV_login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SV_SuperU</display-name>
+    <servlet-name>SV_SuperU</servlet-name>
+    <servlet-class>controlador.SV_SuperU</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SV_SuperU</servlet-name>
+    <url-pattern>/SV_SuperU</url-pattern>
+  </servlet-mapping>
 </web-app>
