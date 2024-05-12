@@ -25,7 +25,7 @@ header{
 #logo{
     background-color: rgb(255, 255, 255);
     width: 35%;
-    height: 100px;
+    height:80px;
 }
 
 #logo img{
@@ -40,7 +40,7 @@ header{
 #centro{
     
     width: auto;
-    height: 100px;
+    height: 80px;
     width: 35%; 
 }
 
@@ -54,7 +54,7 @@ header{
 /* Logueo */
 #login{   
     width: 35%;
-    height: 100px; 
+    height: 80px; 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
@@ -62,7 +62,7 @@ header{
 }
 
 #fotoPersonal img{
-    height:90px;
+    height:80px;
     margin-right: 20px;
     margin-top: 5px;
     border-radius: 100%;
@@ -77,23 +77,34 @@ header{
 
 
 /* Nav ------------------------------------------------------- */
-#disciplinas{
-    margin-bottom: 20px;
-    list-style: none;
-    height: 60px;
+#navegador{
+    grid-area: nav;
     display: flex;
-    flex-wrap:nowrap;
+    flex-wrap: nowrap;
+    background-color: rgb(250, 250, 250);
     justify-content: space-around;
-
+    height: 100%;
+    align-items: center;
+   
 }
 
-ul img{
-    width: 60px;
-    margin-top: 10px;   
+#BotonNav{
+    background-color: #4CAF50; /* Color de fondo */
+    border: none;
+    color: rgb(242, 242, 242);
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px; 
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave */
 }
 
 
-
+#BotonNav:hover{
+    background-color: #2d8b32; /* Cambio de color al pasar el cursor */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra al pasar el cursor */
+}
 
 
 
@@ -193,7 +204,7 @@ ul img{
 #botonRegistar{
     margin-top: 12px;
     border-radius: 5px;
-    background-color: #98dbbc; 
+    background-color: #73e17a; /* Color de fondo */
     color: rgb(0, 0, 0); 
     padding: 10px 20px; /* Espaciado interno del botón */
     text-align: center; /* Alineación del texto */
@@ -204,8 +215,10 @@ ul img{
 }
 
 
-#botonRegistar:hover {
-    background-color: #76c09d;  /* Cambiar color de fondo al pasar el ratón */
+#botonRegistar:hover {/* hover sirve para hacer el cambio de color. */
+    background-color: #2d8b32; /* Cambio de color al pasar el cursor */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave */
+
 }
 
 

@@ -1,5 +1,5 @@
+/* Llamada para update y pintar los datos del formulario. */
 function llamada(id,op) {
-
     fetch ('SV_deporte?id='+id+"&op="+op)
     .then (response => response.json() )
     .then (data => pintarFormulario(data,op))
@@ -15,6 +15,7 @@ function getParameterByName(name) {
 }
 
 
+/* Esta funcion pinta el formulario */
 function pintarFormulario(data,op) {
     if(op==2){/* Si opcion es igual 2 es que se quieren modificar datos */
         document.getElementById("id").value = data.id;
@@ -27,7 +28,8 @@ function pintarFormulario(data,op) {
 
 }
 
-
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* Fetch para pintar la TABLA*/
 function llamada1() {    
     fetch('SV_deporte?op=1')
     .then(response => response.json())
@@ -35,6 +37,7 @@ function llamada1() {
 }
 
 
+/* Esta es la funcion que pinta la tabla */
 function pintarLista(data) {
     let html = "<table>";
          
@@ -53,10 +56,14 @@ function pintarLista(data) {
 }
 
 
+/* ---------------------------------------------------------------------------------------------------------------------------------------- */
 
 
-window.onload = function(){
-    
+
+
+
+/* Metodo principal */
+window.onload = function(){   
     llamada1();
 
     let id = getParameterByName("id")
@@ -64,6 +71,5 @@ window.onload = function(){
 
     llamada(id,op);
 
-    llamada1();//s vuelve a refrescar la lista para estar actualizada.
-    
+    llamada1();//s vuelve a refrescar la lista para estar actualizada. 
 }
