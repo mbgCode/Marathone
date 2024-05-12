@@ -55,11 +55,12 @@ public class SV_deporte extends HttpServlet {
 		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 		
 		String op = request.getParameter("op");//Recibimos el valor de op en tipo string
-		
+		System.out.println("op "+op);
 		
 		if (!op.equals("")) {//si op no es null se ejecuta 
 			
 		int opcion =Integer.parseInt(request.getParameter("op")) ;
+		System.out.println("opcion" +opcion);
 			
 		switch (opcion) {
 			case 1:{//Listar Deportes
@@ -80,7 +81,7 @@ public class SV_deporte extends HttpServlet {
 				try {
 					d.modId(id);//Peticion de listado por id
 					String resultado = d.dameJson();
-					System.out.println("case 2 para json: "+resultado);
+				
 					out.print(resultado);//Devolucion de listado para pintar por id.
 				}catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -92,7 +93,7 @@ public class SV_deporte extends HttpServlet {
 			}case 3:{//Borrar en la BD por ID
 				int id = Integer.parseInt(request.getParameter("id"));		
 				Deporte d = new Deporte();
-				System.out.println("estoy aqui en borrar");
+				
 				try {
 					d.borrar(id);
 					DaoDeporte dao = new DaoDeporte();
@@ -103,8 +104,26 @@ public class SV_deporte extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-						
+				
+				break;
+				
+				
+			}case 4:{//listar por categoria
+				String cat = request.getParameter("categoria");
+				System.out.println("has recogido categoria :" +cat);
+				try {
+					DaoDeporte dao = new DaoDeporte();
+					String resultado = dao.ListarCatJonson(cat);
+					out.print(resultado);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				
+			
 			}
+			
 			
 		}
 		}		

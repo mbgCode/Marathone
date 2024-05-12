@@ -63,14 +63,8 @@ public class Deporte {
 		this.categoria = categoria;
 	}
 
-
-
-		
 	
 	
-	
-//Metodos-------------------------------------------------
-
 	public int getId() {
 		return id;
 	}
@@ -161,8 +155,11 @@ public class Deporte {
 				+ ", direccion=" + direccion + ", foto=" + foto + ", categoria=" + categoria + "]";
 	}
 
+	
 
-
+//Metodos-------------------------------------------------
+	
+	
 	//Insertar deporte
 	public void insertarDep () throws SQLException {
 		DaoDeporte dao = new DaoDeporte();
@@ -185,7 +182,7 @@ public class Deporte {
 		
 		DaoDeporte dao = new DaoDeporte();
 		Deporte d = dao.listarPorId(id);
-		System.out.println("esto es puro "+d);
+		
 		this.setNombre(d.getNombre());
 		this.setDescripcion(d.getDescripcion());
 		this.setTelefono(d.getTelefono());
@@ -216,5 +213,11 @@ public class Deporte {
 		DaoDeporte dao = new DaoDeporte();
 		dao.borrar(id);
 	}
+	
+	
+	
+
+	
+
 	
 }
