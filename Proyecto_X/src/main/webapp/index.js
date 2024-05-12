@@ -1,5 +1,5 @@
 
-function llamada1(){
+function llamada(){
 			
     let xhr = new XMLHttpRequest();
         let data;
@@ -68,9 +68,9 @@ function pintarLista(data) {
 
 
 
-
 /* Metodo principal */
 window.onload = function(){   
 
-    llamada1();//s vuelve a refrescar la lista para estar actualizada. 
+    llamada();
+    
 }

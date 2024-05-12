@@ -4,13 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="ListarDep.js"></script>
+    <link rel="stylesheet" href="ListarDep.css">
+   
 </head>
 <body>
-    
-   
-    <div id="listado">
-    </div>   
+    <div id="ContendorPadre">
 
+        <div id="contenedorSup">
+
+            <!-- Parte superiro de la página -->
+            <header>
+                
+                <div id="logo">
+                    <img src="img index/bebida-energetica.png" alt="Bebida energética">
+                </div>
+
+                <div id="centro"></div>
+
+                <div id="login">
+                    <div id="fotoPersonal">
+                        <img src="img index/fotoLofgin.png" alt="Foto personal">
+                    </div>
+                    <div id="desplegable">
+                        <img src="img index/desplegable.png" alt="Triple linea"> 
+                    </div>
+                </div>
+
+            </header>
+
+
+            
+            <!-- Barra de buscador de deportes -->
+            <div id="buscador">
+                <div class="barra"><input class="barraBuscar" type="text">
+                    <div> <img id="imgLupa" src="img index/lupaBuscador.png" alt="logo de una lupa"> </div> 
+                </div>
+                    
+            </div>
+
+
+            <!-- Zona de Categorías -->
+
+     
+       
+            <nav>
+                <ul id="navegador">
+
+                    <div>
+                        
+                        <label for="botonInicio"></label>
+                        <a href="index.html"><input  type="button" id="BotonNav" value="Inicio"></a>
+                    </div>
+                
+                    <div>
+                        <label for="ZonaDeportes"></label>
+                        <a href="insertarDep.html"><input type="button" id="BotonNav" value="Novedades"></a>
+                    </div>
+
+                    <div>
+                        <label for="ZonaActividades"></label>
+                        <input type="button" id="BotonNav" value="Actividades">
+                    </div>
+
+                    <div>
+                        <label for="ZonaMiembro"></label>
+                        <input type="button" id="BotonNav" value="Zona Miembros">
+                    </div>
+
+                </ul>    
+            </nav>
+
+        </div>
+
+        <main>
+                <section id="contenedorTarjetas">     
+                </section>
+        </main>
+            
+
+        <footer></footer>
+
+    </div>  
+    <Script src="ListarDep.js"> </Script>
 </body>
+
 </html>
