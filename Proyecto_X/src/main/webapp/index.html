@@ -50,11 +50,23 @@
      
             <nav>
                 <ul>
+
+					<li>
+						<a href="ListarDep.html?op=4&categoria=Acuaticos">
+                        	<img id = "Acuaticos"  src="img index/natacion.png" alt="">
+                        </a>
+                    </li>
+
+					  <li>
+						<a href="ListarDep.html?op=4&categoria=Artes Marciales">
+                        	<img id = "Artes Marciales" src="img index/karate.png" alt="">
+                        </a>
+                    </li>
+
                     <li>
                         <a href="ListarDep.html?op=4&categoria=Gimnasio">
-                            <img id="Gimansio" src="img index/pesa (1).png" alt="">
+                        	<img id="Gimansio" src="img index/pesa (1).png" alt="">
                         </a>
-                        
                     </li>
 
                     <li>
@@ -62,48 +74,53 @@
                             <img id="Futbol" src="img index/jugador-de-futbol.png" alt="">
                         </a>
                     </li>
+
                     <li>
-                        <img src="img index/jugador-de-baloncesto.png" alt="">
+						<a href="ListarDep.html?op=4&categoria=Baloncesto">
+                       		<img id="Baloncesto" src="img index/jugador-de-baloncesto.png" alt="">
+                        </a>
                     </li>
+
                     <li>
-                        <img src="img index/corriendo (1).png" alt="">
-                    </li>
+						<a href="ListarDep.html?op=4&categoria=Running">
+                        	<img id="Running" src="img index/corriendo (1).png" alt="">
+                        </a>
+                    </li>         
+
                     <li>
-                        <img src="img index/karate.png" alt="">
+						<a href="ListarDep.html?op=4&categoria=Tenis">
+                        	<img id="Tenis" src="img index/tenis.png" alt="">
+                        </a>
                     </li>
-                    <li>
-                        <img src="img index/natacion.png" alt="">
-                    </li>
-                    <li>
-                        <img src="img index/tenis.png" alt="">
-                    </li>
+
+
                     <li>
                         <label for="categoria">Categoría:</label>
-                        
-                        <select name="categoria" id="categoria"> 
+                        <select name="categoria" id="categoria" onchange="redireccionar()"> <!-- Utilizamos el onchange para redireccionar -->
                             <option value="...">...</option>
-                            <option value="Atletisomo">Atletisomo</option>
-                            <option value="Badminton">Badminton</option>
-                            <option value="Baloncesto">Baloncesto</option>
-                            <option value="Balonmano">Balonmano</option>
-                            <option value="Beisbol">Beisbol</option>
-                            <option value="Boxeo">Boxeo</option>
-                            <option value="Cicclismo">Ciclismo</option>
-                            <option value="Acuáticos">Acuáticos</option>
-                            <option value="Esgrima">Esgrima</option>
-                            <option value="Esqui">Esquí</option>
-                            <option value="Futbol">Fútbol</option>
-                            <option value="Gimnasia">Gimnasia</option>
-                            <option value="Gimnasio">Gimansio</option>
-                            <option value="Golf">Golf</option>
-                            <option value="Hipica">Hípica</option>
-                            <option value="Artes Marciales">Artes Marciales</option>
-                            <option value="Rugbi">Rugbi</option>
-                            <option value="Tenis">Tenis</option>
-                            <option value="Padel">Padel</option>
-                            <option value="Voleibol">Voleibol</option>
+                            <option value="ListarDep.html?op=4&categoria=Acuaticos">Acuáticos</option>
+                            <option value="ListarDep.html?op=4&categoria=Artes Marciales">Artes Marciales</option>
+                            <option value="ListarDep.html?op=4&categoria=Badminton">Badminton</option>
+                            <option value="ListarDep.html?op=4&categoria=Baloncesto">Baloncesto</option>
+                            <option value="ListarDep.html?op=4&categoria=Balonmano">Balonmano</option>
+                            <option value="ListarDep.html?op=4&categoria=Beisbol">Béisbol</option>
+                            <option value="ListarDep.html?op=4&categoria=Boxeo">Boxeo</option>
+                            <option value="ListarDep.html?op=4&categoria=Ciclismo">Ciclismo</option>
+                            <option value="ListarDep.html?op=4&categoria=Esgrima">Esgrima</option>
+                            <option value="ListarDep.html?op=4&categoria=Esqui">Esquí</option>
+                            <option value="ListarDep.html?op=4&categoria=Futbol">Fútbol</option>
+                            <option value="ListarDep.html?op=4&categoria=Gimnasia">Gimnasia</option>
+                            <option value="ListarDep.html?op=4&categoria=Gimnasio">Gimnasio</option>
+                            <option value="ListarDep.html?op=4&categoria=Golf">Golf</option>
+                            <option value="ListarDep.html?op=4&categoria=Hipica">Hípica</option>
+                            <option value="ListarDep.html?op=4&categoria=Rugbi">Rugbi</option>
+                            <option value="ListarDep.html?op=4&categoria=Running">Running</option>
+                            <option value="ListarDep.html?op=4&categoria=Tennis">Tenis</option>
+                            <option value="ListarDep.html?op=4&categoria=Padel">Pádel</option>
+                            <option value="ListarDep.html?op=4&categoria=Voleibol">Voleibol</option>
                         </select>
                     </li>
+                    
                   
                     
                 </ul>

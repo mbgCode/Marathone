@@ -30,11 +30,13 @@ function llamada(){
 function pintarLista(data) {
     const contenedorTarjetas = document.getElementById("contenedorTarjetas");
 
-    // Limpiar contenido previo del contenedor
+    // Con InnerHTML eliminamos todo los contenidos hijos que pueda tener contenedorTarjetas
     contenedorTarjetas.innerHTML = "";
+
 
     // Iterar sobre los datos y crear una tarjeta para cada uno
     for (let i = 0; i < data.length; i++) {
+
         // Crear un nuevo elemento article
         const tarjeta = document.createElement("article");
         tarjeta.id = "tarjeta";
@@ -54,7 +56,7 @@ function pintarLista(data) {
         const direccionParrafo = document.createElement("p");
         direccionParrafo.textContent = data[i].categoria;
 
-        // Añadir elementos al artículo con el appendChild
+        // Añadir elementos al artículo con el appendChild como hijos
         tarjeta.appendChild(imagen);//
         tarjeta.appendChild(nombreParrafo);
         tarjeta.appendChild(deporteParrafo);
@@ -63,14 +65,22 @@ function pintarLista(data) {
         // Añadir artículo al contenedor con appendchild-
         contenedorTarjetas.appendChild(tarjeta);
     }
+   
 }
 
-
+function redireccionar() {
+    var select = document.getElementById("categoria");
+    var selectedOption = select.options[select.selectedIndex];
+    if (selectedOption.value !== "...") {
+        window.location.href = selectedOption.value;
+    }
+}
 
 
 /* Metodo principal */
 window.onload = function(){   
-
+   
     llamada();
+    
     
 }
