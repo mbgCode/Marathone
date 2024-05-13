@@ -68,7 +68,10 @@ function pintarLista(data) {
    
 }
 
-function redireccionar() {
+
+
+
+function redireccionar() {//El selctor de categorías.
     var select = document.getElementById("categoria");
     var selectedOption = select.options[select.selectedIndex];
     if (selectedOption.value !== "...") {
@@ -81,6 +84,12 @@ function redireccionar() {
 window.onload = function(){   
    
     llamada();
-    
-    
+
+    //Barra Busqueda, para recoger los datos de 
+    var botonLupa = document.getElementById("imgLupa");
+    botonLupa.addEventListener("click", function() {
+        var palabraBuscar = document.querySelector(".barraBuscar").value; /* El . de barraBuscar es porque lo sacamos de la clase de CSS */
+       /* Queryselector devuelve el primer elemento que coincida con barraBuscar.*/
+        console.log(palabraBuscar)
+    });
 }
