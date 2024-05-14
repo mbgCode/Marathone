@@ -164,16 +164,19 @@ public class SV_deporte extends HttpServlet {
 	
 		
 //Recibimos foto.
-		Part part = request.getPart("foto");//recogemos los datos Binarios de foto
-		Path path = Paths.get(part.getSubmittedFileName());// Sacamos la ruta del archivo
-		String filename = path.getFileName().toString();//Guardamos en la variable filename el nombre del archivo/ruta
-		//Generamos un buffer
-		InputStream inpt = part.getInputStream();
-		//Guardamos el archivo y lo metemos en la capeta.
-		File file = new File (uploads,filename);
-		//Copiamos los datos del archivo dentro de la carpeta utilizando el BUFFER.
-		Files.copy(inpt,file.toPath());
-				
+	
+			Part part = request.getPart("foto");//recogemos los datos Binarios de foto
+			Path path = Paths.get(part.getSubmittedFileName());// Sacamos la ruta del archivo
+			String filename = path.getFileName().toString();//Guardamos en la variable filename el nombre del archivo/ruta
+			//Generamos un buffer
+			InputStream inpt = part.getInputStream();
+			//Guardamos el archivo y lo metemos en la capeta.
+			File file = new File (uploads,filename);
+			//Copiamos los datos del archivo dentro de la carpeta utilizando el BUFFER.
+			Files.copy(inpt,file.toPath());
+					
+	
+	
 		
 //Creamos el objeto para Deporte.
 		Deporte d1 = new Deporte(telefono, nombre, descripcion, telefono, direccion, filename, categoria);

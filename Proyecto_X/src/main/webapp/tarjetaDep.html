@@ -1,89 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="tarjetaDep.css">
-
-<script>
-      
-      
- /* Funcion llamada para recibir datos del json. */      
-function llamada(id){
-			
-    let xhr = new XMLHttpRequest();
-        let data; 
-                    
-            xhr.onreadystatechange = function () { 
-                if (xhr.readyState === 4){
-                    if (xhr.status === 200) { 
-                         try{
-                            data = JSON.parse(xhr.responseText);            
-                            pintarDatos(data); //Pintamos los datos en este punto. 
-                        }catch (e) {                            
-                                   
-                        }
-                    }                    
-                }
-            };               
-            xhr.open("GET", "SV_deporte?op=5&id="+id, true); 
-            xhr.send();
-                                                     
-}
-
-
-/* Funcion pintar los datos de json */
-function pintarDatos(data){
-
-    let section = document.getElementById("contenedorInferior");
-
-    let contFoto = document.getElementById("contenedorFoto");
-    let contDatos = document.getElementById("contenedorDatos");
-
-    contDatos.innerHTML = "";
-    contFoto.innerHTML = ""; 
-
-    let foto = document.createElement("img");
-    foto.src = "fotos_deporte/"+data.foto;
-    foto.alt = "Foto de la entidad deportiva."
- 
-
-    let nombre = document.createElement("p");
-    nombre.textContent = data.nombre;
-
-    contFoto.appendChild(foto);
-    contDatos.appendChild(nombre);
-
-}
-
-
-
-//Función para recoger los parametros de la url.
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-    results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-
-
-
-//Función principal.
-window.onload = function(){   
-
-    var id = getParameterByName("id");//Guardamos el id en la variable.
-    
-    llamada(id);//Hacemo la llamada de la funcion con atributo id para enviar al SV
-   
-}
-
-</script>
-
-
-
+    <script src="tarjetaDep.js"></script>
 
 </head>
+
+
 <body>
     
     <div id="ContendorPadre">
@@ -127,19 +54,24 @@ window.onload = function(){
 
             <!-- Zona de la foto del deporte -->
             <div id="contenedorFoto">
-                
+                <!-- Resto de funcion en el .js -->
             </div>
 
 
             <!-- Zona de los datos del deporte -->
             <div id="contenedorDatos">
-               
+                <span id =textTel>Teléfono</span>
+                <h3 id="textDir">Dirección</h3>
+                <h3 id="textCat">Categoría</h3>
+                <!-- Resto de funcion en el .js -->
+
+
             </div>
 
             
         </section>
 
-        <footer><h1>FOOTER POR HACER</h1> </footer>
+        <footer></footer>
         
     </div>      
 
