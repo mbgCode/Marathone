@@ -75,13 +75,12 @@ public class SV_deporte extends HttpServlet {
 				break;			
 				
 				
-			}case 2 :{//UPdate.
+			}case 2 :{//UPdate por ID.
 				int id = Integer.parseInt(request.getParameter("id"));
 				Deporte d = new Deporte();
 				try {
 					d.modId(id);//Peticion de listado por id
-					String resultado = d.dameJson();
-				
+					String resultado = d.dameJson();	
 					out.print(resultado);//Devolucion de listado para pintar por id.
 				}catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -108,7 +107,7 @@ public class SV_deporte extends HttpServlet {
 				break;
 				
 				
-			}case 4:{//listar por categoria
+			}case 4:{//listar por categoria elegida.
 				String cat = request.getParameter("categoria");
 				System.out.println("has recogido categoria :" +cat);
 				try {
@@ -123,14 +122,27 @@ public class SV_deporte extends HttpServlet {
 				break;
 				
 				
+			}case 5:{//Pintar informacion por id. Igual que case2 
+				int id = Integer.parseInt(request.getParameter("id"));
+				System.out.println(id);
+				Deporte d = new Deporte();
 				
-			}case 5:{
 				
+				try {
+					d.modId(id);
+					String resultado = d.dameJson();
+					out.print(resultado);
+					System.out.println(resultado);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 				
 			}
 			
 			
+				
 		}
 		}		
 	}
@@ -154,7 +166,7 @@ public class SV_deporte extends HttpServlet {
 //Recibimos foto.
 		Part part = request.getPart("foto");//recogemos los datos Binarios de foto
 		Path path = Paths.get(part.getSubmittedFileName());// Sacamos la ruta del archivo
-		String filename = path.getFileName().toString();//Guardamos en la variable efilename el nombre del archivo/ruta
+		String filename = path.getFileName().toString();//Guardamos en la variable filename el nombre del archivo/ruta
 		//Generamos un buffer
 		InputStream inpt = part.getInputStream();
 		//Guardamos el archivo y lo metemos en la capeta.
@@ -170,7 +182,7 @@ public class SV_deporte extends HttpServlet {
 		
 				
 		
-// Insertqamos el deporte en el objeto.
+// Insertamos el deporte en el objeto.
 		
 		if (ids.equals("")) { //Si id es "" es que es un nuevo deporte 
 			try {

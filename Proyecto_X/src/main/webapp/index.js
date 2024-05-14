@@ -41,6 +41,10 @@ function pintarLista(data) {
         const tarjeta = document.createElement("article");
         tarjeta.id = "tarjeta";
 
+        //el ancala para la imagen que lleva a latarjetaDep.
+        const ancla = document.createElement("a")
+        ancla.href = "tarjetaDep.html?op=5&id="+data[i].id
+        
         // Crear imagen
         const imagen = document.createElement("img");
         imagen.src =  "fotos_deporte/" + data[i].foto; 
@@ -57,7 +61,8 @@ function pintarLista(data) {
         direccionParrafo.textContent = data[i].categoria;
 
         // Añadir elementos al artículo con el appendChild como hijos
-        tarjeta.appendChild(imagen);//
+        tarjeta.appendChild(ancla);
+        ancla.appendChild(imagen);//imagen esta como hijo de ancla para que al pulsar nos lleve a la otra pagina.
         tarjeta.appendChild(nombreParrafo);
         tarjeta.appendChild(deporteParrafo);
         tarjeta.appendChild(direccionParrafo);
@@ -67,7 +72,6 @@ function pintarLista(data) {
     }
    
 }
-
 
 
 
@@ -83,7 +87,15 @@ function redireccionar() {//El selctor de categorías.
 /* Metodo principal */
 window.onload = function(){   
    
+
+
+
     llamada();
+
+
+
+
+
 
     //Barra Busqueda, para recoger los datos de 
     var botonLupa = document.getElementById("imgLupa");

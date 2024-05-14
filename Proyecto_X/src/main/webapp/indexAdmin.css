@@ -100,7 +100,7 @@ header{
    
 }
 
-#BotonNav{
+.BotonNav{
     background-color: #4CAF50; /* Color de fondo */
     border: none;
     color: rgb(242, 242, 242);
@@ -113,7 +113,7 @@ header{
 }
 
 
-#BotonNav:hover{
+.BotonNav:hover{
     background-color: #2d8b32; /* Cambio de color al pasar el cursor */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra al pasar el cursor */
 }
