@@ -79,16 +79,24 @@ header{
 
 
 /* Nav ------------------------------------------------------- */
+<<<<<<< HEAD
 
 #navegador{
     margin-top: 30px;
     margin-bottom: 40px;
+=======
+#navegador{
+>>>>>>> 28c1e9745099950395506ac479b697e1d5a96eaf
     grid-area: nav;
     display: flex;
     flex-wrap: nowrap;
     background-color: rgb(250, 250, 250);
     justify-content: space-around;
+<<<<<<< HEAD
     height: 80px;
+=======
+    height: 100%;
+>>>>>>> 28c1e9745099950395506ac479b697e1d5a96eaf
     align-items: center;
    
 }
