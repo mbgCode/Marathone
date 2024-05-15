@@ -5,78 +5,107 @@
     <meta name="viewport" content="width=
     , initial-scale=1.0">
     <title>Document</title>
-    
-    
-    <script> 
-	
-	
-		//Recibimos de ListarAdmin.html el id y op2
-		function llamada (id, op){
-		
-            fetch ('SV_administrador?idadministrador='+id+ "&op="+op) //envia la solicitud a SV_admin con el id y op recibidos
-			.then (response => response.json())// La respuesta (response) se parsea a un .json 
-			.then (data => pintarFormulario(data));	//Los datos de ese .json se pintan en la tabla.
-		}
-		
-		
-		
-        function getParameterByName(name) {
-		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-		    results = regex.exec(location.search);
-		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-		}
-		
-
-		//Pintamos la tabla con los datos del .json que vienen del controlador.
-        function pintarFormulario (datos){
-            document.getElementById("idadministrador").value = datos.idadministrador;
-            document.getElementById("nombre").value = datos.nombre;
-            document.getElementById("apellidos").value = datos.apellidos;
-            document.getElementById("email").value = datos.email;
-            document.getElementById("poblacion").value = datos.poblacion;
-            document.getElementById("permiso").value = datos.permiso;
-        }
-
- 
- 		//Cuando se cargue la ventana sacamos (scado del http) los parametros id y op y los guardamos en la variable.
-        window.onload = function(){
-            let op = getParameterByName("op")
-            let id = getParameterByName("idadministrador")
-	     llamada(id,op);  
-        }
-
-
-	</script>
-  
-  
+    <script src="InsertarAdmin.html"></script>
+    <link rel="stylesheet" href="InsertarAdmin.css">
 </head>
 
 
 <body>
+    <div id="contenedorPadre"> 
+        
+        <section id= "ContenedorSuperior">
 
-    <form name="PaginaAdministrador" action="SV_administrador" method="post" enctype="multipart/form-data">
+            <header>
+
+                <div id="logo">
+                    <img src="/Proyecto_X/img index/bebida-energetica.png" alt="Bebida energética">
+                </div>
+
+                <div id="centro"> 
+                    <h1>ADMINISTRADOR</h1>
+                </div>
+
+
+                <div id="login">   
+
+                    <div id="fotoPersonal">
+                        <img src="/Proyecto_X//img index/fotoLofgin.png" alt="Foto personal">
+                    </div>
+
+
+                    <div id="desplegable">
+                        <img src="/Proyecto_X//img index/desplegable.png" alt="Triple linea"> 
+                    </div>
+
+                </div>   
+
+            </header>
+
+
+
+            <nav>
+                <ul id="navegador">
+
+                    <div>
+                        <a href="indexAdmin.html"><input  type="button" id="BotonNav" value="Inicio"></a>
+                    </div>
+                
+                    <div>
+                        <a href="insertarDep.html"><input type="button" id="BotonNav" value="Zona Deportes"></a>
+                    </div>
+
+                    <div>
+                        <input type="button" id="BotonNav" value="Zona Admin">
+                    </div>
+
+                    <div>
+                        <input type="button" id="BotonNav" value="Zona Miembros">
+                    </div>
+
+                </ul>    
+            </nav>
+
+        </section>
         
 
-        <ul>
+        <section id="contendorInfe">
+            <form name="PaginaAdministrador" action="SV_administrador" method="post" enctype="multipart/form-data">
+                <ul id="formulario">
 
-            <li><label for="Titulo"><h1>Insertar administrador</h1></label> </li>
-            <input type="hidden" id="idadministrador" name="idadministrador">
-            <li><label>Nombre: </label> <input id="nombre" type="text" name="nombre"></li>
-            <li><label>Apellidos: </label> <input id="apellidos" type="text" name="apellidos"></li>
-            <li><label>email: </label> <input id="email" type="text" name="email"></li>
-            <li><label>poblacion: </label> <input id="poblacion" type="text" name="poblacion"></li>
-            <li><label>Permiso: </label> <input id="permiso" type="text" name="permiso"></li>
-            <li><label>Foto: </label> <input id="foto" type="file" name="foto"></li>
-            
+                    <li>
+                        <h1>Insertar administrador</h1>
+                    </li>
+                    <li id="idadministrador">
+                        <input type="hidden"  name="idadministrador">
+                    </li>
+                    <li id="nombre">
+                        <input  type="text" name="nombre">
+                    </li>
+                    <li id="apellidos">
+                        <input  type="text" name="apellidos">
+                    </li>
+                    <li id="email">
+                        <input  type="text" name="email">
+                    </li>
+                    <li id="poblacion">
+                        <input  type="text" name="poblacion">
+                    </li>
+                    <li id="permiso">
+                        <input  type="text" name="permiso">
+                    </li>
+                    <li id="foto">
+                        <input  type="file" name="foto">
+                    </li>
+                    
 
-            
-            <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
-            
-        </ul>
-       
+                    <li id="boton"><label>Enviar: </label><input type="submit" value="Guardar"> </li>
+                    
+                </ul>
+            </form>
+        </section>
 
-    </form>
+    </div>
+
     <h1>Listado</h1>
     <div id="listado">
 

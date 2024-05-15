@@ -15,7 +15,7 @@ function getParameterByName(name) {
 }
 
 
-/* Esta funcion pinta el formulario */
+/* Esta funcion pinta el formulario para modificar */
 function pintarFormulario(data,op) {
     if(op==2){/* Si opcion es igual 2 es que se quieren modificar datos */
         document.getElementById("id").value = data.id;

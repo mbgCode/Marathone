@@ -94,7 +94,7 @@ public class SV_administrador extends HttpServlet {
 						int id = Integer.parseInt(request.getParameter("idadministrador")); //recogemos el id del form
 						a.modificarAdmin(id);
 						out.print(a.dameJson());
-						System.out.println(a.dameJson());
+						System.out.println("es este??"+a.dameJson());
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
