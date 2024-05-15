@@ -1,19 +1,23 @@
 *{
     margin: 0%;
-    padding: 0%  
+    padding: 0%;
+    
+    
 }
 
-#contenedorPadre{
-height: 5580;
+
+#contenedorPadre {
+    display: flex;
+    flex-direction: column;
+    
 }
 
 #contenedorSup{
     display:grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.6fr;
     grid-template-areas:  
     "header"
-    "buscador"
     "nav";
     
 }
@@ -23,7 +27,7 @@ height: 5580;
 header{
     grid-area: header;
     display: flex;
-
+    height: 120px;
 }
 
 
@@ -40,7 +44,6 @@ header{
     padding-top: 2%;
     margin-left: 8%;
     
-    
 }
 
 
@@ -54,7 +57,6 @@ header{
     text-align: center;
     margin-top:30px;
 }
-
 
 
 
@@ -85,45 +87,6 @@ header{
 
 
 
-/* Buscador-----------------------------------------------------------*/
-#buscador{
-    
-    height: 100px;
-    grid-area : buscador;
-    display: flex;
-    flex-flow:nowrap ;
-    justify-content: center;
-    background-color: white;
-    
-}
-
-.barra{
-    display: flex;
-    justify-content: center;
-    width: 33%;
-    height:50px ;
-    border: solid 3px black;
-    border-radius: 40px;
-    margin-top: 10px;
-   
-}
-.barraBuscar{
-    height:40px ;
-    width: 80%;
-    margin-top: 4px;
-    margin-left: 20px;
-    font-size: 20px;
-    border: 0; /* Elimnina el borde del imput */
-    outline: 0;/* Elimina el borde del input al seleccionarlo */
-}
-#imgLupa{
-    width: 52px;
-    margin-left: 70px;
-    border-radius: 80%;
-}
-
-
-
 
 /* Nav ------------------------------------------------------- */
 #navegador{
@@ -132,25 +95,24 @@ header{
     flex-wrap: nowrap;
     background-color: rgb(250, 250, 250);
     justify-content: space-around;
-    height: 100%;
+    height: 60px;
     align-items: center;
    
 }
 
 #BotonNav{
     background-color: #4CAF50; /* Color de fondo */
-    border: none;
     color: rgb(242, 242, 242);
     padding: 15px 32px;
     text-align: center;
     font-size: 16px;
     cursor: pointer;
     border-radius: 8px; 
-    transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
 }
 
 
-#BotonNav:hover{
+#BotonNav:hover{ /* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
     background-color: #2d8b32; /* Cambio de color al pasar el cursor */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra al pasar el cursor */
 }
@@ -161,6 +123,7 @@ header{
 /* Contenedor de actividades------------------------ */
 #contenedorTarjetas{
     grid-template-areas: main;
+    height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -181,6 +144,11 @@ header{
 margin-top:60px ;
 }
 
+#tarjeta:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
+    transform: scale(1.1);/* Aumenta un poquitin el tamaño de la tarjeta al pasar el ciursor. */
+}
+
+
 #tarjeta img{
     border: 4px solid black;
     border-radius:20px ;
@@ -188,7 +156,54 @@ margin-top:60px ;
     height: 200px;
 }
    
-   
+
+/* Footer---------------------------- */ 
+footer{
+    position: fixed;
+    bottom: 0;
+    display: grid;
+    margin-top: 20px;
+    height: 60px;
+    background-color: yellow;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: ". siglas mail politicaPriv infoLegal .";
+    
+}
+
+#siglas{ 
+    grid-area: siglas ;
+    justify-content: center;
+    color: rgb(42, 42, 152);
+    font-weight: bold;/* negrita */
+}
+
+#mail{
+    grid-area: mail ;
+    justify-content: center;
+}
+
+#imgMail{
+    height: 30px;
+    width: 40px;
+    justify-content: center;
+}
+
+#politicaPriv{
+    grid-area: politicaPriv;
+    justify-content: center;
+}
+
+#infoLegal{
+    grid-area: infoLegal;
+    justify-content: center;
+}
+
+#siglas, #mail, #politicaPriv, #infoLegal {
+    display: flex; /* Asegura que el contenido se alinee horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
 
 
 

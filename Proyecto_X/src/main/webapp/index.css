@@ -140,7 +140,22 @@ ul{
 ul img{
     width: 60px;
     margin-top: 20px;
+   
     
+}
+ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
+    transform: scale(1.2)/* Aumenta un poquitin el tamaño del icon al pasar el ciursor. */
+}    
+
+#categoria{
+   margin-top: 40px;
+   background-color: rgb(161, 171, 181);
+   width: 130px;
+   padding: 5px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-size: 14px;
+   cursor: pointer; /* Cambia el tipo de cursor al pasar por encima. */
 }
 
 
@@ -167,6 +182,10 @@ ul img{
 margin-top:60px ;
 }
 
+#tarjeta:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
+    transform: scale(1.1);/* Aumenta un poquitin el tamaño de la tarjeta al pasar el ciursor. */
+}
+
 #tarjeta img{
     border: 4px solid black;
     border-radius:20px ;
@@ -175,6 +194,52 @@ margin-top:60px ;
 }
    
    
+/* Footer---------------------------- */
+footer{
+    
+   
+    bottom: 0;
+    display: grid;
+    margin-top: 20px;
+    height: 60px;
+    background-color: yellow;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: ". siglas mail politicaPriv infoLegal .";
+    
+}
 
+#siglas{ 
+    grid-area: siglas ;
+    justify-content: center;
+    color: rgb(42, 42, 152);
+    font-weight: bold;/* negrita */
+}
+
+#mail{
+    grid-area: mail ;
+    justify-content: center;
+}
+
+#imgMail{
+    height: 30px;
+    width: 40px;
+    justify-content: center;
+}
+
+#politicaPriv{
+    grid-area: politicaPriv;
+    justify-content: center;
+}
+
+#infoLegal{
+    grid-area: infoLegal;
+    justify-content: center;
+}
+
+#siglas, #mail, #politicaPriv, #infoLegal {
+    display: flex; /* Asegura que el contenido se alinee horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
 
 

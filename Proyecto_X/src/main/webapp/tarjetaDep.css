@@ -104,6 +104,7 @@ nav{
     grid-template-rows: 1fr;
     grid-template-areas: 
     "contenedorFoto contenedorDatos contenedorDatos"
+   
     ;
 
 }
@@ -127,9 +128,9 @@ nav{
 
 
 
-
 #contenedorDatos{
     border: 3px black solid;
+    background-color: rgb(147, 147, 195);
     grid-area:contenedorDatos; 
     width: 95%;
     margin-left: 20px;
@@ -146,10 +147,10 @@ nav{
 
 }
 
+
 #nombreDep{
     grid-area: nombre;
-    font-size: 60px;
-    
+    font-size: 50px;
     width: 95%;
     height: 40px;
     padding-left: 10px;
@@ -157,16 +158,18 @@ nav{
     
 }
 
+
 /* CATEGORÍA */
 #categoriaDep{
     grid-area: categoria;
     font-size:30px ;
-    margin-top: 20px;
+    margin-top: 25px;
 
 }
 
 #textCat{
     grid-area: categoria;
+    color: rgb(233, 233, 92);
 }
 
 
@@ -174,10 +177,12 @@ nav{
 #direccionDep{
     grid-area: direccion ;
     margin-top: 30px;
+    font-size: 20px;
 }
 
 #textDir{
     grid-area: direccion ;
+    color: rgb(233, 233, 92);
 
 }
 
@@ -186,30 +191,70 @@ nav{
 #telefonoDep{
     grid-area: telefono;
     margin-top: 30px;
-    margin-left: 5px;
+    margin-left: 8px;
+    font-size: 20px;
 }
 
 #textTel{
     grid-area: telefono;
-    padding-left: 5px;
+    color: rgb(233, 233, 92);
+    padding-left: 8px;
     
- 
-
 }
 
 
 /* DESCRIPCIÓN */
 #descripcionDep{
     grid-area: descripcion;
-    margin-left: 5px;
+    margin-left: 8px;
+    margin-right: 10px;
+    font-size: 20px;
+    border-top: 3px black solid;
 }
 
 
 /* Footer---------------------------- */
 footer{
+    
+    display: grid;
     margin-top: 20px;
     height: 60px;
     background-color: yellow;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: ". siglas mail politicaPriv infoLegal .";
+    
 }
 
+#siglas{ 
+    grid-area: siglas ;
+    justify-content: center;
+    color: rgb(42, 42, 152);
+    font-weight: bold;/* negrita */
+}
 
+#mail{
+    grid-area: mail ;
+    justify-content: center;
+}
+
+#imgMail{
+    height: 30px;
+    width: 40px;
+    justify-content: center;
+}
+
+#politicaPriv{
+    grid-area: politicaPriv;
+    justify-content: center;
+}
+
+#infoLegal{
+    grid-area: infoLegal;
+    justify-content: center;
+}
+
+#siglas, #mail, #politicaPriv, #infoLegal {
+    display: flex; /* Asegura que el contenido se alinee horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
