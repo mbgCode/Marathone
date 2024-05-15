@@ -134,32 +134,31 @@ public class DaoDeporte {
 	//filtrar por categoria (sacamos listado solo de la categoría)
 	public ArrayList <Deporte> filtrarCat(String cat) throws SQLException {
 		
+	
 		
-		String query = "SELECT * FROM deporte WHERE categoria LIKE ?";
 		
-		PreparedStatement ps = con.prepareStatement(query);
-		
-		ps.setString(1, cat);
-		
-		ResultSet rs = ps.executeQuery();
-		
-		ArrayList <Deporte> ls = null;
-		
-		while ((rs.next())){
-			if (ls ==null) {
-				ls = new ArrayList<Deporte>();
-				
+			String query = "SELECT * FROM deporte WHERE categoria LIKE ? ORDER BY nombre";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, cat);
+			
+			ResultSet rs = ps.executeQuery();
+			ArrayList <Deporte> ls = null;
+			while ((rs.next())){
+				if (ls ==null) {
+					ls = new ArrayList<Deporte>();
+					
+				}
+				ls.add(new Deporte(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
+						rs.getString(5), rs.getString(6), rs.getString(7))); 
 			}
-			ls.add(new Deporte(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
-					rs.getString(5), rs.getString(6), rs.getString(7))); 
-		}
-		
+			
+			
 		return ls;
 	}
 	
 	
 	
-	
+	//Json Por Categoría
 	public String ListarCatJonson(String cat) throws SQLException {
 		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 		
@@ -167,7 +166,9 @@ public class DaoDeporte {
 		
 		Gson gson = new Gson ();
 		
+		
 		txtJson = gson.toJson(this.filtrarCat(cat));//Llamamos a la funcion listar con los datos el ArrayList<usuario>
+				
 		
 		return txtJson;
 	} 	

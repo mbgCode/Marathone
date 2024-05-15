@@ -63,7 +63,7 @@ public class SV_deporte extends HttpServlet {
 		System.out.println("opcion" +opcion);
 			
 		switch (opcion) {
-			case 1:{//Listar Deportes
+			case 1:{//Listar Deportes en orden agregado reciente.
 				try {
 					DaoDeporte dao = new DaoDeporte();
 					String resultado = dao.ListarJonson();
@@ -108,6 +108,7 @@ public class SV_deporte extends HttpServlet {
 				
 				
 			}case 4:{//listar por categoria elegida.
+				
 				String cat = request.getParameter("categoria");
 				System.out.println("has recogido categoria :" +cat);
 				try {
@@ -138,7 +139,8 @@ public class SV_deporte extends HttpServlet {
 					e.printStackTrace();
 				}
 				
-				
+			break;
+			
 			}
 			
 			

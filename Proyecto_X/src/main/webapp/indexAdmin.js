@@ -35,10 +35,15 @@ function pintarLista(data) {
 
     // Iterar sobre los datos y crear una tarjeta para cada uno
     for (let i = 0; i < data.length; i++) {
+
         // Crear un nuevo elemento article
         const tarjeta = document.createElement("article");
         tarjeta.id = "tarjeta";
 
+        //el ancala para la imagen que lleva a latarjetaDep.
+        const ancla = document.createElement("a")
+        ancla.href = "tarjetaDep.html?op=5&id="+data[i].id
+        
         // Crear imagen
         const imagen = document.createElement("img");
         imagen.src =  "fotos_deporte/" + data[i].foto; 
@@ -47,18 +52,17 @@ function pintarLista(data) {
         // Crear párrafos para los datos
         const nombreParrafo = document.createElement("p");
         nombreParrafo.textContent = data[i].nombre;
+        nombreParrafo.id = "pNombre";
 
-        const deporteParrafo = document.createElement("p");
-        deporteParrafo.textContent = data[i].telefono // Suponiendo que data[i].deporte contiene el tipo de deporte
+        const categoriaParrafo = document.createElement("p");
+        categoriaParrafo.textContent = data[i].categoria;
+        categoriaParrafo.id = "pcat";
 
-        const direccionParrafo = document.createElement("p");
-        direccionParrafo.textContent = data[i].categoria;
-
-        // Añadir elementos al artículo con el appendChild
-        tarjeta.appendChild(imagen);//
+        // Añadir elementos al artículo con el appendChild como hijos
+        tarjeta.appendChild(ancla);
+        ancla.appendChild(imagen);//imagen esta como hijo de ancla para que al pulsar nos lleve a la otra pagina.
         tarjeta.appendChild(nombreParrafo);
-        tarjeta.appendChild(deporteParrafo);
-        tarjeta.appendChild(direccionParrafo);
+        tarjeta.appendChild(categoriaParrafo);
 
         // Añadir artículo al contenedor con appendchild-
         contenedorTarjetas.appendChild(tarjeta);

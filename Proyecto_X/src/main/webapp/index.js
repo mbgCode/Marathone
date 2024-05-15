@@ -53,19 +53,17 @@ function pintarLista(data) {
         // Crear párrafos para los datos
         const nombreParrafo = document.createElement("p");
         nombreParrafo.textContent = data[i].nombre;
+        nombreParrafo.id = "pNombre";
 
-        const deporteParrafo = document.createElement("p");
-        deporteParrafo.textContent = data[i].telefono // Suponiendo que data[i].deporte contiene el tipo de deporte
-
-        const direccionParrafo = document.createElement("p");
-        direccionParrafo.textContent = data[i].categoria;
+        const categoriaParrafo = document.createElement("p");
+        categoriaParrafo.textContent = data[i].categoria;
+        categoriaParrafo.id = "pcat";
 
         // Añadir elementos al artículo con el appendChild como hijos
         tarjeta.appendChild(ancla);
         ancla.appendChild(imagen);//imagen esta como hijo de ancla para que al pulsar nos lleve a la otra pagina.
         tarjeta.appendChild(nombreParrafo);
-        tarjeta.appendChild(deporteParrafo);
-        tarjeta.appendChild(direccionParrafo);
+        tarjeta.appendChild(categoriaParrafo);
 
         // Añadir artículo al contenedor con appendchild-
         contenedorTarjetas.appendChild(tarjeta);
@@ -91,9 +89,6 @@ window.onload = function(){
 
 
     llamada();
-
-
-
 
 
 

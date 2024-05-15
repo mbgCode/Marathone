@@ -46,8 +46,8 @@ function pintarLista(data) {
         html += "<td id = 'columnaDesc'>" + data[i].descripcion + "</td><td id = 'columnaTel'>" + data[i].telefono + "</td>";
         html += "<td id = 'columnaDir'>" + data[i].direccion + "</td><td id = 'columnaFoto'>" + data[i].foto + "</td>";
         html += "<td id = 'columnaCate'>" + data[i].categoria + "</td>";
-        html += "<td id = 'columnaEdit'><a href='insertarDep.html?id=" + data[i].id + "&op=2'>Editar</a></td>";
-        html += "<td><a href='insertarDep.html?id="+ data[i].id +"&op=3'>Borrar</a></td></tr>";
+        html += "<td id = 'columnaEdit'><a href='insertarDep.html?id=" + data[i].id + "&op=2'><input type='button' id='btnEdit' value='Editar'></a></td>";
+        html += "<td><a href='insertarDep.html?id="+ data[i].id +"&op=3'><input type='button' id='btnBorrar' value='Borrar'></a></td></tr>";
     }   
 
 

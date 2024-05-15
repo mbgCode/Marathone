@@ -21,7 +21,7 @@
                 </div>
 
                 <div id="centro"> 
-                    <h1>MARAZONE</h1>
+                    <h1>ADMINISTRADOR</h1>
                 </div>
 
                 <div id="login">
@@ -51,7 +51,7 @@
             <nav>
                 <ul id="navegador">
                     <li> 
-                        <a href="index.html">
+                        <a href="indexAdmin.html">
                             <input type="button" class="BotonNav" value="Inicio">
                         </a>
                     </li>
@@ -75,34 +75,78 @@
 
             <nav>
                 <ul>
-                    <li>
-                        <img src="/Proyecto_X/img index/pesa (1).png" alt="">
+
+					<li>
+						<a href="ListarDep.html?op=4&categoria=Acuaticos">
+                        	<img id = "Acuaticos"  src="img index/natacion.png" alt="">
+                        </a>
                     </li>
-                    <li>
-                        <img src="/Proyecto_X/img index/jugador-de-futbol.png" alt="logo campo de futbol">
+
+					  <li>
+						<a href="ListarDep.html?op=4&categoria=Artes Marciales">
+                        	<img id = "Artes Marciales" src="img index/karate.png" alt="">
+                        </a>
                     </li>
+
                     <li>
-                        <img src="/Proyecto_X/img index/jugador-de-baloncesto.png" alt="">
+                        <a href="ListarDep.html?op=4&categoria=Gimnasio">
+                        	<img id="Gimansio" src="img index/pesa (1).png" alt="">
+                        </a>
                     </li>
+
                     <li>
-                        <img src="/Proyecto_X/img index/corriendo (1).png" alt="">
+                        <a href="ListarDep.html?op=4&categoria=Futbol">
+                            <img id="Futbol" src="img index/jugador-de-futbol.png" alt="">
+                        </a>
                     </li>
+
                     <li>
-                        <img src="/Proyecto_X/img index/karate.png" alt="">
+						<a href="ListarDep.html?op=4&categoria=Baloncesto">
+                       		<img id="Baloncesto" src="img index/jugador-de-baloncesto.png" alt="">
+                        </a>
                     </li>
+
                     <li>
-                        <img src="/Proyecto_X/img index/natacion.png" alt="">
+						<a href="ListarDep.html?op=4&categoria=Running">
+                        	<img id="Running" src="img index/corriendo (1).png" alt="">
+                        </a>
+                    </li>         
+
+                    <li>
+						<a href="ListarDep.html?op=4&categoria=Tenis">
+                        	<img id="Tenis" src="img index/tenis.png" alt="">
+                        </a>
                     </li>
+
+
                     <li>
-                        <img src="/Proyecto_X/img index//bailarin.png" alt="">
-                    </li>
-                    <li>
-                        <img src="/Proyecto_X/img index/tenis.png" alt="">
+                        <label for="categoria">Categorías:</label>
+                        <select name="categoria" id="categoria" onchange="redireccionar()"> <!-- Utilizamos el onchange para redireccionar -->
+                            <option value="...">...</option>
+                            <option value="ListarDep.html?op=4&categoria=Acuaticos">Acuáticos</option>
+                            <option value="ListarDep.html?op=4&categoria=Artes Marciales">Artes Marciales</option>
+                            <option value="ListarDep.html?op=4&categoria=Badminton">Badminton</option>
+                            <option value="ListarDep.html?op=4&categoria=Baloncesto">Baloncesto</option>
+                            <option value="ListarDep.html?op=4&categoria=Balonmano">Balonmano</option>
+                            <option value="ListarDep.html?op=4&categoria=Beisbol">Béisbol</option>
+                            <option value="ListarDep.html?op=4&categoria=Boxeo">Boxeo</option>
+                            <option value="ListarDep.html?op=4&categoria=Ciclismo">Ciclismo</option>
+                            <option value="ListarDep.html?op=4&categoria=Esgrima">Esgrima</option>
+                            <option value="ListarDep.html?op=4&categoria=Esqui">Esquí</option>
+                            <option value="ListarDep.html?op=4&categoria=Futbol">Fútbol</option>
+                            <option value="ListarDep.html?op=4&categoria=Gimnasia">Gimnasia</option>
+                            <option value="ListarDep.html?op=4&categoria=Gimnasio">Gimnasio</option>
+                            <option value="ListarDep.html?op=4&categoria=Golf">Golf</option>
+                            <option value="ListarDep.html?op=4&categoria=Hipica">Hípica</option>
+                            <option value="ListarDep.html?op=4&categoria=Rugbi">Rugbi</option>
+                            <option value="ListarDep.html?op=4&categoria=Running">Running</option>
+                            <option value="ListarDep.html?op=4&categoria=Tennis">Tenis</option>
+                            <option value="ListarDep.html?op=4&categoria=Padel">Pádel</option>
+                            <option value="ListarDep.html?op=4&categoria=Voleibol">Voleibol</option>
+                        </select>
                     </li>
                     
                 </ul>
-
-                
 
             </nav>
 
@@ -110,131 +154,26 @@
 
         <main>
                 <section id="contenedorTarjetas">
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
-                    <article id="tarjeta">
-                        <img src="img index/fotoLofgin.png" alt="">
-                        <p>Nombre actividad</p>
-                        <p>Deporte</p>
-                        <p>Direccion</p>
-                    </article>
                 </section>
         </main>
             
 
-        <footer></footer>
+        <footer>
+
+            <div id="siglas">Marcos Barberá Gómez</div>
+
+            <div id="mail">
+                <a href="mailto:mbg.code@gmail.com">
+                    <img id="imgMail" src="imgFooter/iconoGmail.png" alt="iconoGmail">
+                </a>
+            </div>
+
+            <div id="politicaPriv">
+                <a href="">Politica de privacidad</a>
+            </div>
+            <div id="infoLegal">Informacio legal</div>
+
+        </footer>
 
     </div>  
 
