@@ -68,15 +68,23 @@ public class SV_miembro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-//Abrir a la sesión.		
+		
+		
+/*//Abrir a la sesión.		
 		sesion = request.getSession();//desde aqui ya si se puede acceder al HttpSession.
 		
+		String id= request.getParameter("id");
 		
+		if(id.equals(null)) {//Si id es igual null es que no vamos a utilizar id.
+			
+		}
 		int idSesion = (int)sesion.getAttribute("id");//Esto puede venir de un formulario con un request.getparameter
 	
 		if (idSesion != 0) {//Si idSesion es distinto de 0 se podra ejecutar el programa
-		
+*/		
 			
+
+		
 			int opcion = Integer.parseInt(request.getParameter("op"));
 			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 			System.out.println("la opcion es " +opcion);
@@ -88,6 +96,7 @@ public class SV_miembro extends HttpServlet {
 						DaoMiembro dao = new DaoMiembro();
 						String resultado = dao.listarJonson();
 						out.print(resultado);
+						System.out.println(resultado);
 						response.sendRedirect("miembro.html");
 						
 					} catch (SQLException e) {
@@ -121,10 +130,10 @@ public class SV_miembro extends HttpServlet {
 	
 			}
 			
-		}else {
+		/*}else {
 			System.out.println("No PUEDES PASARRRR");
 			response.sendRedirect("miembro.html");
-		}
+		}*/
 		
 		
 		
@@ -136,7 +145,7 @@ public class SV_miembro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("miembro.html");// Una vez enviado los datos del formulario redirigir al index miembro.
+		response.sendRedirect("insertarMiembro.html");// Una vez enviado los datos del formulario redirigir al index miembro.
 
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");

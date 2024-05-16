@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=
     , initial-scale=1.0">
     <title>Document</title>
-    <script src="InsertarAdmin.html"></script>
+    <script src="InsertarAdmin.js"></script>
     <link rel="stylesheet" href="InsertarAdmin.css">
 </head>
 
@@ -22,7 +22,7 @@
                 </div>
 
                 <div id="centro"> 
-                    <h1>ADMINISTRADOR</h1>
+                    <h1>INSERTAR ADMIN</h1>
                 </div>
 
 
@@ -51,11 +51,11 @@
                     </div>
                 
                     <div>
-                        <a href="insertarDep.html"><input type="button" id="BotonNav" value="Zona Deportes"></a>
+                        <a href="ListarAdmin.html"><input type="button" id="BotonNav" value="Listar Admin"></a>
                     </div>
 
                     <div>
-                        <input type="button" id="BotonNav" value="Zona Admin">
+                        <a href="insertarDep.html"><input type="button" id="BotonNav" value="Zona Deportes"></a>
                     </div>
 
                     <div>
@@ -68,48 +68,58 @@
         </section>
         
 
-        <section id="contendorInfe">
-            <form name="PaginaAdministrador" action="SV_administrador" method="post" enctype="multipart/form-data">
-                <ul id="formulario">
-
+        <main id="ContenedorInferior">
+            <form id="cajaFormulario" name="PaginaAdministrador" action="SV_administrador" method="post" enctype="multipart/form-data">
+                <ul>
+                    
+                    
                     <li>
-                        <h1>Insertar administrador</h1>
+                        <label for="nombre">Nombre: </label>
+                        <input id="cajaTxt"  type="text" name="nombre">
                     </li>
-                    <li id="idadministrador">
-                        <input type="hidden"  name="idadministrador">
+
+                    
+                    <li>
+                        <label for="apellidos">Apellidos: </label>
+                        <input id="cajaTxt"  type="text" name="apellidos">
                     </li>
-                    <li id="nombre">
-                        <input  type="text" name="nombre">
+
+                    
+                    <li>  
+                        <label for="email"> Email: </label>
+                        <input id="cajaTxt"  type="text" name="email">
                     </li>
-                    <li id="apellidos">
-                        <input  type="text" name="apellidos">
+
+                    
+                    <li>    
+                        <label for="poblacion">Población:</label>
+                        <input id="cajaTxt"  type="text" name="poblacion">
                     </li>
-                    <li id="email">
-                        <input  type="text" name="email">
-                    </li>
-                    <li id="poblacion">
-                        <input  type="text" name="poblacion">
-                    </li>
-                    <li id="permiso">
-                        <input  type="text" name="permiso">
+                    <li>
+                        <label id="textCategoria" for="permiso">Categoria</label>
+                        <select name="permiso" id="cajaTxt">
+                            <option value="...">...</option>
+                            <option value="1">Administrador</option>
+                            <option value="9">Miembro</option>
+
+                        </select>
+                        
                     </li>
                     <li id="foto">
                         <input  type="file" name="foto">
                     </li>
                     
 
-                    <li id="boton"><label>Enviar: </label><input type="submit" value="Guardar"> </li>
+                    <li id="btnGuardar">
+                        <input id="boton" type="submit" value="Guardar">
+                    </li>
                     
                 </ul>
             </form>
-        </section>
+        </main>
 
     </div>
 
-    <h1>Listado</h1>
-    <div id="listado">
-
-    </div>
 
 </body>
 </html>

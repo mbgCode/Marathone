@@ -6,7 +6,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
+import modelo.Miembro;
 import modelo.Usuario;
 
 import java.io.File;
@@ -23,6 +25,7 @@ import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import dao.DaoMiembro;
 import dao.DaoUsuario;
 
 /**
@@ -34,66 +37,117 @@ import dao.DaoUsuario;
 @WebServlet()
 @MultipartConfig
 
-
 public class Servlet_usuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	
 	//Añadimos la ruta de ORIGEN de la carpera...De momento lo hacemos de manera local. Luego se hará con ruta a la base de datos.
 	private String pathFiles = "C:\\Users\\mbgco\\git\\repository\\Proyecto_X\\src\\main\\webapp\\Fotos";
+	
 	
 	//Añadimos la clase FILE para poder introducir fotos en la bd.
 	//Hemos creado una carpeta en webapp llamada fotos que es donde vamos a guardarlas.
 	private File uploads = new File (pathFiles);
 	
 	
+	//Se utiliza para la sesión. Se crea esto para su instnciación.
+	HttpSession sesion;
+	
 	
 	
     /**
      * @see HttpServlet#HttpServlet()
      */
- 
     public Servlet_usuario() {
-        super();
-        // TODO Auto-generated constructor stub
+        super();      
     }
 
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
+//Abrir a la sesión.		
+		sesion = request.getSession();//desde aqui ya si se puede acceder al HttpSession.
 		
-
-		try {
+		int idSesion = (int)sesion.getAttribute("id");//Esto puede venir de un formulario con un request.getparameter
+	
+		if (idSesion != 0) {//Si idSesion es distinto de 0 se podra ejecutar el programa
+		
+			
+			int opcion = Integer.parseInt(request.getParameter("op"));
 			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
+			System.out.println("la opcion es " +opcion);
 			
-			DaoUsuario dao = new DaoUsuario();
-			String resultado = dao.ListarJonson();
-			out.print(resultado);
+			switch (opcion) {
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				case 1:{//listar en html.
+					try {
+						DaoMiembro dao = new DaoMiembro();
+						String resultado = dao.listarJonson();
+						out.print(resultado);
+						response.sendRedirect("miembro.html");
+						
+					} catch (SQLException e) {
+						System.out.println("Error en case 1 de SV_miembro");
+						e.printStackTrace();
+					}
+					break;
+				}
+				
+				
+				case 2: { //Modificar...
+					
+					break;
+				}
+				
+				
+				case 3: { //listar por tipo
+					int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
+						try {
+							DaoMiembro dao = new DaoMiembro();
+							String resultado = dao.listarJonsonTipo(tipo);
+							out.print(resultado);
+							dao.listarTipo(tipo);
+						} catch (SQLException e) {
+							System.out.println("Error en case 3 de SV_miembro");
+							e.printStackTrace();
+						}
+					
+					break;
+				}
+	
+			}
+			
+		}else {
+			System.out.println("No PUEDES PASARRRR");
+			response.sendRedirect("miembro.html");
 		}
 		
 		
 		
-	}
+		
+	} 
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		response.sendRedirect("insertarMiembro.html");// Una vez enviado los datos del formulario redirigir al index miembro.
 
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		String email = request.getParameter("email");
 		String poblacion = request.getParameter("poblacion");
-		
 		String permiso = request.getParameter("permiso");//recibimos un tipo String
 		int permiss=Integer.parseInt(permiso);//lo cambiamos a int para poder insertarlo en su clase.
+		//String id = request.getParameter("id");
+		//int idint = Integer.parseInt(id);
+		String edad = request.getParameter("edad");
+		int edadint = Integer.parseInt(edad);
+		String pass = request.getParameter("pass");
 		
 		
 //INCLUIR FOTOS ------------------------------------------------------------------------------	
@@ -127,18 +181,15 @@ public class Servlet_usuario extends HttpServlet {
 //---------------------------------------------------------------------------------------------	
 
 		
-		
-		
 //Creamos el objeto Usuario y lo insertamos en dao.
-		//filename es para la foto
-		Usuario u1 = new Usuario(nombre, apellidos, email, poblacion, permiss, filename);
-		
+//filename es para la foto
+		Miembro m1 = new Miembro(nombre, apellidos, email, poblacion, permiss, filename, edadint, pass);
 		
 		
 		
 //Isertar Usuario
 		try {
-			u1.insertarUsuario();
+			m1.insertarMiembro();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -146,11 +197,11 @@ public class Servlet_usuario extends HttpServlet {
 		
 		
 	
-//Listar Usuario
-		DaoUsuario lista;
+//Listar miembro
+		DaoMiembro lista;
 			try {
-				lista = new DaoUsuario();
-				ArrayList <Usuario> listaUsuario = lista.listar();
+				lista = new DaoMiembro();
+				ArrayList <Miembro> listarMiembro = lista.listar();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -163,3 +214,4 @@ public class Servlet_usuario extends HttpServlet {
 	}
 
 }
+

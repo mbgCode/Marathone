@@ -94,28 +94,27 @@ header{
 #navegador{
     grid-area: nav;
     display: flex;
-    flex-wrap: nowrap;
     background-color: rgb(250, 250, 250);
     justify-content: space-around;
-    height: 100%;
+    height: 60px;
     align-items: center;
    
 }
 
-.BotonNav{
+#BotonNav{
     background-color: #4CAF50; /* Color de fondo */
-    border: none;
     color: rgb(242, 242, 242);
+    width: 200px;
     padding: 15px 32px;
     text-align: center;
     font-size: 16px;
     cursor: pointer;
     border-radius: 8px; 
-    transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
 }
 
 
-.BotonNav:hover{
+#BotonNav:hover{ /* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
     background-color: #2d8b32; /* Cambio de color al pasar el cursor */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra al pasar el cursor */
 }

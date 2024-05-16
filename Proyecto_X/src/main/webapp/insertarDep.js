@@ -44,12 +44,14 @@ function pintarLista(data) {
     for (let i = 0; i < data.length; i++) {
         html += "<tr id='fila'><td id='columnaId'>" + data[i].id + "</td><td id = 'columnaNom'>" + data[i].nombre + "</td>";
         html += "<td id = 'columnaDesc'>" + data[i].descripcion + "</td><td id = 'columnaTel'>" + data[i].telefono + "</td>";
-        html += "<td id = 'columnaDir'>" + data[i].direccion + "</td><td id = 'columnaFoto'>" + data[i].foto + "</td>";
+        html += "<td id = 'columnaDir'>" + data[i].direccion +"</td>";
+        html += "<td id = 'columnaFoto'> <img id='imagen' src='fotos_deporte/" + data[i].foto + "' alt='Foto del deporte'></img></td>"
         html += "<td id = 'columnaCate'>" + data[i].categoria + "</td>";
         html += "<td id = 'columnaEdit'><a href='insertarDep.html?id=" + data[i].id + "&op=2'><input type='button' id='btnEdit' value='Editar'></a></td>";
         html += "<td><a href='insertarDep.html?id="+ data[i].id +"&op=3'><input type='button' id='btnBorrar' value='Borrar'></a></td></tr>";
     }   
 
+  
 
     html += "</table>";    
     document.getElementById("listado").innerHTML = html;

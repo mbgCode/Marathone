@@ -127,93 +127,82 @@ header{
 
 
 
+/* Contenedor inferior */
 
+/* Tabla --------------------------------------------- */
 
-/* Contenedor inferiror---------------------------------------------------- */
-#ContenedorInferior{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: 1fr;
-    grid-template-areas:  "cajaFormulario";
-    justify-items: center;
-
-
-}
-
-
-
-
-/* Contenedor insertar----------------------------------------- */
-#cajaFormulario{
-    grid-area: cajaFormulario;
-    margin-top: 30px;
-    height: 460px;
-    background-color: rgb(170, 170, 231); 
-    margin-left: 20px;
-    border: 3px solid black;
-    border-radius: 5px; 
-    width: 360px;
-    display: flex;
-    align-items: center;
-    
-}
-
-
-#cajaFormulario ul{/* Espacio entre caja de texto y borde del formulario */
-    list-style: none;
-    margin: 16px;
-   
-}
-
-
-#cajaFormulario li{/* Espacio entre los items */
-    margin-top: 20px;
-}
-
-
-
-#cajaTxt{
-    background-color: rgb(195, 195, 228); 
-    font-size: 22px;
-    width: 100%;
-    min-width: 30px;
-    font-style: oblique;
-    border: 1px solid black;
-}
-
-
-#btnGuardar{
+#contenedorInf{
     display: flex;
     justify-content: center;
-}
-
-#foto{
-    margin-top:10px ;
-    
-}
-
-#boton{
-  
-    margin-top: 12px;
-    border-radius: 5px;
-    background-color: #73e17a; 
-    color: rgb(0, 0, 0); 
-    padding: 10px 20px; 
-    text-align: center; 
-    display: inline-block; /* Para que se comporte como un bloque en línea */
-    font-size: 16px; 
-   
-    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
-}
-
-
-
-#boton:hover {/* hover sirve para hacer el cambio de color. */
-    background-color: #2d8b32; /* Cambio de color al pasar el cursor */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave */
+    margin-top: 30px;
 
 }
 
+.fondoTabla{
+    background-color: rgb(7, 81, 46);
+    height: 460px;
+    width: 900px;
+    position: absolute;
+    z-index: 0;
+   border: black solid 3px;
+
+}
+
+#tabla{
+    background-color: rgb(40, 191, 120);
+    border: solid 3px rgb(0, 0, 0);
+    display: flex;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: scroll;/* Para hacer scroll en la tabla */
+    max-height: 460px;
+    border-radius: 10px;
+}
+
+/* Encabezado tabla */
+th{
+    padding: 10px;
+    border: 4px solid black;
+    font-weight: bold;
+
+    font-size: 20px;
+}
+
+/* Celdas con datos */
+td{
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    border: 2px black solid;
+
+}
+
+tr{
+    border: 3px solid black;
+    background-color: #6cef70;
+}
 
 
+#id{
+    background-color: rgb(210, 210, 88);
+}
+
+#imagen{
+
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+#btnEdit{
+    height:25px;
+    width: 40px;
+    background-color: yellow;
+}
+
+#btnBorr{
+    height:25px;
+    width: 40px;
+    background-color: rgb(230, 98, 98);
+}

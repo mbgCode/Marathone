@@ -5,47 +5,8 @@
     <meta name="viewport" content="width=
     , initial-scale=1.0">
     <title>Document</title>
-    
-    
-    <script> 	
-		function llamada (){
-            fetch ('SV_administrador?op=1')//Se envia la solicitud con op=1
-			.then (response => response.json())// La respuesta (response) se parsea a un .json 
-			.then (data => pintarTabla(data))//Los datos de ese .json se pintan en la tabla.
-		}
-		
-		
-		
-		function pintarTabla(datos){//aqui se pintan los datos. creamos un codigo html.
-            let html = "<table border=1>";
-                
-            for (let i = 0;i<datos.length;i++){//Como datos (json) actua como un array.
-                html +="<tr><td>"+datos[i].nombre+"</td><td>"+datos[i].apellidos+"</td>";
-                html += "<td>"+datos[i].email+"</td><td>"+datos[i].poblacion+"</td>";
-                html += "<td>"+datos[i].permiso+"</td><td>"+datos[i].foto+"</td>"              
-                html += "<td>"+datos[i].idadministrador+"</td>";
-                html += "<td><a href='InsertarAdmin.html?idadministrador="+datos[i].idadministrador+"&op=2'>Editar</a></td>";
-                html += "<td><a href='InsertarAdmin.html?idadministrador="+datos[i].idadministrador+"&op=3'>Borrar</a></td>";
-                html +="</tr>";
-
-            }    
-            html +="</table>";
-            
-            
-            //le pedimos que busque el id (listado) que hemos llamado dentro de body.
-            document.getElementById("listado").innerHTML = html;
-        }
-	
-
-
-		//Cuando se cargue la pantalle ejecutamos funcion "llamada"
-        window.onload = function(){
-	     llamada();  
-        }
-
-
-	</script>
-  
+    <script src="ListarAdmin.js"></script>
+    <link rel="stylesheet" href="ListarAdmin.css">
 </head>
 
 
@@ -53,8 +14,76 @@
 
 <body>
 
-    <h1>Listado</h1>
-    <div id="listado">
+    <div id="contenedorPadre"> 
+        
+        <section id="contenedorSup">
+          
+
+            <!-- Parte superiro de la página -->
+            <header>
+                
+                <div id="logo">
+                    <img src="img index/bebida-energetica.png" alt="Bebida energética">
+                </div>
+
+                <div id="centro">
+                    <h1>ADMINISTRADOR</h1>
+                </div>
+
+                <div id="login">
+                    <div id="fotoPersonal">
+                        <img src="img index/fotoLofgin.png" alt="Foto personal">
+                    </div>
+                    <div id="desplegable">
+                        <img src="img index/desplegable.png" alt="Triple linea"> 
+                    </div>
+                </div>
+
+            </header>
+
+
+        
+
+
+            <!-- Zona de Categorías -->       
+            <nav>
+                <ul id="navegador">
+
+                    <div>
+                        
+                        <label for="botonInicio"></label>
+                        <a href="indexAdmin.html"><input  type="button" id="BotonNav" value="Inicio"></a>
+                    </div>
+                
+                    <div>
+                        <label for="ZonaDeportes"></label>
+                        <a href="InsertarAdmin.html"><input type="button" id="BotonNav" value="Insertar Admin"></a>
+                    </div>
+
+                    <div>
+                        <label for="ZonaActividades"></label>
+                        <input type="button" id="BotonNav" value="Actividades">
+                    </div>
+
+                    <div>
+                        <label for="ZonaMiembro"></label>
+                        <input type="button" id="BotonNav" value="Zona Miembros">
+                    </div>
+
+                </ul>    
+            </nav>
+
+        </section>
+
+
+        
+        <section id="contenedorInf">
+            <div class="fondoTabla" ></div>
+            <div id="listado"></div>
+            
+            
+        </section>
+
 
     </div>
 
