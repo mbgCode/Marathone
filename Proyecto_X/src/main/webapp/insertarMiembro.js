@@ -3,7 +3,7 @@
 function modificar (op,id){
     fetch ('SV_miembro?op='+op+"&idmiembro="+id)
     .then(response => response.json())
-    .then(data=>pintarFormulario(data))
+    .then(data=>pintarFormulario(data,op))
 }
 
 
@@ -18,15 +18,18 @@ function getParameterByName(name) {
 
 
 
-function pintarFormulario(data){
-    console.log(data);
-    document.getElementById("nombre").value = data.nombre;
-    document.getElementById("apellidos").value = data.apellidos;
-    document.getElementById("email").value = data.email;
-    document.getElementById("poblacion").value = data.poblacion;
-    document.getElementById("permiso").value= data.permiso;
-    document.getElementById("edad").value=data.edad;
-    document.getElementById("idmiembro").value=data.id;
+function pintarFormulario(data,op){
+    
+    if(op==2){/* Si op es igual a 2 es que viene del boton EDITAR */
+        document.getElementById("nombre").value = data.nombre;
+        document.getElementById("apellidos").value = data.apellidos;
+        document.getElementById("email").value = data.email;
+        document.getElementById("poblacion").value = data.poblacion;
+        document.getElementById("permiso").value= data.permiso;
+        document.getElementById("edad").value=data.edad;
+        document.getElementById("idmiembro").value=data.id;
+    }
+  
 
 
 }

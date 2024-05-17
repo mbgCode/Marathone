@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import com.google.gson.Gson;
 
+import dao.DaoAdministrador;
 import dao.DaoMiembro;
 import dao.DaoUsuario;
 
@@ -90,6 +91,8 @@ public class Miembro extends Usuario{
 
 	
 //Metodos ---
+	
+//Insertamos Miembro.
 	public void insertarMiembro() throws SQLException {
 		DaoMiembro dao = new DaoMiembro();
 		dao.insertar(this);
@@ -121,7 +124,6 @@ public class Miembro extends Usuario{
 				ok=true; //entonces si esta aqui dentro ok es cierto y lo devovlemos con el retunr
 		
 			}
-			
 			
 			return ok;
 		}
@@ -157,6 +159,7 @@ public class Miembro extends Usuario{
 		}
 			
 
+		
 // update por id.
 		public void update () throws SQLException {
 			DaoMiembro dao = new DaoMiembro();
@@ -165,5 +168,11 @@ public class Miembro extends Usuario{
 		}
 		
 		
+		
+//Eliminar por id
+		public void eliminar (int id) throws SQLException {
+			DaoMiembro dao = new DaoMiembro();
+			dao.borrarBD(id);
+		}		
 		
 }

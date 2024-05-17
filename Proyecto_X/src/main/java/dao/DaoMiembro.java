@@ -102,26 +102,26 @@ public class DaoMiembro{
 
 	
 	//Update los datos(Para modificar los datos que queramos)
-		public void update (Miembro m) throws SQLException {
-			String sql = "UPDATE administrador SET nombre=?,apellidos=?,email=?,poblacion=?,permiso=?,foto=?,edad=?,idmiembro=?,pass=?"
-					+ "WHERE idmiembro=?";
-			
-			PreparedStatement ps = con.prepareStatement(sql);
-			
-			ps.setString(1, m.getNombre());
-			ps.setString(2, m.getApellidos());
-			ps.setString(3, m.getEmail());
-			ps.setString(4, m.getPoblacion());
-			ps.setInt(5, m.getPermiso());
-			ps.setString(6, m.getFoto());
-			ps.setInt(7, m.getEdad());
-			ps.setInt(8, m.getId());
-			ps.setString(9, m.getPass());
-			int filas = ps.executeUpdate();
-			
-			ps.close();	
-		}
-	
+	public void update(Miembro m) throws SQLException {
+	    String sql = "UPDATE miembro SET nombre=?, apellidos=?, email=?, poblacion=?, permiso=?, foto=?, edad=?, pass=? "
+	               + "WHERE idmiembro=?";
+	    
+	    PreparedStatement ps = con.prepareStatement(sql);
+	    
+	    ps.setString(1, m.getNombre());
+	    ps.setString(2, m.getApellidos());
+	    ps.setString(3, m.getEmail());
+	    ps.setString(4, m.getPoblacion());
+	    ps.setInt(5, m.getPermiso());
+	    ps.setString(6, m.getFoto());
+	    ps.setInt(7, m.getEdad());
+	    ps.setString(8, m.getPass());
+	    ps.setInt(9, m.getId());
+	    
+	    int filas = ps.executeUpdate();
+	    
+	    ps.close();    
+	}
 	
 	
 	
@@ -203,4 +203,18 @@ public class DaoMiembro{
 			
 			return txtJson;
 		} 
+		
+		
+		
+//borrar		
+		public void borrarBD (int id) throws SQLException {
+			
+			String sql = "DELETE FROM miembro WHERE idmiembro = "+id;
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.executeUpdate(sql);
+		
+			ps.close();
+			
+		}		
 }

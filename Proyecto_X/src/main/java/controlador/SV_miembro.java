@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
+import modelo.Administrador;
 import modelo.Miembro;
 import modelo.Usuario;
 
@@ -85,62 +86,79 @@ public class SV_miembro extends HttpServlet {
 		if (idSesion != 0) {//Si idSesion es distinto de 0 se podra ejecutar el programa
 */		
 			
-
 		
-			int opcion = Integer.parseInt(request.getParameter("op"));
-		
-			System.out.println("la opcion es " +opcion);
+			String op = request.getParameter("op");
 			
-			switch (opcion) {
-			
-				case 1:{//listar en html.
-					try {
-						DaoMiembro dao = new DaoMiembro();
-						String resultado = dao.listarJonson();
-						out.print(resultado);
-						System.out.println(resultado);
-						
-					} catch (SQLException e) {
-						System.out.println("Error en case 1 de SV_miembro");
-						e.printStackTrace();
-					}
-					break;
-				}
+			if (!op.isEmpty()) {
+				int opcion = Integer.parseInt(request.getParameter("op"));
 				
 				
-				case 2: { //Modificar...
-						int id =Integer.parseInt(request.getParameter("idmiembro")) ;
-						Miembro m = new Miembro();
+				switch (opcion) {
+				
+					case 1:{//listar en html.
 						try {
-							m.listPorId(id);
-							String resultado = m.dameJson();
+							DaoMiembro dao = new DaoMiembro();
+							String resultado = dao.listarJonson();
 							out.print(resultado);
-							System.out.println(resultado);
+							
+						} catch (SQLException e) {
+							System.out.println("Error en case 1 de SV_miembro");
+							e.printStackTrace();
+						}
+						
+						break;
+					}
+					
+					
+					case 2: { //Modificar...
+							int id =Integer.parseInt(request.getParameter("idmiembro")) ;
+							Miembro m = new Miembro();
+							try {
+								m.listPorId(id);
+								String resultado = m.dameJson();
+								out.print(resultado);
+							
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						
+						
+						break;
+					}
+					
+					
+					case 3: { //listar por tipode usuario para login
+						int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
+							try {
+								DaoMiembro dao = new DaoMiembro();
+								String resultado = dao.listarJonsonTipo(tipo);
+								out.print(resultado);
+								dao.listarTipo(tipo);
+							} catch (SQLException e) {
+								System.out.println("Error en case 3 de SV_miembro");
+								e.printStackTrace();
+							}
+						
+						break;
+						
+						
+					}case 4:{
+						
+						Miembro m1 = new Miembro();
+						int id = Integer.parseInt(request.getParameter("idmiembro"));
+						
+						try {							
+							m1.eliminar(id);
+							
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-					
-					
-					break;
+					}
+		
 				}
-				
-				
-				case 3: { //listar por tipode usuario para login
-					int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
-						try {
-							DaoMiembro dao = new DaoMiembro();
-							String resultado = dao.listarJonsonTipo(tipo);
-							out.print(resultado);
-							dao.listarTipo(tipo);
-						} catch (SQLException e) {
-							System.out.println("Error en case 3 de SV_miembro");
-							e.printStackTrace();
-						}
-					
-					break;
-				}
-	
+							
 			}
 			
 		/*}else {
@@ -148,9 +166,7 @@ public class SV_miembro extends HttpServlet {
 			response.sendRedirect("miembro.html");
 		}*/
 		
-		
-		
-		
+				
 	} 
 	
 
@@ -158,7 +174,7 @@ public class SV_miembro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("insertarMiembro.html");// Una vez enviado los datos del formulario redirigir al index miembro.
+		response.sendRedirect("ListarMiembro.html");// Una vez enviado los datos del formulario redirigir al index miembro.
 
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
@@ -229,11 +245,10 @@ public class SV_miembro extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
-		
 			
-//update 
-		
+			
+			
+//update 	
 		int id = Integer.parseInt(request.getParameter("idmiembro"));
 		
 	

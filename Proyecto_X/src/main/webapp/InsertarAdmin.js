@@ -17,7 +17,8 @@ function getParameterByName(name) {
 }
 		
 
-//Pintamos la tabla con los datos del .json que vienen del controlador.
+
+//Pintamos el FORMULARIO  con los datos del .json que vienen del controlador.
 function pintarFormulario (data,op){
     console.log("estamos aqui")
     if (op==2){
@@ -35,13 +36,12 @@ function pintarFormulario (data,op){
 }
 
 
-
  
 //Cuando se cargue la ventana sacamos (scado del http) los parametros id y op y los guardamos en la variable.
 window.onload = function(){
     let op = getParameterByName("op")
     let id = getParameterByName("idadministrador")
-    console.log(id,op)
+
 	    llamada(id,op);  
 
 }
