@@ -2,18 +2,16 @@
     margin: 0%;
     padding: 0%;
     
-    
+  
 }
 
 
 #contenedorPadre {
     display: flex;
     flex-direction: column;
-    
+  
 }
 
-
-/* contSUP-------------------------------------- */
 #contenedorSup{
     display:grid;
     grid-template-columns: 1fr ;
@@ -25,17 +23,19 @@
 }
 
 
+
+
 /* Header--------------------------------------------------------- */
 header{
     grid-area: header;
     display: flex;
-    background-color: rgb(86, 83, 225);
-
+    height: 120px;
 }
 
 
+
 #logo{
-   background-color: rgb(86, 83, 225);
+    background-color: rgb(255, 255, 255);
     width: 35%;
     height: 100px;
 
@@ -46,25 +46,19 @@ header{
     padding-top: 2%;
     margin-left: 8%;
     
-    
 }
 
 
 
 /* Titulo central */
 #centro{
-    
+    font-size: 30px;
     width: auto;
     height: 100px;
     width: 35%;
-   
-}
-
-#centro h1{
     text-align: center;
     margin-top:30px;
 }
-
 
 
 /* Logueo */
@@ -109,12 +103,12 @@ header{
 #BotonNav{
     background-color: #4CAF50; /* Color de fondo */
     color: rgb(242, 242, 242);
-    width: 200px;
     padding: 15px 32px;
     text-align: center;
     font-size: 16px;
     cursor: pointer;
     border-radius: 8px; 
+    width: 200px;
     transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
 }
 
@@ -127,81 +121,143 @@ header{
 
 
 
-/* Contenedor inferior */
 
-/* Tabla --------------------------------------------- */
 
-#contenedorInf{
+/* Seccion Inferior------------------------------------------------- */
+
+main{
     display: flex;
     justify-content: center;
+}
+
+#fondoTabla{
+    margin-top: 10px;
+    width: 860px;
+    height: 450px;
+    background-color: rgb(99, 133, 99);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    border: 3px black solid;
+}
+
+/* Padre de #tabla */
+#listado{
+    display: flex;
+  
     margin-top: 30px;
 
 }
 
-.fondoTabla{
-    background-color: rgb(7, 81, 46);
-    height: 460px;
-    width: 900px;
-    position: absolute;
-    z-index: 0;
-    border: black solid 3px;
 
-}
 
 #tabla{
-    background-color: rgb(40, 191, 120);
-    border: solid 3px rgb(0, 0, 0);
+    border: 3px black solid;
     display: flex;
-    padding: 10px;
-    position: relative;
-    z-index: 1;
     overflow: scroll;/* Para hacer scroll en la tabla */
-    max-height: 460px;
-    border-radius: 10px;
-}
-
-/* Encabezado tabla */
-th{
-    padding: 10px;
-    border: 4px solid black;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-/* Celdas con datos */
-td{
-    text-align: center;
-    margin: 5px;
-    padding: 5px;
-    border: 2px black solid;
+    max-height: 400px;
+    width: 800px;
+    height: 4000px;
 
 }
+
 
 tr{
-    border: 3px solid black;
-    background-color: #6cef70;
+    border: 3px black solid;
 }
 
+
+/* Cabcera de la tabla */
+th{
+    border: 3px black solid;
+    background-color: rgb(60, 133, 60);
+}
+
+td{
+    border: 2px black solid ;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(138, 206, 138);
+    text-align: center;
+    
+}
 
 #id{
-    background-color: rgb(210, 210, 88);
+    background-color: rgb(224, 224, 124);
+    border: 2px black solid ;
+    
 }
+
 
 #imagen{
+    width: 50px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    margin: 6px;
 
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
 }
 
+
 #btnEdit{
-    height:25px;
-    width: 40px;
+    height:45px;
+    width:45px;
     background-color: yellow;
+    margin: 4px;
 }
 
 #btnBorr{
-    height:25px;
-    width: 40px;
+    height:45px;
+    width:45px;
     background-color: rgb(230, 98, 98);
+    margin: 4px;
 }
+
+
+/* Footer---------------------------------------------------------- */ 
+footer{
+    position: fixed;
+    bottom: 0;
+    display: grid;
+    margin-top: 20px;
+    height: 60px;
+    background-color: rgb(223, 223, 127);
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: ". siglas mail politicaPriv infoLegal .";
+    
+}
+
+#siglas{ 
+    grid-area: siglas ;
+    justify-content: center;
+    color: rgb(42, 42, 152);
+    font-weight: bold;/* negrita */
+}
+
+#mail{
+    grid-area: mail ;
+    justify-content: center;
+}
+
+#imgMail{
+    height: 30px;
+    width: 40px;
+    justify-content: center;
+}
+
+#politicaPriv{
+    grid-area: politicaPriv;
+    justify-content: center;
+}
+
+#infoLegal{
+    grid-area: infoLegal;
+    justify-content: center;
+}
+
+#siglas, #mail, #politicaPriv, #infoLegal {
+    display: flex; /* Asegura que el contenido se alinee horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+

@@ -11,7 +11,9 @@
 <body>
     <div id="ContendorPadre">
 
-        <section id="contenedorSup">
+        <!-- Contenedor superiro -->
+        <div id="contenedorSup">
+
 
             <!-- Parte superiro de la página -->
             <header>
@@ -49,7 +51,7 @@
                     </div>
 
                     <div>
-                        <input type="button" id="BotonNav" value="Zona Miembros">
+                        <a href="ListarMiembro.html"><input type="button" id="BotonNav" value="Zona Miembros"></a>
                     </div>
 
                 </ul>    
@@ -66,8 +68,7 @@
 
 
 
-            <!-- Zona de Categorías -->
-
+            <!-- Iconos categorías -->
             <nav>
                 <ul>
 
@@ -113,7 +114,7 @@
                         </a>
                     </li>
 
-
+                    <!-- Desplegable de categorías -->
                     <li>
                         <label for="categoria">Categorías:</label>
                         <select name="categoria" id="categoria" onchange="redireccionar()"> <!-- Utilizamos el onchange para redireccionar -->
@@ -145,15 +146,19 @@
 
             </nav>
 
-        </section>
+        </div>
 
-        <section>
+
+        <!-- contenedor inferrior -->
+        <div id="contenedorInf">
+
+            <!-- main -->
             <main>
-                    <section id="contenedorTarjetas">
-                    </section>
+                <section id="contenedorTarjetas">
+                </section>
             </main>
                 
-
+            <!-- footer -->
             <footer >
 
                 <div id="siglas">Marcos Barberá Gómez</div>
@@ -170,7 +175,7 @@
                 <div id="infoLegal">Informacio legal</div>
 
             </footer>
-        </section>
+        </div>
 
     </div>  
 

@@ -41,6 +41,8 @@ public class SV_miembro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	
+	
+	
 	//Añadimos la ruta de ORIGEN de la carpera...De momento lo hacemos de manera local. Luego se hará con ruta a la base de datos.
 	private String pathFiles = "C:\\Users\\mbgco\\git\\repository\\Proyecto_X\\src\\main\\webapp\\Fotos";
 	
@@ -68,7 +70,7 @@ public class SV_miembro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		
+		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 		
 /*//Abrir a la sesión.		
 		sesion = request.getSession();//desde aqui ya si se puede acceder al HttpSession.
@@ -86,7 +88,7 @@ public class SV_miembro extends HttpServlet {
 
 		
 			int opcion = Integer.parseInt(request.getParameter("op"));
-			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
+		
 			System.out.println("la opcion es " +opcion);
 			
 			switch (opcion) {
@@ -97,7 +99,6 @@ public class SV_miembro extends HttpServlet {
 						String resultado = dao.listarJonson();
 						out.print(resultado);
 						System.out.println(resultado);
-						response.sendRedirect("miembro.html");
 						
 					} catch (SQLException e) {
 						System.out.println("Error en case 1 de SV_miembro");
@@ -108,12 +109,24 @@ public class SV_miembro extends HttpServlet {
 				
 				
 				case 2: { //Modificar...
+						int id =Integer.parseInt(request.getParameter("idmiembro")) ;
+						Miembro m = new Miembro();
+						try {
+							m.listPorId(id);
+							String resultado = m.dameJson();
+							out.print(resultado);
+							System.out.println(resultado);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					
 					
 					break;
 				}
 				
 				
-				case 3: { //listar por tipo
+				case 3: { //listar por tipode usuario para login
 					int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
 						try {
 							DaoMiembro dao = new DaoMiembro();
@@ -218,7 +231,19 @@ public class SV_miembro extends HttpServlet {
 			}
 		
 		
+			
+//update 
 		
+		int id = Integer.parseInt(request.getParameter("idmiembro"));
+		
+	
+		try {
+			m1.setId(id);
+			m1.update();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	
 	}

@@ -1,14 +1,17 @@
 
-//aqui se pintan los datos. creamos un codigo html.
+/* Función para recibir los datos del Sv y pintar tabla */
 function llamada1 (){
     fetch ('SV_administrador?op=1')
     .then (response => response.json())
     .then (data => pintarTabla(data)) 
 }
 
+
+/* Función de pintar la tabla con los datos de .JSON */
 function pintarTabla(datos){
     let html = "<table border=1>";
-        
+       
+    /* Bucle for para rellenar la tabla con la cantidad de datos que tenga el archivo */
     for (let i = 0;i<datos.length;i++){//Como datos (json) actua como un array.
         html +="<tr><td>"+datos[i].nombre+"</td><td>"+datos[i].apellidos+"</td>";
         html += "<td>"+datos[i].email+"</td><td>"+datos[i].poblacion+"</td>";
@@ -25,7 +28,7 @@ function pintarTabla(datos){
 
 
 
-
+/* Función para recibirt datos de la URL */
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -44,6 +47,7 @@ function llamada2(op,id){
 }
 
 
+/* Pintamos los datos a modificar en el formulário */
 function pintarFormulario(data,op){
     console.log("data es "+data+" y op es "+op)
     if (op==2){
@@ -58,7 +62,7 @@ function pintarFormulario(data,op){
 }
 
 
-
+/* Función principal. Se activa cuando carga la página */
 window.onload = function(){
 
  llamada1();  

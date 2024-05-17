@@ -44,59 +44,58 @@
                     <div>
                         <img id="imgLupa" src="img index/lupaBuscador.png" alt="logo de una lupa"> 
                     </div> 
-                </div>
-                    
+                </div>   
             </div>
 
 
 
-            <!-- Zona de Categorías -->
+            <!-- Iconos de Categorías -->
             <nav>
                 <ul>
 
 					<li>
 						<a href="ListarDep.html?op=4&categoria=Acuaticos">
-                        	<img id = "Acuaticos"  src="img index/natacion.png" alt="">
+                        	<img id = "Acuaticos"  src="img index/natacion.png" alt="icono hombre nandando">
                         </a>
                     </li>
 
 					  <li>
 						<a href="ListarDep.html?op=4&categoria=Artes Marciales">
-                        	<img id = "Artes Marciales" src="img index/karate.png" alt="">
+                        	<img id = "Artes Marciales" src="img index/karate.png" alt="icono karate">
                         </a>
                     </li>
 
                     <li>
                         <a href="ListarDep.html?op=4&categoria=Gimnasio">
-                        	<img id="Gimansio" src="img index/pesa (1).png" alt="">
+                        	<img id="Gimansio" src="img index/pesa (1).png" alt="icono mancuerna">
                         </a>
                     </li>
 
                     <li>
                         <a href="ListarDep.html?op=4&categoria=Futbol">
-                            <img id="Futbol" src="img index/jugador-de-futbol.png" alt="">
+                            <img id="Futbol" src="img index/jugador-de-futbol.png" alt="icono jugador de futbol">
                         </a>
                     </li>
 
                     <li>
 						<a href="ListarDep.html?op=4&categoria=Baloncesto">
-                       		<img id="Baloncesto" src="img index/jugador-de-baloncesto.png" alt="">
+                       		<img id="Baloncesto" src="img index/jugador-de-baloncesto.png" alt="icono juador de Baloncesto">
                         </a>
                     </li>
 
                     <li>
 						<a href="ListarDep.html?op=4&categoria=Running">
-                        	<img id="Running" src="img index/corriendo (1).png" alt="">
+                        	<img id="Running" src="img index/corriendo (1).png" alt="Icono persona corriendo">
                         </a>
                     </li>         
 
                     <li>
 						<a href="ListarDep.html?op=4&categoria=Tenis">
-                        	<img id="Tenis" src="img index/tenis.png" alt="">
+                        	<img id="Tenis" src="img index/tenis.png" alt="Icono raqueta de tenis">
                         </a>
                     </li>
 
-
+                    <!-- Selector de categorías -->
                     <li>
                         <label for="categoria">Categorías:</label>
                         <select name="categoria" id="categoria" onchange="redireccionar()"> <!-- Utilizamos el onchange para redireccionar -->
@@ -130,33 +129,35 @@
 
         </div>
 
+        <!-- Contenedor inferiror -->
+        <div id="contenedorSup">
 
-        <main>
-            <section id="contenedorTarjetas">    
-            </section>
-        </main>
-            
+            <!-- main tarjetas deportes -->
+            <main>
+                <section id="contenedorTarjetas">    
+                </section>
+            </main>
+                
 
 
 
+            <!-- footer -->
+            <footer>
+                <div id="siglas">Marcos Barberá Gómez</div>
 
-        <footer>
+                <div id="mail">
+                    <a href="mailto:mbg.code@gmail.com">
+                        <img id="imgMail" src="imgFooter/iconoGmail.png" alt="iconoGmail">
+                    </a>
+                </div>
 
-            <div id="siglas">Marcos Barberá Gómez</div>
+                <div id="politicaPriv">
+                    <a href="">Politica de privacidad</a>
+                </div>
+                <div id="infoLegal">Informacio legal</div>
 
-            <div id="mail">
-                <a href="mailto:mbg.code@gmail.com">
-                    <img id="imgMail" src="imgFooter/iconoGmail.png" alt="iconoGmail">
-                </a>
-            </div>
-
-            <div id="politicaPriv">
-                <a href="">Politica de privacidad</a>
-            </div>
-            <div id="infoLegal">Informacio legal</div>
-
-        </footer>
-
+            </footer>
+        </div>
     </div>  
 
 </body>

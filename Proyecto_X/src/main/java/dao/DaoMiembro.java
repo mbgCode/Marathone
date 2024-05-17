@@ -74,6 +74,56 @@ public class DaoMiembro{
 	}
 	
 	
+//Listar por Id para modificar.
+	public Miembro listarPorId(int id) throws SQLException {
+	    String query = "SELECT * FROM miembro WHERE idmiembro = ?;";
+	    Miembro m = null;
+	    
+	    PreparedStatement ps = con.prepareStatement(query);
+	        ps.setInt(1, id);
+	       
+		ResultSet rs = ps.executeQuery();
+	       
+	            rs.next();
+	                m = new Miembro(
+	                    rs.getString(1), // Ajusta los índices si es necesario
+	                    rs.getString(2),
+	                    rs.getString(3),
+	                    rs.getString(4),
+	                    rs.getInt(5),
+	                    rs.getString(6),
+	                    rs.getInt(7),
+	                    rs.getInt(8),
+	                    rs.getString(9));
+	
+	    return m;
+	}
+
+
+	
+	//Update los datos(Para modificar los datos que queramos)
+		public void update (Miembro m) throws SQLException {
+			String sql = "UPDATE administrador SET nombre=?,apellidos=?,email=?,poblacion=?,permiso=?,foto=?,edad=?,idmiembro=?,pass=?"
+					+ "WHERE idmiembro=?";
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, m.getNombre());
+			ps.setString(2, m.getApellidos());
+			ps.setString(3, m.getEmail());
+			ps.setString(4, m.getPoblacion());
+			ps.setInt(5, m.getPermiso());
+			ps.setString(6, m.getFoto());
+			ps.setInt(7, m.getEdad());
+			ps.setInt(8, m.getId());
+			ps.setString(9, m.getPass());
+			int filas = ps.executeUpdate();
+			
+			ps.close();	
+		}
+	
+	
+	
 	
 //Peticion para listar Miembro por tipo de permiso
 	public ArrayList <Miembro>listarTipo(int tipo) throws SQLException{

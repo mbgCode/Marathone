@@ -7,22 +7,29 @@
     <link rel="stylesheet" href="insertarDep.css">
     <script src="insertarDep.js" defer></script>
 </head>
+
+
 <body>
     
     <div id="ContenedorPadre">
 
+        <!-- Contenedor superior -->
         <div id="ContenedorSuperior">
 
+            <!-- Cabecera -->
             <header>
+
+                <!-- Logo marazone -->
                 <div id="logo">
                     <img src="/Proyecto_X/img index/bebida-energetica.png" alt="Bebida energética">
                 </div>
 
+                <!-- Titulo de la página -->
                 <div id="centro"> 
                     <h1>ADMINISTRADOR</h1>
                 </div>
 
-
+                <!-- Zona login -->
                 <div id="login">   
 
                     <div id="fotoPersonal">
@@ -38,7 +45,7 @@
             </header>
 
            
-
+            <!-- Botones de navegación -->
             <nav>
                 <ul id="navegador">
 
@@ -66,7 +73,7 @@
         
 
         
-
+        <!-- Main contenedor inferiror insertar datos -->
         <main id="ContenedorInferior">
 
             <form id="insertarDep" name="Insertar Deporte" action="SV_deporte" method="post" enctype="multipart/form-data">
@@ -91,6 +98,8 @@
                         <input id="direccion" type="text" name="direccion">
                     </li>
  
+
+                    <!-- Selector de categorías de deportes -->
                     <li>
                         <label for="categoria">Categoría:</label>
                         
@@ -119,37 +128,30 @@
                         </select>
                     </li>
 
+                    <!-- Botón insertar foto -->
                     <li>
                         <label for="foto">Foto:</label>
                         <input id="file" type="file" name="foto" >
                         
                     </li>
 
-                
+                    <!-- Botón de guardar datos -->
                     <li>
                         <input id="botonRegistar" type="submit" value="Registrar">
                     </li>
                 </ul>
             </form>   
             
-
-
-           
-            <div id="listado">
-            </div>
-
             
+            <!-- Donde se va a pintar el listado de deportes -->
+            <div id="listado"></div>
+
+       
         </main>
-
-
-         
-
 
         
     </div>
-
-
-   
+ 
 
 </body>
 </html>

@@ -57,7 +57,7 @@ public class SV_administrador extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		
+	
 		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 		
 		String op = request.getParameter("op");
@@ -88,15 +88,15 @@ public class SV_administrador extends HttpServlet {
 				
 				// op2 modificar (sacar los datos por el cliente, que se modificará por el doPost).
 				case 2:{
-					Administrador a = new Administrador();
+					
 				
 					try {
 						int id = Integer.parseInt(request.getParameter("idadministrador")); //recogemos el id del form
-						
+						Administrador a = new Administrador();
 						a.modificarAdmin(id);
 						String resultado = a.dameJson();
 						out.print(resultado);
-						
+						System.out.println(resultado);
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -172,12 +172,13 @@ public class SV_administrador extends HttpServlet {
 		System.out.println("este es el valor de ids"+ids);
 //Insertamos nuevo admin.		
 			try {
-				if(ids==null) {//Si el id es cadena vacia quiere decir que va a insertarse un admin nuevo.
+				if (ids.isEmpty()) {//Si el id es cadena vacia quiere decir que va a insertarse un admin nuevo.
 					a1.insertarAdmin();
 					
 //Update de los datos a ingresar en la BD				
 				}else {//si es diferente de "", significa que si vamos a modificar algun dato de un ID ya registrado.
 					int id = Integer.parseInt(request.getParameter("idadministrador"));
+						;
 						a1.setIdaministrador(id);//Insertamos el id en Administrador.
 						a1.update();//Llamamos al update para poder modificar							
 				}

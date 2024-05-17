@@ -1,11 +1,10 @@
 		
 //Recibimos de ListarAdmin.html el id y op
 function llamada (id, op){
-		
-    fetch ('SV_administrador?op='+op+'&idadministrador='+id) //envia la solicitud a SV_admin con el id y op recibidos
-	.then (response => response.json())// La respuesta (response) se parsea a un .json 
-	.then (data => pintarFormulario(data,op));	//Los datos de ese .json se pintan en la tabla.
-   
+    fetch ('SV_administrador?idadministrador='+id+'&op='+op)
+	.then (response => response.json())
+	.then (data => pintarFormulario(data,op))
+ 
 }
 		
 		
@@ -20,6 +19,7 @@ function getParameterByName(name) {
 
 //Pintamos la tabla con los datos del .json que vienen del controlador.
 function pintarFormulario (data,op){
+    console.log("estamos aqui")
     if (op==2){
         
         document.getElementById("nombre").value = data.nombre;
@@ -27,6 +27,8 @@ function pintarFormulario (data,op){
         document.getElementById("email").value = data.email;
         document.getElementById("poblacion").value = data.poblacion;
         document.getElementById("permiso").value = data.permiso;
+        document.getElementById("idadministrador").value=data.idadministrador;
+    
     }
 
 
@@ -39,7 +41,7 @@ function pintarFormulario (data,op){
 window.onload = function(){
     let op = getParameterByName("op")
     let id = getParameterByName("idadministrador")
-    console.log(id,op);
+    console.log(id,op)
 	    llamada(id,op);  
 
 }

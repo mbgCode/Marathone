@@ -2,6 +2,8 @@ package modelo;
 
 import java.sql.SQLException;
 
+import com.google.gson.Gson;
+
 import dao.DaoMiembro;
 import dao.DaoUsuario;
 
@@ -124,7 +126,44 @@ public class Miembro extends Usuario{
 			return ok;
 		}
 	
-	
-	
+		
+//	Petición para listar datos por id.
+		public void listPorId(int id) throws SQLException {
+			Miembro m = new Miembro();
+			DaoMiembro d = new DaoMiembro();
+		
+			m = d.listarPorId(id);
+			this.setNombre(m.getNombre());
+			this.setApellidos(m.getApellidos());
+			this.setEmail(m.getEmail());
+			this.setPoblacion(m.getPoblacion());
+			this.setPermiso(m.getPermiso());
+			this.setFoto(m.getFoto());
+			this.setEdad(m.getEdad());
+			this.setId(m.getId());
+						
+		}
+		
+		
+
+//Va a devolver los datos del id de modificarAdmin al cliente.
+		public String dameJson () {// entre parentesis podriamos pedirle un int id.
+			
+			String json = "";
+			Gson gson = new Gson();
+			json = gson.toJson(this);
+			return json;
+			
+		}
+			
+
+// update por id.
+		public void update () throws SQLException {
+			DaoMiembro dao = new DaoMiembro();
+			dao.update(this);
+			
+		}
+		
+		
 		
 }

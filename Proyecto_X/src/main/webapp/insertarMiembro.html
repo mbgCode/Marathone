@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=
     , initial-scale=1.0">
     <title>Document</title>
-    <script src="ListarMiembro.js"> </script>
+    <script src="insertarMiembro.js"> </script>
   
 </head>
 
@@ -17,17 +17,17 @@
 
         <ul>
             <li><label for="Titulo"><h1>Insertar usuario</h1></label> </li>
-            <li><label>Nombre: </label> <input type="text" name="nombre"></li>
-            <li><label>Apellidos: </label> <input type="text" name="apellidos"></li>
-            <li><label>email: </label> <input type="text" name="email"></li>
-            <li><label>poblacion: </label> <input type="text" name="poblacion"></li>
-            <li><label>Permiso: </label> <input type="text" name="permiso"></li>
-            <li><label>Foto: </label> <input type="file" name="foto"></li>
-            <li><label>Edad: </label> <input type="text" name="edad"></li>
-            <li><label>pass: </label> <input type="text" name="pass"></li>
+            <li><label>Nombre: </label> <input id="nombre" type="text" name="nombre"></li>
+            <li><label>Apellidos: </label> <input id="apellidos" type="text" name="apellidos"></li>
+            <li><label>email: </label> <input id="email" type="text" name="email"></li>
+            <li><label>poblacion: </label> <input id="poblacion" type="text" name="poblacion"></li>
+            <li><label>Permiso: </label> <input id="permiso" type="text" name="permiso"></li>
+            <li><label>Edad: </label> <input id="edad" type="text" name="edad"></li>
+            <li><label>pass: </label> <input id="pass" type="text" name="pass"></li>
+            <li><label>Foto: </label> <input id="foto" type="file" name="foto"></li>
             
             <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
-            
+            <input type="hidden" id="idmiembro" name="idmiembro">
         </ul>
 
     </form>

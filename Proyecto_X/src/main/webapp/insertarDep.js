@@ -1,7 +1,7 @@
 /* Llamada para update y pintar los datos del formulario. */
 function llamada(id,op) {
     fetch ('SV_deporte?id='+id+"&op="+op)
-    .then (response => response.json() )
+    .then (response => response.json())
     .then (data => pintarFormulario(data,op))
 
 }

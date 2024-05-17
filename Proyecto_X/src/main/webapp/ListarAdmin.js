@@ -1,7 +1,7 @@
 function llamada (){
-    fetch ('SV_administrador?op=1')//Se envia la solicitud con op=1
-    .then (response => response.json())// La respuesta (response) se parsea a un .json 
-    .then (data => pintarTabla(data))//Los datos de ese .json se pintan en la tabla.
+    fetch('SV_administrador?op=1')//Se envia la solicitud con op=1
+    .then(response => response.json())// La respuesta (response) se parsea a un .json 
+    .then(data => pintarTabla(data))//Los datos de ese .json se pintan en la tabla.
 }
 
 
