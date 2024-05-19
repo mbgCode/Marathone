@@ -3,6 +3,8 @@
     padding: 0%  
 }
 
+
+
 #ContendorPadre{
 height: auto;
 background-color:rgb(71, 147, 175);
@@ -50,15 +52,17 @@ header{
 /* Titulo central */
 #centro{
     
-    width: auto;
-    height: 100px;
+    
     width: 35%;
-   
+  
 }
 
-#centro h1{
+#titulo{
     text-align: center;
-    margin-top:30px;
+    margin-top:20px;
+    color:rgb(139, 50, 44) ;
+    font-weight:900; /* Cambia el grosor de la fuente */
+    font-size:60px;
 }
 
 
@@ -152,7 +156,7 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
 
 #categoria{
    margin-top: 40px;
-   background-color: rgb(161, 171, 181);
+   background-color:rgb(255, 196, 112);
    width: 130px;
    padding: 5px;
    border: 1px solid #ccc;
@@ -161,7 +165,9 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
    cursor: pointer; /* Cambia el tipo de cursor al pasar por encima. */
 }
 
-
+#textCategoria{
+    font-size: 20px;
+}
 
 
 /* Contenedor de actividades------------------------ */
@@ -170,14 +176,18 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    height: 100%;
 
 }
 
 
 #tarjeta{
-margin-top:60px ;
-margin-left: 40px;
+    margin-top:60px;
+    margin-bottom: 30px;
+    margin-left: 40px;
 }
+
+
 #tarjeta:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
     transform: scale(1.1);/* Aumenta un poquitin el tamaño de la tarjeta al pasar el ciursor. */
    
@@ -190,9 +200,6 @@ margin-left: 40px;
     width: 266px;
     height: 200px;
 }
-#tarjeta img:hover{
-    
-}
 
 
 #pNombre{
@@ -202,8 +209,8 @@ margin-left: 40px;
 }
 
 #pcat{
-    color: brown;
-    margin-left: 14px;
+    color: rgb(255, 196, 112);
+    margin-left: 16px;
 }
 
 
@@ -211,18 +218,15 @@ margin-left: 40px;
 
 /* Footer---------------------------- */
 footer{
-    
-   
-    bottom: 0;
-    display: grid;
-    margin-top: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
     height: 60px;
-    background-color: yellow;
+    background-color:rgb(255, 196, 112);
     width: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: ". siglas mail politicaPriv infoLegal .";
-    
 }
+
 
 #siglas{ 
     grid-area: siglas ;
@@ -231,30 +235,10 @@ footer{
     font-weight: bold;/* negrita */
 }
 
-#mail{
-    grid-area: mail ;
-    justify-content: center;
-}
 
 #imgMail{
     height: 30px;
     width: 40px;
     justify-content: center;
 }
-
-#politicaPriv{
-    grid-area: politicaPriv;
-    justify-content: center;
-}
-
-#infoLegal{
-    grid-area: infoLegal;
-    justify-content: center;
-}
-
-#siglas, #mail, #politicaPriv, #infoLegal {
-    display: flex; /* Asegura que el contenido se alinee horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-}
-
 

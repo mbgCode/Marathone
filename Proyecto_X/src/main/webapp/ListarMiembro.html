@@ -14,71 +14,74 @@
 
     <div id="contendorPadre">
 
-        <!-- Parte superiro de la página -->
-        <header>
+           <!-- Parte superiro de la página -->
+        <div id="contenedorSup">
+
+            <header>
                 
-            <div id="logo">
-                <img src="img index/bebida-energetica.png" alt="Bebida energética">
-            </div>
-
-            <div id="centro"><h1>Administrador</h1></div>
-
-            <div id="login">
-                <div id="fotoPersonal">
-                    <img src="img index/fotoLofgin.png" alt="Foto personal">
+                <div id="logo">
+                    <img src="img index/bebida-energetica.png" alt="Bebida energética">
                 </div>
-                <div id="desplegable">
-                    <img src="img index/desplegable.png" alt="Triple linea"> 
+    
+                <div id="centro"><h1>ADMINISTRADOR</h1></div>
+    
+                <div id="login">
+                    <div id="fotoPersonal">
+                        <img src="img index/fotoLofgin.png" alt="Foto personal">
+                    </div>
+                    <div id="desplegable">
+                        <img src="img index/desplegable.png" alt="Triple linea"> 
+                    </div>
                 </div>
-            </div>
+    
+            </header>
+    
+    
+    
+            <!-- Navegador de botones-->       
+            <nav>
+                <ul id="navegador">
+    
+                     <div>
+                            
+                        <label for="botonInicio"></label>
+                        <a href="indexAdmin.html"><input  type="button" id="BotonNav" value="Inicio"></a>
+                    </div>
+                    
+                    <div>
+                        <label for="ZonaDeportes"></label>
+                        <a href="ListarAdmin.html"><input type="button" id="BotonNav" value="Zona Admin"></a>
+                    </div>
+    
+                    <div>
+                        <label for="ZonaActividades"></label>
+                        <a href="insertarDep.html"><input type="button" id="BotonNav" value="Zona Deportes"></a>
+                    </div>
 
-        </header>
+    
+                </ul>    
+            </nav>
 
-
-
-
-        <!-- Navegador de botones-->       
-        <nav>
-            <ul id="navegador">
-
-                 <div>
-                        
-                    <label for="botonInicio"></label>
-                    <a href="indexAdmin.html"><input  type="button" id="BotonNav" value="Inicio"></a>
-                </div>
-                
-                <div>
-                    <label for="ZonaDeportes"></label>
-                    <a href="ListarDep.html"><input type="button" id="BotonNav" value="Novedades"></a>
-                </div>
-
-                <div>
-                    <label for="ZonaActividades"></label>
-                    <input type="button" id="BotonNav" value="Actividades">
-                </div>
-
-                <div>
-                    <label for="ZonaMiembro"></label>
-                    <input type="button" id="BotonNav" value="Zona Miembros">
-                </div>
-
-            </ul>    
-        </nav>
-
+        </div>
+     
         
 
 
         <!--Seccion Inferiror (Tabla en el .JS)  -->
         <main>
+            <h1>Listado de Miembros</h1>
             <div id="fondoTabla">
                 <div id="listado"></div>  
             </div>
 
             <div id="contenedorBotonInsertar">
                 <label for="InsertarMiembro"></label>
-                <input type="button" id="insertarMiembro" value="Alta Miembro">
+                <a href="insertarMiembro.html" >
+                    <input type="button" id="insertarMiembro" value="Alta Miembro">
+                </a> 
             </div>
         </main>
+
 
 
 

@@ -25,6 +25,7 @@ function pintarLista(data) {
     //Este es el header.
     const centro = document.getElementById("centro");
     centro.textContent = data[0].categoria;
+    centro.id="centro";
 
     // Limpiar contenido previo del contenedor
     contenedorTarjetas.innerHTML = "";

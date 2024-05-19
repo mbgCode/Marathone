@@ -1,76 +1,78 @@
 *{
     margin: 0%;
-    padding: 0%;
-    
-    
+    padding: 0%  
 }
 
 
-#contenedorPadre {
-    display: flex;
-    flex-direction: column;
-    
+
+
+#contendorPadre{
+    height: 93.5vh;
+    background-color:rgb(71, 147, 175) ;
 }
+
+
 
 #contenedorSup{
     display:grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 0.6fr;
+    grid-template-rows: 1fr 1/2fr;
     grid-template-areas:  
     "header"
-    "nav";
+    "nav"
+    ;
     
 }
+
+
 
 
 /* Header--------------------------------------------------------- */
 header{
     grid-area: header;
     display: flex;
-    height: 120px;
+    flex-wrap: wrap;
+    background-color: rgb(255, 196, 112);
 }
-
 
 
 #logo{
-    background-color: rgb(255, 255, 255);
-    width: 35%;
+    background-color: rgb(255, 196, 112);
+    width: 25%;
     height: 100px;
-
 }
+
 
 #logo img{
     width: 75px;
     padding-top: 2%;
-    margin-left: 8%;
-    
+    margin-left: 8%; 
 }
-
 
 
 /* Titulo central */
 #centro{
-    font-size: 30px;
-    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: rgb(139, 50, 44);
     height: 100px;
-    width: 35%;
-    text-align: center;
-    margin-top:30px;
+    width: 50%;
+    font-size: 50px;
 }
-
 
 
 
 /* Logueo */
 #login{
-    
-    width: 35%;
+    width: 25%;
     height: 100px; 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
-   
 }
+
 
 #fotoPersonal img{
     height:90px;
@@ -79,30 +81,36 @@ header{
     border-radius: 100%;
 }
 
+
 #desplegable{
     margin-right: 20px;
     margin-top: 10px;
-
 }
 
 
 
 
 /* Nav ------------------------------------------------------- */
+nav{/* contenedor de navegador. */
+    height: 100px;
+}
+
+
 #navegador{
     grid-area: nav;
     display: flex;
     flex-wrap: nowrap;
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(221, 87, 70);
     justify-content: space-around;
-    height: 60px;
+    height: 100%;
     align-items: center;
-   
 }
+
 
 #BotonNav{
     background-color: #4CAF50; /* Color de fondo */
     color: rgb(242, 242, 242);
+    width: 200px;
     padding: 15px 32px;
     text-align: center;
     font-size: 16px;
@@ -120,20 +128,25 @@ header{
 
 
 
+
 /* Contenedor de actividades------------------------ */
 #contenedorTarjetas{
     grid-template-areas: main;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    height: 100%;
 
 }
 
 
 #tarjeta{
-margin-top:60px ;
-margin-left: 40px;
+    margin-top:60px;
+    margin-bottom: 30px;
+    margin-left: 40px;
 }
+
+
 #tarjeta:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
     transform: scale(1.1);/* Aumenta un poquitin el tamaño de la tarjeta al pasar el ciursor. */
    
@@ -148,7 +161,6 @@ margin-left: 40px;
 }
 
 
-
 #pNombre{
     font-weight: bold;/* negrita */
     font-size: 20px;
@@ -156,25 +168,24 @@ margin-left: 40px;
 }
 
 #pcat{
-    color: brown;
-    margin-left: 14px;
+    color: rgb(255, 196, 112);
+    margin-left: 16px;
 }
 
 
 
-/* Footer---------------------------- */ 
+
+/* Footer---------------------------- */
 footer{
-    position: fixed;
-    bottom: 0;
-    display: grid;
-    margin-top: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
     height: 60px;
-    background-color: yellow;
+    background-color:rgb(255, 196, 112);
     width: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: ". siglas mail politicaPriv infoLegal .";
-    
 }
+
 
 #siglas{ 
     grid-area: siglas ;
@@ -183,32 +194,10 @@ footer{
     font-weight: bold;/* negrita */
 }
 
-#mail{
-    grid-area: mail ;
-    justify-content: center;
-}
 
 #imgMail{
     height: 30px;
     width: 40px;
     justify-content: center;
 }
-
-#politicaPriv{
-    grid-area: politicaPriv;
-    justify-content: center;
-}
-
-#infoLegal{
-    grid-area: infoLegal;
-    justify-content: center;
-}
-
-#siglas, #mail, #politicaPriv, #infoLegal {
-    display: flex; /* Asegura que el contenido se alinee horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-}
-
-
-
 
