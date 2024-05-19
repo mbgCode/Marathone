@@ -54,9 +54,6 @@
                         <a href="indexAdmin.html"><input  type="button" id="BotonNav" value="Inicio"></a>
                     </div>
                 
-                    <div>
-                        <a href="ListarAdmin.html"><input type="button" id="BotonNav" value="Listar Admin"></a>
-                    </div>
 
                     <div>
                         <a href="insertarDep.html"><input type="button" id="BotonNav" value="Zona Deportes"></a>
@@ -73,7 +70,16 @@
         
 
         <!-- Main contenedor inferiror cajas texto -->
+
+        <div id="tituloSeccion">
+            <h1>  Alta Administrador</h1><!-- Titulo de la sección -->
+        </div>
+
+
         <main id="ContenedorInferior">
+
+           
+
             <form id="cajaFormulario" name="PaginaAdministrador" action="SV_administrador" method="post" enctype="multipart/form-data">
                 <ul>
                     
@@ -111,7 +117,7 @@
                         
                     </li>
                     <li id="foto">
-                        <input  type="file" name="foto">
+                        <input id ="botonFoto"  type="file" name="foto">
                     </li>
                     
                     <input type="hidden" id="idadministrador" name="idadministrador">
@@ -122,6 +128,14 @@
                     
                 </ul>
             </form>
+
+            <!-- Botón para listar los administradores -->
+            <div id="contenedorBotonListar">
+                <a href="ListarAdmin.html">
+                    <input type="button" id="BotonListar" value="Listar Admin">
+                </a>
+            </div>
+
         </main>
 
     </div>

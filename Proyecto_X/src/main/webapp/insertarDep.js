@@ -40,7 +40,7 @@ function llamada1() {
 /* Esta es la funcion que pinta la tabla */
 function pintarLista(data) {
     let html = "<table>";
-         
+        html += "<tr><th>id</th><th>Nombre</th><th>Descripción</th><th>Teléfono</th><th>Dirección</th><th>Foto</th><th>Categoria</th></tr>";
     for (let i = 0; i < data.length; i++) {
         html += "<tr id='fila'><td id='columnaId'>" + data[i].id + "</td><td id = 'columnaNom'>" + data[i].nombre + "</td>";
         html += "<td id = 'columnaDesc'>" + data[i].descripcion + "</td><td id = 'columnaTel'>" + data[i].telefono + "</td>";

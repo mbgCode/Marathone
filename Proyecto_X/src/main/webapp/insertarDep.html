@@ -14,7 +14,7 @@
     <div id="ContenedorPadre">
 
         <!-- Contenedor superior -->
-        <div id="ContenedorSuperior">
+        <div id="contenedorSuperior">
 
             <!-- Cabecera -->
             <header>
@@ -52,17 +52,13 @@
                     <div>
                         <a href="indexAdmin.html"><input  type="button" id="BotonNav" value="Inicio"></a>
                     </div>
-                
+
                     <div>
-                        <a href="insertarDep.html"><input type="button" id="BotonNav" value="Zona Deportes"></a>
+                        <a href="ListarAdmin.html"><input type="button" id="BotonNav" value="Zona Admin"></a> 
                     </div>
 
                     <div>
-                        <a href="InsertarAdmin.html"><input type="button" id="BotonNav" value="Zona Admin"></a> 
-                    </div>
-
-                    <div>
-                        <input type="button" id="BotonNav" value="Zona Miembros">
+                        <a href="ListarMiembro.html"><input type="button" id="BotonNav" value="Zona Admin"></a> 
                     </div>
 
                 </ul>    
@@ -71,11 +67,12 @@
         </div>
 
         
-
+        <h1 id="tituloSeccion">Insertar Deporte</h1>
         
         <!-- Main contenedor inferiror insertar datos -->
         <main id="ContenedorInferior">
 
+            
             <form id="insertarDep" name="Insertar Deporte" action="SV_deporte" method="post" enctype="multipart/form-data">
                 <ul>
                     <input type="hidden" id="id" name="id">

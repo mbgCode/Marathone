@@ -1,19 +1,12 @@
 *{
     margin: 0%;
-    padding: 0%;
-    
-    
-}
-
-
-#contenedorPadre {
-    display: flex;
-    flex-direction: column;
+    padding: 0%  
     
 }
 
 
-/* contSUP-------------------------------------- */
+
+
 #contenedorSup{
     display:grid;
     grid-template-columns: 1fr ;
@@ -22,15 +15,14 @@
     "header"
     "nav";
     
+    
 }
-
-
 /* Header--------------------------------------------------------- */
 header{
     grid-area: header;
     display: flex;
     background-color: rgb(86, 83, 225);
-
+    
 }
 
 
@@ -55,7 +47,7 @@ header{
 #centro{
     
     width: auto;
-    height: 100px;
+    height: 116px;
     width: 35%;
    
 }
@@ -94,9 +86,10 @@ header{
 
 
 
-
 /* Nav ------------------------------------------------------- */
 #navegador{
+    margin-top: 2%;
+    margin-bottom: 1%;
     grid-area: nav;
     display: flex;
     flex-wrap: wrap;
@@ -117,6 +110,7 @@ header{
     cursor: pointer;
     border-radius: 8px; 
     transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
+    margin-top: 2%;
 }
 
 
@@ -128,11 +122,28 @@ header{
 
 
 
+
 /* Contenedor inferiror---------------------------------------------------- */
+
+
+#tituloSeccion{
+    text-align: center;
+    display: flex;
+    width: 100%;
+    height: 30px; 
+    justify-content: center;
+    margin-left: 5px;
+    margin-top: 40px;
+   
+   
+}
+
+
+
 #ContenedorInferior{
     width: 100%;
     display: flex;
-  
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
@@ -233,7 +244,7 @@ header{
 #botonRegistar:hover {/* hover sirve para hacer el cambio de color. */
     background-color: #2d8b32; /* Cambio de color al pasar el cursor */
     transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave */
-
+    color: white;
 }
 
 
@@ -248,10 +259,19 @@ header{
     background-color: rgb(170, 170, 231); 
     border: 3px solid black;
     border-radius: 15px; 
-    width: 840px;
+    width: 1040px;
     overflow: scroll;/* Para hacer scroll en la tabla */
 }
 
+th{
+    border: 2px black solid;
+    
+}
+
+td{
+    width: 300px;
+    text-align: center;
+}
 
 #fila{
     border: 2px solid black;
@@ -261,9 +281,9 @@ header{
 }
 
 #columnaId{
-    background-color: rgb(223, 217, 139);
+    background-color: rgb(240, 231, 96);
     text-align: center;
-    width: 20px;
+    width: 8%;
 
 }
 
@@ -308,13 +328,24 @@ header{
 
 
 #btnEdit{
-width: 60px;
-margin: 5px;
-background-color: rgb(180, 185, 92);
+    height: 60px;
+    height: 30px;
+    width: 80%;
+    background-color: rgb(180, 185, 92);
+}
+
+#btnEdit:hover{
+    background-color: rgb(243, 254, 36);
 }
 
 #btnBorrar{
-width: 60px;
-background-color: rgb(185, 92, 92);
-margin: 5px;
+    height: 30px;
+    width: 80%;
+    background-color: rgb(185, 92, 92);
+    margin: 5px;
+}
+
+#btnBorrar:hover{
+    background-color: rgb(241, 39, 39);
+
 }

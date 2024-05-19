@@ -6,6 +6,7 @@
     , initial-scale=1.0">
     <title>Document</title>
     <script src="insertarMiembro.js"> </script>
+    <link rel="stylesheet" href="insertarMiembro.css">
   
 </head>
 
@@ -13,25 +14,119 @@
 
 <body>
 
-    <form name="PaginaMiembro" action="SV_miembro" method="post" enctype="multipart/form-data">
+    <div id="contenedorPadre"> 
+        
+        <!-- Contenedor superior -->
+        <div id= "ContenedorSuperior">
 
-        <ul>
-            <li><label for="Titulo"><h1>Insertar usuario</h1></label> </li>
-            <li><label>Nombre: </label> <input id="nombre" type="text" name="nombre"></li>
-            <li><label>Apellidos: </label> <input id="apellidos" type="text" name="apellidos"></li>
-            <li><label>email: </label> <input id="email" type="text" name="email"></li>
-            <li><label>poblacion: </label> <input id="poblacion" type="text" name="poblacion"></li>
-            <li><label>Permiso: </label> <input id="permiso" type="text" name="permiso"></li>
-            <li><label>Edad: </label> <input id="edad" type="text" name="edad"></li>
-            <li><label>pass: </label> <input id="pass" type="text" name="pass"></li>
-            <li><label>Foto: </label> <input id="foto" type="file" name="foto"></li>
-            
-            <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
-            <input type="hidden" id="idmiembro" name="idmiembro">
-        </ul>
+            <!-- Cabecera de la página -->
+            <header>
 
-    </form>
+                <!-- Logo Marazone -->
+                <div id="logo">
+                    <img src="/Proyecto_X/img index/bebida-energetica.png" alt="Bebida energética">
+                </div>
+
+                <!-- Titulo -->
+                <div id="centro"> 
+                    <h1>INSERTAR ADMIN</h1>
+                </div>
+
+                <!-- zona Login -->
+                <div id="login">   
+
+                    <div id="fotoPersonal">
+                        <img src="/Proyecto_X//img index/fotoLofgin.png" alt="Foto personal">
+                    </div>
 
 
+                    <div id="desplegable">
+                        <img src="/Proyecto_X//img index/desplegable.png" alt="Triple linea"> 
+                    </div>
+
+                </div>   
+
+            </header>
+
+
+            <!-- Botones de navegacíon  -->
+            <nav>
+                <ul id="navegador">
+
+                    <div>
+                        <a href="indexAdmin.html"><input  type="button" id="BotonNav" value="Inicio"></a>
+                    </div>
+                
+                    <div>
+                        <a href="ListarAdmin.html"><input type="button" id="BotonNav" value="Listar Admin"></a>
+                    </div>
+
+                    <div>
+                        <a href="insertarDep.html"><input type="button" id="BotonNav" value="Zona Deportes"></a>
+                    </div>
+
+                    <div>
+                        <input type="button" id="BotonNav" value="Zona Miembros">
+                    </div>
+
+                </ul>    
+            </nav>
+
+        </div>
+        
+
+
+
+        <main id="ContenedorInferior">
+
+            <form id="cajaFormulario" name="PaginaMiembro" action="SV_miembro" method="post" enctype="multipart/form-data">
+
+                <ul id = "listaFormulario">
+                    <li>
+                        <label for="Titulo"><h1>Insertar Miembro</h1></label> 
+                    </li>
+                    <li>
+                        <label>Nombre: </label> 
+                        <input id="nombre" type="text" name="nombre">
+                    </li>
+                    <li>
+                        <label>Apellidos: </label> 
+                        <input id="apellidos" type="text" name="apellidos">
+                    </li>
+                    <li>
+                        <label>Email: </label>
+                        <input id="email" type="text" name="email">
+                    </li>
+                    <li>
+                        <label>Poblacion: </label>
+                        <input id="poblacion" type="text" name="poblacion">
+                    </li>
+                    <li><label>Permiso: </label>
+                        <input id="permiso" type="text" name="permiso">
+                    </li>
+                    <li>
+                        <label>Edad: </label> 
+                        <input id="edad" type="text" name="edad">
+                    </li>
+                    <li>
+                        <label>Pass: </label> 
+                        <input id="pass" type="text" name="pass">
+                    </li>
+                    <li><label>Foto: </label> 
+                        <input id="foto" type="file" name="foto">
+                    </li>
+                    
+                    <li>
+                        <label>Enviar: </label>
+                        <input type="submit" value="Guardar">
+                    </li>
+
+                    <input type="hidden" id="idmiembro" name="idmiembro">
+                </ul>
+
+            </form>
+        </main>
+
+    </div>
 </body>
 </html>

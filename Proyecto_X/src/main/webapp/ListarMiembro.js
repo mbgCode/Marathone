@@ -5,7 +5,7 @@ function llamada (){
 }
 
 
-
+/* Pintamos el Listado */
 function pintarTabla(datos){
 
     let html = "<table id='tabla'>";
@@ -29,10 +29,8 @@ function pintarTabla(datos){
 
 
 
-
 //Con el id a borrar y op para hacer el borrado.
 function borrar (op, id){	
-
     fetch ('SV_miembro?op='+op+'&idmiembro='+id) //envia la solicitud a SV_admin con el id y op recibidos
 	.then (response => response.json())// La respuesta (response) se parsea a un .json 
 	.then (data => pintarFormulario(data,op));	//Los datos de ese .json se pintan en la tabla.

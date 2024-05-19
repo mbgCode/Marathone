@@ -58,20 +58,15 @@
                         <label for="botonInicio"></label>
                         <a href="indexAdmin.html"><input  type="button" id="BotonNav" value="Inicio"></a>
                     </div>
-                
-                    <div>
-                        <label for="ZonaDeportes"></label>
-                        <a href="InsertarAdmin.html"><input type="button" id="BotonNav" value="Insertar Admin"></a>
-                    </div>
 
                     <div>
-                        <label for="ZonaActividades"></label>
-                        <input type="button" id="BotonNav" value="Actividades">
+                        <label for="zonaDeportes"></label>
+                        <a href=" insertarDep.html"><input  type="button" id="BotonNav" value="Zona Deportes"></a>
                     </div>
-
+                   
                     <div>
                         <label for="ZonaMiembro"></label>
-                        <input type="button" id="BotonNav" value="Zona Miembros">
+                        <a href="ListarMiembro.html"><input  type="button" id="BotonNav" value="Zona Miembros"></a>
                     </div>
 
                 </ul>    
@@ -82,9 +77,18 @@
 
         <!-- Sección donde se va pintar la tabla -->
         <section id="contenedorInf">
-            <div class="fondoTabla" ></div>
-            <div id="listado"></div>
             
+            <h1 id="tituloSeccion">Lista de Administradores</h1>
+
+            <div class="fondoTabla" ></div>
+
+            <div id="listado"></div>
+
+            <div id="ContenedorBotonInsertar">
+                <a  href="InsertarAdmin.html">
+                    <input type="button"  value="Insertar Admin">
+                </a>
+            </div>
             
         </section>
 
