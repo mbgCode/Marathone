@@ -4,20 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Login.css">
 </head>
 <body>
     
-<form name="login" action="SV_login" method="post">
+    <div id="contenedorPadre"> 
+        
+        <!-- Contenedor superior -->
+        <div id= "ContenedorSuperior">
 
-    <ul>
+            <!-- Cabecera de la página -->
+            <header>
 
-        <li><label>Mail</label><input type="mail" name="email" required></li>
-        <li><label>Pass:</label><input type="password" name="pass" required></li>
-        <li><input type="submit" value="Entrar"></li>
+                <!-- Logo Marazone -->
+                <div id="logo">
+                    <img src="/Proyecto_X/img index/bebida-energetica.png" alt="Bebida energética">
+                </div>
 
-    </ul>
+                <!-- Titulo -->
+                <div id="centro"> 
+                    <h1>MARAZONE</h1>
+                </div>
 
-</form>
+                <!-- zona Login -->
+                <div id="iniciarSesion">
+                    <a href="registroVisitiante.html"><input type="button" value="Registrarse" name="register" id="btnRegistro"></a>
+                </div>
+
+            </header>
+
+
+            <!-- Botones de navegacíon  -->
+            <nav>
+                <ul id="navegador">
+
+                    <div>
+                        <a href="indexVisitante.html"><input  type="button" id="BotonNav" value="Inicio"></a>
+                    </div>
+                
+
+                </ul>    
+            </nav>
+
+
+
+            <!-- Login ----------------------------------- -->
+            <section id="contenedorLogin">
+                <form name="login" action="SV_login" method="post">
+
+                    <ul id="login">
+                
+                        <li>
+                            <label>Mail: </label>
+                            <input id="mail" type="mail" name="email" required>
+                        </li>
+                        <li>
+                            <label>Contraseña:</label>
+                            <input id="pass" type="password" name="pass" required>
+                        </li>
+
+                        <li><input id="btnEntrar" type="submit" value="Entrar"></li>
+                
+                    </ul>
+                
+                </form>
+
+            </section>
+
+           
+           
+
+        </div>
+
+
+
+
+
+
 
 
 

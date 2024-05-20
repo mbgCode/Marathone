@@ -69,10 +69,13 @@ public class Servlet_usuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 //Abrir a la sesión.		
-		sesion = request.getSession();//desde aqui ya si se puede acceder al HttpSession.
+		sesion = request.getSession();//desde aqui ya si se puede acceder al HttpSession. ESTO ES ABRIR LA SESION
 		
 		int idSesion = (int)sesion.getAttribute("id");//Esto puede venir de un formulario con un request.getparameter
-	
+		String respuesta = (String)sesion.getAttribute("nombre"); //Este como el de idSesion es para RECIBIR los datos que han sido guardados en "sesion", en este caso id y nombre.
+		//Se deben de pàrsear por que en cuanto pasan a la SESION dejan de ser "java". Entonces hay que volverlos a convertir.
+		
+		
 		if (idSesion != 0) {//Si idSesion es distinto de 0 se podra ejecutar el programa
 		
 			

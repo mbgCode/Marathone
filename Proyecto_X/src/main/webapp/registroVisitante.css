@@ -1,0 +1,266 @@
+*{
+    margin: 0%;
+    padding: 0%  
+    
+}
+
+
+
+#contenedorPadre{
+    background-color:rgb(71, 147, 175);
+    height: 100vh;
+}
+
+
+
+#ContenedorSuperior{
+    background-color: rgb(221, 87, 70);
+    display:grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 0.6fr;
+    grid-template-areas:  
+    "header"
+    "nav";
+}
+
+
+
+/* Header--------------------------------------------------------- */
+header{
+    grid-area: header;
+    display: flex;
+    background-color:rgb(255, 196, 112);
+    flex-wrap: wrap;
+}
+
+
+#logo{
+    background-color:rgb(255, 196, 112);
+    width: 25%;
+    height: 100px;
+}
+
+
+#logo img{
+    width: 75px;
+    padding-top: 2%;
+    margin-left: 8%;
+}
+
+
+
+/* Titulo central */
+h1{
+    color:rgb(139, 50, 44) ;
+
+}
+
+
+#centro{
+    height: 116px;
+    width: 50%;
+   
+}
+
+
+#centro h1{
+    text-align: center;
+    margin-top:30px;
+}
+
+
+/* Logueo */
+#iniciarSesion{/* Contenedor boton inicias sesión  */
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+#btnIniciarS{
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+
+/* Nav ------------------------------------------------------- */
+#navegador{
+    margin-top: 2%;
+    margin-bottom: 1%;
+    grid-area: nav;
+    display: flex;
+    background-color: rgb(221, 87, 70);
+    justify-content: space-around;
+    height: 60px;
+    align-items: center;
+}
+
+
+
+#BotonNav{
+    background-color: rgb(246, 250, 185); /* Color de fondo */
+    color: rgb(0, 0, 0);
+    width: 200px;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px; 
+    transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
+}
+
+
+
+#BotonNav:hover{ /* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
+    background-color:rgb(159, 183, 138); /* Cambio de color al pasar el cursor */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra al pasar el cursor */
+}
+
+
+
+
+/* Contenedor inferiror---------------------------------------------------- */
+#tituloSeccion{
+    text-align: center;
+    display: flex;
+    width: 100%;
+    height: 30px; 
+    justify-content: center;
+    margin-left: 5px;
+    margin-top: 40px;
+   
+   
+}
+
+
+
+#ContenedorInferior {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    background-color:rgb(71, 147, 175);
+}
+
+
+
+
+/* Contenedor insertar----------------------------------------- */
+#cajaFormulario {
+    grid-area: cajaFormulario;
+    margin-top: 10px;
+    height: auto;
+    background-color:rgb(255, 196, 112);
+    margin-left: 20px;
+    border: 3px solid black;
+    border-radius: 5px; 
+    width: 400px;
+}
+
+h1{
+    color: black;
+    text-align: center;
+}
+
+#listaFormulario {
+    list-style: none;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+   height: auto;
+}
+
+
+#listaFormulario li {
+    margin-top: 10px;
+}
+
+
+li input {
+    background-color: rgb(246, 250, 185);
+    font-size: 22px;
+    width: 100%; /* para q los inputs no desborden */
+    min-width: 30px;
+    font-style: oblique;
+    border: 1px solid black;
+}
+
+
+#btnGuardar {
+    display: flex;
+    justify-content: center;
+}
+
+
+#foto {
+    margin-top: 10px;
+}
+
+
+#boton {
+    margin-top: 12px;
+    border-radius: 5px;
+    background-color: #73e17a;
+    color: rgb(0, 0, 0); 
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#boton:hover {
+    background-color: #2d8b32;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+
+
+
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #logo, #centro, #login {
+        width: 100%;
+        text-align: center;
+
+    }
+
+    #logo img {
+        margin-left: 0;
+    }
+
+    #fotoPersonal img, #desplegable {
+        margin-right: 0;
+    }
+
+    #navegador {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    #BotonNav {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #cajaFormulario {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    #cajahija {
+        width: 100%;
+    }
+}

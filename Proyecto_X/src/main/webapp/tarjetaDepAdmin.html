@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="ListarDep.css">
-    <Script src="ListarDep.js"> </Script>
-</head>
-<body>
-    <div id="contendorPadre">
+    <link rel="stylesheet" href="tarjetaDepAdmin.css">
+    <script src="tarjetaDep.js"></script>
 
-        <!-- Contenedor superiror -->
+</head>
+
+
+<body>
+    
+    <div id="ContendorPadre">
+
         <div id="contenedorSup">
-          
 
             <!-- Parte superiro de la página -->
-            <header>
-                
-                <!-- Logo marazone -->
+            <header>        
                 <div id="logo">
                     <img src="img index/bebida-energetica.png" alt="Bebida energética">
                 </div>
 
-                <!-- Título pagina -->
-                <div id="centro"></div>
+                <div id="centro"> 
+                    <h1>MARAZONE</h1>
+                </div>
 
-                <!-- zona logín -->
                 <div id="login">
                     <div id="fotoPersonal">
                         <img src="img index/fotoLofgin.png" alt="Foto personal">
@@ -34,61 +35,75 @@
                         <img src="img index/desplegable.png" alt="Triple linea"> 
                     </div>
                 </div>
-
             </header>
-       
-
-
-            <!-- Botones de navegaión -->       
-            <nav>
+    
+             <!-- Zona de Categorías -->       
+             <nav>
                 <ul id="navegador">
+
                     <div>
+                        
                         <label for="botonInicio"></label>
-                        <a href="index.html"><input  type="button" id="BotonNav" value="Inicio"></a>
+                        <a href="indexAdmin.html"><input  type="button" id="BotonNav" value="Inicio"></a>
                     </div>
                 
                     <div>
                         <label for="ZonaDeportes"></label>
-                        <a href="ListarDep.html"><input type="button" id="BotonNav" value="Novedades"></a>
+                        <input type="button" id="BotonNav2" value="Novedades">
                     </div>
 
                     <div>
                         <label for="ZonaActividades"></label>
-                        <input type="button" id="BotonNav" value="Actividades">
+                        <input type="button" id="BotonNav2" value="Actividades">
                     </div>
-
-                    
 
                 </ul>    
             </nav>
-
         </div>
 
 
-        <!-- Main donde se pintan las tarjetas -->
-        <main>
-            <section id="contenedorTarjetas">      
-            </section>
-        </main>
+        <!-- Sección contenedor inferior -->
+        <section id="contenedorInferior">
 
-    </div>  
+            <!-- Zona de la foto del deporte -->
+            <div id="contenedorFoto">
+                <!-- Resto de funcion en el .js -->
+            </div>
 
 
-        <!-- Pie de página -->
+            <!-- Zona de los datos del deporte -->
+            <div id="contenedorDatos">
+                <h3 id =textTel>Teléfono</h3>
+                <h3 id="textDir">Dirección</h3>
+                <h3 id="textCat">Categoría</h3>
+                <!-- Resto de funcion en el .js -->
+            </div>
+            
+        </section>
+
+ 
+    </div>   
+
+
     <footer>
+
         <div id="siglas">Marcos Barberá Gómez</div>
+
         <div id="mail">
             <a href="mailto:mbg.code@gmail.com">
                 <img id="imgMail" src="imgFooter/iconoGmail.png" alt="iconoGmail">
-                </a>
+            </a>
         </div>
+
         <div id="politicaPriv">
             <a href="">Politica de privacidad</a>
         </div>
         <div id="infoLegal">Informacio legal</div>
+
     </footer>
+    
 
-   
+
+
 </body>
-
 </html>

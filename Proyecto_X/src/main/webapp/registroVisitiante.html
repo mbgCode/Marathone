@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <script src="insertarMiembro.js"> </script>
+    <link rel="stylesheet" href="registroVisitante.css">
+  
+</head>
+
+
+
+<body>
+
+    <div id="contenedorPadre"> 
+        
+        <!-- Contenedor superior -->
+        <div id= "ContenedorSuperior">
+
+            <!-- Cabecera de la página -->
+            <header>
+
+                <!-- Logo Marazone -->
+                <div id="logo">
+                    <img src="/Proyecto_X/img index/bebida-energetica.png" alt="Bebida energética">
+                </div>
+
+                <!-- Titulo -->
+                <div id="centro"> 
+                    <h1>MARAZONE</h1>
+                </div>
+
+                <!-- zona Login -->
+                <div id="iniciarSesion">
+                    <a href="Login.html"><input type="button" value="Inicio de sesión" name="iniciarSesion" id="btnIniciarS"></a>
+                </div>
+
+            </header>
+
+
+            <!-- Botones de navegacíon  -->
+            <nav>
+                <ul id="navegador">
+
+                    <div>
+                        <a href="indexVisitante.html"><input  type="button" id="BotonNav" value="Inicio"></a>
+                    </div>
+                
+
+                </ul>    
+            </nav>
+
+        </div>
+        
+
+
+
+        <main id="ContenedorInferior">
+
+            <form id="cajaFormulario" name="PaginaMiembro" action="SV_miembro" method="post" enctype="multipart/form-data">
+
+                <ul id = "listaFormulario">
+                    <li>
+                        <label for="Titulo"><h1>Alta</h1></label> 
+                    </li>
+                    <li>
+                        <label>Nombre: </label> 
+                        <input id="nombre" type="text" name="name">
+                    </li>
+                    <li>
+                        <label>Apellidos: </label> 
+                        <input id="apellidos" type="text" name="lastName">
+                    </li>
+                    <li>
+                        <label>Email: </label>
+                        <input id="email" type="text" name="email">
+                    </li>
+                    <li>
+                        <label>Poblacion: </label>
+                        <input id="poblacion" type="text" name="location">
+                    </li>
+                    <li><label>Permiso: </label>
+                        <input id="permiso" type="text" name="permission ">
+                    </li>
+                    <li>
+                        <label>Edad: </label> 
+                        <input id="edad" type="text" name="age">
+                    </li>
+                    <li>
+                        <label>Pass: </label> 
+                        <input id="pass" type="text" name="pass">
+                    </li>
+                    <li><label>Foto: </label> 
+                        <input id="foto" type="file" name="picture">
+                    </li>
+                    
+                    <li>
+                        <label>Enviar: </label>
+                        <input type="submit" value="save">
+                    </li>
+
+                    <input type="hidden" id="idmiembro" name="idmember">
+                </ul>
+
+            </form>
+        </main>
+
+    </div>
+</body>
+</html>

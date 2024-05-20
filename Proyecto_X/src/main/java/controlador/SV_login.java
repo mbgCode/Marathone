@@ -53,13 +53,23 @@ public class SV_login extends HttpServlet {
 		try {
 			if (m.logeo(pass)) {
 				
-				sesion = request.getSession(); //la inicializamos la sesion.
+				sesion = request. getSession(); //la inicializamos la sesion.
 				
 				sesion.setAttribute("id", m.getId());//En este caso vamos a guardar en la sesion el id y el permiso.
 				sesion.setAttribute("permiso", m.getPermiso());
 				
-				response.sendRedirect("miembro.html");// que nos envie a alguna pagina concreta.
+				int permiso=m.getPermiso();
 				
+				if (permiso==1) {
+					response.sendRedirect("index.html");// que nos envie a la pagina index par miembros
+					
+				}else {
+					response.sendRedirect("indexAdmin.html");// que nos envie a la pagina index de administradores.
+
+				}
+				
+				
+			
 			}else {//Si no son ciertas las credenciales le reenviamos al Login.html
 				response.sendRedirect("Login.html");
 				System.out.println("el logeo es erroneo, vuelve a intentarlo");

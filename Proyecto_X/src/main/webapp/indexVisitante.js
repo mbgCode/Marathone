@@ -1,5 +1,5 @@
 
-function llamada1(){
+function llamada(){
 			
     let xhr = new XMLHttpRequest();
         let data;
@@ -30,8 +30,9 @@ function llamada1(){
 function pintarLista(data) {
     const contenedorTarjetas = document.getElementById("contenedorTarjetas");
 
-    // Limpiar contenido previo del contenedor
+    // Con InnerHTML eliminamos todo los contenidos hijos que pueda tener contenedorTarjetas
     contenedorTarjetas.innerHTML = "";
+
 
     // Iterar sobre los datos y crear una tarjeta para cada uno
     for (let i = 0; i < data.length; i++) {
@@ -42,7 +43,7 @@ function pintarLista(data) {
 
         //el ancala para la imagen que lleva a latarjetaDep.
         const ancla = document.createElement("a")
-        ancla.href = "tarjetaDepAdmin.html?op=5&id="+data[i].id
+        ancla.href = "tarjetaDep.html?op=5&id="+data[i].id
         
         // Crear imagen
         const imagen = document.createElement("img");
@@ -67,14 +68,36 @@ function pintarLista(data) {
         // Añadir artículo al contenedor con appendchild-
         contenedorTarjetas.appendChild(tarjeta);
     }
+   
 }
 
 
 
 
+function redireccionar() {//El selctor de categorías.
+    var select = document.getElementById("categoria");
+    var selectedOption = select.options[select.selectedIndex];
+    if (selectedOption.value !== "...") {
+        window.location.href = selectedOption.value;
+    }
+}
+
 
 /* Metodo principal */
 window.onload = function(){   
+   
 
-    llamada1();//s vuelve a refrescar la lista para estar actualizada. 
+
+
+    llamada();
+
+
+
+    //Barra Busqueda, para recoger los datos de 
+    var botonLupa = document.getElementById("imgLupa");
+    botonLupa.addEventListener("click", function() {
+        var palabraBuscar = document.querySelector(".barraBuscar").value; /* El . de barraBuscar es porque lo sacamos de la clase de CSS */
+       /* Queryselector devuelve el primer elemento que coincida con barraBuscar.*/
+        console.log(palabraBuscar)
+    });
 }

@@ -10,6 +10,7 @@ height: auto;
 background-color:rgb(71, 147, 175);
 }
 
+
 #contenedorSup{
     display:grid;
     grid-template-columns: 1fr ;
@@ -20,6 +21,7 @@ background-color:rgb(71, 147, 175);
     "nav";
     
 }
+
 
 
 /* Header--------------------------------------------------------- */
@@ -71,23 +73,57 @@ header{
     height: 100px; 
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row-reverse;
-   
 }
 
-#fotoPersonal img{
-    height:90px;
-    margin-right: 20px;
-    margin-top: 5px;
-    border-radius: 100%;
+
+#iniciarSesión{/* Contenedor boton inicias sesión  */
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
 }
 
-#desplegable{
-    margin-right: 20px;
-    margin-top: 10px;
+
+#btnIniciarS{
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    background-color:rgb(113, 157, 173);
+    border-radius: 20px;
 
 }
 
+
+
+#btnIniciarS:hover{
+    background-color:rgb(148, 215, 240);
+    
+}
+
+#Registrarse{/* Contenedor del boton del registro */
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#btnRegistro{
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    background-color:rgb(113, 157, 173);
+    border-radius: 20px;
+}
+
+
+#btnRegistro:hover{
+    background-color:rgb(148, 215, 240);
+    
+}
 
 
 /* Buscador-----------------------------------------------------------*/
@@ -215,6 +251,7 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
 
 /* Footer---------------------------- */
 footer{
+    top: 0;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
