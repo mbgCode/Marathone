@@ -36,19 +36,20 @@ function pintarLista(data) {
 
     // Iterar sobre los datos y crear una tarjeta para cada uno
     for (let i = 0; i < data.length; i++) {
-
         // Crear un nuevo elemento article
         const tarjeta = document.createElement("article");
         tarjeta.id = "tarjeta";
 
-        //el ancala para la imagen que lleva a latarjetaDep.
-        const ancla = document.createElement("a")
-        ancla.href = "tarjetaDep.html?op=5&id="+data[i].id
-        
+  
         // Crear imagen
         const imagen = document.createElement("img");
         imagen.src =  "fotos_deporte/" + data[i].foto; 
         imagen.alt = "Imagen";
+
+        //Mensaje de iniciar sesion o registrarse
+        imagen.onclick = function() {
+            alert("Para ver el contenido, inicie sesión o registrese para ver el contenido.");
+        };
 
         // Crear párrafos para los datos
         const nombreParrafo = document.createElement("p");
@@ -60,8 +61,7 @@ function pintarLista(data) {
         categoriaParrafo.id = "pcat";
 
         // Añadir elementos al artículo con el appendChild como hijos
-        tarjeta.appendChild(ancla);
-        ancla.appendChild(imagen);//imagen esta como hijo de ancla para que al pulsar nos lleve a la otra pagina.
+        tarjeta.appendChild(imagen);
         tarjeta.appendChild(nombreParrafo);
         tarjeta.appendChild(categoriaParrafo);
 
@@ -70,6 +70,8 @@ function pintarLista(data) {
     }
    
 }
+
+
 
 
 

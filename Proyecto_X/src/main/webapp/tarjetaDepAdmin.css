@@ -3,15 +3,17 @@
     padding: 0%  
 }
 
-body{
-    height: 100vh
-
+html, body{
+    background-color: rgb(202, 230, 178);  
+    
 }
 
 
 #ContendorPadre{
-    height: 93.5%;/* Utilizo este % para que junto al footer den el 100% de la ventana */
     background-color: rgb(202, 230, 178);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -140,17 +142,20 @@ nav{/* contenedor de navegador. */
 
 
 
+
 /* Contenedor inferior----------------------------------------- */
 #contenedorInferior{
-    margin: 5% 2%; /* 1º top/botton  2º left/right */
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content:space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    height: 80%;
 }
 
 
 #contenedorFoto{        
-    height: 450px;
+    height: 65%;
     width: 30%;
     margin-left:10px ;
     
@@ -158,8 +163,8 @@ nav{/* contenedor de navegador. */
 
 #contenedorFoto img{
     background-color: black;
-    height: 450px;
-    width: 460px;
+    height: 100%;
+    width: 100%;
     border-radius:25px ;
    
 }
@@ -168,9 +173,11 @@ nav{/* contenedor de navegador. */
 
 #contenedorDatos{
     border: 3px black solid;
-    background-color:rgb(246, 250, 185);
+    background-color: rgb(255, 196, 112);
     grid-area:contenedorDatos; 
-    width: 60%;
+    width: 65%;
+    height:58%;
+    margin-right: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fe 1fr 1fr 1fr;
@@ -246,7 +253,7 @@ nav{/* contenedor de navegador. */
     grid-area: descripcion;
     margin-left: 8px;
     margin-right: 10px;
-    font-size: 20px;
+    font-size: 26px;
     border-top: 3px black solid;
 }
 
