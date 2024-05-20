@@ -139,8 +139,8 @@ public class SV_administrador extends HttpServlet {
 		String apellidos = request.getParameter("apellidos");
 		String email = request.getParameter("email");
 		String poblacion = request.getParameter("poblacion");
-		String permiso = request.getParameter("permiso");
-		int permi = Integer.parseInt(permiso);//Parseamos el String del parametro permiso a Integer.
+		String pass = request.getParameter("password");
+		System.out.println("pass es" +pass);
 
 			
 		
@@ -158,7 +158,7 @@ public class SV_administrador extends HttpServlet {
 		
 	
 //Creamos el objeto para administrador.
-		Administrador a1 = new Administrador(nombre, apellidos, email, poblacion, permi, filename);
+		Administrador a1 = new Administrador(nombre, apellidos, email, poblacion, filename, pass);
 		String op = request.getParameter("op");//Instanciamos el String "op" para que no me de error en el server al parsear un null
 		if (op != null) {
 			int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del formulñario

@@ -28,22 +28,51 @@ public class DaoAdministrador {
 	}
 	
 	
+	
+	
+//login	
+	public Administrador logeando (Administrador a, String pass) throws SQLException {
+				
+		String sql = "SELECT * FROM administrador WHERE email=? AND pass=? ";
+		PreparedStatement ps = con.prepareStatement(sql);
+				
+		ps.setString (1,a.getEmail());
+		ps.setString(2, pass);
+				
+				
+		ResultSet rs = ps.executeQuery();
+				
+		Administrador a1 = null;//Instanciamos miembro con un null
+				
+				
+		if (rs.next()) {// si no esta vacía la query (contiene datos) los inyectamos.
+				a1 = new Administrador(rs.getString("nombre"), rs.getString("apellidos"), rs.getString("email"), rs.getString("poblacion")
+						, rs.getInt("permiso"), rs.getString("foto"), rs.getString("pass"), rs.getInt("idadministrador"));
+		}//si esta vacía la dejamos null para que lo devuelva... de no ser así nos daría una SQLexception.	
+				
+		return a1;
+		
+			}	
+	
+					
+			
 //Insertamos los datos en BD Administrador	
 	public void insertar(Administrador a) throws SQLException {
 		 
 		
 		String sql = "INSERT INTO administrador (nombre, apellidos, email, "
-						+ "poblacion, permiso, foto, idadministrador) VALUES (?,?,?,?,?,?,?)";
+						+ "poblacion, permiso, foto, pass, idadministrador) VALUES (?,?,?,?,?,?,?,?)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
-		
+			System.out.println("este es el permiso"+ a.getPermiso());
 			ps.setString(1, a.getNombre());
 			ps.setString(2, a.getApellidos());
 			ps.setString(3, a.getEmail());
 			ps.setString(4, a.getPoblacion());
 			ps.setInt(5, a.getPermiso());
 			ps.setString(6, a.getFoto());
-			ps.setInt(7, a.getIdaministrador());
+			ps.setString(7, a.getPass());
+			ps.setInt(8, a.getIdaministrador());
 			int filas = ps.executeUpdate();
 			
 			ps.close();	
@@ -63,7 +92,7 @@ public class DaoAdministrador {
 		
 		rs.next();
 		Administrador a = new Administrador (rs.getString("nombre"), rs.getString("apellidos"), rs.getString("email"),
-				rs.getString("poblacion"), rs.getInt("permiso"), rs.getString("foto"),rs.getInt("idadministrador"));
+				rs.getString("poblacion"), rs.getInt("permiso"), rs.getString("foto"),rs.getString("pass"), rs.getInt("idadministrador"));
 		
 		return a;
 	}
@@ -89,6 +118,7 @@ public class DaoAdministrador {
 		ps.close();	
 	}
 
+	
 	
 	
 //Peticion para listar Adminiistrador

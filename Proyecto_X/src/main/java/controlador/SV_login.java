@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import modelo.Administrador;
 import modelo.Miembro;
 
 import java.io.IOException;
@@ -47,11 +48,12 @@ public class SV_login extends HttpServlet {
 		Miembro m = new Miembro ();//Creamos un miembro "m"
 		m.setEmail(email);
 		
-		
+		Administrador a = new Administrador ();//Creamos "a" de administrador.
+		a.setEmail(email);
 		
 		//protección
 		try {
-			if (m.logeo(pass)) {
+			if (m.logeo(pass)) {//Si son ciertas la credenciales entramos en el programa.
 				
 				sesion = request. getSession(); //la inicializamos la sesion.
 				
@@ -60,20 +62,27 @@ public class SV_login extends HttpServlet {
 				
 				int permiso=m.getPermiso();
 				
-				if (permiso==1) {
-					response.sendRedirect("index.html");// que nos envie a la pagina index par miembros
-					
-				}else {
-					response.sendRedirect("indexAdmin.html");// que nos envie a la pagina index de administradores.
-
-				}
-				
-				
+				response.sendRedirect("index.html");// que nos envie a la pagina index par miembros
 			
-			}else {//Si no son ciertas las credenciales le reenviamos al Login.html
+
+			
+			}else if(a.logeo(pass)){//Si no son ciertas las credenciales buscamos si estan en la bd de administrador.
+				sesion = request. getSession(); //la inicializamos la sesion.
+				
+				sesion.setAttribute("id", a.getIdaministrador());//En este caso vamos a guardar en la sesion el id y el permiso.
+				sesion.setAttribute("permiso", a.getPermiso());
+				
+				int permiso=m.getPermiso();
+				
+				response.sendRedirect("indexAdmin.html");// que nos envie a la pagina index par miembros
+				
+			}else {
 				response.sendRedirect("Login.html");
 				System.out.println("el logeo es erroneo, vuelve a intentarlo");
 			}
+			
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
