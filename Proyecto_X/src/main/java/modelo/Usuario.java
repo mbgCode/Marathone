@@ -62,6 +62,15 @@ public class Usuario {
 		this.email = email;
 		this.poblacion = poblacion;
 	}
+  
+	
+	
+
+//Coontructor solo con foto para la zona login
+	public Usuario(String foto) {
+		super();
+		this.foto = foto;
+}
 
 
 

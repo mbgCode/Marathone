@@ -72,20 +72,35 @@ header{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
-   
+    align-items: center;
 }
 
-#fotoPersonal img{
-    height:90px;
+
+#fotoPersonal{
+    height:50%;
+    margin-right: 20px;
+    margin-top: 5px;
+    width: 20%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: end;
+    align-self: center;
+}
+
+
+#personalFoto{
+    height:100%;
     margin-right: 20px;
     margin-top: 5px;
     border-radius: 100%;
+    width: 56%;
+    border: black solid 3px;
+  
 }
 
-#desplegable{
-    margin-right: 20px;
-    margin-top: 10px;
 
+#desplegable{  
+    margin-top: 20px;
 }
 
 

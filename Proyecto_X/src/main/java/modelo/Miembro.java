@@ -39,6 +39,7 @@ public class Miembro extends Usuario{
 	}
 
 	
+	
 
 //Construcot sin ID (auto incremetnro en BD) para poder inyectarlo en la BD.
 	public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad,String pass) {
@@ -48,16 +49,24 @@ public class Miembro extends Usuario{
 	}
 
 	
+	
 //Construcot sin ID (auto incremetnro en BD) para poder inyectarlo en la BD. Sin pass
-		public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad) {
-			super(nombre,apellidos,email,poblacion,permiso,foto);
+	public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad) {
+		super(nombre,apellidos,email,poblacion,permiso,foto);
 			
-			this.edad = edad;
+		this.edad = edad;
 		}	
 	
 
+	
+//Coontructor solo con foto para la zona login	
+	public Miembro(String foto) {
+		super(foto);
+	}
 
-	//Getter and Setter ----	
+
+
+//Getter and Setter ----	
 	public int getId() {
 		return id;
 	}
@@ -88,22 +97,21 @@ public class Miembro extends Usuario{
 		return "Miembro [id=" + id + ", edad=" + edad + "]";
 	}
 	
+	
 
 	
-//Metodos ---
+//Metodos -----------------
 	
 //Insertamos Miembro.
 	public void insertarMiembro() throws SQLException {
 		DaoMiembro dao = new DaoMiembro();
-		dao.insertar(this);
-			
+		dao.insertar(this);		
 	}
 	
 	
 	
-// Logeo para usuarios( tanto miembros como admin) 	
+// Logeo para usuarios(tanto miembros como admin).	
 		public boolean logeo (String pass) throws SQLException {
-			
 			
 			boolean ok = false;
 			
@@ -121,15 +129,15 @@ public class Miembro extends Usuario{
 				this.setEdad(aux.getEdad());
 				this.setId(aux.getId());
 				this.setPass(aux.getPass());
-				ok=true; //entonces si esta aqui dentro ok es cierto y lo devovlemos con el retunr
-		
-			}
-			
+				ok=true; //entonces si esta aqui dentro ok es cierto y lo devovlemos con el retunr		
+			}			
 			return ok;
 		}
 	
 		
-//	Petición para listar datos por id.
+		
+		
+//	Petición para listar todos los datos por id.
 		public void listPorId(int id) throws SQLException {
 			Miembro m = new Miembro();
 			DaoMiembro d = new DaoMiembro();
@@ -147,9 +155,33 @@ public class Miembro extends Usuario{
 		}
 		
 		
+	
+		
+		public void foto(int id) throws SQLException {
+			Miembro m = new Miembro();
+			DaoMiembro d = new DaoMiembro();
 
-//Va a devolver los datos del id de modificarAdmin al cliente.
-		public String dameJson () {// entre parentesis podriamos pedirle un int id.
+			m=d.foto(id);
+			this.setFoto(m.getFoto());
+		}
+		
+		
+//Va a devolver los datos del id elegido de modificarAdmin al cliente para modificarlos.
+			public String fotoJson () {
+					
+				String json = "";
+				Gson gson = new Gson();
+				json = gson.toJson(this.foto);
+				return json;
+					
+			}		
+		
+		
+		
+
+		
+//Va a devolver los datos del id elegido de modificarAdmin al cliente para modificarlos.
+		public String dameJson () {
 			
 			String json = "";
 			Gson gson = new Gson();
@@ -160,7 +192,7 @@ public class Miembro extends Usuario{
 			
 
 		
-// update por id.
+// update de los datos por id para la BD.
 		public void update () throws SQLException {
 			DaoMiembro dao = new DaoMiembro();
 			dao.update(this);
@@ -169,7 +201,7 @@ public class Miembro extends Usuario{
 		
 		
 		
-//Eliminar por id
+//Eliminar datos de la bd por id.
 		public void eliminar (int id) throws SQLException {
 			DaoMiembro dao = new DaoMiembro();
 			dao.borrarBD(id);

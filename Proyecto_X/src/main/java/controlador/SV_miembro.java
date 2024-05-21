@@ -86,7 +86,7 @@ public class SV_miembro extends HttpServlet {
 		if (idSesion != 0) {//Si idSesion es distinto de 0 se podra ejecutar el programa
 */		
 			
-		
+			sesion = request.getSession();
 			String op = request.getParameter("op");
 			
 			if (!op.isEmpty()) {
@@ -110,6 +110,7 @@ public class SV_miembro extends HttpServlet {
 					}
 					
 					
+					
 					case 2: { //Modificar...
 							int id =Integer.parseInt(request.getParameter("idmiembro")) ;
 							Miembro m = new Miembro();
@@ -122,13 +123,12 @@ public class SV_miembro extends HttpServlet {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-						
-						
+												
 						break;
 					}
 					
 					
-					case 3: { //listar por tipode usuario para login
+					case 3: { //listar por tipo de usuario para login
 						int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
 							try {
 								DaoMiembro dao = new DaoMiembro();
@@ -139,11 +139,11 @@ public class SV_miembro extends HttpServlet {
 								System.out.println("Error en case 3 de SV_miembro");
 								e.printStackTrace();
 							}
-						
 						break;
 						
 						
-					}case 4:{
+						
+					}case 4:{//Sección eliminar miembro por id.
 						
 						Miembro m1 = new Miembro();
 						int id = Integer.parseInt(request.getParameter("idmiembro"));
@@ -155,6 +155,29 @@ public class SV_miembro extends HttpServlet {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+						
+						break;
+						
+						
+						
+					}case 5:{//Pedimos el id para insertar la foto del usuario en el index.
+						Miembro m = new Miembro ();
+						
+						int idsesion = (int)sesion.getAttribute("id");
+						
+						try {
+							m.foto(idsesion);
+							String resultado = m.fotoJson();
+							System.out.println("el resultado es "+resultado);
+							out.print(resultado);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+					
+						
+						
 					}
 		
 				}

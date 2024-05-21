@@ -73,6 +73,9 @@ public class DaoMiembro{
 		return ls;
 	}
 	
+
+	
+	
 	
 //Listar por Id para modificar.
 	public Miembro listarPorId(int id) throws SQLException {
@@ -99,6 +102,27 @@ public class DaoMiembro{
 	    return m;
 	}
 
+	
+	
+//Peticion de la foto por id para la zona login
+	public Miembro foto(int id) throws SQLException {
+	    String query = "SELECT foto FROM miembro WHERE idmiembro = ?;";
+	    Miembro m = null;
+	    
+	    PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, id);
+       
+        ResultSet rs = ps.executeQuery();
+       
+            rs.next();
+                m = new Miembro(
+                    rs.getString(1)); // Ajusta los índices si es necesario
+                
+
+    return m;
+	}
+
+	
 
 	
 	//Update los datos(Para modificar los datos que queramos)
