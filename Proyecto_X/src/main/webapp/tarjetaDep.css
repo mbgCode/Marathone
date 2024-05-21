@@ -31,53 +31,48 @@ body{
 
 
 
-
 /* Header--------------------------------------------------------- */
 header{
     grid-area: header;
     display: flex;
-    background-color:rgb(255, 196, 112);
-   
+    flex-wrap: wrap;
+    background-color: rgb(255, 196, 112);
 }
-
 
 
 #logo{
-    background-color:rgb(255, 196, 112);
-    width: 35%;
+    background-color: rgb(255, 196, 112);
+    width: 25%;
     height: 100px;
-
 }
+
 
 #logo img{
     width: 75px;
     padding-top: 2%;
-    margin-left: 8%;
-    background-color:rgb(255, 196, 112);
-    
+    margin-left: 8%; 
 }
-
 
 
 /* Titulo central */
 #centro{
-    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: rgb(139, 50, 44);
+    height: 100px;
+    width: 50%;
+    font-size: 20px;
 }
 
-#titulo{
-    text-align: center;
-    margin-top:20px;
-    color:rgb(139, 50, 44) ;
-    font-weight:900; /* Cambia el grosor de la fuente */
-    font-size:60px;
-}
 
 
 
 /* Logueo */
 #login{
     
-    width: 35%;
+    width: 25%;
     height: 100px; 
     display: flex;
     flex-wrap: wrap;

@@ -95,6 +95,7 @@ public class SV_miembro extends HttpServlet {
 				
 				switch (opcion) {
 				
+				
 					case 1:{//listar en html.
 						try {
 							DaoMiembro dao = new DaoMiembro();
@@ -126,6 +127,7 @@ public class SV_miembro extends HttpServlet {
 												
 						break;
 					}
+					
 					
 					
 					case 3: { //listar por tipo de usuario para login

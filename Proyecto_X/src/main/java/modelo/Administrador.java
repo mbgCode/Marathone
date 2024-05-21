@@ -30,7 +30,7 @@ public class Administrador extends Usuario  {
 
 	
 	
-//Contructor con todo pero sin permiso e ID.	
+//Contructor sin permiso e ID.	
 	public Administrador(String nombre, String apellidos, String email, String poblacion, String foto, String pass ) {
 		super(nombre, apellidos, email, poblacion, 2, foto, pass);
 		
@@ -52,8 +52,16 @@ public class Administrador extends Usuario  {
 		
 	}
 
+	
+//Constructo con foto para login.
+	public Administrador(String foto) {
+		super(foto);
+	}
 
 
+	
+	
+	
 //Getter and Setter	
 	public int getIdaministrador() {
 		return idadministrador;
@@ -68,8 +76,8 @@ public class Administrador extends Usuario  {
 	
 	
 
-//Metodos -----------------------------------------------------------------------------------
 	
+//Metodos -----------------------------------------------------------------------------------
 	
 //Metodo Insertar Usuarios
 	public void insertarAdmin () throws SQLException {
@@ -127,6 +135,29 @@ public class Administrador extends Usuario  {
 	
 	
 	
+// Enviamos id al dao e insertamos foto a los atributos.	
+			public void foto(int id) throws SQLException {
+				Administrador a = new Administrador();
+				DaoAdministrador d = new DaoAdministrador();
+
+				a=d.foto(id);
+				this.setFoto(a.getFoto());
+			}
+			
+			
+			
+//Va a devolver los datos del id elegido de modificarAdmin al cliente para modificarlos.	
+			public String fotoJson () {
+					
+				String json = "";
+				Gson gson = new Gson();
+				json = gson.toJson(this.foto);
+				return json;
+					
+			}	
+			
+			
+			
 //Actualizamos los datos de Administrador ya introducidos. 
 	public void update () throws SQLException {
 		DaoAdministrador dao = new DaoAdministrador() ;

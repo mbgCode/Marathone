@@ -55,11 +55,11 @@ header{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-	color: rgb(246, 250, 185);
     height: 100px;
     width: 50%;
-    font-size: 50px;
+    font-size: 20px;
 }
+
 
 
 
@@ -70,22 +70,35 @@ header{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
+    
 }
 
 
-#fotoPersonal img{
-    height:90px;
-    margin-right: 20px;
-    margin-top: 5px;
+#fotoPersonal{
+    height:50%;
+    
+    width: 20%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: end;
+    align-self: center;
+}
+
+
+#personalFoto{
+    height:100%;
+    margin-right: 10px;
     border-radius: 100%;
+    width: 70%;
+    border: black solid 3px;
+  
 }
 
 
-#desplegable{
+#desplegable{  
+    margin-top: 30px;
     margin-right: 20px;
-    margin-top: 10px;
 }
-
 
 
 

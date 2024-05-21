@@ -66,6 +66,32 @@ function pintarLista(data) {
 
 
 
+//Funcion para recibir la foro del id logeado.
+function fotoPersonal(){
+    fetch('SV_administrador?op=4')
+    .then(response => response.json())// La respuesta (response) se parsea a un .json 
+    .then(data => fotoLogin(data))//Los datos de ese .json se pintan en la tabla.
+}
+
+
+
+//Codigo para añadir fotosuario al header.
+function fotoLogin (data){
+    let contenedorFoto = document.getElementById("fotoPersonal");
+    if (contenedorFoto) {
+        // Limpiar el contenido que teniamos como plantilla
+        contenedorFoto.innerHTML = "";
+
+        // Crear un nuevo elemento img y le damos la direccion de la foto.
+        let foto = document.createElement("img");
+        foto.id = "personalFoto";
+        foto.src = "Fotos/" + data;
+
+        // Agregar la nueva imagen al contenedor
+        contenedorFoto.appendChild(foto);
+    }    
+}   
+
 
 
 
@@ -75,7 +101,7 @@ window.onload = function(){
     let cat = getParameterByName("categoria");
    
     llamada1(cat);//s vuelve a refrescar la lista para estar actualizada. 
-
+	fotoPersonal();
 
 }
 

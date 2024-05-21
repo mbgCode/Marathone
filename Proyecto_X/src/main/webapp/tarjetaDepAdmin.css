@@ -36,13 +36,14 @@ html, body{
 header{
     grid-area: header;
     display: flex;
+    flex-wrap: wrap;
     background-color:rgb(142, 62, 99);
 }
 
 
 #logo{
     background-color:rgb(142, 62, 99);
-    width: 35%;
+    width: 25%;
     height: 100px;
 }
 
@@ -56,42 +57,54 @@ header{
 
 /* Titulo central */
 #centro{
-	color: rgb(246, 250, 185);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     height: 100px;
-    width: 35%;
+    width: 50%;
+    font-size: 20px;
 }
 
-
-#centro h1{
-    text-align: center;
-    margin-top:30px;
-}
 
 
 
 /* Logueo */
 #login{
-    width: 35%;
+    width: 25%;
     height: 100px; 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
+    
 }
 
 
-#fotoPersonal img{
-    height:90px;
-    margin-right: 20px;
-    margin-top: 5px;
+#fotoPersonal{
+    height:50%;
+    
+    width: 20%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: end;
+    align-self: center;
+}
+
+
+#personalFoto{
+    height:100%;
+    margin-right: 10px;
     border-radius: 100%;
+    width: 70%;
+    border: black solid 3px;
+  
 }
 
 
-#desplegable{
+#desplegable{  
+    margin-top: 30px;
     margin-right: 20px;
-    margin-top: 10px;
 }
-
 
 
 

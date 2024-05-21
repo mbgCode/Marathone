@@ -123,7 +123,6 @@ public class DaoMiembro{
 	}
 
 	
-
 	
 	//Update los datos(Para modificar los datos que queramos)
 	public void update(Miembro m) throws SQLException {

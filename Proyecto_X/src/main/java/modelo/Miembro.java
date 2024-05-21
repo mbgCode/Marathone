@@ -156,7 +156,7 @@ public class Miembro extends Usuario{
 		
 		
 	
-		
+// Enviamos id al dao e insertamos foto a los atributos.	
 		public void foto(int id) throws SQLException {
 			Miembro m = new Miembro();
 			DaoMiembro d = new DaoMiembro();
@@ -164,6 +164,8 @@ public class Miembro extends Usuario{
 			m=d.foto(id);
 			this.setFoto(m.getFoto());
 		}
+		
+		
 		
 		
 //Va a devolver los datos del id elegido de modificarAdmin al cliente para modificarlos.
@@ -177,8 +179,6 @@ public class Miembro extends Usuario{
 			}		
 		
 		
-		
-
 		
 //Va a devolver los datos del id elegido de modificarAdmin al cliente para modificarlos.
 		public String dameJson () {

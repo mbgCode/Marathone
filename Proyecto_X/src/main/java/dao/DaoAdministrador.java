@@ -58,8 +58,7 @@ public class DaoAdministrador {
 			
 //Insertamos los datos en BD Administrador	
 	public void insertar(Administrador a) throws SQLException {
-		 
-		
+		 	
 		String sql = "INSERT INTO administrador (nombre, apellidos, email, "
 						+ "poblacion, permiso, foto, pass, idadministrador) VALUES (?,?,?,?,?,?,?,?)";
 		
@@ -118,9 +117,28 @@ public class DaoAdministrador {
 		ps.close();	
 	}
 
+
 	
 	
+//Peticion de la foto por id para la zona login
+		public Administrador foto(int id) throws SQLException {
+		    String query = "SELECT foto FROM administrador WHERE idADMINISTRADOR = ?;";
+		    Administrador a = null;
+		    
+		    PreparedStatement ps = con.prepareStatement(query);
+	        ps.setInt(1, id);
+	       
+	        ResultSet rs = ps.executeQuery();
+	       
+	            rs.next();
+	                a = new Administrador(
+	                    rs.getString(1)); // Ajusta los índices si es necesario
+	                
+	    return a;
+		}	
 	
+	
+		
 //Peticion para listar Adminiistrador
 		public ArrayList <Administrador>listar() throws SQLException{
 			
@@ -138,9 +156,7 @@ public class DaoAdministrador {
 				ls.add(new Administrador(result.getString(1), result.getString(2), result.getString(3)
 						, result.getString(4), result.getInt(5), result.getString(6), result.getInt(7)));
 				
-			
 			}
-			
 			return ls;
 		}	
 	

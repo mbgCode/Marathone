@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import modelo.Administrador;
 import modelo.Miembro;
@@ -41,7 +42,8 @@ public class SV_administrador extends HttpServlet {
 //Hemos creado una carpeta en webapp llamada fotos que es donde vamos a guardarlas.
 		private File uploads = new File (pathFiles);
 		
-		
+		//Se utiliza para la sesión. Se crea esto para su instnciación.
+		HttpSession sesion;
 			
     /**
      * @see HttpServlet#HttpServlet()
@@ -56,9 +58,12 @@ public class SV_administrador extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
+		sesion = request.getSession();
+
 	
 		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
+		
 		
 		String op = request.getParameter("op");
 		System.out.println("esta es la op" +op);
@@ -103,6 +108,7 @@ public class SV_administrador extends HttpServlet {
 					break;
 				}
 				
+				
 				//op 3 eliminar adnministrador.
 				case 3 :{
 					Administrador a1 = new Administrador();
@@ -116,6 +122,25 @@ public class SV_administrador extends HttpServlet {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					
+					
+				//Añadir foto por id al header.	
+				}case 4 :{
+					Administrador a = new Administrador ();
+					
+					int idsesion = (int)sesion.getAttribute("id");
+					
+					try {
+						a.foto(idsesion);
+						String resultado = a.fotoJson();
+						System.out.println("el resultado es "+resultado);
+						out.print(resultado);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
 				}
 			
 			}
