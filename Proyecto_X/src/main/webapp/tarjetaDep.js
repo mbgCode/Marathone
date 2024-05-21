@@ -72,6 +72,35 @@ function pintarDatos(data){
 
 
 
+//Funcion para recibir la foro del id logeado.
+function fotoPersonal(){
+    fetch('SV_miembro?op=5')
+    .then(response => response.json())// La respuesta (response) se parsea a un .json 
+    .then(data => fotoLogin(data))//Los datos de ese .json se pintan en la tabla.
+}
+
+
+
+//Codigo para añadir fotosuario al header.
+function fotoLogin (data){
+    let contenedorFoto = document.getElementById("fotoPersonal");
+    if (contenedorFoto) {
+        // Limpiar el contenido que teniamos como plantilla
+        contenedorFoto.innerHTML = "";
+
+        // Crear un nuevo elemento img y le damos la direccion de la foto.
+        let foto = document.createElement("img");
+        foto.id = "personalFoto";
+        foto.src = "Fotos/" + data;
+
+        // Agregar la nueva imagen al contenedor
+        contenedorFoto.appendChild(foto);
+    }    
+}   
+
+
+
+
 //Función para recoger los parametros de la url.
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -87,6 +116,7 @@ window.onload = function(){
 
     var id = getParameterByName("id");//Guardamos el id en la variable.
     
-    llamada(id);//Hacemo la llamada de la funcion con atributo id para enviar al SV
-   
+    llamada(id);//Hacemos la llamada de la funcion con atributo id para enviar al SV
+    fotoPersonal();
+
 }

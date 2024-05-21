@@ -83,7 +83,6 @@ function fotoPersonal(){
 
 
 
-
 //Codigo para añadir fotosuario al header.
 function fotoLogin (data){
     let contenedorFoto = document.getElementById("fotoPersonal");

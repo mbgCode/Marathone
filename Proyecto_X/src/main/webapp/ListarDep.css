@@ -26,66 +26,87 @@
 
 
 
-
 /* Header--------------------------------------------------------- */
 header{
     grid-area: header;
     display: flex;
-    flex-wrap: wrap;
-    background-color: rgb(255, 196, 112);
+    background-color:rgb(255, 196, 112);
+   
 }
+
 
 
 #logo{
-    background-color: rgb(255, 196, 112);
-    width: 25%;
+    background-color:rgb(255, 196, 112);
+    width: 35%;
     height: 100px;
-}
 
+}
 
 #logo img{
     width: 75px;
     padding-top: 2%;
-    margin-left: 8%; 
+    margin-left: 8%;
+    background-color:rgb(255, 196, 112);
+    
 }
+
 
 
 /* Titulo central */
 #centro{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    color: rgb(139, 50, 44);
-    height: 100px;
-    width: 50%;
-    font-size: 50px;
+    width: 35%;
+}
+
+#titulo{
+    text-align: center;
+    margin-top:20px;
+    color:rgb(139, 50, 44) ;
+    font-weight:900; /* Cambia el grosor de la fuente */
+    font-size:60px;
 }
 
 
 
 /* Logueo */
 #login{
-    width: 25%;
+    
+    width: 35%;
     height: 100px; 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
+    align-items: center;
 }
 
 
-#fotoPersonal img{
-    height:90px;
+#fotoPersonal{
+    height:50%;
+    margin-right: 20px;
+    margin-top: 5px;
+    width: 20%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: end;
+    align-self: center;
+}
+
+
+#personalFoto{
+    height:100%;
     margin-right: 20px;
     margin-top: 5px;
     border-radius: 100%;
+    width: 56%;
+    border: black solid 3px;
+  
 }
 
 
-#desplegable{
-    margin-right: 20px;
-    margin-top: 10px;
+#desplegable{  
+    margin-top: 20px;
 }
+
 
 
 
