@@ -59,20 +59,20 @@ header{
     margin-top:20px;
     color:rgb(139, 50, 44) ;
     font-weight:900; /* Cambia el grosor de la fuente */
-    font-size:60px;
+    font-size:30px;
 }
 
 
 
 /* Logueo */
 #login{
-    
     width: 35%;
     height: 100px; 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
     align-items: center;
+    justify-items: center;
 }
 
 
@@ -99,9 +99,11 @@ header{
 }
 
 
-#desplegable{  
+#cerrarS{  
     margin-top: 20px;
+    
 }
+
 
 
 

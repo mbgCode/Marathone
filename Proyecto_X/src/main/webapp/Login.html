@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Login.css">
+
+
+<script>
+
+
+    function cerrarSesion (op){
+        fetch('SV_miembro?op='+op)
+    }
+
+    function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+
+   window.onload = function(){ 
+      
+        let op = getParameterByName ("op");
+        console.log("la op es" +op)
+        if(op==6){
+            cerrarSesion(op);
+        }
+
+
+    }
+
+</script>
 </head>
 <body>
     

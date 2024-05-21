@@ -178,8 +178,15 @@ public class SV_miembro extends HttpServlet {
 						}
 						
 					
+						break;
 						
 						
+						
+					}case 6:{
+						sesion.invalidate();
+						System.out.println("sesion cerrada");
+						
+						break;
 					}
 		
 				}
