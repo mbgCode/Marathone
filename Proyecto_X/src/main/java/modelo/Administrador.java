@@ -89,30 +89,30 @@ public class Administrador extends Usuario  {
 	
 	
 // Logeo para usuarios( tanto miembros como admin) 	
-			public boolean logeo (String pass) throws SQLException {
+	public boolean logeo (String pass) throws SQLException {
 				
 				
-				boolean ok = false;
+		boolean ok = false;
 				
-				DaoAdministrador dao = new DaoAdministrador();
-				Administrador aux = dao.logeando (this,pass);//Este metodo va a la BD
+		DaoAdministrador dao = new DaoAdministrador();
+		Administrador aux = dao.logeando (this,pass);//Este metodo va a la BD
 				
-				if (aux != null){//Si es diferente a null significa que aux contiene todos los datos de ese usuario.
-					//Es probale que el id sea necesario en Usuario y sacarlo de miembro y administrador.
-					this.setNombre(aux.getNombre());
-					this.setApellidos(aux.getApellidos());
-					this.setEmail(aux.getEmail());
-					this.setPoblacion(aux.getPoblacion());
-					this.setPermiso(aux.getPermiso());
-					this.setFoto(aux.getFoto());
-					this.setIdaministrador(aux.getIdaministrador());
-					this.setPass(aux.getPass());
-					ok=true; //entonces si esta aqui dentro ok es cierto y lo devovlemos con el retunr
+		if (aux != null){//Si es diferente a null significa que aux contiene todos los datos de ese usuario.
+		//Es probale que el id sea necesario en Usuario y sacarlo de miembro y administrador.
+			this.setNombre(aux.getNombre());
+			this.setApellidos(aux.getApellidos());
+			this.setEmail(aux.getEmail());
+			this.setPoblacion(aux.getPoblacion());
+			this.setPermiso(aux.getPermiso());
+			this.setFoto(aux.getFoto());
+			this.setIdaministrador(aux.getIdaministrador());
+			this.setPass(aux.getPass());
+			ok=true; //entonces si esta aqui dentro ok es cierto y lo devovlemos con el retunr
 			
-				}
-				
-				return ok;
 			}
+				
+			return ok;
+		}
 			
 	
 	
@@ -136,25 +136,25 @@ public class Administrador extends Usuario  {
 	
 	
 // Enviamos id al dao e insertamos foto a los atributos.	
-			public void foto(int id) throws SQLException {
-				Administrador a = new Administrador();
-				DaoAdministrador d = new DaoAdministrador();
+	public void foto(int id) throws SQLException {
+			Administrador a = new Administrador();
+			DaoAdministrador d = new DaoAdministrador();
 
-				a=d.foto(id);
-				this.setFoto(a.getFoto());
-			}
+			a=d.foto(id);
+			this.setFoto(a.getFoto());
+	}
 			
 			
 			
 //Va a devolver los datos del id elegido de modificarAdmin al cliente para modificarlos.	
-			public String fotoJson () {
+	public String fotoJson () {
 					
-				String json = "";
-				Gson gson = new Gson();
-				json = gson.toJson(this.foto);
-				return json;
+			String json = "";
+			Gson gson = new Gson();
+			json = gson.toJson(this.foto);
+			return json;
 					
-			}	
+	}	
 			
 			
 			

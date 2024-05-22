@@ -102,7 +102,7 @@ public class DaoAdministrador {
 	public void actualizar (Administrador a) throws SQLException {
 		String sql = "UPDATE administrador SET nombre=?,apellidos=?,email=?,poblacion=?,permiso=?,foto=?"
 				+ "WHERE idadministrador=?";
-		
+		System.out.println("llega a update del dao");
 		PreparedStatement ps = con.prepareStatement(sql);
 		
 		ps.setString(1, a.getNombre());

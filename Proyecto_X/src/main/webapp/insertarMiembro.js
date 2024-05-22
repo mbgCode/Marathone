@@ -25,9 +25,9 @@ function pintarFormulario(data,op){
         document.getElementById("apellidos").value = data.apellidos;
         document.getElementById("email").value = data.email;
         document.getElementById("poblacion").value = data.poblacion;
-        document.getElementById("permiso").value= data.permiso;
         document.getElementById("edad").value=data.edad;
         document.getElementById("idmiembro").value=data.id;
+        console.log(data.id);
     }
   
 }

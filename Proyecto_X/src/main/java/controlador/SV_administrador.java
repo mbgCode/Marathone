@@ -66,7 +66,7 @@ public class SV_administrador extends HttpServlet {
 		
 		
 		String op = request.getParameter("op");
-		System.out.println("esta es la op" +op);
+		
 		
 		if (!op.equals("")) {//Si op es = "" es que se va a insertar un nuevo admin. 
 			int opcion = Integer.parseInt(request.getParameter("op")); //recogemos la op del form.
@@ -101,7 +101,7 @@ public class SV_administrador extends HttpServlet {
 						a.modificarAdmin(id);
 						String resultado = a.dameJson();
 						out.print(resultado);
-						System.out.println(resultado);
+						
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -133,7 +133,7 @@ public class SV_administrador extends HttpServlet {
 					try {
 						a.foto(idsesion);
 						String resultado = a.fotoJson();
-						System.out.println("el resultado es "+resultado);
+						
 						out.print(resultado);
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block

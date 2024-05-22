@@ -27,8 +27,8 @@ function pintarFormulario (data,op){
         document.getElementById("apellidos").value = data.apellidos;
         document.getElementById("email").value = data.email;
         document.getElementById("poblacion").value = data.poblacion;
-        document.getElementById("permiso").value = data.permiso;
         document.getElementById("idadministrador").value=data.idadministrador;
+        console.log("el id es "+data.idadministrador)
     
     }
 }
@@ -68,7 +68,7 @@ function fotoLogin (data){
 window.onload = function(){
     let op = getParameterByName("op")
     let id = getParameterByName("idadministrador")
-
+    console.log("La opcion es la "+op )
 	    llamada(id,op);  
         fotoPersonal()
 }

@@ -46,13 +46,13 @@ function getParameterByName(name) {
 
 
 
-//Funcion para recibir la foro del id logeado.
+
+//Funcion para recibir la foto del id logeado.
 function fotoPersonal(){
     fetch('SV_administrador?op=4')
     .then(response => response.json())// La respuesta (response) se parsea a un .json 
     .then(data => fotoLogin(data))//Los datos de ese .json se pintan en la tabla.
 }
-
 
 
 //Codigo para añadir fotosuario al header.
@@ -85,6 +85,8 @@ window.onload = function(){
  //Recogemos los parametros.
  let op = getParameterByName("op")
  let id = getParameterByName("idadministrador")
+
+
 
  //Si la op es 3 es que se va a borrar la info de esa id.
  if(op==3){

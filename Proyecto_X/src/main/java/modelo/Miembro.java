@@ -39,7 +39,6 @@ public class Miembro extends Usuario{
 	}
 
 	
-	
 
 //Construcot sin ID (auto incremetnro en BD) para poder inyectarlo en la BD.
 	public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad,String pass) {
@@ -50,19 +49,31 @@ public class Miembro extends Usuario{
 
 	
 	
-//Construcot sin ID (auto incremetnro en BD) para poder inyectarlo en la BD. Sin pass
+//Constructor sin ID y sin pass.(auto incremetnro en BD) para poder inyectarlo en la BD. 
 	public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad) {
 		super(nombre,apellidos,email,poblacion,permiso,foto);
 			
 		this.edad = edad;
 		}	
 	
-
+	
+	
+// Constructor sin permiso e id. (Para insertar del formulario a la BD)
+	public Miembro(String nombre, String apellidos, String email, String poblacion, String foto, int edad,String pass) {
+		super(nombre,apellidos,email,poblacion,foto,pass);//herencia de Usuario.
+		
+		this.edad = edad;
+	}
+	
+	
 	
 //Coontructor solo con foto para la zona login	
 	public Miembro(String foto) {
 		super(foto);
 	}
+
+
+
 
 
 

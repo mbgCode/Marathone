@@ -179,7 +179,6 @@ public class Deporte {
 	//Recibimos el id del Form y llamamos al dao para listar por id
 	public void modId(int id) throws SQLException {
 		
-		
 		DaoDeporte dao = new DaoDeporte();
 		Deporte d = dao.listarPorId(id);
 		
@@ -195,6 +194,7 @@ public class Deporte {
 	}
 
 	
+	
 	//Jnson Por listar por id
 	public String dameJson() {
 		
@@ -206,6 +206,8 @@ public class Deporte {
 		
 		return txtJson;
 	}
+	
+	
 	
 	
 	//Borrar datos por id

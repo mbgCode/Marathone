@@ -40,6 +40,18 @@ public class Usuario {
 		this.pass = pass;
 	}
 
+	
+//Construcrtor con todo	
+	public Usuario(String nombre, String apellidos, String email, String poblacion, String foto, String pass) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.poblacion = poblacion;
+		this.foto = foto;
+		this.pass = pass;
+		}	
+	
 
 //Constructor sin pass
 	public Usuario(String nombre, String apellidos, String email, String poblacion, int permiso, String foto) {

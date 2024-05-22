@@ -119,7 +119,7 @@ public class SV_miembro extends HttpServlet {
 								m.listPorId(id);
 								String resultado = m.dameJson();
 								out.print(resultado);
-							
+								System.out.println(resultado);
 							} catch (SQLException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -212,8 +212,6 @@ public class SV_miembro extends HttpServlet {
 		String apellidos = request.getParameter("apellidos");
 		String email = request.getParameter("email");
 		String poblacion = request.getParameter("poblacion");
-		String permiso = request.getParameter("permiso");//recibimos un tipo String
-		int permiss=Integer.parseInt(permiso);//lo cambiamos a int para poder insertarlo en su clase.
 		//String id = request.getParameter("id");
 		//int idint = Integer.parseInt(id);
 		String edad = request.getParameter("edad");
@@ -254,17 +252,10 @@ public class SV_miembro extends HttpServlet {
 		
 //Creamos el objeto Usuario y lo insertamos en dao.
 //filename es para la foto
-		Miembro m1 = new Miembro(nombre, apellidos, email, poblacion, permiss, filename, edadint, pass);
+		Miembro m1 = new Miembro(nombre, apellidos, email, poblacion, filename, edadint, pass);
 		
-		
-		
-//Isertar Usuario
-		try {
-			m1.insertarMiembro();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		 
+
 		
 		
 	
@@ -278,19 +269,35 @@ public class SV_miembro extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			
-			
-//update 	
-		int id = Integer.parseInt(request.getParameter("idmiembro"));
+				
+//Insertar nuevo usuario y update.			
+		String ids= request.getParameter("idmiembro");
 		
-	
-		try {
-			m1.setId(id);
-			m1.update();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+		//Isertar nuevo miembro	
+		if(ids.isEmpty()) {
+			try {
+				m1.insertarMiembro();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		//update miembro ya registrado	
+		}else {
+			int id = Integer.parseInt(request.getParameter("idmiembro"));
+			
+			
+			try {
+				m1.setId(id);
+				m1.update();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
 	
 	
 	}
