@@ -62,15 +62,21 @@ function fotoLogin (data){
 
 
 
-
 window.onload = function(){
-fotoPersonal();
+
 
  let op = getParameterByName("op");
+ console.log("esto es op " +op+ "--")
  let id = getParameterByName("idmiembro");
  
 
- modificar(op,id);
- fotoPersonal();
+
+    if (op!=0){
+        fotoPersonal();
+        console.log(" los datos son " +op)
+        modificar(op,id);
+        fotoPersonal();
+    }
+
 
 }

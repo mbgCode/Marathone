@@ -70,7 +70,7 @@ function pintarLista(data) {
 }
 
 
-//Funcion para recibir la foro del id logeado.
+//Funcion para recibir la foto del id logeado.
 function fotoPersonal(){
     fetch('SV_administrador?op=4')
     .then(response => response.json())// La respuesta (response) se parsea a un .json 
@@ -79,7 +79,7 @@ function fotoPersonal(){
 
 
 
-//Codigo para añadir fotosuario al header.
+//Codigo para añadir fotoUario al header.
 function fotoLogin (data){
     let contenedorFoto = document.getElementById("fotoPersonal");
     if (contenedorFoto) {

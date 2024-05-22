@@ -71,28 +71,17 @@ public class SV_miembro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
-		
-/*//Abrir a la sesión.		
-		sesion = request.getSession();//desde aqui ya si se puede acceder al HttpSession.
-		
-		String id= request.getParameter("id");
-		
-		if(id.equals(null)) {//Si id es igual null es que no vamos a utilizar id.
-			
-		}
-		int idSesion = (int)sesion.getAttribute("id");//Esto puede venir de un formulario con un request.getparameter
-	
-		if (idSesion != 0) {//Si idSesion es distinto de 0 se podra ejecutar el programa
-*/		
+			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
 			
 			sesion = request.getSession();
+			
 			String op = request.getParameter("op");
+			
 			
 			if (!op.isEmpty()) {
 				int opcion = Integer.parseInt(request.getParameter("op"));
 				
-				
+	
 				switch (opcion) {
 				
 				
@@ -182,9 +171,9 @@ public class SV_miembro extends HttpServlet {
 						
 						
 						
-					}case 6:{
+					}case 6:{//Cerrar sesión
 						sesion.invalidate();
-						System.out.println("sesion cerrada");
+						System.out.println("sesion cerrada del miembro");
 						
 						break;
 					}

@@ -10,8 +10,13 @@
 <script>
 
 
-    function cerrarSesion (op){
+
+    function cerrarSesionMiembro (op){
         fetch('SV_miembro?op='+op)
+    }
+
+    function cerrarSesionAdmin (op){
+        fetch('SV_administrador?op='+op)
     }
 
     function getParameterByName(name) {
@@ -25,9 +30,11 @@
    window.onload = function(){ 
       
         let op = getParameterByName ("op");
-        console.log("la op es" +op)
-        if(op==6){
-            cerrarSesion(op);
+     
+        if(op==6){//Si op es 6 es para miembro.
+            cerrarSesionMiembro(op);
+        }else if(op==5){// Si es 5 es para admin
+            cerrarSesionAdmin(op);
         }
 
 
@@ -57,7 +64,7 @@
 
                 <!-- zona Login -->
                 <div id="iniciarSesion">
-                    <a href="registroVisitiante.html"><input type="button" value="Registrarse" name="register" id="btnRegistro"></a>
+                    <a href="registroVisitiante.html?op=0"><input type="button" value="Registrarse" name="register" id="btnRegistro"></a>
                 </div>
 
             </header>

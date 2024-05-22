@@ -35,16 +35,20 @@ import dao.DaoMiembro;
 public class SV_administrador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-//Añadimos la ruta de ORIGEN de la carpera...De momento lo hacemos de manera local. Luego se hará con ruta a la base de datos.
+	
+		//Añadimos la ruta de ORIGEN de la carpera...De momento lo hacemos de manera local. Luego se hará con ruta a la base de datos.
 		private String pathFiles = "C:\\Users\\mbgco\\git\\repository\\Proyecto_X\\src\\main\\webapp\\Fotos";
 		
-//Añadimos la clase FILE para poder introducir fotos en la bd.
-//Hemos creado una carpeta en webapp llamada fotos que es donde vamos a guardarlas.
+		
+		//Añadimos la clase FILE para poder introducir fotos en la bd.
+		//Hemos creado una carpeta en webapp llamada fotos que es donde vamos a guardarlas.
 		private File uploads = new File (pathFiles);
+		
 		
 		//Se utiliza para la sesión. Se crea esto para su instnciación.
 		HttpSession sesion;
-			
+		
+		
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -60,10 +64,8 @@ public class SV_administrador extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		sesion = request.getSession();
-
 	
 		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
-		
 		
 		String op = request.getParameter("op");
 		
@@ -125,9 +127,9 @@ public class SV_administrador extends HttpServlet {
 					
 					
 				//Añadir foto por id al header.	
-				}case 4 :{
+				}case 4:{
 					Administrador a = new Administrador ();
-					
+					System.out.println("op es igual a" +op);
 					int idsesion = (int)sesion.getAttribute("id");
 					
 					try {
@@ -140,6 +142,11 @@ public class SV_administrador extends HttpServlet {
 						e.printStackTrace();
 					}
 					
+					break;
+					
+				}case 5:{
+					sesion.invalidate();
+					System.out.println("sesion cerrada del Admin");
 					
 				}
 			
