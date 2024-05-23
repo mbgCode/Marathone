@@ -48,7 +48,7 @@ function pintarLista(data) {
 
         //Mensaje de iniciar sesion o registrarse
         imagen.onclick = function() {
-            alert("Para ver el contenido, inicie sesión o registrese para ver el contenido.");
+            alert("Para ver el contenido inicie sesión o registrese.");
         };
 
         // Crear párrafos para los datos

@@ -38,6 +38,7 @@ public class DaoMiembro{
 		ps.setString(3, m.getEmail());
 		ps.setString(4, m.getPoblacion());
 		ps.setInt(5, m.getPermiso());
+		System.out.println(m.getPermiso());
 		ps.setString(6, m.getFoto());
 		ps.setInt(7,m.getEdad());
 		ps.setInt(8,m.getId());

@@ -195,15 +195,30 @@ public class SV_miembro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("ListarMiembro.html");// Una vez enviado los datos del formulario redirigir al index miembro.
+		
+		//Obtenemos de donde viene es formulario para enviar a un lado u otro.
+		String proviene =request.getParameter("proviene");
+		
+		if("registro1".equals(proviene)){
+			response.sendRedirect("Login.html");
+			
+		}else {
+			response.sendRedirect("ListarMiembro.html");// Una vez enviado los datos del formulario redirigir al index miembro.
 
+		}
+			
+		
+		
+		
+		
+		
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		String email = request.getParameter("email");
 		String poblacion = request.getParameter("poblacion");
-		//String id = request.getParameter("id");
-		//int idint = Integer.parseInt(id);
+		System.out.println(poblacion);
 		String edad = request.getParameter("edad");
+		System.out.println("esta es la edad -"+edad+"--");
 		int edadint = Integer.parseInt(edad);
 		String pass = request.getParameter("pass");
 		
@@ -261,10 +276,10 @@ public class SV_miembro extends HttpServlet {
 				
 //Insertar nuevo usuario y update.			
 		String ids= request.getParameter("idmiembro");
-		
+		System.out.println("esto es el ids>"+ids+"<");
 		
 		//Isertar nuevo miembro	
-		if(ids.isEmpty()) {
+		if(ids==null|| ids.isEmpty()) {
 			try {
 				m1.insertarMiembro();
 			} catch (SQLException e) {

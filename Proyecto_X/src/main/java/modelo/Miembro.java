@@ -32,7 +32,7 @@ public class Miembro extends Usuario{
 	
 // Constructor entero con herencia de usuario.
 	public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad,int id,String pass) {
-		super(nombre,apellidos,email,poblacion,permiso,foto,pass);//herencia de Usuario.
+		super(nombre,apellidos,email,poblacion,1,foto,pass);//herencia de Usuario.
 		
 		this.id = id;
 		this.edad = edad;
@@ -42,7 +42,7 @@ public class Miembro extends Usuario{
 
 //Construcot sin ID (auto incremetnro en BD) para poder inyectarlo en la BD.
 	public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad,String pass) {
-		super(nombre,apellidos,email,poblacion,permiso,foto,pass);
+		super(nombre,apellidos,email,poblacion,1,foto,pass);
 		
 		this.edad = edad;
 	}
@@ -51,7 +51,7 @@ public class Miembro extends Usuario{
 	
 //Constructor sin ID y sin pass.(auto incremetnro en BD) para poder inyectarlo en la BD. 
 	public Miembro(String nombre, String apellidos, String email, String poblacion, int permiso, String foto, int edad) {
-		super(nombre,apellidos,email,poblacion,permiso,foto);
+		super(nombre,apellidos,email,poblacion,1,foto);
 			
 		this.edad = edad;
 		}	
@@ -60,7 +60,7 @@ public class Miembro extends Usuario{
 	
 // Constructor sin permiso e id. (Para insertar del formulario a la BD)
 	public Miembro(String nombre, String apellidos, String email, String poblacion, String foto, int edad,String pass) {
-		super(nombre,apellidos,email,poblacion,foto,pass);//herencia de Usuario.
+		super(nombre,apellidos,email,poblacion,1,foto,pass);//herencia de Usuario.
 		
 		this.edad = edad;
 	}
@@ -117,6 +117,7 @@ public class Miembro extends Usuario{
 	public void insertarMiembro() throws SQLException {
 		DaoMiembro dao = new DaoMiembro();
 		dao.insertar(this);		
+	
 	}
 	
 	

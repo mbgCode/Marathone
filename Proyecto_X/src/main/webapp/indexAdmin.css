@@ -70,10 +70,8 @@ header{
 
 #fotoPersonal{
     height:50%;
-    
     width: 20%;
     display: flex;
-    flex-wrap: nowrap;
     justify-content: end;
     align-self: center;
 }
@@ -86,12 +84,6 @@ header{
     width: 70%;
     border: black solid 3px;
   
-}
-
-
-#desplegable{  
-    margin-top: 30px;
-    margin-right: 20px;
 }
 
 
