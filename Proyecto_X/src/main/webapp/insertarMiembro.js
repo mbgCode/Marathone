@@ -66,7 +66,7 @@ window.onload = function(){
 
 
  let op = getParameterByName("op");
- console.log("esto es op " +op+ "--")
+
  let id = getParameterByName("idmiembro");
  
 

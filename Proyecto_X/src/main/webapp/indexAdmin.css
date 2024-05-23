@@ -5,7 +5,14 @@
 }
 
 
+body{
+    height: 100vh;
+    background-color: rgb(202, 230, 178);
+}
+
+
 #contenedorSup{
+    height: 100%;
     background-color:rgb(210, 100, 154);
     display:grid;
     grid-template-columns: 1fr ;
@@ -15,7 +22,6 @@
     "navegador"
     "buscador"
     "nav";
-    
 }
 
 
@@ -264,8 +270,7 @@ margin-left: 40px;
 
 /* Footer---------------------------- */
 footer{
-    
-   
+    position: fixed;
     bottom: 0;
     display: grid;
     margin-top: 20px;

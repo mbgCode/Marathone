@@ -6,8 +6,8 @@
 
 
 #ContendorPadre{
-height: auto;
-background-color:rgb(71, 147, 175);
+    height: 100vh;
+    background-color:rgb(71, 147, 175);
 }
 
 #contenedorSup{

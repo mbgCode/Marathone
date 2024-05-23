@@ -117,9 +117,8 @@ function redireccionar() {//El selctor de categorías.
 
 /* Metodo principal */
 window.onload = function(){   
-
-    llamada();
     fotoPersonal();
+    llamada();
 
     //Barra Busqueda, para recoger los datos de 
     var botonLupa = document.getElementById("imgLupa");
