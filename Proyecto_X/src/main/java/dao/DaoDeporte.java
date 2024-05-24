@@ -19,15 +19,13 @@ public class DaoDeporte {
 	
 	public DaoDeporte() throws SQLException {
 		
-		con = BDconexion.getmiconexion();
-			
+		con = BDconexion.getmiconexion();	
 	}
 	
 	
 	
 	//Insertar deporte
 	public void insertarDep (Deporte d) throws SQLException {
-		
 		String sql = "INSERT INTO deporte (nombre,descripcion,telefono,direccion,foto,categoria) VALUES (?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		
@@ -46,17 +44,13 @@ public class DaoDeporte {
 	
 	//Llamada deporte por Id para hacer Update
 	public Deporte listarPorId(int id) throws SQLException{
-		
 		String query = "SELECT * FROM deporte WHERE iddeporte = ?";
-	
 		PreparedStatement ps = con.prepareStatement(query);
 		
 		ps.setInt(1, id);
 		
 		ResultSet rs = ps.executeQuery();
-		
 		rs.next();
-		
 		Deporte d = new Deporte(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
 				rs.getString(5), rs.getString(6), rs.getString(7));
 		
@@ -69,10 +63,8 @@ public class DaoDeporte {
 	
 	
 	
-
 	//Update del id concreto.
 	public void update (Deporte d) throws SQLException {
-
 		String sql = "UPDATE deporte SET nombre=?,descripcion=?,telefono=?,direccion=?,foto=?,categoria=?"
 				+ "WHERE iddeporte=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -88,22 +80,18 @@ public class DaoDeporte {
 		int file = ps.executeUpdate();
 	
 		ps.close();
-		
 	}
+	
 	
 	
 	
 	//Peticion para listar todo
 	public ArrayList <Deporte>listar() throws SQLException{
-		
 		String query = "SELECT * FROM deporte ORDER BY iddeporte DESC";
-	
 		PreparedStatement ps = con.prepareStatement(query);
 		
 		ResultSet rs = ps.executeQuery();
-		
 		ArrayList<Deporte>ls=null;
-		
 		while((rs.next())) {
 			if (ls == null) {
 				ls = new ArrayList <Deporte>(); 
@@ -112,39 +100,31 @@ public class DaoDeporte {
 					rs.getString(5), rs.getString(6), rs.getString(7)));
 		}
 		return ls;	
-		
 	}
+	
+	
 	
 	
 	//Funcion json para listar todos los datos en cliente.
 	public String ListarJonson() throws SQLException {
-		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 		String txtJson = "";
-			
 		Gson gson = new Gson ();
-			
-		txtJson = gson.toJson(this.listar());//Llamamos a la funcion listar con los datos el ArrayList<usuario>
-			
+		txtJson = gson.toJson(this.listar());	
 		return txtJson;
 		} 	
 		
 			
 	
-	
 	//Llamada deporte por palabra a buscar 
-	public ArrayList <Deporte>listarPorNombre(String palabra) throws SQLException{
-				
+	public ArrayList <Deporte>listarPorNombre(String palabra) throws SQLException{	
 		String query = "SELECT * FROM deporte WHERE UPPER (nombre) like ?";
-		
 		PreparedStatement ps = con.prepareStatement(query);
 				
 		ps.setString(1,"%"+ palabra.toUpperCase()+ "%"); //porcentaje es para que encuentre cualquier valor que empiece por "palabra"
 
 				
-		ResultSet rs = ps.executeQuery();
-				
+		ResultSet rs = ps.executeQuery();		
 		ArrayList<Deporte>ls=null;
-				
 		while((rs.next())) {
 			if (ls == null) {
 				ls = new ArrayList <Deporte>(); 
@@ -152,37 +132,30 @@ public class DaoDeporte {
 			ls.add(new Deporte(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
 						rs.getString(5), rs.getString(6), rs.getString(7)));
 			}
-		return ls;	
-				
-			}
+	return ls;		
+	}
 			
-						
+			
+	
 	
 	//Funcion json para listar por busqueda de nombre
 	public String ListarJonsonPorNombre(String palabra) throws SQLException {
 		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 		String txtJson = "";
-		
 		Gson gson = new Gson ();
 		System.out.println("esto es el dao"+palabra);
 		txtJson = gson.toJson(this.listarPorNombre(palabra));//Llamamos a la funcion listar con los datos el ArrayList<usuario>
-		
 		return txtJson;
 	} 		
 	
 	
-	
-
 
 	
 	//filtrar por categoria (sacamos listado solo de la categoría)
 	public ArrayList <Deporte> filtrarCat(String cat) throws SQLException {
-		
-	
-		
-		
 			String query = "SELECT * FROM deporte WHERE categoria LIKE ? ORDER BY nombre";
 			PreparedStatement ps = con.prepareStatement(query);
+
 			ps.setString(1, cat);
 			
 			ResultSet rs = ps.executeQuery();
@@ -190,31 +163,22 @@ public class DaoDeporte {
 			while ((rs.next())){
 				if (ls ==null) {
 					ls = new ArrayList<Deporte>();
-					
 				}
 				ls.add(new Deporte(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
 						rs.getString(5), rs.getString(6), rs.getString(7))); 
 			}
-			
-			
-		return ls;
+	return ls;
 	}
 	
 	
 	
+	
 	//Json Por Categoría
-	public String ListarCatJonson(String cat) throws SQLException {
-		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
-		
+	public String ListarCatJonson(String cat) throws SQLException {		
 		String txtJson = "";
-		
 		Gson gson = new Gson ();
-		
-		
-		txtJson = gson.toJson(this.filtrarCat(cat));//Llamamos a la funcion listar con los datos el ArrayList<usuario>
-				
-		
-		return txtJson;
+		txtJson = gson.toJson(this.filtrarCat(cat));//Llamamos a la funcion listar con los datos el ArrayList<usuario>	
+	return txtJson;
 	} 	
 	
 	
@@ -222,18 +186,10 @@ public class DaoDeporte {
 	
 	//Borrar datos por ID.
 	public void borrar (int id) throws SQLException {
-		
 		String query = "DELETE FROM deporte where iddeporte=?";
-		
 		PreparedStatement ps = con.prepareStatement(query);
-		
 		ps.setInt(1,id);
-		
 		int file = ps.executeUpdate();
-
-		
 		ps.close();
-		
 	}
-	
 }

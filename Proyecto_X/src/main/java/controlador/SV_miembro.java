@@ -72,20 +72,16 @@ public class SV_miembro extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 			PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
-			
 			sesion = request.getSession();
-			
 			String op = request.getParameter("op");
 			
 			
 			if (!op.isEmpty()) {
 				int opcion = Integer.parseInt(request.getParameter("op"));
 				
-	
 				switch (opcion) {
 				
-				
-					case 1:{//listar en html.
+					case 1:{//listar.
 						try {
 							DaoMiembro dao = new DaoMiembro();
 							String resultado = dao.listarJonson();
@@ -96,12 +92,11 @@ public class SV_miembro extends HttpServlet {
 							e.printStackTrace();
 						}
 						
-						break;
+					break;
 					}
 					
-					
-					
-					case 2: { //Modificar...
+						
+					case 2: { //Modificar.
 							int id =Integer.parseInt(request.getParameter("idmiembro")) ;
 							Miembro m = new Miembro();
 							try {
@@ -117,8 +112,7 @@ public class SV_miembro extends HttpServlet {
 						break;
 					}
 					
-					
-					
+						
 					case 3: { //listar por tipo de usuario para login
 						int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
 							try {
@@ -130,27 +124,22 @@ public class SV_miembro extends HttpServlet {
 								System.out.println("Error en case 3 de SV_miembro");
 								e.printStackTrace();
 							}
-						break;
+					break;
 						
-						
-						
+							
 					}case 4:{//Sección eliminar miembro por id.
 						
 						Miembro m1 = new Miembro();
 						int id = Integer.parseInt(request.getParameter("idmiembro"));
+							try {							
+								m1.eliminar(id);	
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+					break;
 						
-						try {							
-							m1.eliminar(id);
 							
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						
-						break;
-						
-						
-						
 					}case 5:{//Pedimos el id para insertar la foto del usuario en el index.
 						Miembro m = new Miembro ();
 						
@@ -165,11 +154,8 @@ public class SV_miembro extends HttpServlet {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						
-					
-						break;
-						
-						
+					break;
+							
 						
 					}case 6:{//Cerrar sesión
 						sesion.invalidate();
@@ -177,17 +163,8 @@ public class SV_miembro extends HttpServlet {
 						
 						break;
 					}
-		
-				}
-							
-			}
-			
-		/*}else {
-			System.out.println("No PUEDES PASARRRR");
-			response.sendRedirect("miembro.html");
-		}*/
-		
-				
+			}			
+		}			
 	} 
 	
 
@@ -207,41 +184,26 @@ public class SV_miembro extends HttpServlet {
 
 		}
 			
-		
-		
-		
-		
-		
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		String email = request.getParameter("email");
 		String poblacion = request.getParameter("poblacion");
-		System.out.println(poblacion);
 		String edad = request.getParameter("edad");
-		System.out.println("esta es la edad -"+edad+"--");
 		int edadint = Integer.parseInt(edad);
 		String pass = request.getParameter("pass");
 		
 		
-//INCLUIR FOTOS ------------------------------------------------------------------------------	
-		/*
-		 * Creamos un objeto Part para que recoja los DATOS binarios de la FOTO. 
-		 * Le indicamos el nombre que tiene en el .html
-		 */
+		//Fotos
 		Part part = request.getPart("foto"); //Para añadir mas fotos podremos repetir el codigo tantas veces se quiera.
-		
 		//Obtenemos la RUTA/nobre del archivo. Sacamos la ruta de part.
 		Path path = Paths.get(part.getSubmittedFileName());
-		
 		//Guardamos en la base de datos el NOMBRE de ese archivo que es un String.
 		String filename = path.getFileName().toString();
-		
 		//Preparamos el camino (BUFFER) para enviar esos datos.
 		InputStream inpst = part.getInputStream();
-		
 		//Vamos a guardar el archivo y a meterlo en la carpeta Fotos.
 		File file = new File (uploads,filename);
-		
+	
 		try {
 			//Copiamos los datos del archivo dentro de la carpeta utilizando el BUFFER.
 			Files.copy(inpst,file.toPath());
@@ -250,20 +212,13 @@ public class SV_miembro extends HttpServlet {
 			PrintWriter error = response.getWriter();
 			error.print("Se ha producido un error");
 		}
-		
-//---------------------------------------------------------------------------------------------	
 
 		
-//Creamos el objeto Usuario y lo insertamos en dao.
-//filename es para la foto
-		Miembro m1 = new Miembro(nombre, apellidos, email, poblacion, filename, edadint, pass);
-		
-		 
-
-		
-		
+		//Creamos el objeto Usuario y lo insertamos en dao.
+		//filename es para la foto
+		Miembro m1 = new Miembro(nombre, apellidos, email, poblacion, filename, edadint, pass);		
 	
-//Listar miembro
+		//Listar miembro
 		DaoMiembro lista;
 			try {
 				lista = new DaoMiembro();
@@ -274,10 +229,10 @@ public class SV_miembro extends HttpServlet {
 			}
 			
 				
-//Insertar nuevo usuario y update.			
+		//Insertar nuevo usuario y update.			
 		String ids= request.getParameter("idmiembro");
 		System.out.println("esto es el ids>"+ids+"<");
-		
+
 		//Isertar nuevo miembro	
 		if(ids==null|| ids.isEmpty()) {
 			try {
@@ -286,13 +241,11 @@ public class SV_miembro extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+		
 			
 		//update miembro ya registrado	
 		}else {
 			int id = Integer.parseInt(request.getParameter("idmiembro"));
-			
-			
 			try {
 				m1.setId(id);
 				m1.update();
@@ -302,8 +255,5 @@ public class SV_miembro extends HttpServlet {
 			}
 		}
 		
-	
-	
 	}
-
 }

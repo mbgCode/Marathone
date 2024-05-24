@@ -9,8 +9,6 @@ public class BDconexion {
 
 	public static final String JDBC_URL = "jdbc:mysql://localhost:3306/proyecto";
 	public static Connection instance = null;
-	
-	
 	public static Connection getmiconexion() throws SQLException {
 		
 		if (instance ==null) {
@@ -21,8 +19,6 @@ public class BDconexion {
 			
 			instance = DriverManager.getConnection(JDBC_URL,props);
 		}
-		
 		return instance;
 	}
-	
 }

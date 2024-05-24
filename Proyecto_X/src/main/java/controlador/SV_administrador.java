@@ -28,7 +28,7 @@ import dao.DaoMiembro;
  * Servlet implementation class SV_administrador
  */
 
-//Añadimos el @MULTIPARTCON y EL WEBSERVLET SIN EL nombre del servlet. DARA conflicto ala hora de arrancar el servidor.
+//Añadimos el @MULTIPARTCON y EL WEBSERVLET SIN EL nombre del servlet. Da conflicto ala hora de arrancar el servidor.
 @WebServlet()
 @MultipartConfig
 
@@ -36,27 +36,21 @@ public class SV_administrador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	
-		//Añadimos la ruta de ORIGEN de la carpera...De momento lo hacemos de manera local. Luego se hará con ruta a la base de datos.
 		private String pathFiles = "C:\\Users\\mbgco\\git\\repository\\Proyecto_X\\src\\main\\webapp\\Fotos";
-		
 		
 		//Añadimos la clase FILE para poder introducir fotos en la bd.
 		//Hemos creado una carpeta en webapp llamada fotos que es donde vamos a guardarlas.
 		private File uploads = new File (pathFiles);
 		
-		
 		//Se utiliza para la sesión. Se crea esto para su instnciación.
 		HttpSession sesion;
-		
 		
     /**
      * @see HttpServlet#HttpServlet()
      */
     public SV_administrador() {
-        super();
-     
+        super(); 
     }
-
     
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -64,9 +58,7 @@ public class SV_administrador extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		sesion = request.getSession();
-	
-		PrintWriter out = response.getWriter();//Este es el objeto de salida. Para escribir datos de vuelta a la web.
-		
+		PrintWriter out = response.getWriter();
 		String op = request.getParameter("op");
 		
 		
@@ -78,32 +70,27 @@ public class SV_administrador extends HttpServlet {
 			switch (opcion) {
 			
 			
-				case 1: {//op1 listar. Pintar en cliente del listado de todos los administradores.
+				//OP1 Listar.
+				case 1: {
 					try {
-					
 						DaoAdministrador dao = new DaoAdministrador();
 						String resultado = dao.ListarJonson();
-						out.print(resultado);
-						
-					} catch (SQLException e) {
+						out.print(resultado);		
+					}catch (SQLException e) {
 						e.printStackTrace();
 					}		
-					break;
+				break;
 				}
 				
 				
-				
-				// op2 modificar (sacar los datos por el cliente, que se modificará por el doPost).
+				// OP2 modificar (sacar los datos por el cliente. Se modificará por el doPost).
 				case 2:{
-					
-				
 					try {
 						int id = Integer.parseInt(request.getParameter("idadministrador")); //recogemos el id del form
 						Administrador a = new Administrador();
 						a.modificarAdmin(id);
 						String resultado = a.dameJson();
 						out.print(resultado);
-						
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -111,49 +98,44 @@ public class SV_administrador extends HttpServlet {
 				}
 				
 				
-				//op 3 eliminar adnministrador.
+				//OP3 Eliminar adnministrador.
 				case 3 :{
 					Administrador a1 = new Administrador();
 					int id = Integer.parseInt(request.getParameter("idadministrador"));
-					
 					try {
-						
 						a1.eliminar(id);
-						
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+				break;
 					
-					
-				//Añadir foto por id al header.	
+				
+				//OP4 Añadir foto por id al header.	
 				}case 4:{
 					Administrador a = new Administrador ();
 					System.out.println("op es igual a" +op);
 					int idsesion = (int)sesion.getAttribute("id");
-					
 					try {
 						a.foto(idsesion);
 						String resultado = a.fotoJson();
-						
 						out.print(resultado);
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+				break;
 					
-					break;
-					
+				
+				//OP5 Cerrar sesión.
 				}case 5:{
 					sesion.invalidate();
 					System.out.println("sesion cerrada del Admin");
-					
+	
+				break;	
 				}
-			
 			}
-		}
-
-				
+		}		
 	}
 
 	/**
@@ -166,7 +148,7 @@ public class SV_administrador extends HttpServlet {
 		
 		String opi = request.getParameter("op"); //recogemos la op del form
 		
-//Recogemos todos lo parametros desde el html. 
+		//Recogemos todos lo parametros desde el html. 
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		String email = request.getParameter("email");
@@ -175,11 +157,10 @@ public class SV_administrador extends HttpServlet {
 		System.out.println("pass es" +pass);
 
 			
-		
-//Para recibir foto.
-		Part part = request.getPart("foto"); //recogemos los datos Binarios de foto
-		Path path = Paths.get(part.getSubmittedFileName());// Sacamos la ruta del archivo
-		String filename = path.getFileName().toString(); //Guardamos en la variable efilename el nombre del archivo/ruta	
+		//Para recibir foto.
+		Part part = request.getPart("foto"); //recogemos los datos Binarios de foto.
+		Path path = Paths.get(part.getSubmittedFileName());// Sacamos la ruta del archivo.
+		String filename = path.getFileName().toString(); //Guardamos en la variable efilename el nombre del archivo/ruta.	
 		//Creamos el camino BUFFER para enviarlo.
 		InputStream inspt = part.getInputStream();
 		//Guardamos el archivo y lo metemos en la capeta.
@@ -187,9 +168,8 @@ public class SV_administrador extends HttpServlet {
 		//Copiamos los datos del archivo dentro de la carpeta utilizando el BUFFER.
 		Files.copy(inspt,file.toPath());
 		
-		
 	
-//Creamos el objeto para administrador.
+		//Creamos el objeto para administrador.
 		Administrador a1 = new Administrador(nombre, apellidos, email, poblacion, filename, pass);
 		String op = request.getParameter("op");//Instanciamos el String "op" para que no me de error en el server al parsear un null
 		if (op != null) {
@@ -198,30 +178,28 @@ public class SV_administrador extends HttpServlet {
 		}
 		
 		
-		
-//Insertamos o hacemos Update en la clase Administrador.	
+		//Insertamos o hacemos Update en la clase Administrador.	
 		String ids = request.getParameter("idadministrador");
 		System.out.println("este es el valor de ids"+ids);
-//Insertamos nuevo admin.		
+		
+		
+			//Insertamos nuevo admin.		
 			try {
 				if (ids.isEmpty()) {//Si el id es cadena vacia quiere decir que va a insertarse un admin nuevo.
 					a1.insertarAdmin();
-					
-//Update de los datos a ingresar en la BD				
+				//Update de los datos a ingresar en la BD				
 				}else {//si es diferente de "", significa que si vamos a modificar algun dato de un ID ya registrado.
 					int id = Integer.parseInt(request.getParameter("idadministrador"));
 						;
 						a1.setIdaministrador(id);//Insertamos el id en Administrador.
 						a1.update();//Llamamos al update para poder modificar							
 				}
-	
 			}catch (SQLException e) {
 			e.printStackTrace();
 			}
-	
 		
 		
-//Listar Administrador 
+		//Listar Administrador 
 		DaoAdministrador lista;
 			try {
 				lista = new DaoAdministrador();

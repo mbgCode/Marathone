@@ -57,15 +57,17 @@ public class SV_deporte extends HttpServlet {
 		String op = request.getParameter("op");//Recibimos el valor de op en tipo string
 		System.out.println("op "+op);
 		
-		if (!op.equals("")) {//si op no es null se ejecuta 
+		
+		
+		if (!op.equals("")) {//si op no es null se ejecuta 	
+			int opcion =Integer.parseInt(request.getParameter("op")) ;
+			System.out.println("opcion" +opcion);
 			
-		int opcion =Integer.parseInt(request.getParameter("op")) ;
-		System.out.println("opcion" +opcion);
 			
 		switch (opcion) {
 		
-		
-			case 1:{//Listar Deportes en orden agregado reciente.
+			//Listar Deportes en orden agregado reciente.
+			case 1:{
 				try {
 					DaoDeporte dao = new DaoDeporte();
 					String resultado = dao.ListarJonson();
@@ -74,15 +76,15 @@ public class SV_deporte extends HttpServlet {
 					// TODO Auto-generated catch blockA
 					e.printStackTrace();
 				}
-				break;			
+			break;			
 				
 				
-				
-			}case 2 :{//UPdate por ID.
+			//UPdate por ID.
+			}case 2 :{
 				int id = Integer.parseInt(request.getParameter("id"));
 				Deporte d = new Deporte();
 				try {
-					d.modId(id);//Peticion de listado por id
+					d.modId(id);//Peticion de listado por id.
 					String resultado = d.dameJson();	
 					out.print(resultado);//Devolucion de listado para pintar por id.
 				}catch (SQLException e) {
@@ -92,8 +94,8 @@ public class SV_deporte extends HttpServlet {
 			break;
 			
 			
-			
-			}case 3:{//Borrar en la BD por ID
+			//Borrar en la BD por ID.
+			}case 3:{
 				int id = Integer.parseInt(request.getParameter("id"));		
 				Deporte d = new Deporte();
 				
@@ -106,15 +108,13 @@ public class SV_deporte extends HttpServlet {
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}	
+			break;
 				
-				break;
 				
-				
-			}case 4:{//listar por categoria elegida.
-				
+			//liistar por categoria elegida.	
+			}case 4:{
 				String cat = request.getParameter("categoria");
-				System.out.println("has recogido categoria :" +cat);
 				try {
 					DaoDeporte dao = new DaoDeporte();
 					String resultado = dao.ListarCatJonson(cat);
@@ -123,16 +123,14 @@ public class SV_deporte extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
-				break;
+			break;
 				
 				
-			}case 5:{//Pintar informacion por id. Igual que case2 
+			//Pintar informacion por id. Igual que case2 
+			}case 5:{
 				int id = Integer.parseInt(request.getParameter("id"));
 				System.out.println(id);
 				Deporte d = new Deporte();
-				
-				
 				try {
 					d.modId(id);
 					String resultado = d.dameJson();
@@ -142,14 +140,12 @@ public class SV_deporte extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
 			break;
 			
-			
-			}case 6 :{//Busqueda por nombre (Barra Busqueda)
+			//Busqueda por nombre (Barra Busqueda).
+			}case 6 :{
 			String palabra =request.getParameter("buscarP");
 				System.out.println("la palabra es" +palabra);
-				
 				try {
 					DaoDeporte dao = new DaoDeporte();
 					String resultado = dao.ListarJonsonPorNombre(palabra);
@@ -159,14 +155,10 @@ public class SV_deporte extends HttpServlet {
 					// TODO Auto-generated catch blockA
 					e.printStackTrace();
 				}
-				break;			
-				
-			}
-			
-			
-				
+			break;			
+			}	
 		}
-		}		
+	  }		
 	}
 
 	
@@ -186,7 +178,6 @@ public class SV_deporte extends HttpServlet {
 	
 		
 //Recibimos foto.
-	
 			Part part = request.getPart("foto");//recogemos los datos Binarios de foto
 			Path path = Paths.get(part.getSubmittedFileName());// Sacamos la ruta del archivo
 			String filename = path.getFileName().toString();//Guardamos en la variable filename el nombre del archivo/ruta
@@ -226,9 +217,6 @@ public class SV_deporte extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}		
-		}
-			
-		
+		}	
 	}
-
 }

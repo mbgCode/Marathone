@@ -17,19 +17,16 @@ public class DaoMiembro{
 	
 	public static Connection con = null; 
 	
-	
 	public DaoMiembro() throws SQLException {
-		
-		
-		this.con = BDconexion.getmiconexion();
+	
+	this.con = BDconexion.getmiconexion();
 		
 	}
 	
 	
+	
 //Insertamos en la BD los diferentes datos.
-	public void insertar(Miembro m) throws SQLException {
-		
-		
+	public void insertar(Miembro m) throws SQLException {	
 		String query = "INSERT INTO miembro(nombre,apellidos,email,poblacion,permiso,foto,edad,idmiembro,pass) VALUES (?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(query);
 		
@@ -50,44 +47,37 @@ public class DaoMiembro{
 
 	
 	
-	
+		
 //Peticion para listar Miembro (todos los miembros)
 	public ArrayList <Miembro>listar() throws SQLException{
-		
 		String sql = "SELECT * FROM miembro";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet result = ps.executeQuery();
-		System.out.println("llega al dao miembro!!");
-		//SI el array es igual a null lo llenamos.
+
 		ArrayList<Miembro>ls=null;
 		while((result.next())) {
 			if (ls == null) {
 				ls = new ArrayList <Miembro>(); 
 			}
-			
 			ls.add(new Miembro(result.getString(1), result.getString(2), result.getString(3), result.getString(4)
 					, result.getInt(5), result.getString(6), result.getInt(7), result.getInt(8),result.getString(9)));
-			
 		}
-		
 		return ls;
 	}
 	
 
 	
 	
-	
 //Listar por Id para modificar.
 	public Miembro listarPorId(int id) throws SQLException {
 	    String query = "SELECT * FROM miembro WHERE idmiembro = ?;";
 	    Miembro m = null;
-	    
 	    PreparedStatement ps = con.prepareStatement(query);
+	    
 	        ps.setInt(1, id);
 	       
 		ResultSet rs = ps.executeQuery();
-	       
 	            rs.next();
 	                m = new Miembro(
 	                    rs.getString(1), // Ajusta los índices si es necesario
@@ -99,37 +89,34 @@ public class DaoMiembro{
 	                    rs.getInt(7),
 	                    rs.getInt(8),
 	                    rs.getString(9));
-	
 	    return m;
 	}
 
+	
 	
 	
 //Peticion de la foto por id para la zona login
 	public Miembro foto(int id) throws SQLException {
 	    String query = "SELECT foto FROM miembro WHERE idmiembro = ?;";
 	    Miembro m = null;
-	    
 	    PreparedStatement ps = con.prepareStatement(query);
+	    
         ps.setInt(1, id);
        
         ResultSet rs = ps.executeQuery();
-       
             rs.next();
                 m = new Miembro(
-                    rs.getString(1)); // Ajusta los índices si es necesario
+                    rs.getString(1));
                 
-
     return m;
 	}
 
 	
 	
-	//Update los datos(Para modificar los datos que queramos)
+	//Update los datos(Para modificar los datos que queramos).
 	public void update(Miembro m) throws SQLException {
 	    String sql = "UPDATE miembro SET nombre=?, apellidos=?, email=?, poblacion=?, permiso=?, foto=?, edad=?, pass=? "
 	               + "WHERE idmiembro=?";
-	    
 	    PreparedStatement ps = con.prepareStatement(sql);
 	    
 	    ps.setString(1, m.getNombre());
@@ -149,15 +136,15 @@ public class DaoMiembro{
 	
 	
 	
+	
 //Peticion para listar Miembro por tipo de permiso
 	public ArrayList <Miembro>listarTipo(int tipo) throws SQLException{
-		
 		String sql = "SELECT * FROM miembro WHERE permiso=?";
-		
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, tipo);
-		ResultSet result = ps.executeQuery();
 		
+		ps.setInt(1, tipo);
+		
+		ResultSet result = ps.executeQuery();
 		//SI el array es igual a null lo llenamos.
 		ArrayList<Miembro>ls=null;
 		while((result.next())) {
@@ -174,71 +161,54 @@ public class DaoMiembro{
 	
 	
 	
-//login	
+//login.
 		public Miembro logeando (Miembro m, String pass) throws SQLException {
-			
 			String sql = "SELECT * FROM miembro WHERE email=? AND pass=? ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setString (1,m.getEmail());
 			ps.setString(2, pass);
 			
-			
 			ResultSet rs = ps.executeQuery();
-			
 			Miembro m1 = null;//Instanciamos miembro con un null
-			
-			
 			if (rs.next()) {// si no esta vacía la query (contiene datos) los inyectamos.
 				m1 = new Miembro (rs.getString("nombre"), rs.getString("apellidos"), rs.getString("email"),
 						rs.getString("poblacion"), rs.getInt("permiso"), rs.getString("foto"),rs.getInt("edad"),rs.getInt("idmiembro"),rs.getString("pass"));
 			}//si esta vacía la dejamos null para que lo devuelva... de no ser así nos daría una SQLexception.	
-			
-			return m1;
+	
+		return m1;
 		}	
 	
 	
 	
 	
-	
-	
-//Funcion json listar todos los miembros
+//Función json listar todos los miembros-
 	public String listarJonson() throws SQLException {
-		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 		String txtJson = "";
-		
 		Gson gson = new Gson ();
-		
 		txtJson = gson.toJson(this.listar());//Llamamos a la funcion listar con los datos el ArrayList<usuario>
-		
 		return txtJson;
 	} 
 	
 	
 	
+	
 //Funcion json listar por filtrado tipo de permiso.
 		public String listarJonsonTipo(int tipo) throws SQLException {
-			//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 			String txtJson = "";
-			
 			Gson gson = new Gson ();
-			
 			txtJson = gson.toJson(this.listarTipo(tipo));//Llamamos a la funcion listar con los datos el ArrayList<usuario>
-			
 			return txtJson;
 		} 
 		
 		
 		
-//borrar		
+		
+//Borrar		
 		public void borrarBD (int id) throws SQLException {
-			
 			String sql = "DELETE FROM miembro WHERE idmiembro = "+id;
 			PreparedStatement ps = con.prepareStatement(sql);
-			
 			ps.executeUpdate(sql);
-		
 			ps.close();
-			
 		}		
 }

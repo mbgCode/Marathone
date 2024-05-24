@@ -43,46 +43,35 @@ public class SV_login extends HttpServlet {
 		
 		String email = request.getParameter("email");//Recibimos los parametro de login.html
 		String pass = request.getParameter("pass");//Recibimos los parametro de login.html
-		//myMD%es el cifrado de la contraseña.
 		
-		Miembro m = new Miembro ();//Creamos un miembro "m"
+		Miembro m = new Miembro ();//Creamos un miembro "m".
 		m.setEmail(email);
 		
 		Administrador a = new Administrador ();//Creamos "a" de administrador.
 		a.setEmail(email);
 		
-		//protección
+		
+		//protección (Según el tipo de permiso).
 		try {
-			if (m.logeo(pass)) {//Si son ciertas la credenciales entramos en el programa.
-				
+			if (m.logeo(pass)) {//Si son cierts la credenciales entramos en el programa.
 				sesion = request. getSession(); //la inicializamos la sesion.
-				
 				sesion.setAttribute("id", m.getId());//En este caso vamos a guardar en la sesion el id y el permiso.
 				sesion.setAttribute("permiso", m.getPermiso());
-				
 				int permiso=m.getPermiso();
-				
-				response.sendRedirect("index.html");// que nos envie a la pagina index par miembros
-			
+				response.sendRedirect("index.html");//que nos envie a la pagina index par miembros
 
-			
 			}else if(a.logeo(pass)){//Si no son ciertas las credenciales buscamos si estan en la bd de administrador.
 				sesion = request. getSession(); //la inicializamos la sesion.
-				
-				sesion.setAttribute("id", a.getIdaministrador());//En este caso vamos a guardar en la sesion el id y el permiso.
+				sesion.setAttribute("id", a.getIdaministrador());//en este caso vamos a guardar en la sesion el id y el permiso.
 				sesion.setAttribute("permiso", a.getPermiso());
-				
 				int permiso=m.getPermiso();
-				
-				response.sendRedirect("indexAdmin.html");// que nos envie a la pagina index par miembros
+				response.sendRedirect("indexAdmin.html");//nos envia a la pagina index par miembros.
 				
 			}else {
 				response.sendRedirect("Login.html");
 				System.out.println("el logeo es erroneo, vuelve a intentarlo");
 			}
-			
-			
-			
+				
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,15 +79,5 @@ public class SV_login extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-
-	
-	
-	//private String myMD5 (String pass) {
-		
-		
-		//return 
-	//}
-	
 }

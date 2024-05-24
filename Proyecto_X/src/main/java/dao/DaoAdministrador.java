@@ -17,33 +17,23 @@ public class DaoAdministrador {
 	
 	public static Connection con = null;
 	
-	
-
 	public DaoAdministrador() throws SQLException {
-		
 		//no es nece sario utilizar el this ya que la delclaracion "con" es static.
-		con = BDconexion.getmiconexion();
-			
-		
+		con = BDconexion.getmiconexion();	
 	}
 	
 	
 	
-	
-//login	
-	public Administrador logeando (Administrador a, String pass) throws SQLException {
-				
-		String sql = "SELECT * FROM administrador WHERE email=? AND pass=? ";
-		PreparedStatement ps = con.prepareStatement(sql);
-				
+	//login.	
+	public Administrador logeando (Administrador a, String pass) throws SQLException {		
+		String query = "SELECT * FROM administrador WHERE email=? AND pass=? ";
+		PreparedStatement ps = con.prepareStatement(query);
+		
 		ps.setString (1,a.getEmail());
-		ps.setString(2, pass);
-				
-				
+		ps.setString(2, pass);		
+		
 		ResultSet rs = ps.executeQuery();
-				
-		Administrador a1 = null;//Instanciamos miembro con un null
-				
+		Administrador a1 = null;//Instanciamos miembro con un null.
 				
 		if (rs.next()) {// si no esta vacía la query (contiene datos) los inyectamos.
 				a1 = new Administrador(rs.getString("nombre"), rs.getString("apellidos"), rs.getString("email"), rs.getString("poblacion")
@@ -51,18 +41,17 @@ public class DaoAdministrador {
 		}//si esta vacía la dejamos null para que lo devuelva... de no ser así nos daría una SQLexception.	
 				
 		return a1;
-		
-			}	
+		}	
 	
-					
+				
+	
 			
-//Insertamos los datos en BD Administrador	
+	//Insertamos los datos en tabla administrador.	
 	public void insertar(Administrador a) throws SQLException {
-		 	
-		String sql = "INSERT INTO administrador (nombre, apellidos, email, "
+		String query = "INSERT INTO administrador (nombre, apellidos, email, "
 						+ "poblacion, permiso, foto, pass, idadministrador) VALUES (?,?,?,?,?,?,?,?)";
 		
-		PreparedStatement ps = con.prepareStatement(sql);
+		PreparedStatement ps = con.prepareStatement(query);
 			System.out.println("este es el permiso"+ a.getPermiso());
 			ps.setString(1, a.getNombre());
 			ps.setString(2, a.getApellidos());
@@ -78,14 +67,15 @@ public class DaoAdministrador {
 	}
 	
 	
+	
 
-//Una vez damos a editar en listar un admin este metodo le va a pedir los datos de ese id para pintarlos en el cliente.
-//Petición para visualizar los datos pora luego actualiza.
+	//Una vez damos a editar en listar cualquier admin, este metodo le va a pedir los datos de ese id para pintarlos en el cliente.
+	//Petición para visualizar los datos para luego actualiza.
 	public Administrador modificar (int id) throws SQLException {
-		String sql = "SELECT * FROM administrador WHERE idadministrador=? ";
-		PreparedStatement ps = con.prepareStatement(sql);
+		String query = "SELECT * FROM administrador WHERE idadministrador=? ";
+		PreparedStatement ps = con.prepareStatement(query);
 		
-		ps.setInt (1,id);
+		ps.setInt (1,id);	
 		
 		ResultSet rs = ps.executeQuery();
 		
@@ -98,12 +88,12 @@ public class DaoAdministrador {
 
 
 	
-//Update los datos(Para modificar los datos que queramos)
+	
+//Update los datos(Para modificar los datos que queramos).
 	public void actualizar (Administrador a) throws SQLException {
-		String sql = "UPDATE administrador SET nombre=?,apellidos=?,email=?,poblacion=?,permiso=?,foto=?"
+		String query = "UPDATE administrador SET nombre=?,apellidos=?,email=?,poblacion=?,permiso=?,foto=?"
 				+ "WHERE idadministrador=?";
-		System.out.println("llega a update del dao");
-		PreparedStatement ps = con.prepareStatement(sql);
+		PreparedStatement ps = con.prepareStatement(query);
 		
 		ps.setString(1, a.getNombre());
 		ps.setString(2, a.getApellidos());
@@ -120,31 +110,31 @@ public class DaoAdministrador {
 
 	
 	
-//Peticion de la foto por id para la zona login
+//Peticion de la foto por id para la zona login.
 		public Administrador foto(int id) throws SQLException {
 		    String query = "SELECT foto FROM administrador WHERE idADMINISTRADOR = ?;";
 		    Administrador a = null;
-		    
 		    PreparedStatement ps = con.prepareStatement(query);
+		    
 	        ps.setInt(1, id);
-	       
+	        
 	        ResultSet rs = ps.executeQuery();
 	       
 	            rs.next();
 	                a = new Administrador(
-	                    rs.getString(1)); // Ajusta los índices si es necesario
-	                
+	                    rs.getString(1));
 	    return a;
 		}	
 	
 	
 		
-//Peticion para listar Adminiistrador
+		
+//Peticion para listar Adminiistrador.
 		public ArrayList <Administrador>listar() throws SQLException{
 			
-			String sql = "SELECT * FROM administrador";
+			String query = "SELECT * FROM administrador";
 			
-			PreparedStatement ps = con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(query);
 			ResultSet result = ps.executeQuery();
 			
 			//SI el array es igual a null lo llenamos.
@@ -162,27 +152,25 @@ public class DaoAdministrador {
 	
 	
 		
+		
 //Funcion json para listar los datos en cliente.
 		public String ListarJonson() throws SQLException {
 			//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
 			String txtJson = "";
-			
 			Gson gson = new Gson ();
-			
 			txtJson = gson.toJson(this.listar());//Llamamos a la funcion listar con los datos el ArrayList<usuario>
-			
 			return txtJson;
 		} 	
 		
 		
 		
-//borrar		
+		
+//Borrar.		
 		public void borrarBD (int id) throws SQLException {
+			String query = "DELETE FROM administrador WHERE idadministrador = "+id;
+			PreparedStatement ps = con.prepareStatement(query);
 			
-			String sql = "DELETE FROM administrador WHERE idadministrador = "+id;
-			PreparedStatement ps = con.prepareStatement(sql);
-			
-			ps.executeUpdate(sql);
+			ps.executeUpdate(query);
 		
 			ps.close();
 			
