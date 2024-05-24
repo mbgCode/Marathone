@@ -63,6 +63,8 @@ public class SV_deporte extends HttpServlet {
 		System.out.println("opcion" +opcion);
 			
 		switch (opcion) {
+		
+		
 			case 1:{//Listar Deportes en orden agregado reciente.
 				try {
 					DaoDeporte dao = new DaoDeporte();
@@ -73,6 +75,7 @@ public class SV_deporte extends HttpServlet {
 					e.printStackTrace();
 				}
 				break;			
+				
 				
 				
 			}case 2 :{//UPdate por ID.
@@ -87,6 +90,7 @@ public class SV_deporte extends HttpServlet {
 					e.printStackTrace();
 				}
 			break;
+			
 			
 			
 			}case 3:{//Borrar en la BD por ID
@@ -141,6 +145,22 @@ public class SV_deporte extends HttpServlet {
 				
 			break;
 			
+			
+			}case 6 :{//Busqueda por nombre (Barra Busqueda)
+			String palabra =request.getParameter("buscarP");
+				System.out.println("la palabra es" +palabra);
+				
+				try {
+					DaoDeporte dao = new DaoDeporte();
+					String resultado = dao.ListarJonsonPorNombre(palabra);
+					out.print(resultado);//Recibimos el listado.
+					System.out.println(resultado);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch blockA
+					e.printStackTrace();
+				}
+				break;			
+				
 			}
 			
 			

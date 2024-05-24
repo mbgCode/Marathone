@@ -113,6 +113,14 @@ function redireccionar() {//El selctor de categorías.
 
 
 
+/* Funcion de la barra de busqueda de deporte */
+function barraBusqueda(palabraBuscar){
+    fetch("SV_deporte?op=6&buscarP="+palabraBuscar)
+    .then(response => response.json())// La respuesta (response) se parsea a un .json 
+    .then(data => pintarLista(data))//Los datos de ese .json se pintan en la tabla.
+}
+
+
 
 
 /* Metodo principal */
@@ -125,6 +133,7 @@ window.onload = function(){
     botonLupa.addEventListener("click", function() {
         var palabraBuscar = document.querySelector(".barraBuscar").value; /* El . de barraBuscar es porque lo sacamos de la clase de CSS */
        /* Queryselector devuelve el primer elemento que coincida con barraBuscar.*/
-        console.log(palabraBuscar)
+        console.log(palabraBuscar);
+        barraBusqueda(palabraBuscar);
     });
 }

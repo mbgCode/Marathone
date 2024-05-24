@@ -192,7 +192,6 @@ public class Deporte {
 		
 		
 	}
-
 	
 	
 	//Jnson Por listar por id
@@ -206,7 +205,6 @@ public class Deporte {
 		
 		return txtJson;
 	}
-	
 	
 	
 	

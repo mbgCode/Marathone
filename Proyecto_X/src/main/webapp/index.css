@@ -6,8 +6,8 @@
 
 
 #ContendorPadre{
-    height: 100vh;
-    background-color:rgb(71, 147, 175);
+height: 100%;
+background-color:rgb(71, 147, 175);
 }
 
 #contenedorSup{
@@ -183,6 +183,7 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
 }
 
 
+
 /* Contenedor de actividades------------------------ */
 #contenedorTarjetas{
     grid-template-areas: main;
@@ -217,7 +218,7 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
 
 #pNombre{
     font-weight: bold;/* negrita */
-    font-size: 20px;
+    font-size: 14px;
     margin-left: 14px;
 }
 

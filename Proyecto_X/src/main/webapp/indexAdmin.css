@@ -5,8 +5,8 @@
 }
 
 
-body{
-    height: 100vh;
+#ContendorPadre{
+    height: 95%;
     background-color: rgb(202, 230, 178);
 }
 
@@ -30,8 +30,7 @@ body{
 header{
     grid-area: header;
     display: flex;
-    flex-wrap: wrap;
-    background-color:rgb(142, 62, 99);
+     background-color:rgb(142, 62, 99);
 }
 
 
@@ -57,7 +56,11 @@ header{
     justify-content: center;
     height: 100px;
     width: 50%;
-    font-size: 20px;
+}
+
+#centro h1{
+    font-size: 26px;
+    font-weight: bold;
 }
 
 
@@ -71,6 +74,12 @@ header{
     flex-wrap: wrap;
     flex-direction: row-reverse;
     
+}
+
+#cerrarS{
+    display: flex;
+    align-self: center;
+    margin-right: 20px;
 }
 
 
@@ -126,7 +135,7 @@ nav {
 }
 
 
-#BotonNav:hover{ /* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
+#BotonNav:hover{ /* Hover es una pseudoclase para dar estilos cundo se pasa el cursor por encima del icono */
     background-color:rgb(159, 183, 138); /* Cambio de color al pasar el cursor */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra al pasar el cursor */
 }
@@ -221,6 +230,7 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
 
 #contenedorInf{
     background-color: rgb(202, 230, 178);
+    height: 90%;
 }
 
 
@@ -231,7 +241,7 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
     flex-wrap: wrap;
     justify-content: space-around;
     margin-right: 5px;
-
+    margin-bottom: 30px;
 }
 
 
@@ -256,7 +266,7 @@ margin-left: 40px;
 
 #pNombre{
     font-weight: bold;/* negrita */
-    font-size: 20px;
+    font-size: 16px;
     margin-left: 14px;
 }
 
@@ -270,7 +280,6 @@ margin-left: 40px;
 
 /* Footer---------------------------- */
 footer{
-    position: fixed;
     bottom: 0;
     display: grid;
     margin-top: 20px;
