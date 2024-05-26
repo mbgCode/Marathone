@@ -111,6 +111,7 @@ header{
     margin-bottom: 1%;
     grid-area: nav;
     display: flex;
+    flex-wrap: wrap;
     background-color:rgb(210, 100, 154);
     justify-content: space-around;
     height: 60px;
@@ -239,46 +240,39 @@ li input {
 
 
 
+@media all and (max-width:820px){
+
+    /* Para que no se sobreponga el formulario */
+    #navegador{
+    margin-top: 2%;
+    margin-bottom: 1%;
+    grid-area: nav;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:rgb(210, 100, 154);
+    justify-content: space-around;
+    height: 60px;
+    align-items: center;
+}
 
 
-/* Media Queries para diseño responsivo */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    #logo, #centro, #login {
-        width: 100%;
-        text-align: center;
 
-    }
+    #BotonNav{
+    background-color: rgb(246, 250, 185); /* Color de fondo */
+    color: rgb(0, 0, 0);
+    height: 25px;
+    width: 100px;
+    padding: 15px 32px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 8px; 
+    transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
+    display: flex;
+    justify-content: center;
+   
+}
 
-    #logo img {
-        margin-left: 0;
-    }
 
-    #fotoPersonal img, #desplegable {
-        margin-right: 0;
-    }
 
-    #navegador {
-        flex-direction: column;
-        height: auto;
-    }
-    
-    #BotonNav {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    #cajaFormulario {
-        width: 90%;
-        margin: 0 auto;
-        margin-top: 10px;
-    }
-
-    #cajahija {
-        width: 100%;
-    }
 }

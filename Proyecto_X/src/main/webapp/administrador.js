@@ -1,4 +1,6 @@
 
+/* JS pque no forma parte del programa. Utilizado para listar e insertar datos. */
+
 /* Función para recibir los datos del Sv y pintar tabla */
 function llamada1 (){
     fetch ('SV_administrador?op=1')

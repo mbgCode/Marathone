@@ -43,40 +43,4 @@ public class DaoUsuario {
 		ps.close();
 	}
 
-	
-	
-	
-//Peticion para listar Usuario
-	public ArrayList <Usuario>listar() throws SQLException{
-		
-		String sql = "SELECT * FROM usuario";
-		
-		PreparedStatement ps = con.prepareStatement(sql);
-		ResultSet result = ps.executeQuery();
-		
-		//SI el array es igual a null lo llenamos.
-		ArrayList<Usuario>ls=null;
-		while((result.next())) {
-			if (ls == null) {
-				ls = new ArrayList <Usuario>(); 
-			}
-			ls.add(new Usuario(result.getString(1), result.getString(2), result.getString(3),result.getString(4)));
-		}
-		
-		return ls;
-	}
-	
-	
-	
-//Funcion json 
-	public String ListarJonson() throws SQLException {
-		//Queremos que txtJson se llene con todos los datos que contiene ArrayList<Usuario>
-		String txtJson = "";
-		
-		Gson gson = new Gson ();
-		
-		txtJson = gson.toJson(this.listar());//Llamamos a la funcion listar con los datos el ArrayList<usuario>
-		
-		return txtJson;
-	} 
 }

@@ -1,258 +1,228 @@
-*{
-    margin: 0%;
-    padding: 0%  
+/* Index de miembro (Usuario registrado*/
+
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+#ContendorPadre {/* Contenedor del codigo completo */
+  height: 100%;
+  background-color: rgb(71, 147, 175);
 }
 
 
-
-#ContendorPadre{
-height: 100%;
-background-color:rgb(71, 147, 175);
-}
-
-#contenedorSup{
-    display:grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:  
+#contenedorSup {/* Contiene el header, la barra de buscar y las categorias  */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
     "header"
     "buscador"
     "nav";
 }
 
-
-
-
 /* Header--------------------------------------------------------- */
-header{
-    grid-area: header;
-    display: flex;
-    background-color:rgb(255, 196, 112);
+header {
+  grid-area: header;
+  display: flex;
+  background-color: rgb(255, 196, 112);
 }
 
-
-#logo{
-    background-color:rgb(255, 196, 112);
-    width: 35%;
-    height: 100px;
+#logo { /* Contenedor Logo de la web */
+  background-color: rgb(255, 196, 112);
+  width: 35%;
+  height: 100px;
 }
 
-
-#logo img{
-    width: 75px;
-    padding-top: 2%;
-    margin-left: 8%;
-    background-color:rgb(255, 196, 112);
-    
+#logo img {
+  width: 75px;
+  padding-top: 2%;
+  margin-left: 8%;
+  background-color: rgb(255, 196, 112);
 }
-
-
 
 /* Titulo central */
-#centro{
-    width: 35%;
+#centro { /* contenedor del titulo */
+  width: 35%;
 }
 
-
-#titulo{
-    text-align: center;
-    margin-top:20px;
-    color:rgb(139, 50, 44) ;
-    font-weight:900; /* Cambia el grosor de la fuente */
-    font-size:30px;
+#titulo {
+  text-align: center;
+  margin-top: 20px;
+  color: rgb(139, 50, 44);
+  font-weight: 900; /* Cambia el grosor de la fuente */
+  font-size: 30px;
 }
-
-
 
 /* Logueo */
-#login{
-    width: 35%;
-    height: 100px; 
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-items: center;
+#login {/* contenedor de logim */
+  width: 35%;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-items: center;
 }
 
-
-#fotoPersonal{
-    height:50%;
-    margin-right: 20px;
-    margin-top: 5px;
-    width: 20%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: end;
-    align-self: center;
+#fotoPersonal {
+  height: 50%;
+  margin-right: 20px;
+  margin-top: 5px;
+  width: 20%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: end;
+  align-self: center;
 }
 
-
-#personalFoto{
-    height:100%;
-    margin-right: 20px;
-    margin-top: 5px;
-    border-radius: 100%;
-    width: 56%;
-    border: black solid 3px;
-  
+#personalFoto {
+  height: 100%;
+  margin-right: 20px;
+  margin-top: 5px;
+  border-radius: 100%;
+  width: 56%;
+  border: black solid 3px;
 }
 
-
-#cerrarS{  
-    margin-top: 20px;
-    
+#cerrarS {
+  margin-top: 20px;
 }
-
-
 
 /* Buscador-----------------------------------------------------------*/
-#buscador{
-    
-    height: 100px;
-    grid-area : buscador;
-    display: flex;
-    flex-flow:nowrap ;
-    justify-content: center;
-    background-color:rgb(255, 196, 112);
-    
+#buscador {/* Contenedor buscador */
+  height: 100px;
+  grid-area: buscador;
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: center;
+  background-color: rgb(255, 196, 112);
 }
 
-.barra{
-    display: flex;
-    justify-content: center;
-    width: 33%;
-    height:50px ;
-    border: solid 3px black;
-    border-radius: 40px;
-    margin-top: 10px;
-   
+.barra {
+  display: flex;
+  justify-content: center;
+  width: 33%;
+  height: 50px;
+  border: solid 3px black;
+  border-radius: 40px;
+  margin-top: 10px;
 }
-.barraBuscar{
-    height:40px ;
-    width: 80%;
-    margin-top: 4px;
-    margin-left: 20px;
-    font-size: 20px;
-    border: 0; /* Elimnina el borde del imput */
-    outline: 0;/* Elimina el borde del input al seleccionarlo */
-    background-color:rgb(255, 196, 112);
+.barraBuscar {
+  height: 40px;
+  width: 80%;
+  margin-top: 4px;
+  margin-left: 20px;
+  font-size: 20px;
+  border: 0; /* Elimnina el borde del imput */
+  outline: 0; /* Elimina el borde del input al seleccionarlo */
+  background-color: rgb(255, 196, 112);
 }
-#imgLupa{
-    width: 52px;
-    margin-left: 70px;
-    border-radius: 80%;
+#imgLupa {
+  width: 52px;
+  margin-left: 70px;
+  border-radius: 80%;
 }
-
-
 
 /* Nav ------------------------------------------------------- */
-ul{
-    list-style: none;
-    grid-area: nav ;
-    height: 100px;
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: space-around;
-    background-color: rgb(221, 87, 70);
+ul {/* listado categorías */
+  list-style: none;
+  grid-area: nav;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgb(221, 87, 70);
 }
 
-ul img{
-    width: 60px;
-    margin-top: 20px;
-   
-    
+ul img {
+  width: 60px;
+  margin-top: 20px;
 }
-ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
-    transform: scale(1.2)/* Aumenta un poquitin el tamaño del icon al pasar el ciursor. */
-}    
-
-#categoria{
-   margin-top: 40px;
-   background-color:rgb(255, 196, 112);
-   width: 130px;
-   padding: 5px;
-   border: 1px solid #ccc;
-   border-radius: 5px;
-   font-size: 14px;
-   cursor: pointer; /* Cambia el tipo de cursor al pasar por encima. */
+ul img:hover {
+  /* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
+  transform: scale(
+    1.2
+  ); /* Aumenta un poquitin el tamaño del icon al pasar el ciursor. */
 }
 
-#textCategoria{
-    font-size: 20px;
+#categoria {/* selector de categorías */
+  margin-top: 40px;
+  background-color: rgb(255, 196, 112);
+  width: 130px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer; /* Cambia el tipo de cursor al pasar por encima. */
 }
 
-
+#textCategoria {
+  font-size: 20px;
+}
 
 /* Contenedor de actividades------------------------ */
-#contenedorTarjetas{
-    grid-template-areas: main;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    height: 100%;
-
+#contenedorTarjetas {
+  grid-template-areas: main;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 100%;
 }
 
-
-#tarjeta{
-    margin-top:60px;
-    margin-bottom: 30px;
-    margin-left: 40px;
+#tarjeta {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  margin-left: 40px;
 }
 
-
-#tarjeta:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
-    transform: scale(1.1);/* Aumenta un poquitin el tamaño de la tarjeta al pasar el ciursor. */
-   
+#tarjeta:hover {
+  /* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
+  transform: scale(
+    1.1
+  ); /* Aumenta un poquitin el tamaño de la tarjeta al pasar el ciursor. */
 }
 
-
-#tarjeta img{
-    border: 3px solid black;
-    border-radius:20px ;
-    width: 266px;
-    height: 200px;
+#tarjeta img {
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 266px;
+  height: 200px;
 }
 
-
-#pNombre{
-    font-weight: bold;/* negrita */
-    font-size: 14px;
-    margin-left: 14px;
+#pNombre {/* Parrafo del nombre del deporte */
+  font-weight: bold; /* negrita */
+  font-size: 14px;
+  margin-left: 14px;
 }
 
-#pcat{
-    color: rgb(255, 196, 112);
-    margin-left: 16px;
+#pcat {/* parafo categoría */
+  color: rgb(255, 196, 112);
+  margin-left: 16px;
 }
-
-
-
 
 /* Footer---------------------------- */
-footer{
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-around;
-    height: 60px;
-    background-color:rgb(255, 196, 112);
-    width: 100%;
+footer {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+  height: 60px;
+  background-color: rgb(255, 196, 112);
+  width: 100%;
 }
 
-
-#siglas{ 
-    grid-area: siglas ;
-    justify-content: center;
-    color: rgb(42, 42, 152);
-    font-weight: bold;/* negrita */
+#siglas {
+  grid-area: siglas;
+  justify-content: center;
+  color: rgb(42, 42, 152);
+  font-weight: bold; /* negrita */
 }
 
-
-#imgMail{
-    height: 30px;
-    width: 40px;
-    justify-content: center;
+#imgMail {
+  height: 30px;
+  width: 40px;
+  justify-content: center;
 }
+
 

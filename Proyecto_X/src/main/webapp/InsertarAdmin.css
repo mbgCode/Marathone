@@ -211,7 +211,6 @@ li input{
 
 #botonFoto{
     font-size: 12px;
-   
 }
 
 
@@ -271,5 +270,21 @@ li input{
 #BotonListar:hover{
     background-color: yellow;
     border: black solid 3px;
-   
+}
+
+
+@media all and (max-width:600px){
+
+    #BotonNav{
+        background-color: rgb(246, 250, 185); /* Color de fondo */
+        color: rgb(0, 0, 0);
+        width: 150px;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px; 
+        transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
+    }
+    
 }

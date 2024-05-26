@@ -1,9 +1,7 @@
 
-function llamada(){
-			
+function llamada(){		
     let xhr = new XMLHttpRequest();
         let data;
-            
             xhr.onreadystatechange = function () { // ejecuta cada estado de la conexxion, la final es la 4
                   if (xhr.readyState === 4){
                       if (xhr.status === 200) { // 200
@@ -24,6 +22,7 @@ function llamada(){
               pintarLista(data);
             
 }
+
 
 
 /* Utilizamos el for para pontar todos los datos del json. */

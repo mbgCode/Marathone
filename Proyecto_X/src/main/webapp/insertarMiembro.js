@@ -64,14 +64,12 @@ function fotoLogin (data){
 
 window.onload = function(){
 
-
  let op = getParameterByName("op");
 
  let id = getParameterByName("idmiembro");
  
 
-
-    if (op!=0){
+    if (op==4){
         fotoPersonal();
         console.log(" los datos son " +op)
         modificar(op,id);

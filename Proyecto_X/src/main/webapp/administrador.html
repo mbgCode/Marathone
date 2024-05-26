@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
     <title>Document</title>
     <script src="administrador.js"></script>
-</head>
+  </head>
 
+  <body>
+    <form
+      name="PaginaMiembro"
+      action="SV_administrador"
+      method="post"
+      enctype="multipart/form-data"
+    >
+    <!-- Html solo utilizado para pruebas de inserrcion y listado. No forma parte del programa.  -->
+      <ul>
+        <li>
+          <label for="Titulo"><h1>Insertar administrador</h1></label>
+        </li>
+        <li>
+          <label>Nombre: </label>
+          <input type="text" id="nombre" name="nombre" />
+        </li>
+        <li>
+          <label>Apellidos: </label>
+          <input type="text" id="apellidos" name="apellidos" />
+        </li>
+        <li>
+          <label>email: </label> <input type="text" id="email" name="email" />
+        </li>
+        <li>
+          <label>poblacion: </label>
+          <input type="text" id="poblacion" name="poblacion" />
+        </li>
+        <li>
+          <label>Permiso: </label>
+          <input type="text" id="permiso" name="permiso" />
+        </li>
+        <li><label>Foto: </label> <input type="file" name="foto" /></li>
 
-<body>
-
-    <form name="PaginaMiembro" action="SV_administrador" method="post" enctype="multipart/form-data">
-        
-
-        <ul>
-
-            <li><label for="Titulo"><h1>Insertar administrador</h1></label> </li>
-            <li><label>Nombre: </label> <input type="text" id="nombre" name="nombre"></li>
-            <li><label>Apellidos: </label> <input type="text" id="apellidos" name="apellidos"></li>
-            <li><label>email: </label> <input type="text" id="email" name="email"></li>
-            <li><label>poblacion: </label> <input type="text" id="poblacion" name="poblacion"></li>
-            <li><label>Permiso: </label> <input type="text" id="permiso" name="permiso"></li>
-            <li><label>Foto: </label> <input type="file" name="foto"></li>
-            
-
-            
-            <li><label>Enviar: </label><input type="submit" value="Guardar"> </li>
-            
-        </ul>
-       
-
+        <li><label>Enviar: </label><input type="submit" value="Guardar" /></li>
+      </ul>
     </form>
     <h1>Listado</h1>
-    <div id="listado">
-
-    </div>
-
-</body>
+    <div id="listado"></div>
+  </body>
 </html>

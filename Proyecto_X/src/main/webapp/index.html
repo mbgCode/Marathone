@@ -1,169 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    <SCript src="index.js"> </SCript>
-</head>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
 
+<!-- /* Index de miembro (Usuario registrado*/ -->
 
-<body>
+  <body>
+    <div id="ContendorPadre"><!-- Abarca todo el código -->
+      <div id="contenedorSup">
+        <!-- Parte superiro de la página -->
+        <header>
+          <div id="logo">
+            <img
+              src="img index/bebida-energetica.png"
+              alt="Bebida energética"
+            />
+          </div>
 
+          <div id="centro">
+            <h1 id="titulo">MARAZONE</h1>
+          </div>
 
-    <div id="ContendorPadre">
-
-        <div id="contenedorSup">
-
-            
-            <!-- Parte superiro de la página -->
-            <header>
-                
-                <div id="logo">
-                    <img src="img index/bebida-energetica.png" alt="Bebida energética">
-                </div>
-
-                <div id="centro"> 
-                    <h1 id="titulo">MARAZONE</h1>
-                </div>
-
-                <div id="login">
-                    <div id="fotoPersonal">
-                        <img id = "imagne" src="" alt="Foto personal">
-                    </div>
-                    <div id="cerrarS">
-                       <a href="Login.html?op=6">Cerrar sesión</a>
-                    </div>
-                </div>
-
-            </header>
-
-
-            
-            <!-- Barra de buscador de deportes -->
-            <div id="buscador">
-                <div class="barra">
-                    <input class="barraBuscar" type="text">
-                    <div>
-                        <img id="imgLupa" src="img index/lupaBuscador.png" alt="logo de una lupa"> 
-                    </div> 
-                </div>   
+          <div id="login">
+            <div id="fotoPersonal">
+              <img id="imagne" src="" alt="Foto personal" />
             </div>
+            <div id="cerrarS">
+              <a href="Login.html?op=6">Cerrar sesión</a>
+            </div>
+          </div>
+        </header>
 
-
-
-            <!-- Iconos de Categorías -->
-            <nav>
-                <ul>
-
-					<li>
-						<a href="ListarDep.html?op=4&categoria=Acuaticos">
-                        	<img id = "Acuaticos"  src="img index/natacion.png" alt="icono hombre nandando">
-                        </a>
-                    </li>
-
-					  <li>
-						<a href="ListarDep.html?op=4&categoria=Artes Marciales">
-                        	<img id = "Artes Marciales" src="img index/karate.png" alt="icono karate">
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="ListarDep.html?op=4&categoria=Gimnasio">
-                        	<img id="Gimansio" src="img index/pesa (1).png" alt="icono mancuerna">
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="ListarDep.html?op=4&categoria=Futbol">
-                            <img id="Futbol" src="img index/jugador-de-futbol.png" alt="icono jugador de futbol">
-                        </a>
-                    </li>
-
-                    <li>
-						<a href="ListarDep.html?op=4&categoria=Baloncesto">
-                       		<img id="Baloncesto" src="img index/jugador-de-baloncesto.png" alt="icono juador de Baloncesto">
-                        </a>
-                    </li>
-
-                    <li>
-						<a href="ListarDep.html?op=4&categoria=Running">
-                        	<img id="Running" src="img index/corriendo (1).png" alt="Icono persona corriendo">
-                        </a>
-                    </li>         
-
-                    <li>
-						<a href="ListarDep.html?op=4&categoria=Tenis">
-                        	<img id="Tenis" src="img index/tenis.png" alt="Icono raqueta de tenis">
-                        </a>
-                    </li>
-
-                    <!-- Selector de categorías -->
-                    <li>
-                        <label id="textCategoria" for="categoria">Categorías</label>
-                        <select name="categoria" id="categoria" onchange="redireccionar()"> <!-- Utilizamos el onchange para redireccionar -->
-                            <option value="...">...</option>
-                            <option value="ListarDep.html?op=4&categoria=Acuaticos">Acuáticos</option>
-                            <option value="ListarDep.html?op=4&categoria=Artes Marciales">Artes Marciales</option>
-                            <option value="ListarDep.html?op=4&categoria=Badminton">Badminton</option>
-                            <option value="ListarDep.html?op=4&categoria=Baloncesto">Baloncesto</option>
-                            <option value="ListarDep.html?op=4&categoria=Balonmano">Balonmano</option>
-                            <option value="ListarDep.html?op=4&categoria=Beisbol">Béisbol</option>
-                            <option value="ListarDep.html?op=4&categoria=Boxeo">Boxeo</option>
-                            <option value="ListarDep.html?op=4&categoria=Ciclismo">Ciclismo</option>
-                            <option value="ListarDep.html?op=4&categoria=Esgrima">Esgrima</option>
-                            <option value="ListarDep.html?op=4&categoria=Esqui">Esquí</option>
-                            <option value="ListarDep.html?op=4&categoria=Futbol">Fútbol</option>
-                            <option value="ListarDep.html?op=4&categoria=Gimnasia">Gimnasia</option>
-                            <option value="ListarDep.html?op=4&categoria=Gimnasio">Gimnasio</option>
-                            <option value="ListarDep.html?op=4&categoria=Golf">Golf</option>
-                            <option value="ListarDep.html?op=4&categoria=Hipica">Hípica</option>
-                            <option value="ListarDep.html?op=4&categoria=Rugbi">Rugbi</option>
-                            <option value="ListarDep.html?op=4&categoria=Running">Running</option>
-                            <option value="ListarDep.html?op=4&categoria=Tennis">Tenis</option>
-                            <option value="ListarDep.html?op=4&categoria=Padel">Pádel</option>
-                            <option value="ListarDep.html?op=4&categoria=Voleibol">Voleibol</option>
-                        </select>
-                    </li>
-                    
-                </ul>
-
-            </nav>
-
+        <!-- Barra de buscador de deportes -->
+        <div id="buscador">
+          <div class="barra">
+            <input class="barraBuscar" type="text" />
+            <div>
+              <img
+                id="imgLupa"
+                src="img index/lupaBuscador.png"
+                alt="logo de una lupa"
+              />
+            </div>
+          </div>
         </div>
 
-        <!-- Contenedor inferiror -->
-        <div id="contenedorInf">
+        <!-- Iconos de Categorías -->
+        <nav>
+          <ul>
+            <li>
+              <a href="ListarDep.html?op=4&categoria=Acuaticos">
+                <img
+                  id="Acuaticos"
+                  src="img index/natacion.png"
+                  alt="icono hombre nandando"
+                />
+              </a>
+            </li>
 
-            <!-- main tarjetas deportes -->
-            <main>
-                <section id="contenedorTarjetas">    
-                </section>
-            </main> 
-         
-        </div>
+            <li>
+              <a href="ListarDep.html?op=4&categoria=Artes Marciales">
+                <img
+                  id="Artes Marciales"
+                  src="img index/karate.png"
+                  alt="icono karate"
+                />
+              </a>
+            </li>
 
-    </div>  
+            <li>
+              <a href="ListarDep.html?op=4&categoria=Gimnasio">
+                <img
+                  id="Gimansio"
+                  src="img index/pesa (1).png"
+                  alt="icono mancuerna"
+                />
+              </a>
+            </li>
 
+            <li>
+              <a href="ListarDep.html?op=4&categoria=Futbol">
+                <img
+                  id="Futbol"
+                  src="img index/jugador-de-futbol.png"
+                  alt="icono jugador de futbol"
+                />
+              </a>
+            </li>
 
+            <li>
+              <a href="ListarDep.html?op=4&categoria=Baloncesto">
+                <img
+                  id="Baloncesto"
+                  src="img index/jugador-de-baloncesto.png"
+                  alt="icono juador de Baloncesto"
+                />
+              </a>
+            </li>
 
-            <!-- footer -->
-            <footer>
-                <div id="siglas">Marcos Barberá Gómez</div>
-    
-                <div id="mail">
-                    <a href="mailto:mbg.code@gmail.com">
-                        <img id="imgMail" src="imgFooter/iconoGmail.png" alt="iconoGmail">
-                    </a>
-                </div>
-    
-                <div id="politicaPriv">
-                    <a href="https://www.aepd.es/politica-de-privacidad-y-aviso-legal">Politica de privacidad</a>
-                </div>
-                <div id="infoLegal">Información legal</div>
-    
-            </footer>
+            <li>
+              <a href="ListarDep.html?op=4&categoria=Running">
+                <img
+                  id="Running"
+                  src="img index/corriendo (1).png"
+                  alt="Icono persona corriendo"
+                />
+              </a>
+            </li>
 
-</body>
+            <li>
+              <a href="ListarDep.html?op=4&categoria=Tenis">
+                <img
+                  id="Tenis"
+                  src="img index/tenis.png"
+                  alt="Icono raqueta de tenis"
+                />
+              </a>
+            </li>
+
+            <!-- Selector de categorías -->
+            <li>
+              <label id="textCategoria" for="categoria">Categorías</label>
+              <select
+                name="categoria"
+                id="categoria"
+                onchange="redireccionar()"
+              >
+                <!-- Utilizamos el onchange para redireccionar -->
+                <option value="...">...</option>
+                <option value="ListarDep.html?op=4&categoria=Acuaticos">
+                  Acuáticos
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Artes Marciales">
+                  Artes Marciales
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Badminton">
+                  Badminton
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Baloncesto">
+                  Baloncesto
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Balonmano">
+                  Balonmano
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Beisbol">
+                  Béisbol
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Boxeo">
+                  Boxeo
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Ciclismo">
+                  Ciclismo
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Esgrima">
+                  Esgrima
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Esqui">
+                  Esquí
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Futbol">
+                  Fútbol
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Gimnasia">
+                  Gimnasia
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Gimnasio">
+                  Gimnasio
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Golf">
+                    Golf
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Hipica">
+                  Hípica
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Rugbi">
+                  Rugbi
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Running">
+                  Running
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Tennis">
+                  Tenis
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Padel">
+                  Pádel
+                </option>
+                <option value="ListarDep.html?op=4&categoria=Voleibol">
+                  Voleibol
+                </option>
+              </select>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Contenedor inferiror -->
+      <div id="contenedorInf">
+        <!-- main tarjetas deportes -->
+        <main>
+          <section id="contenedorTarjetas"></section>
+        </main>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div id="siglas">Marcos Barberá Gómez</div>
+
+      <div id="mail">
+        <a href="mailto:mbg.code@gmail.com">
+          <img id="imgMail" src="imgFooter/iconoGmail.png" alt="iconoGmail" />
+        </a>
+      </div>
+
+      <div id="politicaPriv">
+        <a href="https://www.aepd.es/politica-de-privacidad-y-aviso-legal"
+          >Politica de privacidad</a
+        >
+      </div>
+      <div id="infoLegal">Información legal</div>
+    </footer>
+  </body>
 </html>

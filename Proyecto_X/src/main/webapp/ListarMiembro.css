@@ -150,12 +150,19 @@ header{
 main{
     background-color:rgb(202, 230, 178);
     display: flex;
-  
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
     height: 80%;
+}
+
+
+#listado{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -187,7 +194,6 @@ main{
 
 
 /* Padre de #tabla */
-
 #tabla{
     border: 3px black solid;
     display: flex;
@@ -279,5 +285,21 @@ td{
 }
 
 
+@media all and (max-width:660px){
 
+    #BotonNav{
+        background-color: rgb(246, 250, 185); /* Color de fondo */
+        color: rgb(0, 0, 0);
+        width: 160px;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px; 
+        transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
+        margin-top: 2%;
+    }
+
+
+}
 

@@ -161,7 +161,6 @@ nav{/* contenedor de navegador. */
 #contenedorInferior{
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-around;
     height: 72%;
@@ -172,7 +171,6 @@ nav{/* contenedor de navegador. */
     height: 65%;
     width: 30%;
     margin-left:10px ;
-    
 }
 
 #contenedorFoto img{
@@ -213,7 +211,7 @@ nav{/* contenedor de navegador. */
     height: 40px;
     padding-left: 10px;
     padding-bottom: 20px;
-    
+    color: blue;
 }
 
 
@@ -298,3 +296,33 @@ footer{
     width: 40px;
     justify-content: center;
 }
+
+
+@media all and (max-width:700px) {/* Para que puedda entrar bien el nombre y la descripción en la tarje da datops. */
+  
+    #nombreDep{
+        grid-area: nombre;
+        font-size: 22px;
+        width: 95%;
+        height: 40px;
+        padding-left: 10px;
+        padding-bottom: 20px;
+        color: rgb(0, 0, 0);
+    }
+    
+    #contenedorFoto{        
+        height: 25%;
+        width: 18%;
+        margin-left:10px ;
+        
+    }
+  
+    #descripcionDep{
+        grid-area: descripcion;
+        margin-left: 8px;
+        margin-right: 10px;
+        font-size: 16px;
+        border-top: 3px black solid;
+    }
+    
+  }
