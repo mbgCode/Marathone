@@ -56,7 +56,7 @@ public class SV_login extends HttpServlet {
 		
 		//protección (Según el tipo de permiso).
 		try {
-			if (m.logeo(pass)) {//Si son cierts la credenciales entramos en el programa.
+			if (m.logeo(pass)) {//Si son ciertas la credenciales entramos en el programa.
 				sesion = request. getSession(); //la inicializamos la sesion.
 				sesion.setAttribute("id", m.getId());//En este caso vamos a guardar en la sesion el id y el permiso.
 				sesion.setAttribute("permiso", m.getPermiso());
@@ -73,6 +73,7 @@ public class SV_login extends HttpServlet {
 			}else {
 				response.sendRedirect("Login.html");
 				System.out.println("el logeo es erroneo, vuelve a intentarlo");
+				
 			}
 				
 		} catch (SQLException e) {
@@ -85,7 +86,7 @@ public class SV_login extends HttpServlet {
 	}
 	
 	
-	//Cifrado de contraseña
+	//Cifrado de contraseña.
 	public static String getMD5(String pass) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
