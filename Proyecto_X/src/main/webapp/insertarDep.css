@@ -24,7 +24,6 @@
 
 
 
-
 /* Header--------------------------------------------------------- */
 header{
     grid-area: header;
@@ -65,7 +64,6 @@ header{
 }
 
 
-
 /* Logueo */
 #login{
     width: 25%;
@@ -73,7 +71,6 @@ header{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
-    
 }
 
 

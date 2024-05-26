@@ -9,8 +9,6 @@
 
 <script>
 
-
-
     function cerrarSesionMiembro (op){
         fetch('SV_miembro?op='+op)
     }
@@ -36,7 +34,6 @@
         }else if(op==5){// Si es 5 es para admin
             cerrarSesionAdmin(op);
         }
-
 
     }
 
@@ -83,7 +80,7 @@
 
             <!-- Login -->
             <section id="contenedorLogin">
-                <form name="login" action="SV_login" method="post">
+                <form name="login" action="SV_login&op=22" method="post">
                     <ul id="login">
                         <li>
                             <label>Mail: </label>

@@ -10,6 +10,9 @@ import modelo.Administrador;
 import modelo.Miembro;
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 /**
@@ -42,7 +45,7 @@ public class SV_login extends HttpServlet {
 
 		
 		String email = request.getParameter("email");//Recibimos los parametro de login.html
-		String pass = request.getParameter("pass");//Recibimos los parametro de login.html
+		String pass = getMD5(request.getParameter("pass"));//Recibimos los parametro de login.html
 		
 		Miembro m = new Miembro ();//Creamos un miembro "m".
 		m.setEmail(email);
@@ -64,7 +67,7 @@ public class SV_login extends HttpServlet {
 				sesion = request. getSession(); //la inicializamos la sesion.
 				sesion.setAttribute("id", a.getIdaministrador());//en este caso vamos a guardar en la sesion el id y el permiso.
 				sesion.setAttribute("permiso", a.getPermiso());
-				int permiso=m.getPermiso();
+				int permiso=a.getPermiso();
 				response.sendRedirect("indexAdmin.html");//nos envia a la pagina index par miembros.
 				
 			}else {
@@ -80,4 +83,22 @@ public class SV_login extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	//Cifrado de contraseña
+	public static String getMD5(String pass) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(pass.getBytes());
+            BigInteger number = new BigInteger(1, messageDigest);
+            String hashtext = number.toString(16);
+
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -16,13 +16,14 @@ import java.io.File;
 import java.io.IOException;
 
 import java.io.PrintWriter;
-
+import java.math.BigInteger;
 import java.io.InputStream;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -178,7 +179,7 @@ public class SV_miembro extends HttpServlet {
 		String poblacion = request.getParameter("poblacion");
 		String edad = request.getParameter("edad");
 		int edadint = Integer.parseInt(edad);
-		String pass = request.getParameter("pass");
+		String pass = getMD5(request.getParameter("pass"));
 		
 		
 		//Fotos
@@ -244,4 +245,20 @@ public class SV_miembro extends HttpServlet {
 		}
 		
 	}
+	
+	public static String getMD5(String pass) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(pass.getBytes());
+            BigInteger number = new BigInteger(1, messageDigest);
+            String hashtext = number.toString(16);
+
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
