@@ -135,31 +135,7 @@ public class DaoMiembro{
 	}
 	
 	
-	
-	
-//Peticion para listar Miembro por tipo de permiso
-	public ArrayList <Miembro>listarTipo(int tipo) throws SQLException{
-		String sql = "SELECT * FROM miembro WHERE permiso=?";
-		PreparedStatement ps = con.prepareStatement(sql);
-		
-		ps.setInt(1, tipo);
-		
-		ResultSet result = ps.executeQuery();
-		//SI el array es igual a null lo llenamos.
-		ArrayList<Miembro>ls=null;
-		while((result.next())) {
-			if (ls == null) {
-				ls = new ArrayList <Miembro>(); 
-			}
-			ls.add(new Miembro(result.getString(1), result.getString(2), result.getString(3), result.getString(4)
-					, result.getInt(5), result.getString(6), result.getInt(7), result.getInt(8), result.getString(9)));
-		}
-		
-		return ls;
-	}	
-	
-	
-	
+
 	
 //login.
 		public Miembro logeando (Miembro m, String pass) throws SQLException {
@@ -190,17 +166,7 @@ public class DaoMiembro{
 		return txtJson;
 	} 
 	
-	
-	
-	
-//Funcion json listar por filtrado tipo de permiso.
-		public String listarJonsonTipo(int tipo) throws SQLException {
-			String txtJson = "";
-			Gson gson = new Gson ();
-			txtJson = gson.toJson(this.listarTipo(tipo));//Llamamos a la funcion listar con los datos el ArrayList<usuario>
-			return txtJson;
-		} 
-		
+
 		
 		
 		

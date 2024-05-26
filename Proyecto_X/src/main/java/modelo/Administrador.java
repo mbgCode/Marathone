@@ -36,6 +36,7 @@ public class Administrador extends Usuario  {
 	 * Constructor completo de 7 parámetros con herencia de Usuario.
 	 * El permiso de acceso para los administradores es siempre 2. Este valor se asigna automáticamente en la base de datos.
 	 * Este constructor se utiliza para listar todos los datos del administrador, así como para la inserción.
+	 * También se utiliza para hacer inicio de sesión y pdoer guardar los datos deseados.
 	 * @param nombre Nombre del administrador.
      * @param apellidos Apellidos del administrador.
      * @param email Correo electrónico del administrador.
@@ -71,7 +72,7 @@ public class Administrador extends Usuario  {
 	
 	/**
 	 * Constructor con herencia de Usuario, sin atributo de pass.
-	 * Este constructor se utiliza para lsitar los datos en el formulario. Por lo que no es necesario el pass.
+	 * Este constructor se utiliza para listar los datos en el formulario. Por lo que no es necesario el pass.
 	 * @param nombre Nombre del administrador.
      * @param apellidos Apellidos del administrador.
      * @param email Correo electrónico del administrador.
@@ -125,7 +126,7 @@ public class Administrador extends Usuario  {
 	//Métodos públicos.
 	
 	/**
-	 * Método que inserta los datos recibidos del DaoAdministrador en los atributos de la calse Administrador.
+	 * Método que inserta los datos recibidos del DaoAdministrador en los atributos de la clase Administrador.
 	 * Este método sirve de enlace entre el Servlet SV_administrador, donde es llamado, y el DaoAdministrador.
 	 * @throws SQLException si ocurre algún error al insertarlo.
 	 */
@@ -173,7 +174,7 @@ public class Administrador extends Usuario  {
 	
 	
 	/**
-	 * Método que va a modificar los datos de un administrador por su id.
+	 * Método que va a modificar los datos de un administrador por su id. Recibimos los datos del dao y los insertamos en el objeto "a".
 	 * @param id del administrador a modificar.
 	 * @throws SQLException Si ocurre algún error durante la modificación.
 	 */
@@ -237,7 +238,7 @@ public class Administrador extends Usuario  {
 	
 	
     /**
-     * Convierte los datos del administrador a formato JSON.
+     * Convierte los datos del administrador a formato JSON. Este JSON es para listar los datos a modificar.
      * @return JSON con los datos del administrador.
      */
 	public String dameJson () {// entre parentesis podriamos pedirle un int id.
@@ -256,7 +257,6 @@ public class Administrador extends Usuario  {
      */
 	public void eliminar (int id) throws SQLException {
 		DaoAdministrador dao = new DaoAdministrador();
-		
 		dao.borrarBD(id);
 	}
 	

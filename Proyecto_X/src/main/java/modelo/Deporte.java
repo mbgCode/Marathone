@@ -6,10 +6,18 @@ import com.google.gson.Gson;
 
 import dao.DaoDeporte;
 
+
+
+/**
+ * Clase Deporte
+ * Incluye atributos y métodos específicos para la gestión de las entidades deportivas.
+ * @author Marcos Barberá Gómez
+ * @version 1.0 24/05/2024 
+ */
 public class Deporte {
 
 	
-//Atributos de la case Deporte	
+	//Atributos.
 	private int id;
 	private String nombre;
 	private String descripcion;
@@ -19,25 +27,25 @@ public class Deporte {
 	private String categoria;
 	
 	
-//Constructor vacío.	
+	
+	/**
+	* Constructor vacío.
+	*/	
 	public Deporte() {
 		
 	}
 	
-	
 
-//Constructor sin ID y categoria
-	public Deporte(String nombre, String descripcion, int telefono, String domicilio, String foto) {
-		super();
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.telefono = telefono;
-		this.direccion = domicilio;
-		this.foto = foto;
-	}
-
-
-// Constructor con todos los atributos.	
+	/**
+	 * Constructor completo de 7 parámetros.
+	 * @param id ID del deporte.
+     * @param nombre Nombre del deporte.
+     * @param descripcion Descripción del deporte.
+     * @param telefono Teléfono del deporte.
+     * @param direccion Dirección del deporte.
+     * @param foto URL de la foto del deporte.
+     * @param categoria Categoría del deporte.
+	 */
 	public Deporte(int id, String nombre, String descripcion, int telefono, String direccion, String foto,
 			String categoria) {
 		super();
@@ -50,19 +58,7 @@ public class Deporte {
 		this.categoria = categoria;
 	}
 
-
 	
-//Construcot sin id
-	public Deporte(String nombre, String descripcion, int telefono, String direccion, String foto, String categoria) {
-		super();
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.telefono = telefono;
-		this.direccion = direccion;
-		this.foto = foto;
-		this.categoria = categoria;
-	}
-
 	
 	
 	public int getId() {
@@ -156,27 +152,26 @@ public class Deporte {
 	}
 
 	
-
-//Metodos-------------------------------------------------
+	
+	//Métodos públicos.
 	
 	
-	//Insertar deporte
+	/**
+	 * Método que inserta los datos recibidos del DaoDeporte en los atributos de la clase Deporte.
+	 * Este método sirve de enlace entre el Servlet SV_deporte, donde es llamado, y el DaoDeporte.
+	 * @throws SQLException si ocurre algún error al insertarlo.
+	 */
 	public void insertarDep () throws SQLException {
 		DaoDeporte dao = new DaoDeporte();
 		dao.insertarDep(this);
 	}
 	
 	
-	
-	//Update del id concreto.
-	public void update() throws SQLException {
-		DaoDeporte dao = new DaoDeporte();
-		dao.update(this);
-	}
-	
-	
-	
-	//Recibimos el id del Form y llamamos al dao para listar por id
+	/**
+	 * Método que va a modificar los datos de un deporte por su id.
+	 * @param id del deporte a modificar.
+	 * @throws SQLException Si ocurre algún error durante la modificación.
+	 */
 	public void modId(int id) throws SQLException {
 		
 		DaoDeporte dao = new DaoDeporte();
@@ -189,35 +184,43 @@ public class Deporte {
 		this.setFoto(d.getFoto());
 		this.setCategoria(d.getCategoria());
 		this.setId(d.getId());
-		
-		
 	}
 	
 	
-	//Jnson Por listar por id
+	
+	
+	/**
+	 * Actualiza los datos del deporte en la base de datos.
+	 * @throws SQLException
+	 */
+	public void update() throws SQLException {
+		DaoDeporte dao = new DaoDeporte();
+		dao.update(this);
+	}
+	
+	
+	
+	/**
+     * Convierte los datos del deporte a formato JSON.
+     * @return JSON con los datos del deporte.
+     */
 	public String dameJson() {
-		
 		String txtJson = "";
-		
 		Gson gson = new Gson ();
-		
 		txtJson = gson.toJson(this);//Llamamos a la funcion listar con los datos de la misma clase."this"
-		
 		return txtJson;
 	}
 	
 	
-	
-	//Borrar datos por id
+	 /**
+     * Elimina un deporte por medio de su ID.
+     * @param id ID del deporte a eliminar.
+     * @throws SQLException si ocurre un error durante la eliminación.
+     */
 	public void borrar (int id) throws SQLException {
 		DaoDeporte dao = new DaoDeporte();
 		dao.borrar(id);
 	}
 	
-	
-	
-
-	
-
 	
 }

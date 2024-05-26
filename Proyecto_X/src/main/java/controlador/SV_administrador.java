@@ -114,7 +114,6 @@ public class SV_administrador extends HttpServlet {
 				//OP4 Añadir foto por id al header.	
 				}case 4:{
 					Administrador a = new Administrador ();
-					System.out.println("op es igual a" +op);
 					int idsesion = (int)sesion.getAttribute("id");
 					try {
 						a.foto(idsesion);

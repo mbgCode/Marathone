@@ -200,7 +200,7 @@ public class SV_deporte extends HttpServlet {
 		
 // Insertamos el deporte en el objeto.
 		
-		if (ids.equals("")) { //Si id es "" es que es un nuevo deporte 
+		if (ids.equals("")) { //Si id es "" es que es un nuevo deporte. 
 			try {
 				d1.insertarDep();
 			} catch (SQLException e) {
@@ -208,7 +208,7 @@ public class SV_deporte extends HttpServlet {
 				e.printStackTrace();
 			}
 				
-		}else {//SI tiene id asignado quiere decir que es un update
+		}else {//Si tiene id asignado quiere decir que es un update.
 			int id =Integer.parseInt(request.getParameter("id"));
 				try {
 					d1.setId(id);

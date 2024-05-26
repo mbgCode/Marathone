@@ -112,22 +112,10 @@ public class SV_miembro extends HttpServlet {
 						break;
 					}
 					
-						
-					case 3: { //listar por tipo de usuario para login
-						int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
-							try {
-								DaoMiembro dao = new DaoMiembro();
-								String resultado = dao.listarJonsonTipo(tipo);
-								out.print(resultado);
-								dao.listarTipo(tipo);
-							} catch (SQLException e) {
-								System.out.println("Error en case 3 de SV_miembro");
-								e.printStackTrace();
-							}
-					break;
-						
-							
-					}case 4:{//Sección eliminar miembro por id.
+						//Case 3 eliminado por desuso
+					
+					
+						case 4:{//Sección eliminar miembro por id.
 						
 						Miembro m1 = new Miembro();
 						int id = Integer.parseInt(request.getParameter("idmiembro"));
