@@ -78,6 +78,15 @@ function fotoPersonal(){
 }
 
 
+function redireccionar() {//El selctor de categorías.
+    var select = document.getElementById("categoria");
+    var selectedOption = select.options[select.selectedIndex];/* recogemos de todas las categorias la selección elegida */
+    if (selectedOption.value !== "...") {/* Si es distinto al valor de los ...  */
+        window.location.href = selectedOption.value;/* se redirige a la URL especifica de esa categoria. */
+    }
+}
+
+
 
 //Codigo para añadir fotoUario al header.
 function fotoLogin (data){
