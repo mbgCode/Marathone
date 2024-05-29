@@ -79,7 +79,7 @@ public class SV_miembro extends HttpServlet {
 			
 			if (!op.isEmpty()) {
 				int opcion = Integer.parseInt(request.getParameter("op"));
-				
+				System.out.println("la opcion es la "+opcion);
 				switch (opcion) {
 				
 					case 1:{//listar.

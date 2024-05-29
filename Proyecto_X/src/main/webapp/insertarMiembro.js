@@ -65,15 +65,15 @@ function fotoLogin (data){
 window.onload = function(){
 
  let op = getParameterByName("op");
-
  let id = getParameterByName("idmiembro");
  
 
     if (op==4){
         fotoPersonal();
-        console.log(" los datos son " +op)
+       if(id!=""){//Quiere decir que si id es distinto a cadena vacía es que lleva un id que se quiere modificar.
         modificar(op,id);
-        fotoPersonal();
+       }
+        fotoPersonal();//Si id esta vacío es que es para dar de alta un nuevo miebro y solo insertamso la foto.
     }
 
 

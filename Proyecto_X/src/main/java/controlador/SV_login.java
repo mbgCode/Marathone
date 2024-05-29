@@ -56,7 +56,7 @@ public class SV_login extends HttpServlet {
 		
 		//protección (Según el tipo de permiso).
 		try {
-			if (m.logeo(pass)) {//Si son ciertas la credenciales entramos en el programa.
+			if (m.logeo(pass)) {//Si son ciertas la credenciales entramos en el programa como miembro.
 				sesion = request. getSession(); //la inicializamos la sesion.
 				sesion.setAttribute("id", m.getId());//En este caso vamos a guardar en la sesion el id y el permiso.
 				sesion.setAttribute("permiso", m.getPermiso());
@@ -68,7 +68,7 @@ public class SV_login extends HttpServlet {
 				sesion.setAttribute("id", a.getIdaministrador());//en este caso vamos a guardar en la sesion el id y el permiso.
 				sesion.setAttribute("permiso", a.getPermiso());
 				int permiso=a.getPermiso();
-				response.sendRedirect("indexAdmin.html");//nos envia a la pagina index par miembros.
+				response.sendRedirect("indexAdmin.html");//nos envia a la pagina index par miembros .
 				
 			}else {
 				response.sendRedirect("Login.html");
