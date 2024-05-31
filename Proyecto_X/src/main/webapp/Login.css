@@ -128,7 +128,6 @@ h1{
 
 /* Login----------------------------------------------------- */
 
-
 #contenedorLogin form{ 
     width: 100%;
     display: flex;
@@ -193,3 +192,4 @@ label{/* Etiquetas de las cajas */
     border-radius: 20px;
     background-color: rgb(84, 172, 172);
 }
+

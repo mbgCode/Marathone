@@ -1,13 +1,13 @@
 *{
     margin: 0%;
     padding: 0%  
-    
 }
 
 
 #ContendorPadre{
     height: 95%;
     background-color: rgb(202, 230, 178);
+
 }
 
 
@@ -231,6 +231,7 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
 #contenedorInf{
     background-color: rgb(202, 230, 178);
     height: 90%;
+    height: 100mv;
 }
 
 
@@ -242,6 +243,7 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
     justify-content: space-around;
     margin-right: 5px;
     margin-bottom: 30px;
+    min-height: 42vh;
 }
 
 
@@ -280,7 +282,53 @@ margin-left: 40px;
 
 /* Footer---------------------------- */
 footer{
-    bottom: 0;
+    display: grid;
+    margin-top: 20px;
+    height: 60px;
+    background-color:rgb(210, 100, 154);
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: ". siglas mail politicaPriv infoLegal .";
+    
+}
+
+#siglas{ 
+    grid-area: siglas ;
+    justify-content: center;
+    color: rgb(42, 42, 152);
+    font-weight: bold;/* negrita */
+}
+
+#mail{
+    grid-area: mail ;
+    justify-content: center;
+}
+
+#imgMail{
+    height: 30px;
+    width: 40px;
+    justify-content: center;
+}
+
+#politicaPriv{
+    grid-area: politicaPriv;
+    justify-content: center;
+}
+
+#infoLegal{
+    grid-area: infoLegal;
+    justify-content: center;
+}
+
+#siglas, #mail, #politicaPriv, #infoLegal {
+    display: flex; /* Asegura que el contenido se alinee horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+
+
+/* Footer---------------------------- */
+footer{
     display: grid;
     margin-top: 20px;
     height: 60px;

@@ -87,6 +87,13 @@ function redireccionar() {//El selctor de categorías.
 }
 
 
+/* Funcion de la barra de busqueda de deporte */
+function barraBusqueda(palabraBuscar){
+    fetch("SV_deporte?op=6&buscarP="+palabraBuscar)
+    .then(response => response.json())// La respuesta (response) se parsea a un .json 
+    .then(data => pintarLista(data))//Los datos de ese .json se pintan en la tabla.
+}
+
 
 //Codigo para añadir fotoUario al header.
 function fotoLogin (data){
@@ -110,7 +117,16 @@ function fotoLogin (data){
 
 /* Metodo principal */
 window.onload = function(){   
-
     llamada1();//s vuelve a refrescar la lista para estar actualizada. 
     fotoPersonal();
+
+     //Barra Busqueda, para recoger los datos de 
+     var botonLupa = document.getElementById("imgLupa");
+     botonLupa.addEventListener("click", function() {
+         var palabraBuscar = document.querySelector(".barraBuscar").value; /* El . de barraBuscar es porque lo sacamos de la clase de CSS */
+        /* Queryselector devuelve el primer elemento que coincida con barraBuscar.*/
+         console.log(palabraBuscar);
+         barraBusqueda(palabraBuscar);
+     });
+    
 }
