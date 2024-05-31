@@ -68,7 +68,7 @@ window.onload = function(){
  let id = getParameterByName("idmiembro");
  
 
-    if (op==4){
+    if (op==4||op==2){
         fotoPersonal();
        if(id!=""){//Quiere decir que si id es distinto a cadena vacía es que lleva un id que se quiere modificar.
         modificar(op,id);
