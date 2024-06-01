@@ -169,7 +169,7 @@ public class SV_miembro extends HttpServlet {
 			response.sendRedirect("Login.html");
 			
 		}else {
-			response.sendRedirect("ListarMiembro.html");// Una vez enviado los datos del formulario redirigir al index miembro.
+			response.sendRedirect("indexAdmin.html");// Una vez enviado los datos del formulario redirigir al index miembro.
 
 		}
 			

@@ -167,7 +167,7 @@ public class SV_deporte extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.sendRedirect("insertarDep.html");
+		response.sendRedirect("indexAdmin.html");
 		
 //Recogemos todos lo parametros desde el html. 
 		String nombre = request.getParameter("nombre");

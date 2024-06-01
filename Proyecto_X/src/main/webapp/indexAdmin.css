@@ -3,16 +3,22 @@
     padding: 0%  
 }
 
+html,body{
+    height: 100vh;
+}
+
 
 #ContendorPadre{
-    height: 95%;
     background-color: rgb(202, 230, 178);
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh; /* Establece una altura mínima */
 }
 
 
 #contenedorSup{
-    height: 100%;
+    height: 250pxx;
     background-color:rgb(210, 100, 154);
     display:grid;
     grid-template-columns: 1fr ;
@@ -116,7 +122,7 @@ nav {
     display: flex;
     background-color:rgb(210, 100, 154);
     justify-content: space-around;
-    height: 60px;
+    height: 80px;
     align-items: center;
    
 }
@@ -146,8 +152,7 @@ nav {
 
 /* Buscador-----------------------------------------------------------*/
 #buscador{
-    
-    height: 60px;
+    height: 40px;
     grid-area : buscador;
     display: flex;
     flex-flow:nowrap ;
@@ -188,6 +193,7 @@ nav {
 /* Categorias ------------------------------------------------------- */
 #categorias{
     background-color:rgb(246, 250, 185);
+    
 }
 
 ul{
@@ -227,11 +233,10 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
 
 
 /* Contenedor de actividades------------------------------------- */
-
 #contenedorInf{
     background-color: rgb(202, 230, 178);
-    height: 90%;
-    height: 100mv;
+    height: 50%;
+
 }
 
 
@@ -242,7 +247,6 @@ ul img:hover{/* Hover es una pseudoclase para dar estilos cuando se pasa el curs
     flex-wrap: wrap;
     justify-content: space-around;
     margin-right: 5px;
-    margin-bottom: 30px;
     min-height: 42vh;
 }
 
@@ -283,7 +287,6 @@ margin-left: 40px;
 /* Footer---------------------------- */
 footer{
     display: grid;
-    margin-top: 20px;
     height: 60px;
     background-color:rgb(210, 100, 154);
     width: 100%;
@@ -330,8 +333,8 @@ footer{
 /* Footer---------------------------- */
 footer{
     display: grid;
-    margin-top: 20px;
     height: 60px;
+    margin-top: 20px;
     background-color:rgb(210, 100, 154);
     width: 100%;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

@@ -1,178 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="indexAdmin.css">
+    <link rel="stylesheet" href="indexAdmin.css" />
     <script src="indexAdmin.js"></script>
-
-</head>
-<body>
+  </head>
+  <body>
     <div id="ContendorPadre">
+      <!-- Contenedor superiro -->
+      <div id="contenedorSup">
+        <!-- Parte superiro de la página -->
+        <header>
+          <div id="logo">
+            <img
+              src="/Proyecto_X/img index/bebida-energetica.png"
+              alt="Bebida energética"
+            />
+          </div>
 
-        <!-- Contenedor superiro -->
-        <div id="contenedorSup">
+          <div id="centro">
+            <h1>ADMINISTRADOR</h1>
+          </div>
 
-
-            <!-- Parte superiro de la página -->
-            <header>
-                
-                <div id="logo">
-                    <img src="/Proyecto_X/img index/bebida-energetica.png" alt="Bebida energética">
-                </div>
-
-                <div id="centro"> 
-                    <h1>ADMINISTRADOR</h1>
-                </div>
-
-                <div id="login">
-                    <div id="fotoPersonal">
-                        <img src="" alt="Foto personal">
-                    </div>
-                    
-                    <div id="cerrarS">
-                        <a href="Login.html?op=5">Cerrar sesión</a>
-                     </div>
-                </div>
-            </header>
-
-
-            <!-- Navegador de botónes -->
-            <nav>
-                <ul id="navegador">
-                    <div>
-                        <a href="ListarAdmin.html"><input type="button" id="BotonNav" value="Zona Admin"></a>
-                    </div>
-
-                    <div>
-                        <a href="insertarDep.html"><input type="button" id="BotonNav" value="Zona Deportes"></a>
-                    </div>
-
-                    <div>
-                        <a href="ListarMiembro.html"><input type="button" id="BotonNav" value="Zona Miembros"></a>
-                    </div>
-                </ul>    
-            </nav>
-            
-            
-            <!-- Barra de buscador de deportes -->
-            <div id="buscador">
-                <div class="barra"><input class="barraBuscar" type="text">
-                    <div> <img id="imgLupa" src="/Proyecto_X/img index/lupaBuscador.png" alt="logo de una lupa"> </div> 
-                </div>
-                    
+          <div id="login">
+            <div id="fotoPersonal">
+              <img src="" alt="Foto personal" />
             </div>
 
+            <div id="cerrarS">
+              <a href="Login.html?op=5">Cerrar sesión</a>
+            </div>
+          </div>
+        </header>
 
+        <!-- Navegador de botónes -->
+        <nav>
+          <ul id="navegador">
+            <div>
+              <a href="ListarAdmin.html"
+                ><input type="button" id="BotonNav" value="Zona Admin"
+              /></a>
+            </div>
 
-            <!-- Iconos categorías -->
-            <nav id="categorias">
-                <ul>
-					<li>
-						<a href="ListarDepAdmin.html?op=4&categoria=Acuaticos">
-                        	<img id = "Acuaticos"  src="img index/natacion.png" alt="">
-                        </a>
-                    </li>
+            <div>
+              <a href="insertarDep.html"
+                ><input type="button" id="BotonNav" value="Zona Deportes"
+              /></a>
+            </div>
 
-					  <li>
-						<a href="ListarDepAdmin.html?op=4&categoria=Artes Marciales">
-                        	<img id = "Artes Marciales" src="img index/karate.png" alt="">
-                        </a>
-                    </li>
+            <div>
+              <a href="ListarMiembro.html"
+                ><input type="button" id="BotonNav" value="Zona Miembros"
+              /></a>
+            </div>
+          </ul>
+        </nav>
 
-                    <li>
-                        <a href="ListarDepAdmin.html?op=4&categoria=Gimnasio">
-                        	<img id="Gimansio" src="img index/pesa (1).png" alt="">
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="ListarDepAdmin.html?op=4&categoria=Futbol">
-                            <img id="Futbol" src="img index/jugador-de-futbol.png" alt="">
-                        </a>
-                    </li>
-
-                    <li>
-						<a href="ListarDepAdmin.html?op=4&categoria=Baloncesto">
-                       		<img id="Baloncesto" src="img index/jugador-de-baloncesto.png" alt="">
-                        </a>
-                    </li>
-
-                    <li>
-						<a href="ListarDepAdmin.html?op=4&categoria=Running">
-                        	<img id="Running" src="img index/corriendo (1).png" alt="">
-                        </a>
-                    </li>         
-
-                    <li>
-						<a href="ListarDepAdmin.html?op=4&categoria=Tenis">
-                        	<img id="Tenis" src="img index/tenis.png" alt="">
-                        </a>
-                    </li>
-
-                    <!-- Desplegable de categorías -->
-                    <li>
-                        <label for="categoria">Categorías:</label>
-                        <select name="categoria" id="categoria" onchange="redireccionar()"> <!-- Utilizamos el onchange para redireccionar -->
-                            <option value="...">...</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Acuaticos">Acuáticos</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Artes Marciales">Artes Marciales</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Badminton">Badminton</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Baloncesto">Baloncesto</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Balonmano">Balonmano</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Beisbol">Béisbol</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Boxeo">Boxeo</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Ciclismo">Ciclismo</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Esgrima">Esgrima</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Esqui">Esquí</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Futbol">Fútbol</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Gimnasia">Gimnasia</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Gimnasio">Gimnasio</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Golf">Golf</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Hipica">Hípica</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Rugbi">Rugbi</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Running">Running</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Tennis">Tenis</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Padel">Pádel</option>
-                            <option value="ListarDepAdmin.html?op=4&categoria=Voleibol">Voleibol</option>
-                        </select>
-                    </li>   
-                </ul>
-            </nav>
-        </div>
-    
-    
-
-        <!-- contenedor inferrior -->
-        <div id="contenedorInf">
-
-            <!-- main -->
-            <main>
-                <section id="contenedorTarjetas">
-                </section>
-            </main>
-                    
-            <!-- footer -->
-            <footer >
-
-                <div id="siglas">Marcos Barberá Gómez</div>
-
-                <div id="mail">
-                    <a href="mailto:mbg.code@gmail.com">
-                        <img id="imgMail" src="imgFooter/iconoGmail.png" alt="iconoGmail">
-                    </a>
-                </div>
-
-                <div id="politicaPriv">
-                    <a href="">Politica de privacidad</a>
-                </div>
-                <div id="infoLegal">Informacio legal</div>
-
-            </footer>
+        <!-- Barra de buscador de deportes -->
+        <div id="buscador">
+          <div class="barra">
+            <input class="barraBuscar" type="text" />
+            <div>
+              <img
+                id="imgLupa"
+                src="/Proyecto_X/img index/lupaBuscador.png"
+                alt="logo de una lupa"
+              />
+            </div>
+          </div>
         </div>
 
-    </div>  
+        <!-- Iconos categorías -->
+        <nav id="categorias">
+          <ul>
+            <li>
+              <a href="ListarDepAdmin.html?op=4&categoria=Acuaticos">
+                <img id="Acuaticos" src="img index/natacion.png" alt="" />
+              </a>
+            </li>
 
-</body>
+            <li>
+              <a href="ListarDepAdmin.html?op=4&categoria=Artes Marciales">
+                <img id="Artes Marciales" src="img index/karate.png" alt="" />
+              </a>
+            </li>
+
+            <li>
+              <a href="ListarDepAdmin.html?op=4&categoria=Gimnasio">
+                <img id="Gimansio" src="img index/pesa (1).png" alt="" />
+              </a>
+            </li>
+
+            <li>
+              <a href="ListarDepAdmin.html?op=4&categoria=Futbol">
+                <img id="Futbol" src="img index/jugador-de-futbol.png" alt="" />
+              </a>
+            </li>
+
+            <li>
+              <a href="ListarDepAdmin.html?op=4&categoria=Baloncesto">
+                <img
+                  id="Baloncesto"
+                  src="img index/jugador-de-baloncesto.png"
+                  alt=""
+                />
+              </a>
+            </li>
+
+            <li>
+              <a href="ListarDepAdmin.html?op=4&categoria=Running">
+                <img id="Running" src="img index/corriendo (1).png" alt="" />
+              </a>
+            </li>
+
+            <li>
+              <a href="ListarDepAdmin.html?op=4&categoria=Tenis">
+                <img id="Tenis" src="img index/tenis.png" alt="" />
+              </a>
+            </li>
+
+            <!-- Desplegable de categorías -->
+            <li>
+              <label for="categoria">Categorías:</label>
+              <select
+                name="categoria"
+                id="categoria"
+                onchange="redireccionar()"
+              >
+                <!-- Utilizamos el onchange para redireccionar -->
+                <option value="...">...</option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Acuaticos">
+                  Acuáticos
+                </option>
+                <option
+                  value="ListarDepAdmin.html?op=4&categoria=Artes Marciales"
+                >
+                  Artes Marciales
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Badminton">
+                  Badminton
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Baloncesto">
+                  Baloncesto
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Balonmano">
+                  Balonmano
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Beisbol">
+                  Béisbol
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Boxeo">
+                  Boxeo
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Ciclismo">
+                  Ciclismo
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Esgrima">
+                  Esgrima
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Esqui">
+                  Esquí
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Futbol">
+                  Fútbol
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Gimnasia">
+                  Gimnasia
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Gimnasio">
+                  Gimnasio
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Golf">
+                  Golf
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Hipica">
+                  Hípica
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Rugbi">
+                  Rugbi
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Running">
+                  Running
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Tennis">
+                  Tenis
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Padel">
+                  Pádel
+                </option>
+                <option value="ListarDepAdmin.html?op=4&categoria=Voleibol">
+                  Voleibol
+                </option>
+              </select>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- contenedor inferrior -->
+      <div id="contenedorInf">
+        <!-- main -->
+        <main>
+          <section id="contenedorTarjetas"></section>
+        </main>
+
+        <!-- footer -->
+        <footer>
+          <div id="siglas">Marcos Barberá Gómez</div>
+
+          <div id="mail">
+            <a href="mailto:mbg.code@gmail.com">
+              <img
+                id="imgMail"
+                src="imgFooter/iconoGmail.png"
+                alt="iconoGmail"
+              />
+            </a>
+          </div>
+
+          <div id="politicaPriv">
+            <a href="">Politica de privacidad</a>
+          </div>
+          <div id="infoLegal">Informacio legal</div>
+        </footer>
+      </div>
+    </div>
+  </body>
 </html>

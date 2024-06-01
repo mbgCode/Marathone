@@ -146,7 +146,7 @@ public class SV_administrador extends HttpServlet {
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("ListarAdmin.html");//una vez insertado reedirigir al index de administrador.
+		response.sendRedirect("indexAdmin.html");//una vez insertado reedirigir al index de administrador.
 		
 		String opi = request.getParameter("op"); //recogemos la op del form
 		
