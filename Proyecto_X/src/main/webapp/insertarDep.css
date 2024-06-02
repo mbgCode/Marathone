@@ -14,11 +14,12 @@
 #contenedorSuperior{
     display:grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 0.6fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas:  
     "header"
     "nav";
     background-color:rgb(210, 100, 154);
+    max-height: 205px;
 }
 
 
@@ -102,16 +103,22 @@ header{
 
 
 /* Nav ------------------------------------------------------- */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-height: 102px;
+    width: 100%;
+}
+
 #navegador{
-    margin-top: 2%;
-    margin-bottom: 1%;
     grid-area: nav;
     display: flex;
     flex-wrap: wrap;
     background-color:rgb(210, 100, 154);
-    justify-content: space-around;
-    height: 60px;
+    width: 100%;
     align-items: center;
+    justify-content: space-around;
    
 }
 
@@ -155,8 +162,9 @@ header{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     background-color:rgb(202, 230, 178);
+    
 }
 
 
@@ -166,6 +174,7 @@ header{
 #insertarDep{
     grid-area:insertarDep ;
     margin-top: 30px;
+    margin-right: 20px;
     height: 460px;
     background-color: rgb(246, 250, 185); /* Color de fondo */
     margin-left: 20px;

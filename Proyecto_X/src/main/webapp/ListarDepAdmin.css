@@ -133,6 +133,17 @@ nav{/* contenedor de navegador. */
     transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
 }
 
+.Proximament{
+    background-color: rgb(222, 106, 106); /* Color de fondo */
+    color: rgb(0, 0, 0);
+    width: 200px;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px; 
+    transition: background-color 0.3s, box-shadow 0.3s; /* Se escurece el boton al pasar por encima */
+}
 
 #BotonNav:hover{ /* Hover es una pseudoclase para dar estilos cuando se pasa el cursor por encima del icono. */
     background-color:rgb(159, 183, 138); /* Cambio de color al pasar el cursor */
