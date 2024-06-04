@@ -134,7 +134,7 @@ nav {
     background-color:rgb(210, 100, 154);
 }
 
-#BotonNav{
+.BotonNav{
     background-color: rgb(246, 250, 185); /* Color de fondo */
     color: rgb(0, 0, 0);
     width: 200px;
@@ -147,7 +147,7 @@ nav {
 }
 
 
-#BotonNav:hover{ /* Hover es una pseudoclase para dar estilos cundo se pasa el cursor por encima del icono */
+.BotonNav:hover{ /* Hover es una pseudoclase para dar estilos cundo se pasa el cursor por encima del icono */
     background-color:rgb(159, 183, 138); /* Cambio de color al pasar el cursor */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra al pasar el cursor */
 }
